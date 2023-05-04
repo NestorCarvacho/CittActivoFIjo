@@ -26,6 +26,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jCalendarTheme1 = new com.toedter.plaf.JCalendarTheme();
         jTabbedPane7 = new javax.swing.JTabbedPane();
         JpHome = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -44,7 +45,6 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         txtUltimaActializacion = new javax.swing.JTextField();
         label8 = new java.awt.Label();
         label9 = new java.awt.Label();
-        txtFechaLlegada = new javax.swing.JTextField();
         txtStock = new javax.swing.JTextField();
         label10 = new java.awt.Label();
         label11 = new java.awt.Label();
@@ -55,6 +55,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         label13 = new java.awt.Label();
         label14 = new java.awt.Label();
         txtCosto = new javax.swing.JTextField();
+        jDateChooser3 = new com.toedter.calendar.JDateChooser();
         JpCuentas = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         JtbListarProductos1 = new javax.swing.JTable();
@@ -103,7 +104,6 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         txtUltimaActializacion3 = new javax.swing.JTextField();
         label46 = new java.awt.Label();
         label47 = new java.awt.Label();
-        txtFechaLlegada3 = new javax.swing.JTextField();
         txtStock3 = new javax.swing.JTextField();
         label48 = new java.awt.Label();
         label49 = new java.awt.Label();
@@ -117,6 +117,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         btnCrearProducto = new java.awt.Button();
         btnModificarProducto = new java.awt.Button();
         btnEliminarProducto = new java.awt.Button();
+        jDateChooser2 = new com.toedter.calendar.JDateChooser();
         JpInformes = new javax.swing.JPanel();
         JpMovimientos = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -128,21 +129,20 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         label31 = new java.awt.Label();
         txtNumeroActivo2 = new javax.swing.JTextField();
         txtDescripcion2 = new javax.swing.JTextField();
-        txtTipoProducto2 = new javax.swing.JTextField();
         txtFechaAsignacion2 = new javax.swing.JTextField();
         txtNnumeroDeSerie2 = new javax.swing.JTextField();
         label32 = new java.awt.Label();
         txtUltimaActializacion2 = new javax.swing.JTextField();
         label33 = new java.awt.Label();
         label34 = new java.awt.Label();
-        txtFechaLlegada2 = new javax.swing.JTextField();
         label35 = new java.awt.Label();
         label36 = new java.awt.Label();
-        JbtnCrearUsuario = new java.awt.Button();
-        JbtnCrearUsuario1 = new java.awt.Button();
-        JbtnCrearUsuario2 = new java.awt.Button();
+        JbtnNuevoMoviento = new java.awt.Button();
+        JbtnGuasrdarMovimento = new java.awt.Button();
         JcbUbicacioninicio = new javax.swing.JComboBox<>();
         JcbUbicacionDestino = new javax.swing.JComboBox<>();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
@@ -153,9 +153,17 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        jMenuItem7 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuItem9 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
+        jMenuItem10 = new javax.swing.JMenuItem();
+        jMenuItem11 = new javax.swing.JMenuItem();
+        jMenuItem12 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
+        jMenuItem13 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
+        jMenuItem14 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1920, 1080));
@@ -237,13 +245,6 @@ public class JfrmVistaHome extends javax.swing.JFrame {
 
         label9.setText("Fecha Llegada");
 
-        txtFechaLlegada.setEnabled(false);
-        txtFechaLlegada.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtFechaLlegadaActionPerformed(evt);
-            }
-        });
-
         txtStock.setEnabled(false);
         txtStock.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -289,6 +290,8 @@ public class JfrmVistaHome extends javax.swing.JFrame {
             }
         });
 
+        jDateChooser3.setEnabled(false);
+
         javax.swing.GroupLayout JpHomeLayout = new javax.swing.GroupLayout(JpHome);
         JpHome.setLayout(JpHomeLayout);
         JpHomeLayout.setHorizontalGroup(
@@ -327,11 +330,11 @@ public class JfrmVistaHome extends javax.swing.JFrame {
                                             .addComponent(label10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(label11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                         .addGap(17, 17, 17)
-                                        .addGroup(JpHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtUltimaActializacion, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtStock, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtFechaLlegada, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addGroup(JpHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txtUltimaActializacion, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
+                                            .addComponent(txtStock, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
+                                            .addComponent(txtEstado, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
+                                            .addComponent(jDateChooser3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                                 .addGap(57, 57, 57)
                                 .addGroup(JpHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(label14, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -357,7 +360,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(JpHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(label9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtFechaLlegada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jDateChooser3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(JpHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(JpHomeLayout.createSequentialGroup()
@@ -761,13 +764,6 @@ public class JfrmVistaHome extends javax.swing.JFrame {
 
         label47.setText("Fecha Llegada");
 
-        txtFechaLlegada3.setEnabled(false);
-        txtFechaLlegada3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtFechaLlegada3ActionPerformed(evt);
-            }
-        });
-
         txtStock3.setEnabled(false);
         txtStock3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -819,6 +815,8 @@ public class JfrmVistaHome extends javax.swing.JFrame {
 
         btnEliminarProducto.setLabel("Eliminar Producto");
 
+        jDateChooser2.setEnabled(false);
+
         javax.swing.GroupLayout JpProductosLayout = new javax.swing.GroupLayout(JpProductos);
         JpProductos.setLayout(JpProductosLayout);
         JpProductosLayout.setHorizontalGroup(
@@ -864,11 +862,11 @@ public class JfrmVistaHome extends javax.swing.JFrame {
                                             .addComponent(label48, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(label49, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                         .addGap(17, 17, 17)
-                                        .addGroup(JpProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtUltimaActializacion3, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtStock3, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtEstado3, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtFechaLlegada3, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addGroup(JpProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txtUltimaActializacion3, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
+                                            .addComponent(txtStock3, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
+                                            .addComponent(txtEstado3, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
+                                            .addComponent(jDateChooser2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                                 .addGap(57, 57, 57)
                                 .addGroup(JpProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(label52, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -894,7 +892,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(JpProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(label47, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtFechaLlegada3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(JpProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(JpProductosLayout.createSequentialGroup()
@@ -1003,13 +1001,6 @@ public class JfrmVistaHome extends javax.swing.JFrame {
             }
         });
 
-        txtTipoProducto2.setEnabled(false);
-        txtTipoProducto2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTipoProducto2ActionPerformed(evt);
-            }
-        });
-
         txtFechaAsignacion2.setEnabled(false);
         txtFechaAsignacion2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1037,33 +1028,22 @@ public class JfrmVistaHome extends javax.swing.JFrame {
 
         label34.setText("Fecha Llegada");
 
-        txtFechaLlegada2.setEnabled(false);
-        txtFechaLlegada2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtFechaLlegada2ActionPerformed(evt);
-            }
-        });
-
         label35.setText("Ubicacion inicio");
 
         label36.setText("Ubicacion Destino");
 
-        JbtnCrearUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        JbtnCrearUsuario.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        JbtnCrearUsuario.setLabel("Crear usuario");
-        JbtnCrearUsuario.setName(""); // NOI18N
+        JbtnNuevoMoviento.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        JbtnNuevoMoviento.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        JbtnNuevoMoviento.setLabel("Nuevo Moviento");
+        JbtnNuevoMoviento.setName(""); // NOI18N
 
-        JbtnCrearUsuario1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        JbtnCrearUsuario1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        JbtnCrearUsuario1.setLabel("Crear usuario");
-        JbtnCrearUsuario1.setName(""); // NOI18N
-
-        JbtnCrearUsuario2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        JbtnCrearUsuario2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        JbtnCrearUsuario2.setLabel("Crear usuario");
-        JbtnCrearUsuario2.setName(""); // NOI18N
+        JbtnGuasrdarMovimento.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        JbtnGuasrdarMovimento.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        JbtnGuasrdarMovimento.setLabel("Guardar");
+        JbtnGuasrdarMovimento.setName(""); // NOI18N
 
         JcbUbicacioninicio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Seleccione --" }));
+        JcbUbicacioninicio.setEnabled(false);
         JcbUbicacioninicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JcbUbicacioninicioActionPerformed(evt);
@@ -1071,11 +1051,18 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         });
 
         JcbUbicacionDestino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Seleccione --" }));
+        JcbUbicacionDestino.setEnabled(false);
         JcbUbicacionDestino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JcbUbicacionDestinoActionPerformed(evt);
             }
         });
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Seleccione --" }));
+        jComboBox1.setEnabled(false);
+
+        jDateChooser1.setEnabled(false);
+        jDateChooser1.setMaxSelectableDate(new java.util.Date(253370779282000L));
 
         javax.swing.GroupLayout JpMovimientosLayout = new javax.swing.GroupLayout(JpMovimientos);
         JpMovimientos.setLayout(JpMovimientosLayout);
@@ -1096,11 +1083,12 @@ public class JfrmVistaHome extends javax.swing.JFrame {
                                     .addComponent(label31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(155, 155, 155)
                                 .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtNumeroActivo2, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtDescripcion2, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtTipoProducto2, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtNnumeroDeSerie2, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtFechaAsignacion2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtNumeroActivo2, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtDescripcion2, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtNnumeroDeSerie2, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtFechaAsignacion2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(150, 150, 150)
                                 .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(label33, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1110,17 +1098,15 @@ public class JfrmVistaHome extends javax.swing.JFrame {
                                 .addGap(17, 17, 17)
                                 .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtUltimaActializacion2, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
-                                    .addComponent(txtFechaLlegada2, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
                                     .addComponent(JcbUbicacioninicio, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(JcbUbicacionDestino, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(JcbUbicacionDestino, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(JpMovimientosLayout.createSequentialGroup()
                                 .addComponent(label27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(31, 31, 31)
-                                .addComponent(JbtnCrearUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(JbtnNuevoMoviento, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(25, 25, 25)
-                                .addComponent(JbtnCrearUsuario2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(25, 25, 25)
-                                .addComponent(JbtnCrearUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(JbtnGuasrdarMovimento, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 444, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -1138,7 +1124,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(label34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtFechaLlegada2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(20, 20, 20)
                         .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(label35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1150,10 +1136,9 @@ public class JfrmVistaHome extends javax.swing.JFrame {
                         .addGap(40, 40, 40))
                     .addGroup(JpMovimientosLayout.createSequentialGroup()
                         .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(JbtnCrearUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JbtnNuevoMoviento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(label27, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(JbtnCrearUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(JbtnCrearUsuario2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(JbtnGuasrdarMovimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(26, 26, 26)
                         .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(label29, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1171,7 +1156,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
                             .addGroup(JpMovimientosLayout.createSequentialGroup()
                                 .addComponent(txtDescripcion2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(txtTipoProducto2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(20, 20, 20)
                         .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txtFechaAsignacion2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1210,15 +1195,43 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Cuentas");
+
+        jMenuItem7.setText("Crear Usuario");
+        jMenu2.add(jMenuItem7);
+
+        jMenuItem8.setText("Modificar Ususario");
+        jMenu2.add(jMenuItem8);
+
+        jMenuItem9.setText("Buscar Usuario");
+        jMenu2.add(jMenuItem9);
+
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Productos");
+
+        jMenuItem10.setText("Crear Producto");
+        jMenu3.add(jMenuItem10);
+
+        jMenuItem11.setText("Modificar Producto");
+        jMenu3.add(jMenuItem11);
+
+        jMenuItem12.setText("Buscar Producto");
+        jMenu3.add(jMenuItem12);
+
         jMenuBar1.add(jMenu3);
 
         jMenu4.setText("Informes");
+
+        jMenuItem13.setText("Crear Informe");
+        jMenu4.add(jMenuItem13);
+
         jMenuBar1.add(jMenu4);
 
         jMenu5.setText("Movimientos");
+
+        jMenuItem14.setText("Nuevo Movimiento");
+        jMenu5.add(jMenuItem14);
+
         jMenuBar1.add(jMenu5);
 
         setJMenuBar(jMenuBar1);
@@ -1270,10 +1283,6 @@ public class JfrmVistaHome extends javax.swing.JFrame {
     private void txtUltimaActializacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUltimaActializacionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUltimaActializacionActionPerformed
-
-    private void txtFechaLlegadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaLlegadaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtFechaLlegadaActionPerformed
 
     private void txtStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStockActionPerformed
         // TODO add your handling code here:
@@ -1351,10 +1360,6 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDescripcion2ActionPerformed
 
-    private void txtTipoProducto2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTipoProducto2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTipoProducto2ActionPerformed
-
     private void txtFechaAsignacion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaAsignacion2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFechaAsignacion2ActionPerformed
@@ -1366,10 +1371,6 @@ public class JfrmVistaHome extends javax.swing.JFrame {
     private void txtUltimaActializacion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUltimaActializacion2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUltimaActializacion2ActionPerformed
-
-    private void txtFechaLlegada2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaLlegada2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtFechaLlegada2ActionPerformed
 
     private void txtNumeroActivo3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroActivo3ActionPerformed
         // TODO add your handling code here:
@@ -1394,10 +1395,6 @@ public class JfrmVistaHome extends javax.swing.JFrame {
     private void txtUltimaActializacion3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUltimaActializacion3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUltimaActializacion3ActionPerformed
-
-    private void txtFechaLlegada3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaLlegada3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtFechaLlegada3ActionPerformed
 
     private void txtStock3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStock3ActionPerformed
         // TODO add your handling code here:
@@ -1463,9 +1460,8 @@ public class JfrmVistaHome extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java.awt.Button JbtnCrearUsuario;
-    private java.awt.Button JbtnCrearUsuario1;
-    private java.awt.Button JbtnCrearUsuario2;
+    private java.awt.Button JbtnGuasrdarMovimento;
+    private java.awt.Button JbtnNuevoMoviento;
     private javax.swing.JComboBox<String> JcbUbicacionDestino;
     private javax.swing.JComboBox<String> JcbUbicacioninicio;
     private javax.swing.JPanel JpCuentas;
@@ -1483,6 +1479,11 @@ public class JfrmVistaHome extends javax.swing.JFrame {
     private java.awt.Button btnEliminarUsuario;
     private java.awt.Button btnModificarProducto;
     private java.awt.Button btnModificarUsuario;
+    private com.toedter.plaf.JCalendarTheme jCalendarTheme1;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private com.toedter.calendar.JDateChooser jDateChooser2;
+    private com.toedter.calendar.JDateChooser jDateChooser3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -1490,11 +1491,19 @@ public class JfrmVistaHome extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem10;
+    private javax.swing.JMenuItem jMenuItem11;
+    private javax.swing.JMenuItem jMenuItem12;
+    private javax.swing.JMenuItem jMenuItem13;
+    private javax.swing.JMenuItem jMenuItem14;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -1567,10 +1576,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
     private javax.swing.JTextField txtFechaAsignacion1;
     private javax.swing.JTextField txtFechaAsignacion2;
     private javax.swing.JTextField txtFechaAsignacion3;
-    private javax.swing.JTextField txtFechaLlegada;
     private javax.swing.JTextField txtFechaLlegada1;
-    private javax.swing.JTextField txtFechaLlegada2;
-    private javax.swing.JTextField txtFechaLlegada3;
     private javax.swing.JTextField txtNnumeroDeSerie;
     private javax.swing.JTextField txtNnumeroDeSerie1;
     private javax.swing.JTextField txtNnumeroDeSerie2;
@@ -1584,7 +1590,6 @@ public class JfrmVistaHome extends javax.swing.JFrame {
     private javax.swing.JTextField txtStock3;
     private javax.swing.JTextField txtTipoProducto;
     private javax.swing.JTextField txtTipoProducto1;
-    private javax.swing.JTextField txtTipoProducto2;
     private javax.swing.JTextField txtTipoProducto3;
     private javax.swing.JTextField txtUltimaActializacion;
     private javax.swing.JTextField txtUltimaActializacion1;

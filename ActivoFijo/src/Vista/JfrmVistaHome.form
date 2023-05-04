@@ -2,6 +2,8 @@
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
+    <Component class="com.toedter.plaf.JCalendarTheme" name="jCalendarTheme1">
+    </Component>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="jMenu1">
@@ -50,21 +52,69 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Cuentas"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem7">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Crear Usuario"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem8">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Modificar Ususario"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem9">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Buscar Usuario"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu3">
           <Properties>
             <Property name="text" type="java.lang.String" value="Productos"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem10">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Crear Producto"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem11">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Modificar Producto"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem12">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Buscar Producto"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu4">
           <Properties>
             <Property name="text" type="java.lang.String" value="Informes"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem13">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Crear Informe"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu5">
           <Properties>
             <Property name="text" type="java.lang.String" value="Movimientos"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem14">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Nuevo Movimiento"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
         </Menu>
       </SubComponents>
     </Menu>
@@ -186,11 +236,11 @@
                                                   <Component id="label11" alignment="0" max="32767" attributes="0"/>
                                               </Group>
                                               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="txtUltimaActializacion" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
-                                                  <Component id="txtStock" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
-                                                  <Component id="txtEstado" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
-                                                  <Component id="txtFechaLlegada" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="txtUltimaActializacion" alignment="0" pref="172" max="32767" attributes="0"/>
+                                                  <Component id="txtStock" alignment="0" pref="172" max="32767" attributes="0"/>
+                                                  <Component id="txtEstado" alignment="0" pref="172" max="32767" attributes="0"/>
+                                                  <Component id="jDateChooser3" alignment="0" max="32767" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
@@ -227,8 +277,8 @@
                               </Group>
                               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="label9" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtFechaLlegada" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="label9" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jDateChooser3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
@@ -416,14 +466,6 @@
                 <Property name="text" type="java.lang.String" value="Fecha Llegada"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtFechaLlegada">
-              <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtFechaLlegadaActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JTextField" name="txtStock">
               <Properties>
                 <Property name="enabled" type="boolean" value="false"/>
@@ -488,6 +530,11 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCostoActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser3">
+              <Properties>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>
@@ -975,11 +1022,11 @@
                                                   <Component id="label49" alignment="0" max="32767" attributes="0"/>
                                               </Group>
                                               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="txtUltimaActializacion3" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
-                                                  <Component id="txtStock3" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
-                                                  <Component id="txtEstado3" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
-                                                  <Component id="txtFechaLlegada3" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="txtUltimaActializacion3" alignment="0" pref="172" max="32767" attributes="0"/>
+                                                  <Component id="txtStock3" alignment="0" pref="172" max="32767" attributes="0"/>
+                                                  <Component id="txtEstado3" alignment="0" pref="172" max="32767" attributes="0"/>
+                                                  <Component id="jDateChooser2" alignment="0" max="32767" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
@@ -1016,8 +1063,8 @@
                               </Group>
                               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="label47" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtFechaLlegada3" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="label47" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jDateChooser2" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
@@ -1208,14 +1255,6 @@
                 <Property name="text" type="java.lang.String" value="Fecha Llegada"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtFechaLlegada3">
-              <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtFechaLlegada3ActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JTextField" name="txtStock3">
               <Properties>
                 <Property name="enabled" type="boolean" value="false"/>
@@ -1296,6 +1335,11 @@
                 <Property name="label" type="java.lang.String" value="Eliminar Producto"/>
               </Properties>
             </Component>
+            <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser2">
+              <Properties>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="JpInformes">
@@ -1362,11 +1406,13 @@
                                       </Group>
                                       <EmptySpace min="-2" pref="155" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="txtNumeroActivo2" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
-                                          <Component id="txtDescripcion2" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
-                                          <Component id="txtTipoProducto2" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
-                                          <Component id="txtNnumeroDeSerie2" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
-                                          <Component id="txtFechaAsignacion2" alignment="1" min="-2" pref="175" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="txtNumeroActivo2" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
+                                              <Component id="txtDescripcion2" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
+                                              <Component id="txtNnumeroDeSerie2" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
+                                              <Component id="txtFechaAsignacion2" alignment="1" min="-2" pref="175" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="jComboBox1" min="-2" pref="172" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -1378,19 +1424,17 @@
                                       <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Component id="txtUltimaActializacion2" alignment="0" pref="172" max="32767" attributes="0"/>
-                                          <Component id="txtFechaLlegada2" alignment="0" pref="172" max="32767" attributes="0"/>
                                           <Component id="JcbUbicacioninicio" max="32767" attributes="0"/>
                                           <Component id="JcbUbicacionDestino" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="jDateChooser1" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="label27" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                                      <Component id="JbtnCrearUsuario" min="-2" pref="100" max="-2" attributes="0"/>
+                                      <Component id="JbtnNuevoMoviento" min="-2" pref="100" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                                      <Component id="JbtnCrearUsuario2" min="-2" pref="100" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                                      <Component id="JbtnCrearUsuario1" min="-2" pref="100" max="-2" attributes="0"/>
+                                      <Component id="JbtnGuasrdarMovimento" min="-2" pref="100" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace min="0" pref="444" max="32767" attributes="0"/>
@@ -1414,8 +1458,8 @@
                               </Group>
                               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="label34" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtFechaLlegada2" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="label34" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jDateChooser1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -1431,10 +1475,9 @@
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="JbtnCrearUsuario" min="-2" max="-2" attributes="0"/>
+                                  <Component id="JbtnNuevoMoviento" min="-2" max="-2" attributes="0"/>
                                   <Component id="label27" min="-2" pref="27" max="-2" attributes="0"/>
-                                  <Component id="JbtnCrearUsuario1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="JbtnCrearUsuario2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="JbtnGuasrdarMovimento" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -1456,7 +1499,7 @@
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="txtDescripcion2" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="txtTipoProducto2" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
@@ -1540,14 +1583,6 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDescripcion2ActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtTipoProducto2">
-              <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTipoProducto2ActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JTextField" name="txtFechaAsignacion2">
               <Properties>
                 <Property name="enabled" type="boolean" value="false"/>
@@ -1587,14 +1622,6 @@
                 <Property name="text" type="java.lang.String" value="Fecha Llegada"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtFechaLlegada2">
-              <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtFechaLlegada2ActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="java.awt.Label" name="label35">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ubicacion inicio"/>
@@ -1605,7 +1632,7 @@
                 <Property name="text" type="java.lang.String" value="Ubicacion Destino"/>
               </Properties>
             </Component>
-            <Component class="java.awt.Button" name="JbtnCrearUsuario">
+            <Component class="java.awt.Button" name="JbtnNuevoMoviento">
               <Properties>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                   <Color id="Default Cursor"/>
@@ -1613,11 +1640,11 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="12" style="0"/>
                 </Property>
-                <Property name="label" type="java.lang.String" value="Crear usuario"/>
+                <Property name="label" type="java.lang.String" value="Nuevo Moviento"/>
                 <Property name="name" type="java.lang.String" value="" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="java.awt.Button" name="JbtnCrearUsuario1">
+            <Component class="java.awt.Button" name="JbtnGuasrdarMovimento">
               <Properties>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                   <Color id="Default Cursor"/>
@@ -1625,19 +1652,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="12" style="0"/>
                 </Property>
-                <Property name="label" type="java.lang.String" value="Crear usuario"/>
-                <Property name="name" type="java.lang.String" value="" noResource="true"/>
-              </Properties>
-            </Component>
-            <Component class="java.awt.Button" name="JbtnCrearUsuario2">
-              <Properties>
-                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Default Cursor"/>
-                </Property>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Arial" size="12" style="0"/>
-                </Property>
-                <Property name="label" type="java.lang.String" value="Crear usuario"/>
+                <Property name="label" type="java.lang.String" value="Guardar"/>
                 <Property name="name" type="java.lang.String" value="" noResource="true"/>
               </Properties>
             </Component>
@@ -1648,6 +1663,7 @@
                     <StringItem index="0" value="-- Seleccione --"/>
                   </StringArray>
                 </Property>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JcbUbicacioninicioActionPerformed"/>
@@ -1663,6 +1679,7 @@
                     <StringItem index="0" value="-- Seleccione --"/>
                   </StringArray>
                 </Property>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JcbUbicacionDestinoActionPerformed"/>
@@ -1670,6 +1687,27 @@
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="jComboBox1">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="1">
+                    <StringItem index="0" value="-- Seleccione --"/>
+                  </StringArray>
+                </Property>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser1">
+              <Properties>
+                <Property name="enabled" type="boolean" value="false"/>
+                <Property name="maxSelectableDate" type="java.util.Date" editor="org.netbeans.beaninfo.editors.DateEditor">
+                  <SerializedValue value="-84,-19,0,5,115,114,0,14,106,97,118,97,46,117,116,105,108,46,68,97,116,101,104,106,-127,1,75,89,116,25,3,0,0,120,112,119,8,0,0,-26,112,123,75,-86,80,120"/>
+                </Property>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>
