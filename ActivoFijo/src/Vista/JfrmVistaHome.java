@@ -158,13 +158,10 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         label34 = new java.awt.Label();
         label35 = new java.awt.Label();
         label36 = new java.awt.Label();
-        JbtnNuevoMoviento = new java.awt.Button();
-        JbtnGuasrdarMovimento = new java.awt.Button();
         JcbUbicacioninicio = new javax.swing.JComboBox<>();
         JcbUbicacionDestino = new javax.swing.JComboBox<>();
         jComboBox1 = new javax.swing.JComboBox<>();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        btnCancelarMovimento = new java.awt.Button();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
@@ -192,7 +189,6 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         setForeground(java.awt.Color.white);
         setIconImage(getIconImage());
         setIconImages(null);
-        setMaximumSize(new java.awt.Dimension(1920, 1080));
         setMinimumSize(new java.awt.Dimension(800, 600));
         setResizable(false);
 
@@ -861,8 +857,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
                             .addGroup(JpProductosLayout.createSequentialGroup()
                                 .addComponent(txtDescripcionProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(20, 20, 20)
-                                .addComponent(cboTipoProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)))
+                                .addComponent(cboTipoProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(2, 2, 2)
                         .addGroup(JpProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(label45, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1039,11 +1034,6 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         jTabbedPane7.addTab("Informes  ", new javax.swing.ImageIcon(getClass().getResource("/Img/paper.png")), JpInformes); // NOI18N
 
         JpMovimientos.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        JpMovimientos.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JpMovimientosMouseClicked(evt);
-            }
-        });
 
         JtbListarProductos2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1111,26 +1101,6 @@ public class JfrmVistaHome extends javax.swing.JFrame {
 
         label36.setText("Ubicacion Destino");
 
-        JbtnNuevoMoviento.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        JbtnNuevoMoviento.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        JbtnNuevoMoviento.setLabel("Nuevo Moviento");
-        JbtnNuevoMoviento.setName("NuevoMoviento"); // NOI18N
-        JbtnNuevoMoviento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JbtnNuevoMovientoActionPerformed(evt);
-            }
-        });
-
-        JbtnGuasrdarMovimento.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        JbtnGuasrdarMovimento.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        JbtnGuasrdarMovimento.setLabel("Guardar");
-        JbtnGuasrdarMovimento.setName("Guardar"); // NOI18N
-        JbtnGuasrdarMovimento.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JbtnGuasrdarMovimentoMouseClicked(evt);
-            }
-        });
-
         JcbUbicacioninicio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Seleccione --" }));
         JcbUbicacioninicio.setEnabled(false);
         JcbUbicacioninicio.addActionListener(new java.awt.event.ActionListener() {
@@ -1152,27 +1122,6 @@ public class JfrmVistaHome extends javax.swing.JFrame {
 
         jDateChooser1.setEnabled(false);
         jDateChooser1.setMaxSelectableDate(new java.util.Date(253370779282000L));
-
-        btnCancelarMovimento.setActionCommand("Cancelar");
-        btnCancelarMovimento.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnCancelarMovimento.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        btnCancelarMovimento.setLabel("Cancelar");
-        btnCancelarMovimento.setName("Cancelar"); // NOI18N
-        btnCancelarMovimento.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCancelarMovimentoMouseClicked(evt);
-            }
-        });
-        btnCancelarMovimento.addComponentListener(new java.awt.event.ComponentAdapter() {
-            public void componentHidden(java.awt.event.ComponentEvent evt) {
-                btnCancelarMovimentoComponentHidden(evt);
-            }
-        });
-        btnCancelarMovimento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelarMovimentoActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout JpMovimientosLayout = new javax.swing.GroupLayout(JpMovimientos);
         JpMovimientos.setLayout(JpMovimientosLayout);
@@ -1211,14 +1160,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
                                     .addComponent(JcbUbicacioninicio, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(JcbUbicacionDestino, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(JpMovimientosLayout.createSequentialGroup()
-                                .addComponent(label27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(31, 31, 31)
-                                .addComponent(JbtnNuevoMoviento, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(25, 25, 25)
-                                .addComponent(JbtnGuasrdarMovimento, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(24, 24, 24)
-                                .addComponent(btnCancelarMovimento, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(label27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 444, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -1226,15 +1168,9 @@ public class JfrmVistaHome extends javax.swing.JFrame {
             JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JpMovimientosLayout.createSequentialGroup()
                 .addGap(10, 10, 10)
-                .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(JpMovimientosLayout.createSequentialGroup()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(JbtnNuevoMoviento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label27, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(JbtnGuasrdarMovimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(btnCancelarMovimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(label27, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JpMovimientosLayout.createSequentialGroup()
@@ -1503,10 +1439,6 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnExportarInventarioActionPerformed
 
-    private void JbtnGuasrdarMovimentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JbtnGuasrdarMovimentoMouseClicked
-
-    }//GEN-LAST:event_JbtnGuasrdarMovimentoMouseClicked
-
     private void btnCrearProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearProductoActionPerformed
         // TODO add your handling code here:
         txtNumeroDeSerie.setEnabled(true);
@@ -1529,7 +1461,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_JpProductosPropertyChange
 
-    private void btnCrearUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearUsuarioActionPerformed
+    private void btnCrearUsuarioActionPerformed(java.awt.event.ActionEvent evt) {                                                
         // TODO add your handling code here:
         txtRunEmpleado.setEnabled(true);
         txtNombre.setEnabled(true);
@@ -1620,8 +1552,6 @@ public class JfrmVistaHome extends javax.swing.JFrame {
     private javax.swing.JButton BtnImprimirMovimientos;
     private javax.swing.JComboBox<String> CboFiltroProductoInforme;
     private javax.swing.JComboBox<String> CboSeleccionBodegaInforme;
-    private java.awt.Button JbtnGuasrdarMovimento;
-    private java.awt.Button JbtnNuevoMoviento;
     private javax.swing.JComboBox<String> JcbUbicacionDestino;
     private javax.swing.JComboBox<String> JcbUbicacioninicio;
     private javax.swing.JPanel JpCuentas;
@@ -1633,7 +1563,6 @@ public class JfrmVistaHome extends javax.swing.JFrame {
     private javax.swing.JTable JtbListarProductos1;
     private javax.swing.JTable JtbListarProductos2;
     private javax.swing.JTable JtbListarProductos3;
-    private java.awt.Button btnCancelarMovimento;
     private java.awt.Button btnCrearProducto;
     private java.awt.Button btnCrearUsuario;
     private java.awt.Button btnEliminarProducto;
