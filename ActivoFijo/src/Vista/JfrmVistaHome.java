@@ -4,6 +4,7 @@
  */
 package Vista;
 
+import java.awt.Button;
 import java.awt.Image;
 import java.awt.Toolkit;
 
@@ -25,6 +26,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         setIconImage(getIconPaper());
         setIconImage(getIconArrows());
         setIconImage(getIconBox());
+        
     }
 
     /**
@@ -168,6 +170,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         JcbUbicacionDestino = new javax.swing.JComboBox<>();
         jComboBox1 = new javax.swing.JComboBox<>();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        btnCancelarMovimento = new java.awt.Button();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
@@ -1123,6 +1126,11 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         jTabbedPane7.addTab("Informes  ", new javax.swing.ImageIcon(getClass().getResource("/Img/paper.png")), JpInformes); // NOI18N
 
         JpMovimientos.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        JpMovimientos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JpMovimientosMouseClicked(evt);
+            }
+        });
 
         JtbListarProductos2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1193,12 +1201,17 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         JbtnNuevoMoviento.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         JbtnNuevoMoviento.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         JbtnNuevoMoviento.setLabel("Nuevo Moviento");
-        JbtnNuevoMoviento.setName(""); // NOI18N
+        JbtnNuevoMoviento.setName("NuevoMoviento"); // NOI18N
+        JbtnNuevoMoviento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JbtnNuevoMovientoActionPerformed(evt);
+            }
+        });
 
         JbtnGuasrdarMovimento.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         JbtnGuasrdarMovimento.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         JbtnGuasrdarMovimento.setLabel("Guardar");
-        JbtnGuasrdarMovimento.setName(""); // NOI18N
+        JbtnGuasrdarMovimento.setName("Guardar"); // NOI18N
         JbtnGuasrdarMovimento.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 JbtnGuasrdarMovimentoMouseClicked(evt);
@@ -1226,6 +1239,27 @@ public class JfrmVistaHome extends javax.swing.JFrame {
 
         jDateChooser1.setEnabled(false);
         jDateChooser1.setMaxSelectableDate(new java.util.Date(253370779282000L));
+
+        btnCancelarMovimento.setActionCommand("Cancelar");
+        btnCancelarMovimento.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnCancelarMovimento.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        btnCancelarMovimento.setLabel("Cancelar");
+        btnCancelarMovimento.setName("Cancelar"); // NOI18N
+        btnCancelarMovimento.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCancelarMovimentoMouseClicked(evt);
+            }
+        });
+        btnCancelarMovimento.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentHidden(java.awt.event.ComponentEvent evt) {
+                btnCancelarMovimentoComponentHidden(evt);
+            }
+        });
+        btnCancelarMovimento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarMovimentoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout JpMovimientosLayout = new javax.swing.GroupLayout(JpMovimientos);
         JpMovimientos.setLayout(JpMovimientosLayout);
@@ -1269,7 +1303,9 @@ public class JfrmVistaHome extends javax.swing.JFrame {
                                 .addGap(31, 31, 31)
                                 .addComponent(JbtnNuevoMoviento, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(25, 25, 25)
-                                .addComponent(JbtnGuasrdarMovimento, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(JbtnGuasrdarMovimento, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(24, 24, 24)
+                                .addComponent(btnCancelarMovimento, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 444, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -1277,32 +1313,18 @@ public class JfrmVistaHome extends javax.swing.JFrame {
             JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JpMovimientosLayout.createSequentialGroup()
                 .addGap(10, 10, 10)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(JpMovimientosLayout.createSequentialGroup()
-                        .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(label33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtUltimaActializacion2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(label34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(20, 20, 20)
-                        .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(label35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(JcbUbicacioninicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(label36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(JcbUbicacionDestino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(40, 40, 40))
-                    .addGroup(JpMovimientosLayout.createSequentialGroup()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(JbtnNuevoMoviento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(label27, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(JbtnGuasrdarMovimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(26, 26, 26)
+                            .addComponent(JbtnGuasrdarMovimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btnCancelarMovimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JpMovimientosLayout.createSequentialGroup()
                         .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(label29, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtNumeroActivo2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1323,7 +1345,24 @@ public class JfrmVistaHome extends javax.swing.JFrame {
                         .addGap(20, 20, 20)
                         .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txtFechaAsignacion2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(label32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JpMovimientosLayout.createSequentialGroup()
+                        .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(label33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtUltimaActializacion2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(label34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20)
+                        .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(label35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JcbUbicacioninicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(label36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JcbUbicacionDestino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(40, 40, 40)))
                 .addContainerGap(13, Short.MAX_VALUE))
         );
 
@@ -1599,6 +1638,26 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCrearProductoActionPerformed
 
+    private void btnCancelarMovimentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelarMovimentoMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCancelarMovimentoMouseClicked
+
+    private void JbtnNuevoMovientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JbtnNuevoMovientoActionPerformed
+
+    }//GEN-LAST:event_JbtnNuevoMovientoActionPerformed
+
+    private void btnCancelarMovimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarMovimentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCancelarMovimentoActionPerformed
+
+    private void btnCancelarMovimentoComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_btnCancelarMovimentoComponentHidden
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCancelarMovimentoComponentHidden
+
+    private void JpMovimientosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JpMovimientosMouseClicked
+
+    }//GEN-LAST:event_JpMovimientosMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1691,6 +1750,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
     private javax.swing.JTable JtbListarProductos1;
     private javax.swing.JTable JtbListarProductos2;
     private javax.swing.JTable JtbListarProductos3;
+    private java.awt.Button btnCancelarMovimento;
     private java.awt.Button btnCrearProducto;
     private java.awt.Button btnCrearUsuario;
     private java.awt.Button btnEliminarProducto;
