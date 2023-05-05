@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="328273B0-7AF1-C294-A3CF-24CD88CAE7B9" containerWithKeyObject="D7EC9549-17CC-7461-2E0B-E34B6FED98FD" localFKIndex="4558BE20-94A5-835D-F1C8-71791033D519" name="PRODUCTO_UBICACION_FK">
+<createdBy>nicol</createdBy>
+<createdTime>2023-05-01 23:48:03 UTC</createdTime>
+<generatorID>BBB9B637-7405-9D66-3189-FE653583DBC5</generatorID>
+<ownerDesignName>mer bodega</ownerDesignName>
+<referredTableLongName>UBICACION</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>107AF692-39A3-2D3D-4B04-E1C84F7C07AD</referredTableID>
+<keyObject>99A7D355-BA44-9167-F561-F359743D15B9</keyObject>
+<referredKeyID>99A7D355-BA44-9167-F561-F359743D15B9</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>IdUbicacion</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

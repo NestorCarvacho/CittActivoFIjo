@@ -119,6 +119,21 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         btnEliminarProducto = new java.awt.Button();
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
         JpInformes = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        BtnExportarInventario = new javax.swing.JButton();
+        BtnImprimirInventario = new javax.swing.JButton();
+        btnMovimientos = new javax.swing.JButton();
+        BtnImprimirMovimientos = new javax.swing.JButton();
+        CboSeleccionBodegaInforme = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        CboFiltroProductoInforme = new javax.swing.JComboBox<>();
+        jTextField1 = new javax.swing.JTextField();
+        BtnFiltrarInforme = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         JpMovimientos = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         JtbListarProductos2 = new javax.swing.JTable();
@@ -951,15 +966,137 @@ public class JfrmVistaHome extends javax.swing.JFrame {
 
         JpInformes.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        BtnExportarInventario.setText("Exportar Inventario");
+        BtnExportarInventario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnExportarInventarioActionPerformed(evt);
+            }
+        });
+
+        BtnImprimirInventario.setText("Imprimir Inventario");
+
+        btnMovimientos.setText("Exportar Movimientos");
+
+        BtnImprimirMovimientos.setText("Imprimir Movimientos");
+
+        CboSeleccionBodegaInforme.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel1.setText("Seleccione Bodega");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(BtnExportarInventario)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BtnImprimirInventario)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnMovimientos)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BtnImprimirMovimientos))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(CboSeleccionBodegaInforme, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BtnExportarInventario)
+                    .addComponent(BtnImprimirInventario)
+                    .addComponent(btnMovimientos)
+                    .addComponent(BtnImprimirMovimientos))
+                .addGap(33, 33, 33)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(CboSeleccionBodegaInforme, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addContainerGap(38, Short.MAX_VALUE))
+        );
+
+        jLabel2.setText("Seleccione Productos para Filtar");
+
+        CboFiltroProductoInforme.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Seleccione --" }));
+
+        BtnFiltrarInforme.setText("Filtrar");
+
+        jLabel3.setText("Ingrese Productos para Filtar");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(CboFiltroProductoInforme, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(89, 89, 89)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel3)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(BtnFiltrarInforme)
+                .addContainerGap(58, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(CboFiltroProductoInforme, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BtnFiltrarInforme))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Numero de Activos", "Numero de Serie", "Descripcion", "Ubicacion", "Tipo de Producto", "Fecha Asignacion", "Ultima Actualizacion"
+            }
+        ));
+        jScrollPane5.setViewportView(jTable1);
+
         javax.swing.GroupLayout JpInformesLayout = new javax.swing.GroupLayout(JpInformes);
         JpInformes.setLayout(JpInformesLayout);
         JpInformesLayout.setHorizontalGroup(
             JpInformesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1342, Short.MAX_VALUE)
+            .addGroup(JpInformesLayout.createSequentialGroup()
+                .addGroup(JpInformesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JpInformesLayout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(JpInformesLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane5)))
+                .addContainerGap())
         );
         JpInformesLayout.setVerticalGroup(
             JpInformesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 690, Short.MAX_VALUE)
+            .addGroup(JpInformesLayout.createSequentialGroup()
+                .addGroup(JpInformesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE))
         );
 
         jTabbedPane7.addTab("Informes", JpInformes);
@@ -1424,6 +1561,10 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_JcbUbicacionDestinoActionPerformed
 
+    private void BtnExportarInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExportarInventarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnExportarInventarioActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1460,6 +1601,12 @@ public class JfrmVistaHome extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnExportarInventario;
+    private javax.swing.JButton BtnFiltrarInforme;
+    private javax.swing.JButton BtnImprimirInventario;
+    private javax.swing.JButton BtnImprimirMovimientos;
+    private javax.swing.JComboBox<String> CboFiltroProductoInforme;
+    private javax.swing.JComboBox<String> CboSeleccionBodegaInforme;
     private java.awt.Button JbtnGuasrdarMovimento;
     private java.awt.Button JbtnNuevoMoviento;
     private javax.swing.JComboBox<String> JcbUbicacionDestino;
@@ -1479,11 +1626,15 @@ public class JfrmVistaHome extends javax.swing.JFrame {
     private java.awt.Button btnEliminarUsuario;
     private java.awt.Button btnModificarProducto;
     private java.awt.Button btnModificarUsuario;
+    private javax.swing.JButton btnMovimientos;
     private com.toedter.plaf.JCalendarTheme jCalendarTheme1;
     private javax.swing.JComboBox<String> jComboBox1;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private com.toedter.calendar.JDateChooser jDateChooser3;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -1504,12 +1655,17 @@ public class JfrmVistaHome extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane7;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField1;
     private java.awt.Label label1;
     private java.awt.Label label10;
     private java.awt.Label label11;

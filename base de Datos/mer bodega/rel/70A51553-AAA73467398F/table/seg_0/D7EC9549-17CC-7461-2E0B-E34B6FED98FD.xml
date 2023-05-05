@@ -1,0 +1,190 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D7EC9549-17CC-7461-2E0B-E34B6FED98FD" name="PRODUCTO">
+<createdBy>nicol</createdBy>
+<createdTime>2023-05-01 23:48:03 UTC</createdTime>
+<generatorID>492AE80F-841A-EAE6-0352-2D6442B5FA55</generatorID>
+<ownerDesignName>mer bodega</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IdProducto" id="C75ED544-E35F-9120-B959-EEB4A0AC9217">
+<createdBy>nicol</createdBy>
+<createdTime>2023-05-01 23:48:03 UTC</createdTime>
+<generatorID>6AD753A7-4E1A-6749-9687-B03D4851DD4B</generatorID>
+<ownerDesignName>mer bodega</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>12</dataTypeSize>
+<ownDataTypeParameters>12,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NumSerie" id="F5B876A8-07BE-C120-FF87-FB60AE9281AB">
+<createdBy>nicol</createdBy>
+<createdTime>2023-05-01 23:48:03 UTC</createdTime>
+<generatorID>448DFD2D-979B-7F21-4C25-462E7EF48113</generatorID>
+<ownerDesignName>mer bodega</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>12</dataTypePrecision>
+<ownDataTypeParameters>,12,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Descripcion" id="6ABF1531-3A81-364F-93DE-90D1F21FC593">
+<createdBy>nicol</createdBy>
+<createdTime>2023-05-01 23:48:03 UTC</createdTime>
+<generatorID>99D393EF-1C85-4667-01E9-C4927BA5EFBD</generatorID>
+<ownerDesignName>mer bodega</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>250 CHAR</dataTypeSize>
+<ownDataTypeParameters>250 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="UBICACION_IdUbicacion" id="E7FF62CA-B73C-EEAD-C949-AC036867D9D1">
+<createdBy>nicol</createdBy>
+<createdTime>2023-05-01 23:48:03 UTC</createdTime>
+<generatorID>F1D21A33-BED0-E5C1-BE08-87B2D337F8A3</generatorID>
+<ownerDesignName>mer bodega</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="328273B0-7AF1-C294-A3CF-24CD88CAE7B9" referredColumn="DC82677D-8780-EBA9-025D-6F0A2A6B7FCE"/>
+</associations>
+</Column>
+<Column name="TIPO_PRODUCTO_IdTipo" id="84942065-D661-FF82-A5A6-0C2CBD9CCB48">
+<createdBy>nicol</createdBy>
+<createdTime>2023-05-01 23:48:03 UTC</createdTime>
+<generatorID>8C2F4A22-B278-A3B3-DDF3-2DB42D740173</generatorID>
+<ownerDesignName>mer bodega</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="24426832-5DE6-CAB1-B131-8815526623BE" referredColumn="F8BEA54E-4ACF-0BE1-29F1-499F750464E8"/>
+</associations>
+</Column>
+<Column name="FechaLlegada" id="67AFFAFA-F2BE-1778-896B-836C0B361713">
+<createdBy>nicol</createdBy>
+<createdTime>2023-05-01 23:48:03 UTC</createdTime>
+<generatorID>C54E35C9-FBE5-8D87-6F37-CA49C97C245A</generatorID>
+<ownerDesignName>mer bodega</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Stock" id="E5276EB7-7A43-88AD-6F7A-5D03A455B78C">
+<createdBy>nicol</createdBy>
+<createdTime>2023-05-01 23:48:03 UTC</createdTime>
+<generatorID>BE2E0F4C-E190-69DD-5DB9-83BF858F86FC</generatorID>
+<ownerDesignName>mer bodega</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<ownDataTypeParameters>,3,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Color" id="97908D74-D488-2736-8142-06D91A1AE8BA">
+<createdBy>nicol</createdBy>
+<createdTime>2023-05-01 23:48:03 UTC</createdTime>
+<generatorID>0F436927-DB62-6E2F-57D6-7383ABC56E71</generatorID>
+<ownerDesignName>mer bodega</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CostoProducto" id="D187CB40-0FF0-6A93-D8AF-E687AF99E21D">
+<createdBy>nicol</createdBy>
+<createdTime>2023-05-01 23:48:03 UTC</createdTime>
+<generatorID>3EDAB95F-17E3-6D6C-736D-138F220CC117</generatorID>
+<ownerDesignName>mer bodega</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ESTADO_IdEstado" id="5C4ED3D4-8D65-6113-F749-D78B8547DC53">
+<createdBy>nicol</createdBy>
+<createdTime>2023-05-01 23:48:03 UTC</createdTime>
+<generatorID>759E14CF-E470-1583-7736-378D917B2909</generatorID>
+<ownerDesignName>mer bodega</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="CA664EBC-3632-E25E-2EE0-B984EFCA49A3" referredColumn="3201DFFC-0D33-6BBD-6497-092936E06514"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="BD8AB030-E2FF-4861-A044-4BAF9C1EBFFD" name="PRODUCTO_PK">
+<createdBy>nicol</createdBy>
+<createdTime>2023-05-01 23:48:03 UTC</createdTime>
+<generatorID>C053237C-2AF3-EB2D-D076-893C5A60FA1C</generatorID>
+<ownerDesignName>mer bodega</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C75ED544-E35F-9120-B959-EEB4A0AC9217"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="056C4C77-2B2F-306A-4D8E-DC9EF701529F" name="PRODUCTO_ESTADO_FK">
+<createdBy>nicol</createdBy>
+<createdTime>2023-05-01 23:48:03 UTC</createdTime>
+<generatorID>735152D5-E033-F456-110B-0771A80FDFFA</generatorID>
+<ownerDesignName>mer bodega</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5C4ED3D4-8D65-6113-F749-D78B8547DC53"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5AF86ABB-1EB8-520A-B92E-F1BDDC396917" name="PRODUCTO_TIPO_PRODUCTO_FK">
+<createdBy>nicol</createdBy>
+<createdTime>2023-05-01 23:48:03 UTC</createdTime>
+<generatorID>A6C7D8B5-3739-0321-D369-61F23F01888C</generatorID>
+<ownerDesignName>mer bodega</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="84942065-D661-FF82-A5A6-0C2CBD9CCB48"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4558BE20-94A5-835D-F1C8-71791033D519" name="PRODUCTO_UBICACION_FK">
+<createdBy>nicol</createdBy>
+<createdTime>2023-05-01 23:48:03 UTC</createdTime>
+<generatorID>BBB9B637-7405-9D66-3189-FE653583DBC5</generatorID>
+<ownerDesignName>mer bodega</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E7FF62CA-B73C-EEAD-C949-AC036867D9D1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

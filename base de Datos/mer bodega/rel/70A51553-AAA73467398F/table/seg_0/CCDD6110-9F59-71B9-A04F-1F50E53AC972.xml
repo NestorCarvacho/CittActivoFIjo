@@ -1,0 +1,92 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="CCDD6110-9F59-71B9-A04F-1F50E53AC972" name="DETALLE">
+<createdBy>nicol</createdBy>
+<createdTime>2023-05-01 23:48:03 UTC</createdTime>
+<generatorID>B8A685D2-F110-8D09-B163-0CD04828D39E</generatorID>
+<ownerDesignName>mer bodega</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="FechaAsignacion" id="F6CCDB0C-D190-A6BA-346D-BB004499C893">
+<createdBy>nicol</createdBy>
+<createdTime>2023-05-01 23:48:03 UTC</createdTime>
+<generatorID>B0610019-0329-A2F3-EB2B-5D6CE832165B</generatorID>
+<ownerDesignName>mer bodega</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PRODUCTO_IdProducto" id="FC861F6C-DE3D-4327-15B7-550B6E8FAD81">
+<createdBy>nicol</createdBy>
+<createdTime>2023-05-01 23:48:03 UTC</createdTime>
+<generatorID>0172673C-995A-EE80-28E9-A00CBBA2BCD4</generatorID>
+<ownerDesignName>mer bodega</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>12</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="73942AE2-BDD0-1795-4E6A-BDCE9C17E4F5" referredColumn="C75ED544-E35F-9120-B959-EEB4A0AC9217"/>
+</associations>
+</Column>
+<Column name="EMPLEADO_IdEmpleado" id="BF10FF82-C1A0-7A42-C144-0E8DA352BCE5">
+<createdBy>nicol</createdBy>
+<createdTime>2023-05-01 23:48:03 UTC</createdTime>
+<generatorID>7C721A7E-0BAE-028D-10EA-9FF44F2CD34C</generatorID>
+<ownerDesignName>mer bodega</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>12</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="3443B5A0-794C-9A08-54EC-5FC7FCB84965" referredColumn="73B9D586-DB0D-4F6C-8B25-35C8E2460C2E"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C40E43D8-D1A0-F3F6-A153-BFA6C559AE64" name="DETALLE_PK">
+<createdBy>nicol</createdBy>
+<createdTime>2023-05-01 23:48:03 UTC</createdTime>
+<generatorID>DDFA0FC1-06CA-E75F-639A-11CB7A5EBF75</generatorID>
+<ownerDesignName>mer bodega</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FC861F6C-DE3D-4327-15B7-550B6E8FAD81"/>
+<colUsage columnID="BF10FF82-C1A0-7A42-C144-0E8DA352BCE5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4F5A8369-9F3C-A6A0-E020-90045C156799" name="DETALLE_EMPLEADO_FK">
+<createdBy>nicol</createdBy>
+<createdTime>2023-05-01 23:48:03 UTC</createdTime>
+<generatorID>4B04AA4E-E90C-4490-DB2A-1F3AFBF32EE5</generatorID>
+<ownerDesignName>mer bodega</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BF10FF82-C1A0-7A42-C144-0E8DA352BCE5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A74AE72A-64A8-6137-A890-056C93DB1919" name="DETALLE_PRODUCTO_FK">
+<createdBy>nicol</createdBy>
+<createdTime>2023-05-01 23:48:03 UTC</createdTime>
+<generatorID>8735FAC4-09AB-94EF-9750-F3CF330CB60E</generatorID>
+<ownerDesignName>mer bodega</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FC861F6C-DE3D-4327-15B7-550B6E8FAD81"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

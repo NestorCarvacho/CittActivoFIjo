@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="89F5C637-4C49-2149-A399-743C5E716A80" containerWithKeyObject="906B46FC-4DEB-B4E2-206D-180E85BC6B3F" localFKIndex="6C948364-0054-B844-2983-61E559843D3F" name="EMPLEADO_TIPO_EMPLEADO_FK">
+<createdBy>nicol</createdBy>
+<createdTime>2023-05-01 23:48:03 UTC</createdTime>
+<generatorID>6142542F-5651-CE5B-8522-8CE6B79459F2</generatorID>
+<ownerDesignName>mer bodega</ownerDesignName>
+<referredTableLongName>TIPO_EMPLEADO</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>F3D88E52-A7EF-D62F-45C9-478B271C7150</referredTableID>
+<keyObject>6407F8A5-A7D1-A75E-9A14-3D19B9A27863</keyObject>
+<referredKeyID>6407F8A5-A7D1-A75E-9A14-3D19B9A27863</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>idTipo</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

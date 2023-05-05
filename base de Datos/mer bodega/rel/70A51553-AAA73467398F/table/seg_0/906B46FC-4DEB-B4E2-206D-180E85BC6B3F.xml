@@ -1,0 +1,140 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="906B46FC-4DEB-B4E2-206D-180E85BC6B3F" name="EMPLEADO">
+<createdBy>nicol</createdBy>
+<createdTime>2023-05-01 23:48:03 UTC</createdTime>
+<generatorID>2DFBEEB1-B383-6128-DA38-3FE4AAB6A54A</generatorID>
+<ownerDesignName>mer bodega</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IdEmpleado" id="73B9D586-DB0D-4F6C-8B25-35C8E2460C2E">
+<createdBy>nicol</createdBy>
+<createdTime>2023-05-01 23:48:03 UTC</createdTime>
+<generatorID>992CFB46-2FB0-FAAA-31D4-18DC01BAE586</generatorID>
+<ownerDesignName>mer bodega</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>12</dataTypeSize>
+<ownDataTypeParameters>12,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Run" id="B106119E-FC15-ACB6-141A-1B0AAD0097EB">
+<createdBy>nicol</createdBy>
+<createdTime>2023-05-01 23:48:03 UTC</createdTime>
+<generatorID>B507786B-314D-6CB3-79CF-6A65B7778B2B</generatorID>
+<ownerDesignName>mer bodega</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>12</dataTypeSize>
+<ownDataTypeParameters>12,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NombreCompleto" id="D340E100-07EF-520F-7538-8A42CD3F1B2A">
+<createdBy>nicol</createdBy>
+<createdTime>2023-05-01 23:48:03 UTC</createdTime>
+<generatorID>F03F5333-B5FA-DEE9-640D-26C23F82FC7C</generatorID>
+<ownerDesignName>mer bodega</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>65</dataTypeSize>
+<ownDataTypeParameters>65,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Telefono" id="0007DE84-4CA0-1EB2-252D-A124C4E35B68">
+<createdBy>nicol</createdBy>
+<createdTime>2023-05-01 23:48:03 UTC</createdTime>
+<generatorID>6F812AAA-301D-39CA-6758-B220BEF4A9C2</generatorID>
+<ownerDesignName>mer bodega</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>12</dataTypeSize>
+<ownDataTypeParameters>12,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Direccion" id="8763C357-EFF6-1F24-1771-C4B071916283">
+<createdBy>nicol</createdBy>
+<createdTime>2023-05-01 23:48:03 UTC</createdTime>
+<generatorID>03639776-9817-87AF-D49F-CD8505477246</generatorID>
+<ownerDesignName>mer bodega</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>120</dataTypeSize>
+<ownDataTypeParameters>120,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TIPO_EMPLEADO_idTipo" id="72BF1B21-AEB2-B375-9B06-0D8A7559C070">
+<createdBy>nicol</createdBy>
+<createdTime>2023-05-01 23:48:03 UTC</createdTime>
+<generatorID>B9D45AA3-9417-F3F9-5A52-7EDF04185089</generatorID>
+<ownerDesignName>mer bodega</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>12 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="89F5C637-4C49-2149-A399-743C5E716A80" referredColumn="0305436D-5A4F-8A66-DA4E-DE8F7C7986F0"/>
+</associations>
+</Column>
+<Column name="J0RNADA_IdJornada" id="3FF32CB9-591A-91D2-C684-AFD6922D76C7">
+<createdBy>nicol</createdBy>
+<createdTime>2023-05-01 23:48:03 UTC</createdTime>
+<generatorID>AB58260E-44D5-E3D1-A41F-B21429D00466</generatorID>
+<ownerDesignName>mer bodega</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="5ECB4BDE-3147-61EA-867D-A5CA32CC1824" referredColumn="5817AFAB-4631-17CF-C5D3-C7F0EF21B3E0"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3850C71B-FAEA-6173-2905-F1A2484010AB" name="EMPLEADO_PK">
+<createdBy>nicol</createdBy>
+<createdTime>2023-05-01 23:48:03 UTC</createdTime>
+<generatorID>FD989F5D-225A-84EB-A191-F032C93F5D3F</generatorID>
+<ownerDesignName>mer bodega</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="73B9D586-DB0D-4F6C-8B25-35C8E2460C2E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="72A9BBF2-62C9-8052-77ED-01E167640177" name="EMPLEADO_J0RNADA_FK">
+<createdBy>nicol</createdBy>
+<createdTime>2023-05-01 23:48:03 UTC</createdTime>
+<generatorID>E92CFF92-DC07-344D-7B12-4A248211A1FE</generatorID>
+<ownerDesignName>mer bodega</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3FF32CB9-591A-91D2-C684-AFD6922D76C7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6C948364-0054-B844-2983-61E559843D3F" name="EMPLEADO_TIPO_EMPLEADO_FK">
+<createdBy>nicol</createdBy>
+<createdTime>2023-05-01 23:48:03 UTC</createdTime>
+<generatorID>6142542F-5651-CE5B-8522-8CE6B79459F2</generatorID>
+<ownerDesignName>mer bodega</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="72BF1B21-AEB2-B375-9B06-0D8A7559C070"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

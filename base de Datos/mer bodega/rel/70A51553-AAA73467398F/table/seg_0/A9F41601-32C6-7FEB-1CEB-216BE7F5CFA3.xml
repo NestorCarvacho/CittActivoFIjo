@@ -1,0 +1,50 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A9F41601-32C6-7FEB-1CEB-216BE7F5CFA3" name="J0RNADA">
+<createdBy>nicol</createdBy>
+<createdTime>2023-05-01 23:48:03 UTC</createdTime>
+<generatorID>9261EACA-FE32-7439-1BC6-07069518BAB5</generatorID>
+<ownerDesignName>mer bodega</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IdJornada" id="5817AFAB-4631-17CF-C5D3-C7F0EF21B3E0">
+<createdBy>nicol</createdBy>
+<createdTime>2023-05-01 23:48:03 UTC</createdTime>
+<generatorID>2A347CB0-A2FE-C62A-797A-999E988317DE</generatorID>
+<ownerDesignName>mer bodega</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<ownDataTypeParameters>,1,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Descripcion" id="FC801FE1-F9BF-7F89-6B00-73E5FB1D540F">
+<createdBy>nicol</createdBy>
+<createdTime>2023-05-01 23:48:03 UTC</createdTime>
+<generatorID>021634C7-6569-B04B-8EA2-CA710E53B742</generatorID>
+<ownerDesignName>mer bodega</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="33EFE198-E104-7070-CDD9-483F05B2A56B" name="J0RNADA_PK">
+<createdBy>nicol</createdBy>
+<createdTime>2023-05-01 23:48:03 UTC</createdTime>
+<generatorID>5D07EFC8-52C2-9ECD-1BE3-4761D167A641</generatorID>
+<ownerDesignName>mer bodega</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5817AFAB-4631-17CF-C5D3-C7F0EF21B3E0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

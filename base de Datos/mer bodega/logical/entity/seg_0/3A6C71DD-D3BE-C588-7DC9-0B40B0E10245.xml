@@ -1,0 +1,59 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="3A6C71DD-D3BE-C588-7DC9-0B40B0E10245" name="UBICACION">
+<createdBy>black</createdBy>
+<createdTime>2023-04-29 03:27:55 UTC</createdTime>
+<ownerDesignName>mer bodega</ownerDesignName>
+<engineerTo>
+<item key="70A51553-005D-1BFA-9BE3-AAA73467398F" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="IdUbicacion" id="B6C78D53-E3B3-8B5E-2AFF-7A319E0B569C">
+<createdBy>black</createdBy>
+<createdTime>2023-04-30 02:45:58 UTC</createdTime>
+<ownerDesignName>mer bodega</ownerDesignName>
+<engineerTo>
+<item key="70A51553-005D-1BFA-9BE3-AAA73467398F" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4 CHAR</dataTypeSize>
+<ownDataTypeParameters>4 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Descripcion" id="D6564030-8D6E-FA10-9749-E5A843A58382">
+<createdBy>black</createdBy>
+<createdTime>2023-04-30 02:45:59 UTC</createdTime>
+<ownerDesignName>mer bodega</ownerDesignName>
+<engineerTo>
+<item key="70A51553-005D-1BFA-9BE3-AAA73467398F" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>45</dataTypeSize>
+<ownDataTypeParameters>45,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="1039B525-BA54-57A1-BA92-621833A4835B" name="UBICACION PK">
+<createdBy>black</createdBy>
+<createdTime>2023-04-30 02:46:16 UTC</createdTime>
+<ownerDesignName>mer bodega</ownerDesignName>
+<engineerTo>
+<item key="70A51553-005D-1BFA-9BE3-AAA73467398F" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>B6C78D53-E3B3-8B5E-2AFF-7A319E0B569C</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

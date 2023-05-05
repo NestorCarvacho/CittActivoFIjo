@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="mer bodega" id="A6D6EECA-8B55-C466-5441-BB878C19AD33" version="3.5">
+<createdBy>black</createdBy>
+<createdTime>2023-04-29 03:26:38 UTC</createdTime>
+<ownerDesignName>InventarioDeLimpieza</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>A6D6EECA-8B55-C466-5441-BB878C19AD33</designId>
+</OSDM_Design>

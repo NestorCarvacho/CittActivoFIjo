@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Re_TipoP_Producto" directorySegmentName="seg_0" id="A6C7D8B5-3739-0321-D369-61F23F01888C">
+<createdBy>black</createdBy>
+<createdTime>2023-04-30 03:19:32 UTC</createdTime>
+<ownerDesignName>mer bodega</ownerDesignName>
+<engineerTo>
+<item key="70A51553-005D-1BFA-9BE3-AAA73467398F" value="true"/>
+</engineerTo>
+<sourcePk>47A020DB-BB91-E91E-5CE7-26C0EA671614</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>ECED3C36-3337-8799-16D2-CECB9D15EA6B</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>492AE80F-841A-EAE6-0352-2D6442B5FA55</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

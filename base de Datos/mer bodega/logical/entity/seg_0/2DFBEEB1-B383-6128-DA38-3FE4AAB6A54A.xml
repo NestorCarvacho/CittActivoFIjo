@@ -1,0 +1,128 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="2DFBEEB1-B383-6128-DA38-3FE4AAB6A54A" name="EMPLEADO">
+<createdBy>black</createdBy>
+<createdTime>2023-04-29 03:27:18 UTC</createdTime>
+<ownerDesignName>mer bodega</ownerDesignName>
+<engineerTo>
+<item key="70A51553-005D-1BFA-9BE3-AAA73467398F" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="IdEmpleado" id="992CFB46-2FB0-FAAA-31D4-18DC01BAE586">
+<createdBy>black</createdBy>
+<createdTime>2023-04-30 02:13:30 UTC</createdTime>
+<ownerDesignName>mer bodega</ownerDesignName>
+<engineerTo>
+<item key="70A51553-005D-1BFA-9BE3-AAA73467398F" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>12</dataTypeSize>
+<ownDataTypeParameters>12,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Run" id="B507786B-314D-6CB3-79CF-6A65B7778B2B">
+<createdBy>black</createdBy>
+<createdTime>2023-04-30 02:13:30 UTC</createdTime>
+<ownerDesignName>mer bodega</ownerDesignName>
+<engineerTo>
+<item key="70A51553-005D-1BFA-9BE3-AAA73467398F" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>12</dataTypeSize>
+<ownDataTypeParameters>12,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="NombreCompleto" id="F03F5333-B5FA-DEE9-640D-26C23F82FC7C">
+<createdBy>black</createdBy>
+<createdTime>2023-04-30 02:13:30 UTC</createdTime>
+<ownerDesignName>mer bodega</ownerDesignName>
+<engineerTo>
+<item key="70A51553-005D-1BFA-9BE3-AAA73467398F" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>65</dataTypeSize>
+<ownDataTypeParameters>65,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Telefono" id="6F812AAA-301D-39CA-6758-B220BEF4A9C2">
+<createdBy>black</createdBy>
+<createdTime>2023-04-30 02:13:30 UTC</createdTime>
+<ownerDesignName>mer bodega</ownerDesignName>
+<engineerTo>
+<item key="70A51553-005D-1BFA-9BE3-AAA73467398F" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>12</dataTypeSize>
+<ownDataTypeParameters>12,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Direccion" id="03639776-9817-87AF-D49F-CD8505477246">
+<createdBy>black</createdBy>
+<createdTime>2023-04-30 02:13:31 UTC</createdTime>
+<ownerDesignName>mer bodega</ownerDesignName>
+<engineerTo>
+<item key="70A51553-005D-1BFA-9BE3-AAA73467398F" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>120</dataTypeSize>
+<ownDataTypeParameters>120,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="idTipo" id="B9D45AA3-9417-F3F9-5A52-7EDF04185089">
+<createdBy>black</createdBy>
+<createdTime>2023-04-30 03:15:19 UTC</createdTime>
+<generatorID>6142542F-5651-CE5B-8522-8CE6B79459F2</generatorID>
+<ownerDesignName>mer bodega</ownerDesignName>
+<engineerTo>
+<item key="70A51553-005D-1BFA-9BE3-AAA73467398F" value="true"/>
+</engineerTo>
+<referedAttribute>8781FDC6-B12D-8540-3F6E-3CDBBF40089C</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>12 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="IdJornada" id="AB58260E-44D5-E3D1-A41F-B21429D00466">
+<createdBy>black</createdBy>
+<createdTime>2023-04-30 03:22:15 UTC</createdTime>
+<generatorID>E92CFF92-DC07-344D-7B12-4A248211A1FE</generatorID>
+<ownerDesignName>mer bodega</ownerDesignName>
+<engineerTo>
+<item key="70A51553-005D-1BFA-9BE3-AAA73467398F" value="true"/>
+</engineerTo>
+<referedAttribute>2A347CB0-A2FE-C62A-797A-999E988317DE</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="FD989F5D-225A-84EB-A191-F032C93F5D3F" name="Empleados PK">
+<createdBy>black</createdBy>
+<createdTime>2023-04-30 02:13:39 UTC</createdTime>
+<ownerDesignName>mer bodega</ownerDesignName>
+<engineerTo>
+<item key="70A51553-005D-1BFA-9BE3-AAA73467398F" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>992CFB46-2FB0-FAAA-31D4-18DC01BAE586</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
