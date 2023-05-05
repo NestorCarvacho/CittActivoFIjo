@@ -4,6 +4,9 @@
  */
 package Vista;
 
+import java.awt.Image;
+import java.awt.Toolkit;
+
 /**
  *
  * @author Usuario
@@ -15,6 +18,13 @@ public class JfrmVistaHome extends javax.swing.JFrame {
      */
     public JfrmVistaHome() {
         initComponents();
+
+        setIconImage(getIconImage());
+        setIconImage(getIconHome());
+        setIconImage(getIconUser());
+        setIconImage(getIconPaper());
+        setIconImage(getIconArrows());
+        setIconImage(getIconBox());
     }
 
     /**
@@ -181,6 +191,10 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         jMenuItem14 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Activo Fijo Bodega");
+        setForeground(java.awt.Color.white);
+        setIconImage(getIconImage());
+        setIconImages(null);
         setMaximumSize(new java.awt.Dimension(1920, 1080));
         setMinimumSize(new java.awt.Dimension(800, 600));
         setResizable(false);
@@ -424,10 +438,12 @@ public class JfrmVistaHome extends javax.swing.JFrame {
                             .addComponent(label14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtCosto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(122, 122, 122)))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
-        jTabbedPane7.addTab("Home", JpHome);
+        jTabbedPane7.addTab("Home  ", new javax.swing.ImageIcon(getClass().getResource("/Img/home.png")), JpHome); // NOI18N
+        JpHome.getAccessibleContext().setAccessibleName("");
+        JpHome.getAccessibleContext().setAccessibleDescription("");
 
         JpCuentas.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -702,10 +718,10 @@ public class JfrmVistaHome extends javax.swing.JFrame {
                                         .addGap(18, 18, 18)
                                         .addComponent(txtEstado1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(42, 42, 42)))))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
-        jTabbedPane7.addTab("Cuentas", JpCuentas);
+        jTabbedPane7.addTab("Cuentas  ", new javax.swing.ImageIcon(getClass().getResource("/Img/user.png")), JpCuentas); // NOI18N
 
         JpProductos.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -964,10 +980,10 @@ public class JfrmVistaHome extends javax.swing.JFrame {
                             .addComponent(label52, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtCosto3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(122, 122, 122)))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
-        jTabbedPane7.addTab("Productos", JpProductos);
+        jTabbedPane7.addTab("Productos  ", new javax.swing.ImageIcon(getClass().getResource("/Img/box.png")), JpProductos); // NOI18N
 
         JpInformes.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -1101,10 +1117,10 @@ public class JfrmVistaHome extends javax.swing.JFrame {
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE))
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 540, Short.MAX_VALUE))
         );
 
-        jTabbedPane7.addTab("Informes", JpInformes);
+        jTabbedPane7.addTab("Informes  ", new javax.swing.ImageIcon(getClass().getResource("/Img/paper.png")), JpInformes); // NOI18N
 
         JpMovimientos.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -1308,10 +1324,10 @@ public class JfrmVistaHome extends javax.swing.JFrame {
                         .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txtFechaAsignacion2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(label32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
-        jTabbedPane7.addTab("Movimientos", JpMovimientos);
+        jTabbedPane7.addTab("Movimientos  ", new javax.swing.ImageIcon(getClass().getResource("/Img/arrows.png")), JpMovimientos); // NOI18N
 
         jMenu1.setText("Archivo");
 
@@ -1616,6 +1632,43 @@ public class JfrmVistaHome extends javax.swing.JFrame {
                 new JfrmVistaHome().setVisible(true);
             }
         });
+    }
+
+    @Override
+    public Image getIconImage() {
+
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Img/caja.png"));
+        return retValue;
+
+    }
+
+    public Image getIconHome() {
+
+        Image homeValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Img/home.png"));
+        return homeValue;
+    }
+
+    public Image getIconUser() {
+
+        Image userValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Img/user.png"));
+        return userValue;
+    }
+
+    public Image getIconBox() {
+
+        Image boxValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Img/box.png"));
+        return boxValue;
+    }
+    public Image getIconPaper() {
+
+        Image paperValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Img/paper.png"));
+        return paperValue;
+    }
+
+    public Image getIconArrows() {
+
+        Image arrowsValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Img/arrows.png"));
+        return arrowsValue;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
