@@ -1,8 +1,8 @@
 
 package Modelo;
 
-import Modelo.Enumeradores.EnumEstadoProducto;
-import Modelo.Enumeradores.EnumTipoProducto;
+import Enumeradores.EnumEstadoProducto;
+import Enumeradores.EnumTipoProducto;
 import java.util.Date;
 
 

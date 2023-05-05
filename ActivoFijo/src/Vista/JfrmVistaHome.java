@@ -825,6 +825,11 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         });
 
         btnCrearProducto.setLabel("Crear Producto");
+        btnCrearProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearProductoActionPerformed(evt);
+            }
+        });
 
         btnModificarProducto.setLabel("Modificar Producto");
 
@@ -1178,6 +1183,11 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         JbtnGuasrdarMovimento.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         JbtnGuasrdarMovimento.setLabel("Guardar");
         JbtnGuasrdarMovimento.setName(""); // NOI18N
+        JbtnGuasrdarMovimento.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JbtnGuasrdarMovimentoMouseClicked(evt);
+            }
+        });
 
         JcbUbicacioninicio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Seleccione --" }));
         JcbUbicacioninicio.setEnabled(false);
@@ -1564,6 +1574,14 @@ public class JfrmVistaHome extends javax.swing.JFrame {
     private void BtnExportarInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExportarInventarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnExportarInventarioActionPerformed
+
+    private void JbtnGuasrdarMovimentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JbtnGuasrdarMovimentoMouseClicked
+
+    }//GEN-LAST:event_JbtnGuasrdarMovimentoMouseClicked
+
+    private void btnCrearProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearProductoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCrearProductoActionPerformed
 
     /**
      * @param args the command line arguments

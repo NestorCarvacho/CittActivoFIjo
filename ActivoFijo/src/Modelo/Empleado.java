@@ -1,8 +1,8 @@
 
 package Modelo;
 
-import Modelo.Enumeradores.EnumCargo;
-import Modelo.Enumeradores.EnumJornada;
+import Enumeradores.EnumCargo;
+import Enumeradores.EnumJornada;
 
 
 public class Empleado {

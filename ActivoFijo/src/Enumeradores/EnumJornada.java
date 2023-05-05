@@ -1,5 +1,5 @@
 
-package Modelo.Enumeradores;
+package Enumeradores;
 
 
 public enum EnumJornada {
