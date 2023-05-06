@@ -1,7 +1,7 @@
 
 package Controlador;
 
-import Controlador.Interfaces.IDaoProducto;
+import Interfaces.IDaoProducto;
 import Modelo.Producto;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
