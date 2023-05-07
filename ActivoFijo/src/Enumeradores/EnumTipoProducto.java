@@ -2,5 +2,5 @@
 package Enumeradores;
 
 public enum EnumTipoProducto {
-    solvente, limpiaPiso, desinfectante, 
+    solvente, limpiaPiso, desinfectante
 }

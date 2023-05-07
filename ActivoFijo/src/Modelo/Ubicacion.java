@@ -4,14 +4,14 @@ package Modelo;
 
 public class Ubicacion {
    private int idUbicacion;
-   private String decUbicacion;
+   private String descripcionUbicacion;
 
     public Ubicacion() {
     }
 
     public Ubicacion(int idUbicacion, String decUbicacion) {
         this.idUbicacion = idUbicacion;
-        this.decUbicacion = decUbicacion;
+        this.descripcionUbicacion = decUbicacion;
     }
 
     public int getIdUbicacion() {
@@ -22,17 +22,17 @@ public class Ubicacion {
         this.idUbicacion = idUbicacion;
     }
 
-    public String getDecUbicacion() {
-        return decUbicacion;
+    public String getDescripcionUbicacion() {
+        return descripcionUbicacion;
     }
 
-    public void setDecUbicacion(String decUbicacion) {
-        this.decUbicacion = decUbicacion;
+    public void setDescripcionUbicacion(String descripcionUbicacion) {
+        this.descripcionUbicacion = descripcionUbicacion;
     }
 
     @Override
     public String toString() {
-        return "Ubicacion{" + "idUbicacion=" + idUbicacion + ", decUbicacion=" + decUbicacion + '}';
+        return "Ubicacion{" + "idUbicacion=" + idUbicacion + ", decUbicacion=" + descripcionUbicacion + '}';
     }
    
    

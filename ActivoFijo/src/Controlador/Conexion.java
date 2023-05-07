@@ -10,7 +10,7 @@ public class Conexion {
     public Conexion() {
         try {
             Class.forName("oracle.jdbc.OracleDriver");
-            cone = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1532:ORCL","ACTIVOFIJO","ACTIVOFIJO");
+            cone = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","ACTIVOFIJO","ACTIVOFIJO");
         } catch (Exception e) {
             System.out.println("Error conexion:"+e.getMessage());
         }

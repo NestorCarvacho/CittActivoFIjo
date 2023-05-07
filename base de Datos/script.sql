@@ -227,10 +227,33 @@ CREATE SEQUENCE seq_bodega
     NOCYCLE;
     
 -- INSERT DATOS DE PRUEBAS
+-- supervisor, Conserje, Celador, Personal Aseo, Bodeguero
 INSERT INTO tipo_empleado VALUES (SEQ_TP_EMPLEADO.NEXTVAL,'Supervisor');
 INSERT INTO tipo_empleado VALUES (SEQ_TP_EMPLEADO.NEXTVAL,'Conserje');
 INSERT INTO tipo_empleado VALUES (SEQ_TP_EMPLEADO.NEXTVAL,'Celador');
 INSERT INTO tipo_empleado VALUES (SEQ_TP_EMPLEADO.NEXTVAL,'Personal Aseo');
 INSERT INTO tipo_empleado VALUES (SEQ_TP_EMPLEADO.NEXTVAL,'Bodeguero');
+
+-- diurno, Vespertino, Rotativo
+INSERT INTO jornada VALUES (SEQ_JORNADA.NEXTVAL, 'DIURNO');
+INSERT INTO jornada VALUES (SEQ_JORNADA.NEXTVAL, 'VESPERTINO');
+INSERT INTO jornada VALUES (SEQ_JORNADA.NEXTVAL, 'ROTATIVO');
+
+--enUso, usado, reservado, almacenado, desechado
+INSERT INTO estado VALUES (SEQ_ESTADO.NEXTVAL, 'En Uso');
+INSERT INTO estado VALUES (SEQ_ESTADO.NEXTVAL, 'Usado');
+INSERT INTO estado VALUES (SEQ_ESTADO.NEXTVAL, 'Reservado');
+INSERT INTO estado VALUES (SEQ_ESTADO.NEXTVAL, 'Almacenado');
+INSERT INTO estado VALUES (SEQ_ESTADO.NEXTVAL, 'Desechado');
+
+INSERT INTO ubicacion VALUES (SEQ_BODEGA.NEXTVAL,'Bodega Central 1');
+INSERT INTO ubicacion VALUES (SEQ_BODEGA.NEXTVAL,'Bodega Central 2');
+
+
+-- solvente, limpiaPiso, desinfectante
+INSERT INTO tipo_producto VALUES (SEQ_TP_PRODUCTO.NEXTVAL,'Solvente');
+INSERT INTO tipo_producto VALUES (SEQ_TP_PRODUCTO.NEXTVAL,'Limpia Piso');
+INSERT INTO tipo_producto VALUES (SEQ_TP_PRODUCTO.NEXTVAL,'Desinfectante');
+
 
 commit;

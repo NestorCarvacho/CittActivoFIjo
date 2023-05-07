@@ -8,6 +8,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Archivo"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jMenu1MouseClicked"/>
+          </Events>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem5">
               <Properties>
@@ -39,10 +42,14 @@
                 <Property name="text" type="java.lang.String" value="Cerrar Sesion"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem6">
+            <MenuItem class="javax.swing.JMenuItem" name="mnuCerrar">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cerrar"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="mnuCerrarMouseClicked"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuCerrarActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -252,7 +259,7 @@
                                                   <Component id="txtUltimaActializacion" alignment="0" pref="172" max="32767" attributes="0"/>
                                                   <Component id="txtStock" alignment="0" pref="172" max="32767" attributes="0"/>
                                                   <Component id="txtEstado" alignment="0" pref="172" max="32767" attributes="0"/>
-                                                  <Component id="jdcFechaLlegada" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="JdcFechaLlegadaHome" alignment="0" max="32767" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
@@ -287,10 +294,10 @@
                                   <Component id="label8" alignment="1" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtUltimaActializacion" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="label9" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jdcFechaLlegada" min="-2" max="-2" attributes="0"/>
+                                  <Component id="JdcFechaLlegadaHome" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
@@ -543,7 +550,10 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCostoActionPerformed"/>
               </Events>
             </Component>
-            <Component class="com.toedter.calendar.JDateChooser" name="jdcFechaLlegada">
+            <Component class="com.toedter.calendar.JDateChooser" name="JdcFechaLlegadaHome">
+              <Properties>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>
@@ -608,9 +618,9 @@
                           <Component id="cboJornada" pref="172" max="32767" attributes="0"/>
                           <Component id="cboSupervisor" max="32767" attributes="0"/>
                           <Component id="cboCargo" max="32767" attributes="0"/>
-                          <Component id="jdcFechaLlegadaUsuario" max="32767" attributes="0"/>
+                          <Component id="JdcFechaLlegadaUsuario" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="620" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -622,7 +632,9 @@
                               <Component id="btnModificarUsuario" min="-2" pref="120" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="btnEliminarUsuario" min="-2" pref="120" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="btnCancelarUsuario" min="-2" pref="120" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="595" max="32767" attributes="0"/>
                           </Group>
                           <Component id="jScrollPane2" max="32767" attributes="0"/>
                       </Group>
@@ -641,6 +653,7 @@
                           <Component id="btnCrearUsuario" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="btnModificarUsuario" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="btnEliminarUsuario" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnCancelarUsuario" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -678,10 +691,10 @@
                                   <Component id="label20" max="-2" attributes="0"/>
                                   <Component id="cboJornada" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="label21" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jdcFechaLlegadaUsuario" min="-2" max="-2" attributes="0"/>
+                                  <Component id="JdcFechaLlegadaUsuario" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
@@ -802,6 +815,9 @@
                 </Property>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cboSupervisorActionPerformed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
@@ -894,10 +910,21 @@
                 <Property name="text" type="java.lang.String" value="Cargo"/>
               </Properties>
             </Component>
-            <Component class="com.toedter.calendar.JDateChooser" name="jdcFechaLlegadaUsuario">
+            <Component class="com.toedter.calendar.JDateChooser" name="JdcFechaLlegadaUsuario">
               <Properties>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
+            </Component>
+            <Component class="java.awt.Button" name="btnCancelarUsuario">
+              <Properties>
+                <Property name="actionCommand" type="java.lang.String" value="CancelarUsuario"/>
+                <Property name="enabled" type="boolean" value="false"/>
+                <Property name="label" type="java.lang.String" value="CancelarUsuario"/>
+                <Property name="name" type="java.lang.String" value="CancelarUsuario" noResource="true"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnCancelarUsuarioMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -935,7 +962,9 @@
                               <Component id="btnModificarProducto" min="-2" pref="120" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="btnEliminarProducto" min="-2" pref="120" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="729" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="btnCancelarProducto" min="-2" pref="120" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
@@ -954,40 +983,44 @@
                                           <Component id="txtDescripcionProducto" alignment="0" pref="172" max="32767" attributes="0"/>
                                           <Component id="txtNumeroDeSerie" alignment="0" pref="172" max="32767" attributes="0"/>
                                           <Component id="cboTipoProducto" max="32767" attributes="0"/>
-                                          <Component id="jdcFechaASignacionPrducto" max="32767" attributes="0"/>
+                                          <Component id="JdcFechaAsignacionProducto" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="189" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="label46" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="label47" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="label48" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="label49" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="label53" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="label50" pref="121" max="32767" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="txtUltimaActualizacionProducto" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txtStockProducto" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="cboEstadoProducto" alignment="0" pref="172" max="32767" attributes="0"/>
+                                          <Component id="JdcFechaLlegadaProducto" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="cboUbicacionProducto" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace pref="111" max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="label52" alignment="0" min="-2" pref="99" max="-2" attributes="0"/>
+                                                  <Component id="label51" alignment="0" min="-2" pref="99" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="txtMedicionProducto" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
+                                                  <Component id="txtCostoProducto" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="label50" min="-2" pref="42" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
                                               <Component id="txtColorProducto" min="-2" pref="175" max="-2" attributes="0"/>
                                           </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="label46" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="label47" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="label48" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="label49" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="txtUltimaActualizacionProducto" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="txtStockProducto" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="cboEstadoProducto" alignment="0" pref="172" max="32767" attributes="0"/>
-                                                  <Component id="jdcFechaLlegadaProducto" alignment="0" max="32767" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                      </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="label52" alignment="0" min="-2" pref="99" max="-2" attributes="0"/>
-                                          <Component id="label51" alignment="0" min="-2" pref="99" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="txtMedicionProducto" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
-                                          <Component id="txtCostoProducto" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Component id="jScrollPane4" alignment="0" max="32767" attributes="0"/>
@@ -1009,9 +1042,10 @@
                           <Component id="label40" min="-2" pref="27" max="-2" attributes="0"/>
                           <Component id="btnModificarProducto" min="-2" max="-2" attributes="0"/>
                           <Component id="btnEliminarProducto" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnCancelarProducto" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" attributes="0">
@@ -1034,54 +1068,68 @@
                                   </Group>
                                   <Component id="cboTipoProducto" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="label45" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jdcFechaASignacionPrducto" min="-2" max="-2" attributes="0"/>
+                                  <Component id="JdcFechaAsignacionProducto" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="label46" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="txtUltimaActualizacionProducto" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <Group type="103" groupAlignment="1" attributes="0">
+                                                  <Component id="label46" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="txtUltimaActualizacionProducto" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="1" attributes="0">
+                                                  <Component id="label47" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="JdcFechaLlegadaProducto" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Group type="103" groupAlignment="1" attributes="0">
+                                                  <Component id="label51" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="txtMedicionProducto" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="1" attributes="0">
+                                                  <Component id="label52" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="txtCostoProducto" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
                                       </Group>
-                                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="label47" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jdcFechaLlegadaProducto" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="label48" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="txtStockProducto" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="label50" min="-2" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
                                   </Group>
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="label51" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="txtMedicionProducto" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="label52" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="txtCostoProducto" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="label48" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtStockProducto" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtColorProducto" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="label49" min="-2" max="-2" attributes="0"/>
                                   <Component id="cboEstadoProducto" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtColorProducto" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="label50" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="label53" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cboUbicacionProducto" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1293,12 +1341,46 @@
                 <Property name="label" type="java.lang.String" value="Eliminar Producto"/>
               </Properties>
             </Component>
-            <Component class="com.toedter.calendar.JDateChooser" name="jdcFechaLlegadaProducto">
+            <Component class="com.toedter.calendar.JDateChooser" name="JdcFechaLlegadaProducto">
               <Properties>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
-            <Component class="com.toedter.calendar.JDateChooser" name="jdcFechaASignacionPrducto">
+            <Component class="com.toedter.calendar.JDateChooser" name="JdcFechaAsignacionProducto">
+              <Properties>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
+            </Component>
+            <Component class="java.awt.Button" name="btnCancelarProducto">
+              <Properties>
+                <Property name="actionCommand" type="java.lang.String" value="Cancelar"/>
+                <Property name="enabled" type="boolean" value="false"/>
+                <Property name="label" type="java.lang.String" value="Cancelar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnCancelarProductoMouseClicked"/>
+              </Events>
+            </Component>
+            <Component class="java.awt.Label" name="label53">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ubicacion"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="cboUbicacionProducto">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="4">
+                    <StringItem index="0" value="Item 1"/>
+                    <StringItem index="1" value="Item 2"/>
+                    <StringItem index="2" value="Item 3"/>
+                    <StringItem index="3" value="Item 4"/>
+                  </StringArray>
+                </Property>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
@@ -1651,7 +1733,7 @@
                                           <Component id="txtUltimaActializacion2" alignment="0" pref="172" max="32767" attributes="0"/>
                                           <Component id="JcbUbicacioninicio" max="32767" attributes="0"/>
                                           <Component id="JcbUbicacionDestino" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="jdcFechaMovimiento" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="JdcFechaLlegadaMovimiento" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Component id="label27" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -1706,10 +1788,10 @@
                                   <Component id="label33" alignment="1" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtUltimaActializacion2" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="label34" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jdcFechaMovimiento" min="-2" max="-2" attributes="0"/>
+                                  <Component id="JdcFechaLlegadaMovimiento" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -1934,7 +2016,10 @@
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
             </Component>
-            <Component class="com.toedter.calendar.JDateChooser" name="jdcFechaMovimiento">
+            <Component class="com.toedter.calendar.JDateChooser" name="JdcFechaLlegadaMovimiento">
+              <Properties>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>
