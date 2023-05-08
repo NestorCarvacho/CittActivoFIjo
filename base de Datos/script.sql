@@ -255,5 +255,17 @@ INSERT INTO tipo_producto VALUES (SEQ_TP_PRODUCTO.NEXTVAL,'Solvente');
 INSERT INTO tipo_producto VALUES (SEQ_TP_PRODUCTO.NEXTVAL,'Limpia Piso');
 INSERT INTO tipo_producto VALUES (SEQ_TP_PRODUCTO.NEXTVAL,'Desinfectante');
 
+--  run_empleado, nombre_completo_empleado, telefono_empleado, direccion_empleado, tipo_empleado_id_tipo, jornada_id_jornada
+INSERT INTO empleado VALUES (SEQ_EMPLEADO.NEXTVAL,'11.111.111-1','Juan Pérez','987654321','Calle inventada 1',1,1);
+INSERT INTO empleado VALUES (SEQ_EMPLEADO.NEXTVAL,'22.222.222-2','Epitafio Miranda','987654321','Calle inventada 1',2,1);
+INSERT INTO empleado VALUES (SEQ_EMPLEADO.NEXTVAL,'33.333.333-3','Reimundo Arriagada','987654321','Calle inventada 1',3,1);
+INSERT INTO empleado VALUES (SEQ_EMPLEADO.NEXTVAL,'44.444.444-4','Humberto Rojas','987654321','Calle inventada 1',4,1);
+INSERT INTO empleado VALUES (SEQ_EMPLEADO.NEXTVAL,'55.555.555-5','Sebastian Troncoso','987654321','Calle inventada 1',5,1);
+INSERT INTO empleado VALUES (SEQ_EMPLEADO.NEXTVAL,'66.666.666-6','Jaime Coloma','987654321','Calle inventada 1',1,2);
+INSERT INTO empleado VALUES (SEQ_EMPLEADO.NEXTVAL,'77.777.777-7','Alvaro Quesadilla','987654321','Calle inventada 1',1,2);
+INSERT INTO empleado VALUES (SEQ_EMPLEADO.NEXTVAL,'88.888.888-8','Macarena Fuentes','987654321','Calle inventada 1',2,2);
+INSERT INTO empleado VALUES (SEQ_EMPLEADO.NEXTVAL,'99.999.999-9','Maria José Peñafiel','987654321','Calle inventada 1',3,2);
+INSERT INTO empleado VALUES (SEQ_EMPLEADO.NEXTVAL,'12.121.212-1','Antonella Cabezas','987654321','Calle inventada 1',4,2);
+INSERT INTO empleado VALUES (SEQ_EMPLEADO.NEXTVAL,'23.232.323-2','Paola Tapia','987654321','Calle inventada 1',5,1);
 
 commit;

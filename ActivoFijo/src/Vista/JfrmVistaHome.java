@@ -4,16 +4,22 @@
  */
 package Vista;
 
+import Controlador.DaoEmpleado;
 import Controlador.DaoEstado;
 import Controlador.DaoJornada;
 import Controlador.DaoTipoEmpleado;
+import Controlador.DaoTipoProducto;
 import Controlador.DaoUbicacion;
+import Modelo.Empleado;
 import Modelo.Estado;
 import Modelo.TipoEmpleado;
 import Modelo.Jornada;
+import Modelo.TipoProducto;
 import Modelo.Ubicacion;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -26,10 +32,13 @@ public class JfrmVistaHome extends javax.swing.JFrame {
      */
     public JfrmVistaHome() {
         initComponents();
+        //CARGA DE CBO APENAS INICIE EL PROGRAMA
         ListarCboCargo();
         ListarCboJornada();
         ListarCboEstadoProducto();
         ListarCboUbicacion();
+        ListarCboTipoProducto();
+        ListarEmpleados();
 
         setIconImage(getIconImage());
         setIconImage(getIconHome());
@@ -40,6 +49,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
 
     }
 
+    //CARGA DE CBO PARA QUE LOS TOME DESDE LA BASE DE DATOS
     private void ListarCboCargo() {
         cboCargo.addItem("-- Seleccione --");
         for (TipoEmpleado tpEmp : new DaoTipoEmpleado().Listar()) {
@@ -68,6 +78,36 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         cboUbicacionProducto.addItem("-- Seleccione --");
         for (Ubicacion ubi : new DaoUbicacion().Listar()) {
             cboUbicacionProducto.addItem(ubi.getDescripcionUbicacion());
+        }
+    }
+
+    private void ListarCboTipoProducto() {
+        cboTipoProducto.removeAllItems();
+        cboTipoProducto.addItem("-- Seleccione --");
+        for (TipoProducto tpProd : new DaoTipoProducto().Listar()) {
+            cboTipoProducto.addItem(tpProd.getDescripcionTipoProducto());
+        }
+    }
+
+    private void ListarEmpleados() {
+        DefaultTableModel modelo=new DefaultTableModel();
+        JtbListarPersonas.setModel(modelo);
+        modelo.addColumn("Rut");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Telefono");
+        modelo.addColumn("Direccion");
+        modelo.addColumn("Cargo");
+        modelo.addColumn("Jornada");
+        ArrayList<Empleado> listado = new DaoEmpleado().Listar();
+        for (Empleado item : listado) {
+            Object[] fila = new Object[6];
+            fila[0]=item.getRutEmpleado();
+            fila[1]=item.getNombreEmpleado();
+            fila[2]=item.getTelefonoEmpleado();
+            fila[3]=item.getDireccionEmpleado();
+            fila[4]=item.getCargoEmpleado();
+            fila[5]=item.getJornadaEmpleado();
+            modelo.addRow(fila);
         }
     }
 

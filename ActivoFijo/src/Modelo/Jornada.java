@@ -32,7 +32,7 @@ public class Jornada {
 
     @Override
     public String toString() {
-        return "Jornada{" + "idJornada=" + idJornada + ", descripcionJornada=" + descripcionJornada + '}';
+        return descripcionJornada;
     }
         
 }

@@ -11,12 +11,12 @@ public class Producto {
     private int numActivoProducto;
     private int numSerieProducto;
     private String descProducto;
-    private EnumTipoProducto tipoProducto;
+    private TipoProducto tipoProducto;
     private Date fechaAsignacionProducto;
     private Empleado ultimaActualizacionProducto;
     private Date fechaLlegadaProducto;
     private int stockProducto;
-    private EnumEstadoProducto estadoProducto;
+    private Estado estadoProducto;
     private Ubicacion ubicacionProducto;
     private String colorProducto;
     private String contNetoProducto;
@@ -26,7 +26,7 @@ public class Producto {
     public Producto() {
     }
 
-    public Producto(int numActivoProducto, int numSerieProducto, String descProducto, EnumTipoProducto tipoProducto, Date fechaAsignacionProducto, Empleado ultimaActualizacionProducto, Date fechaLlegadaProducto, int stockProducto, EnumEstadoProducto estadoProducto, Ubicacion ubicacionProducto, String colorProducto, String contNetoProducto, int costoProducto) {
+    public Producto(int numActivoProducto, int numSerieProducto, String descProducto, TipoProducto tipoProducto, Date fechaAsignacionProducto, Empleado ultimaActualizacionProducto, Date fechaLlegadaProducto, int stockProducto, Estado estadoProducto, Ubicacion ubicacionProducto, String colorProducto, String contNetoProducto, int costoProducto) {
         this.numActivoProducto = numActivoProducto;
         this.numSerieProducto = numSerieProducto;
         this.descProducto = descProducto;
@@ -43,6 +43,7 @@ public class Producto {
     }
 
     //Metodos Getters & Setters
+
     public int getNumActivoProducto() {
         return numActivoProducto;
     }
@@ -67,11 +68,11 @@ public class Producto {
         this.descProducto = descProducto;
     }
 
-    public EnumTipoProducto getTipoProducto() {
+    public TipoProducto getTipoProducto() {
         return tipoProducto;
     }
 
-    public void setTipoProducto(EnumTipoProducto tipoProducto) {
+    public void setTipoProducto(TipoProducto tipoProducto) {
         this.tipoProducto = tipoProducto;
     }
 
@@ -107,11 +108,11 @@ public class Producto {
         this.stockProducto = stockProducto;
     }
 
-    public EnumEstadoProducto getEstadoProducto() {
+    public Estado getEstadoProducto() {
         return estadoProducto;
     }
 
-    public void setEstadoProducto(EnumEstadoProducto estadoProducto) {
+    public void setEstadoProducto(Estado estadoProducto) {
         this.estadoProducto = estadoProducto;
     }
 
@@ -123,7 +124,6 @@ public class Producto {
         this.ubicacionProducto = ubicacionProducto;
     }
 
-    
     public String getColorProducto() {
         return colorProducto;
     }
@@ -147,17 +147,17 @@ public class Producto {
     public void setCostoProducto(int costoProducto) {
         this.costoProducto = costoProducto;
     }
+
+
     
     //Metodo toString
     @Override
     public String toString() {
-        return "Producto{" + "numActivoProducto=" + numActivoProducto + ", numSerieProducto=" +
-                numSerieProducto + ", descProducto=" + descProducto + ", tipoProducto=" + tipoProducto +
-                ", fechaAsignacionProducto=" + fechaAsignacionProducto + ", ultimaActualizacionProducto=" +
-                ultimaActualizacionProducto + ", fechaLlegadaProducto=" + fechaLlegadaProducto +
-                ", stockProducto=" + stockProducto + ", estadoProducto=" + estadoProducto + ", ubicacionProducto=" + ubicacionProducto + ", colorProducto=" +
-                colorProducto + ", contNetoProducto=" + contNetoProducto + ", costoProducto=" + costoProducto + '}';
+        return "Producto{" + "numActivoProducto=" + numActivoProducto + ", numSerieProducto=" + numSerieProducto + ", descProducto=" + descProducto + ", tipoProducto=" + tipoProducto + ", fechaAsignacionProducto=" + fechaAsignacionProducto + ", ultimaActualizacionProducto=" + ultimaActualizacionProducto + ", fechaLlegadaProducto=" + fechaLlegadaProducto + ", stockProducto=" + stockProducto + ", estadoProducto=" + estadoProducto + ", ubicacionProducto=" + ubicacionProducto + ", colorProducto=" + colorProducto + ", contNetoProducto=" + contNetoProducto + ", costoProducto=" + costoProducto + '}';
     }
     
     //Metodos Customer
+
+
+
 }

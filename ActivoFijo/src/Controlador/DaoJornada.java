@@ -32,7 +32,7 @@ public class DaoJornada implements IDaoJornada{
             }
             return listado;
         } catch (Exception e) {
-            System.out.println("error listar tipo empleado:" + e.getMessage());
+            System.out.println("error listar Jornada:" + e.getMessage());
             return null;
         }
     }
@@ -44,7 +44,22 @@ public class DaoJornada implements IDaoJornada{
 
     @Override
     public Jornada Buscar(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        try {
+            String sql="SELECT * FROM JORNADA WHERE ID_JORNADA=?";
+            PreparedStatement pstm=cone.prepareCall(sql);
+            pstm.setInt(1, id);
+            ResultSet reg=pstm.executeQuery();
+            Jornada jor=null;
+            while (reg.next()) {                
+                jor=new Jornada();
+                jor.setIdJornada(reg.getInt("ID_JORNADA"));
+                jor.setDescripcionJornada(reg.getString("DESCRIPCION_JORNADA"));
+            }
+            return jor;
+        } catch (Exception e) {
+            System.out.println("error buscar Jornada:"+e.getMessage());
+            return null;
+        }
     }
 
     @Override

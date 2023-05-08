@@ -31,6 +31,6 @@ public class TipoEmpleado {
 
     @Override
     public String toString() {
-        return "TipoEmpleado{" + "idTipoEmpleado=" + idTipoEmpleado + ", descripcionTipoEmpleado=" + descripcionTipoEmpleado + '}';
+        return descripcionTipoEmpleado;
     }
 }

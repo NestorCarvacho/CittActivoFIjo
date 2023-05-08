@@ -1,24 +1,20 @@
 
 package Modelo;
 
-import Enumeradores.EnumCargo;
-import Enumeradores.EnumJornada;
-
-
 public class Empleado {
     private int idEmpleado;
     private String rutEmpleado;
     private String nombreEmpleado;
-    private int telefonoEmpleado;
+    private String telefonoEmpleado;
     private String direccionEmpleado;
-    private EnumCargo cargoEmpleado;
-    private EnumJornada jornadaEmpleado; 
+    private TipoEmpleado cargoEmpleado;
+    private Jornada jornadaEmpleado; 
     
     //Metodos Consturctores
     public Empleado() {
     }
 
-    public Empleado(int idEmpleado, String rutEmpleado, String nombreEmpleado, int telefonoEmpleado, String direccionEmpleado, EnumCargo cargoEmpleado, EnumJornada jornadaEmpleado) {
+    public Empleado(int idEmpleado, String rutEmpleado, String nombreEmpleado, String telefonoEmpleado, String direccionEmpleado, TipoEmpleado cargoEmpleado, Jornada jornadaEmpleado) {
         this.idEmpleado = idEmpleado;
         this.rutEmpleado = rutEmpleado;
         this.nombreEmpleado = nombreEmpleado;
@@ -32,7 +28,7 @@ public class Empleado {
     public int getIdEmpleado() {
         return idEmpleado;
     }
-
+    
     public void setIdEmpleado(int idEmpleado) {
         this.idEmpleado = idEmpleado;
     }
@@ -41,7 +37,7 @@ public class Empleado {
         return rutEmpleado;
     }
 
-    public void setRutEmpleado(String rutEmpleado) {
+    public void setRutEmpleado(String rutEmpleado) {    
         this.rutEmpleado = rutEmpleado;
     }
 
@@ -53,11 +49,11 @@ public class Empleado {
         this.nombreEmpleado = nombreEmpleado;
     }
 
-    public int getTelefonoEmpleado() {
+    public String getTelefonoEmpleado() {
         return telefonoEmpleado;
     }
 
-    public void setTelefonoEmpleado(int telefonoEmpleado) {
+    public void setTelefonoEmpleado(String telefonoEmpleado) {
         this.telefonoEmpleado = telefonoEmpleado;
     }
 
@@ -69,30 +65,29 @@ public class Empleado {
         this.direccionEmpleado = direccionEmpleado;
     }
 
-    public EnumCargo getCargoEmpleado() {
+    public TipoEmpleado getCargoEmpleado() {
         return cargoEmpleado;
     }
 
-    public void setCargoEmpleado(EnumCargo cargoEmpleado) {
+    public void setCargoEmpleado(TipoEmpleado cargoEmpleado) {
         this.cargoEmpleado = cargoEmpleado;
     }
 
-    public EnumJornada getJornadaEmpleado() {
+    public Jornada getJornadaEmpleado() {
         return jornadaEmpleado;
     }
 
-    public void setJornadaEmpleado(EnumJornada jornadaEmpleado) {
+    
+    public void setJornadaEmpleado(Jornada jornadaEmpleado) {
         this.jornadaEmpleado = jornadaEmpleado;
     }
-    
+
     //Metodo toString
     @Override
     public String toString() {
-        return "Empleado{" + "idEmpleado=" + idEmpleado + ", rutEmpleado=" + rutEmpleado +
-                ", nombreEmpleado=" + nombreEmpleado + ", telefonoEmpleado=" + telefonoEmpleado +
-                ", direccionEmpleado=" + direccionEmpleado + ", cargoEmpleado=" + cargoEmpleado +
-                ", jornadaEmpleado=" + jornadaEmpleado + '}';
+        return "Empleado{" + "idEmpleado=" + idEmpleado + ", rutEmpleado=" + rutEmpleado + ", nombreEmpleado=" + nombreEmpleado + ", telefonoEmpleado=" + telefonoEmpleado + ", direccionEmpleado=" + direccionEmpleado + ", cargoEmpleado=" + cargoEmpleado + ", jornadaEmpleado=" + jornadaEmpleado + '}';
     }
-    
     //Metodos Customer
+
+
 }

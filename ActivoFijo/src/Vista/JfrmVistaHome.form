@@ -579,51 +579,51 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="label16" alignment="1" min="-2" pref="99" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="label15" min="-2" pref="99" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="label17" alignment="0" pref="99" max="32767" attributes="0"/>
-                                  <Component id="label18" alignment="0" pref="99" max="32767" attributes="0"/>
-                                  <Component id="label19" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtIdEmpleado" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
-                          <Component id="txtNombre" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
-                          <Component id="txtRunEmpleado" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                              <Component id="txtTelefono" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
-                              <Component id="txtDireccion" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="label20" alignment="0" max="-2" attributes="0"/>
-                          <Component id="label21" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="label22" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="label23" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="cboJornada" pref="172" max="32767" attributes="0"/>
-                          <Component id="cboSupervisor" max="32767" attributes="0"/>
-                          <Component id="cboCargo" max="32767" attributes="0"/>
-                          <Component id="JdcFechaLlegadaUsuario" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="label16" alignment="1" min="-2" pref="99" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="label15" min="-2" pref="99" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="label17" alignment="0" pref="99" max="32767" attributes="0"/>
+                                          <Component id="label18" alignment="0" pref="99" max="32767" attributes="0"/>
+                                          <Component id="label19" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txtIdEmpleado" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
+                                  <Component id="txtNombre" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
+                                  <Component id="txtRunEmpleado" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                      <Component id="txtTelefono" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
+                                      <Component id="txtDireccion" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="label20" alignment="0" max="-2" attributes="0"/>
+                                  <Component id="label21" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="label22" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="label23" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="cboJornada" pref="172" max="32767" attributes="0"/>
+                                  <Component id="cboSupervisor" max="32767" attributes="0"/>
+                                  <Component id="cboCargo" max="32767" attributes="0"/>
+                                  <Component id="JdcFechaLlegadaUsuario" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
                           <Group type="102" attributes="0">
                               <Component id="label6" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
