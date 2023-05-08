@@ -56,19 +56,27 @@ public class DaoProducto implements IDaoProducto{
     @Override
     public ArrayList<Producto> Listar() {
         try {
-            String sql = "";
+            String sql = "select * from PRODUCTO";
             PreparedStatement pstm = cone.prepareCall(sql);
-            ArrayList<Producto> listado = new ArrayList<>();
             ResultSet reg = pstm.executeQuery();
-            while (reg.next()) {                
-                Producto pro = new Producto();
-                //Completar con los atributos finales
-                pro.setNumActivoProducto(reg.getInt("NUMACTIVOPRODUCTO"));
-                
-                listado.add(pro);
+            ArrayList<Producto> listado = new ArrayList<>();
+            while (reg.next()) {
+                Producto prod = new Producto();
+                prod.setIdProducto(reg.getInt("ID_PRODUCTO"));
+                prod.setNumActivoProducto(reg.getInt("NUMERO_ACTIVO_PRODUCTO"));
+                prod.setNumSerieProducto(reg.getInt("NUMERO_SERIE_PRODUCTO"));
+                prod.setDescProducto(reg.getString("DESCRIPCION_PRODUCTO"));
+                prod.setUbicacionProducto(new DaoUbicacion().Buscar(reg.getInt("UBICACION_ID_UBICACION")));
+                prod.setTipoProducto(new DaoTipoProducto().Buscar(reg.getInt("TIPO_PRODUCTO_ID_TIPO")));
+                prod.setEstadoProducto(new DaoEstado().Buscar(reg.getInt("ESTADO_ID_ESTADO")));          
+                prod.setFechaLlegadaProducto(reg.getDate("FECHA_LLEGADA_PRODUCTO"));
+                prod.setColorProducto(reg.getString("COLOR_PRODUCTO"));
+                prod.setCostoProducto(reg.getInt("COSTO_PRODUCTO"));
+                listado.add(prod);
             }
             return listado;
         } catch (Exception e) {
+            System.out.println("error listar Producto:" + e.getMessage());
             return null;
         }
     }

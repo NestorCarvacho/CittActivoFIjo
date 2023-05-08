@@ -1,13 +1,12 @@
 
 package Modelo;
 
-import Enumeradores.EnumEstadoProducto;
-import Enumeradores.EnumTipoProducto;
 import java.util.Date;
 
 
 public class Producto {
     //Atributos
+    private int idProducto;
     private int numActivoProducto;
     private int numSerieProducto;
     private String descProducto;
@@ -26,7 +25,8 @@ public class Producto {
     public Producto() {
     }
 
-    public Producto(int numActivoProducto, int numSerieProducto, String descProducto, TipoProducto tipoProducto, Date fechaAsignacionProducto, Empleado ultimaActualizacionProducto, Date fechaLlegadaProducto, int stockProducto, Estado estadoProducto, Ubicacion ubicacionProducto, String colorProducto, String contNetoProducto, int costoProducto) {
+    public Producto(int idProducto, int numActivoProducto, int numSerieProducto, String descProducto, TipoProducto tipoProducto, Date fechaAsignacionProducto, Empleado ultimaActualizacionProducto, Date fechaLlegadaProducto, int stockProducto, Estado estadoProducto, Ubicacion ubicacionProducto, String colorProducto, String contNetoProducto, int costoProducto) {
+        this.idProducto = idProducto;
         this.numActivoProducto = numActivoProducto;
         this.numSerieProducto = numSerieProducto;
         this.descProducto = descProducto;
@@ -148,15 +148,25 @@ public class Producto {
         this.costoProducto = costoProducto;
     }
 
+    public int getIdProducto() {
+        return idProducto;
+    }
+
+    public void setIdProducto(int idProducto) {
+        this.idProducto = idProducto;
+    }
+
 
     
     //Metodo toString
     @Override
     public String toString() {
-        return "Producto{" + "numActivoProducto=" + numActivoProducto + ", numSerieProducto=" + numSerieProducto + ", descProducto=" + descProducto + ", tipoProducto=" + tipoProducto + ", fechaAsignacionProducto=" + fechaAsignacionProducto + ", ultimaActualizacionProducto=" + ultimaActualizacionProducto + ", fechaLlegadaProducto=" + fechaLlegadaProducto + ", stockProducto=" + stockProducto + ", estadoProducto=" + estadoProducto + ", ubicacionProducto=" + ubicacionProducto + ", colorProducto=" + colorProducto + ", contNetoProducto=" + contNetoProducto + ", costoProducto=" + costoProducto + '}';
+        return "Producto{" + "idProducto=" + idProducto + ", numActivoProducto=" + numActivoProducto + ", numSerieProducto=" + numSerieProducto + ", descProducto=" + descProducto + ", tipoProducto=" + tipoProducto + ", fechaAsignacionProducto=" + fechaAsignacionProducto + ", ultimaActualizacionProducto=" + ultimaActualizacionProducto + ", fechaLlegadaProducto=" + fechaLlegadaProducto + ", stockProducto=" + stockProducto + ", estadoProducto=" + estadoProducto + ", ubicacionProducto=" + ubicacionProducto + ", colorProducto=" + colorProducto + ", contNetoProducto=" + contNetoProducto + ", costoProducto=" + costoProducto + '}';
     }
     
     //Metodos Customer
+
+
 
 
 

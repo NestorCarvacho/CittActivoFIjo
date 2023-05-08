@@ -1,7 +1,4 @@
-
 package Controlador;
-
-
 
 import Interfaces.IDaoTipoProducto;
 import Modelo.TipoProducto;
@@ -10,12 +7,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+public class DaoTipoProducto implements IDaoTipoProducto {
 
-public class DaoTipoProducto implements IDaoTipoProducto{
-    
-    private  Connection cone;
-    
-    public DaoTipoProducto(){
+    private Connection cone;
+
+    public DaoTipoProducto() {
         cone = new Conexion().getCone();
     }
 
@@ -46,7 +42,22 @@ public class DaoTipoProducto implements IDaoTipoProducto{
 
     @Override
     public TipoProducto Buscar(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        try {
+            String sql = "SELECT * FROM TIPO_PRODUCTO WHERE ID_TIPO_PRODUCTO=?";
+            PreparedStatement pstm = cone.prepareCall(sql);
+            pstm.setInt(1, id);
+            ResultSet reg = pstm.executeQuery();
+            TipoProducto tpProd = null;
+            while (reg.next()) {
+                tpProd = new TipoProducto();
+                tpProd.setIdTipoProducto(reg.getInt("ID_TIPO_PRODUCTO"));
+                tpProd.setDescripcionTipoProducto(reg.getString("DESCRIPCION_TIPO_PRODUCTO"));
+            }
+            return tpProd;
+        } catch (Exception e) {
+            System.out.println("error buscar TIpo Producto:" + e.getMessage());
+            return null;
+        }
     }
 
     @Override
