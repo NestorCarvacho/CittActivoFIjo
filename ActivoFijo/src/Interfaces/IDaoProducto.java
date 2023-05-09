@@ -10,4 +10,5 @@ public interface IDaoProducto {
     ArrayList<Producto> Listar();
     boolean Modificar (Producto pro);
     boolean Eliminar(int id);
+    Producto Buscar2(int activo);
 }

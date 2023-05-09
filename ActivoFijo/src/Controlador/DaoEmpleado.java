@@ -59,4 +59,28 @@ public class DaoEmpleado implements IDaoEmpleado {
     public boolean Eliminar(int id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+    public Empleado Buscar2(String Run) {
+        try {
+            String sql="SELECT * FROM EMPLEADO WHERE RUN_EMPLEADO=?";
+            PreparedStatement pstm=cone.prepareCall(sql);
+            pstm.setString(1, Run);
+            ResultSet reg = pstm.executeQuery();
+            Empleado emp=null;
+            while (reg.next()) {                
+                emp = new Empleado();
+                emp.setIdEmpleado(reg.getInt("ID_EMPLEADO"));
+                emp.setRutEmpleado(reg.getString("RUN_EMPLEADO"));
+                emp.setNombreEmpleado(reg.getString("NOMBRE_COMPLETO_EMPLEADO"));
+                emp.setTelefonoEmpleado(reg.getString("TELEFONO_EMPLEADO"));
+                emp.setDireccionEmpleado(reg.getString("DIRECCION_EMPLEADO"));
+                emp.setCargoEmpleado(new DaoTipoEmpleado().Buscar2(reg.getInt("TIPO_EMPLEADO_ID_TIPO")));
+                emp.setJornadaEmpleado(new DaoJornada().Buscar(reg.getInt("JORNADA_ID_JORNADA")));
+            }
+            return emp;
+        } catch (Exception e) {
+            System.out.println("error buscar Empleado2:"+e.getMessage());
+            return null;
+        }
+    }
 }

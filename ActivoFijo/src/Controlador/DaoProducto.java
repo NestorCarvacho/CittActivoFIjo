@@ -106,4 +106,33 @@ public class DaoProducto implements IDaoProducto{
             return false;
         }
     }
+
+    @Override
+    public Producto Buscar2(int activo) {
+        try {
+            //Colocar la sentencia sql
+            String sql = "select * from PRODUCTO where NUMERO_ACTIVO_PRODUCTO = ?";
+            PreparedStatement pstm=cone.prepareCall(sql);
+            pstm.setInt(1, activo);
+            ResultSet reg = pstm.executeQuery();
+            Producto prod=null;
+            while (reg.next()) {                
+                prod = new Producto();
+                prod.setIdProducto(reg.getInt("ID_PRODUCTO"));
+                prod.setNumActivoProducto(reg.getInt("NUMERO_ACTIVO_PRODUCTO"));
+                prod.setNumSerieProducto(reg.getInt("NUMERO_SERIE_PRODUCTO"));
+                prod.setDescProducto(reg.getString("DESCRIPCION_PRODUCTO"));
+                prod.setUbicacionProducto(new DaoUbicacion().Buscar(reg.getInt("UBICACION_ID_UBICACION")));
+                prod.setTipoProducto(new DaoTipoProducto().Buscar(reg.getInt("TIPO_PRODUCTO_ID_TIPO")));
+                prod.setEstadoProducto(new DaoEstado().Buscar(reg.getInt("ESTADO_ID_ESTADO")));          
+                prod.setFechaLlegadaProducto(reg.getDate("FECHA_LLEGADA_PRODUCTO"));
+                prod.setColorProducto(reg.getString("COLOR_PRODUCTO"));
+                prod.setCostoProducto(reg.getInt("COSTO_PRODUCTO"));
+            }
+            return prod;
+        } catch (Exception e) {
+            System.out.println("error buscarProducto2:"+e.getMessage());
+            return null;
+        }
+    }
 }

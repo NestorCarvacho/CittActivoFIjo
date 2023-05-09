@@ -9,4 +9,5 @@ public interface IDaoEmpleado {
     ArrayList<Empleado> Listar();
     boolean Modificar (Empleado emp);
     boolean Eliminar(int id);
+    Empleado Buscar2(String Run);
 }
