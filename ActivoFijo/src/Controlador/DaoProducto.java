@@ -37,18 +37,27 @@ public class DaoProducto implements IDaoProducto{
     public Producto Buscar(int id) {
         try {
             //Colocar la sentencia sql
-            String sql = "";
-            PreparedStatement pstm = cone.prepareCall(sql);
+            String sql = "select * from PRODUCTO where ID_PRODUCTO = ?";
+            PreparedStatement pstm=cone.prepareCall(sql);
             pstm.setInt(1, id);
             ResultSet reg = pstm.executeQuery();
-            Producto pro = null;
+            Producto produ=null;
             while (reg.next()) {                
-                pro = new Producto();
-                //Completar con los atributos finales
-                pro.setNumActivoProducto(reg.getInt("NUMACTIVOPRODUCTO"));
+                produ = new Producto();
+                produ.setIdProducto(reg.getInt("ID_PRODUCTO"));
+                produ.setNumActivoProducto(reg.getInt("NUMERO_ACTIVO_PRODUCTO"));
+                produ.setNumSerieProducto(reg.getInt("NUMERO_SERIE_PRODUCTO"));
+                produ.setDescProducto(reg.getString("DESCRIPCION_PRODUCTO"));
+                produ.setUbicacionProducto(new DaoUbicacion().Buscar(reg.getInt("UBICACION_ID_UBICACION")));
+                produ.setTipoProducto(new DaoTipoProducto().Buscar(reg.getInt("TIPO_PRODUCTO_ID_TIPO")));
+                produ.setEstadoProducto(new DaoEstado().Buscar(reg.getInt("ESTADO_ID_ESTADO")));          
+                produ.setFechaLlegadaProducto(reg.getDate("FECHA_LLEGADA_PRODUCTO"));
+                produ.setColorProducto(reg.getString("COLOR_PRODUCTO"));
+                produ.setCostoProducto(reg.getInt("COSTO_PRODUCTO"));
             }
-            return pro;
+            return produ;
         } catch (Exception e) {
+            System.out.println("error buscarProducto2:"+e.getMessage());
             return null;
         }
     }
@@ -135,4 +144,32 @@ public class DaoProducto implements IDaoProducto{
             return null;
         }
     }
+    
+    
+    @Override
+    public Producto Buscar3(String tipo) {
+        try {
+            //Colocar la sentencia sql
+            String sql = "SELECT COUNT(p.id_PRODUCTO) \n"
+                    + "FROM PRODUCTO P \n"
+                    + "JOIN TIPO_PRODUCTO TPPROD \n"
+                    + "on p.TIPO_PRODUCTO_ID_TIPO=TPPROD.ID_TIPO_PRODUCTO \n"
+                    + "WHERE TPPROD.DESCRIPCION_TIPO_PRODUCTO=?  ";
+            
+            PreparedStatement pstm=cone.prepareCall(sql);
+            pstm.setString(1, tipo);
+            ResultSet reg = pstm.executeQuery();
+            Producto prod=null;
+            while (reg.next()) {                
+                prod = new Producto();
+                prod.setStockProducto(reg.getInt("COUNT(p.id_PRODUCTO)"));
+                System.out.println(prod);
+            }
+            return prod;
+        } catch (Exception e) {
+            System.out.println("error buscarProducto3:"+e.getMessage());
+            return null;
+        }
+    }
+    
 }

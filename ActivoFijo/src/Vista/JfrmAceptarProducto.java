@@ -15,6 +15,7 @@ public class JfrmAceptarProducto extends javax.swing.JFrame {
      */
     public JfrmAceptarProducto() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

@@ -15,6 +15,7 @@ public class JfrmAceptarPersonal extends javax.swing.JFrame {
      */
     public JfrmAceptarPersonal() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

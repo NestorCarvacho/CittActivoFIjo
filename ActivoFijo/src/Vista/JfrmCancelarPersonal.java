@@ -15,6 +15,7 @@ public class JfrmCancelarPersonal extends javax.swing.JFrame {
      */
     public JfrmCancelarPersonal() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

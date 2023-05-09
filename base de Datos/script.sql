@@ -268,4 +268,8 @@ INSERT INTO empleado VALUES (SEQ_EMPLEADO.NEXTVAL,'99.999.999-9','Maria José Peñ
 INSERT INTO empleado VALUES (SEQ_EMPLEADO.NEXTVAL,'12.121.212-1','Antonella Cabezas','987654321','Calle inventada 1',4,2);
 INSERT INTO empleado VALUES (SEQ_EMPLEADO.NEXTVAL,'23.232.323-2','Paola Tapia','987654321','Calle inventada 1',5,1);
 
+INSERT INTO PRODUCTO VALUES (seq_producto.NEXTVAL,321,654,'Solvente2',1,1,sysdate,'Negro',80000,1);
+INSERT INTO PRODUCTO VALUES (seq_producto.NEXTVAL,1234,23465,'Solvente3',2,2,sysdate,'Negro',20000,2);
+INSERT INTO PRODUCTO VALUES (seq_producto.NEXTVAL,12322,132446,'Solvente',1,1,sysdate,'Negro',80000,1);
+
 commit;

@@ -190,6 +190,7 @@
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="BtnMnuProductosMouseClicked"/>
+        <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="BtnMnuProductosMouseEntered"/>
       </Events>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
@@ -236,14 +237,14 @@
                                           <Component id="label4" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="155" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="txtNumeroActivoHome" min="-2" pref="172" max="-2" attributes="0"/>
-                                          <Component id="txtDescripcionProductoHome" min="-2" pref="172" max="-2" attributes="0"/>
-                                          <Component id="txtTipoProductoHome" min="-2" pref="172" max="-2" attributes="0"/>
-                                          <Component id="txtNnumeroDeSerieHome" min="-2" pref="172" max="-2" attributes="0"/>
-                                          <Component id="txtFechaAsignacion" alignment="1" min="-2" pref="175" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="txtNumeroActivoHome" pref="172" max="32767" attributes="0"/>
+                                          <Component id="txtDescripcionProductoHome" pref="172" max="32767" attributes="0"/>
+                                          <Component id="txtTipoProductoHome" pref="172" max="32767" attributes="0"/>
+                                          <Component id="txtNnumeroDeSerieHome" pref="172" max="32767" attributes="0"/>
+                                          <Component id="JdcFechaAsignacionHome" alignment="0" max="32767" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="153" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="label12" pref="121" max="32767" attributes="0"/>
@@ -260,7 +261,7 @@
                                               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                                   <Component id="txtUltimaActializacion" alignment="0" pref="172" max="32767" attributes="0"/>
-                                                  <Component id="txtStock" alignment="0" pref="172" max="32767" attributes="0"/>
+                                                  <Component id="txtStockHome" alignment="0" pref="172" max="32767" attributes="0"/>
                                                   <Component id="txtEstado" alignment="0" pref="172" max="32767" attributes="0"/>
                                                   <Component id="JdcFechaLlegadaHome" alignment="0" max="32767" attributes="0"/>
                                               </Group>
@@ -310,7 +311,7 @@
                                       <Component id="label11" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Component id="txtStock" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtStockHome" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="txtEstado" min="-2" max="-2" attributes="0"/>
                                   </Group>
@@ -350,8 +351,8 @@
                               </Group>
                               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="txtFechaAsignacion" min="-2" max="-2" attributes="0"/>
                                   <Component id="label7" min="-2" max="-2" attributes="0"/>
+                                  <Component id="JdcFechaAsignacionHome" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
@@ -452,14 +453,6 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTipoProductoHomeActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtFechaAsignacion">
-              <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtFechaAsignacionActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JTextField" name="txtNnumeroDeSerieHome">
               <Properties>
                 <Property name="enabled" type="boolean" value="false"/>
@@ -491,12 +484,12 @@
                 <Property name="text" type="java.lang.String" value="Fecha Llegada"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtStock">
+            <Component class="javax.swing.JTextField" name="txtStockHome">
               <Properties>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtStockActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtStockHomeActionPerformed"/>
               </Events>
             </Component>
             <Component class="java.awt.Label" name="label10">
@@ -557,6 +550,11 @@
               </Events>
             </Component>
             <Component class="com.toedter.calendar.JDateChooser" name="JdcFechaLlegadaHome">
+              <Properties>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
+            </Component>
+            <Component class="com.toedter.calendar.JDateChooser" name="JdcFechaAsignacionHome">
               <Properties>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>

@@ -15,6 +15,7 @@ public class JfrmCancelarProducto extends javax.swing.JFrame {
      */
     public JfrmCancelarProducto() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

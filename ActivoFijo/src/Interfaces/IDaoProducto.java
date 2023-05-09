@@ -11,4 +11,5 @@ public interface IDaoProducto {
     boolean Modificar (Producto pro);
     boolean Eliminar(int id);
     Producto Buscar2(int activo);
+    Producto Buscar3(String tipo);
 }
