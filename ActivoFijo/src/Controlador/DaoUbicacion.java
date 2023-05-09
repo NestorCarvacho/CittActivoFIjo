@@ -62,6 +62,25 @@ public class DaoUbicacion implements IDaoUbicacion{
     }
 
     @Override
+    public Ubicacion Buscar2(String descUbicacion) {
+        try {
+            String sql = "SELECT ID_UBICACION FROM UBICACION WHERE DESCRIPCION_UBICACION=?";
+            PreparedStatement pstm = cone.prepareCall(sql);
+            pstm.setString(1, descUbicacion);
+            ResultSet reg = pstm.executeQuery();
+            Ubicacion ubi = null;
+            while (reg.next()) {
+                ubi = new Ubicacion();
+                ubi.setIdUbicacion(reg.getInt("ID_UBICACION"));
+            }
+            return ubi;
+        } catch (Exception e) {
+            System.out.println("error buscar Jornada:" + e.getMessage());
+            return null;
+        }
+    }
+
+    @Override
     public boolean Modificar(Ubicacion ubi) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }

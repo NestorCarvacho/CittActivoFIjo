@@ -88,6 +88,7 @@ CREATE TABLE producto (
     color_producto          VARCHAR2(20) NOT NULL,
     costo_producto          NUMBER(8) NOT NULL,
     estado_id_estado        NUMBER NOT NULL,
+    litros_producto         NUMBER,
 
     CONSTRAINT pk_producto PRIMARY KEY ( id_producto )
 );

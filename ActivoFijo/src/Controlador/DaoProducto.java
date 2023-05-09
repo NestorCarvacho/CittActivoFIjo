@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 public class DaoProducto implements IDaoProducto{
     
@@ -18,17 +19,24 @@ public class DaoProducto implements IDaoProducto{
 
     @Override
     public boolean Grabar(Producto pro) {
-        
         try {
-            //Colocar la sentencia sql
-            String sql = "";
-            PreparedStatement pstm = cone.prepareCall(sql);
-            //Completar con los atributos finales
-            pstm.setInt(1, pro.getNumActivoProducto());
-            
-            int afectadas = pstm.executeUpdate();
-            return afectadas > 0;
+            String sql="insert into PRODUCTO values(SEQ_PRODUCTO.NEXTVAL,?,?,?,?,?,?,?,?,?,?)";
+            PreparedStatement pstm=cone.prepareCall(sql);
+            pstm.setInt(1, pro.getNumActivoProducto());//NUMERO_ACTIVO
+            pstm.setInt(2, pro.getNumSerieProducto());//NUMERO DE SERIE
+            pstm.setString(3 , pro.getDescProducto());//DESCRIPCION
+            pstm.setInt(4, pro.getUbicacionProducto().getIdUbicacion());//UBICACION res.getSimple().getNum_habitacion()
+            pstm.setInt(5, pro.getTipoProducto().getIdTipoProducto());//TIPO PRODUCTO
+            java.sql.Date fecha=new java.sql.Date(pro.getFechaLlegadaProducto().getTime());
+            pstm.setDate(6, fecha);//FECHA LLEGADA
+            pstm.setString(7, pro.getColorProducto());//COLOR PRODUCTO
+            pstm.setInt(8, pro.getCostoProducto());//COSTO PRODUCTO
+            pstm.setInt(9, pro.getEstadoProducto().getIdEstado());//ESTADO PRODUCTO
+            pstm.setInt(10, pro.getContNetoProducto());//LITROS
+            int afect = pstm.executeUpdate();
+            return afect>0;            
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"error grabar Producto:"+e.getMessage());
             return false;
         }
     }
@@ -54,6 +62,7 @@ public class DaoProducto implements IDaoProducto{
                 produ.setFechaLlegadaProducto(reg.getDate("FECHA_LLEGADA_PRODUCTO"));
                 produ.setColorProducto(reg.getString("COLOR_PRODUCTO"));
                 produ.setCostoProducto(reg.getInt("COSTO_PRODUCTO"));
+                produ.setContNetoProducto(reg.getInt("LITROS_PRODUCTO"));
             }
             return produ;
         } catch (Exception e) {
@@ -104,14 +113,16 @@ public class DaoProducto implements IDaoProducto{
     }
 
     @Override
-    public boolean Eliminar(int id) {
-        try {
-            String sql = "delete from producto where x=?";
-            PreparedStatement pstm = cone.prepareCall(sql);
-            pstm.setInt(1, id);
-            int afectadas = pstm.executeUpdate();
-            return afectadas > 0;
+    public boolean Eliminar(int NumActivo) {
+         try {
+            String sql="delete from PRODUCTO where NUMERO_ACTIVO_PRODUCTO=?";
+            PreparedStatement pstm=cone.prepareCall(sql);
+            pstm.setInt(1, NumActivo);            
+            int afect = pstm.executeUpdate();
+            return afect>0;            
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"error eliminar Prodcuto:"+e.getMessage());
+             System.out.println("error eliminar Prodcuto:"+e.getMessage());
             return false;
         }
     }
@@ -155,7 +166,6 @@ public class DaoProducto implements IDaoProducto{
                     + "JOIN TIPO_PRODUCTO TPPROD \n"
                     + "on p.TIPO_PRODUCTO_ID_TIPO=TPPROD.ID_TIPO_PRODUCTO \n"
                     + "WHERE TPPROD.DESCRIPCION_TIPO_PRODUCTO=?  ";
-            
             PreparedStatement pstm=cone.prepareCall(sql);
             pstm.setString(1, tipo);
             ResultSet reg = pstm.executeQuery();
@@ -163,7 +173,6 @@ public class DaoProducto implements IDaoProducto{
             while (reg.next()) {                
                 prod = new Producto();
                 prod.setStockProducto(reg.getInt("COUNT(p.id_PRODUCTO)"));
-                System.out.println(prod);
             }
             return prod;
         } catch (Exception e) {

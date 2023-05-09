@@ -128,13 +128,16 @@
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="title" type="java.lang.String" value="Activo Fijo Bodega"/>
     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-      <Color blue="ff" green="ff" id="white" palette="1" red="ff" type="palette"/>
+      <Color blue="0" green="c8" id="orange" palette="1" red="ff" type="palette"/>
     </Property>
     <Property name="iconImage" type="java.awt.Image" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
       <Connection component="Form" name="iconImage" type="property"/>
     </Property>
     <Property name="iconImages" type="java.util.List" editor="org.netbeans.modules.form.ComponentChooserEditor">
       <ComponentRef name="null"/>
+    </Property>
+    <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[1920, 1080]"/>
     </Property>
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[800, 600]"/>
@@ -221,65 +224,64 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane1" max="32767" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="label1" min="-2" pref="281" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="label45" alignment="0" min="-2" pref="99" max="-2" attributes="0"/>
+                                      <Component id="label54" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="label55" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="label56" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="label57" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="cboUbicacionProductoHome" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="txtNumeroActivoHome" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtDescripcionProductoHome" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtNnumeroDeSerieHome" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="cboTipoProductoHome" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="189" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="label7" pref="0" max="32767" attributes="0"/>
-                                          <Component id="label3" alignment="0" min="-2" pref="99" max="-2" attributes="0"/>
-                                          <Component id="label2" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="label5" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="label4" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="label62" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="label61" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="label60" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="label59" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="155" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="txtNumeroActivoHome" pref="172" max="32767" attributes="0"/>
-                                          <Component id="txtDescripcionProductoHome" pref="172" max="32767" attributes="0"/>
-                                          <Component id="txtTipoProductoHome" pref="172" max="32767" attributes="0"/>
-                                          <Component id="txtNnumeroDeSerieHome" pref="172" max="32767" attributes="0"/>
-                                          <Component id="JdcFechaAsignacionHome" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="153" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="label12" pref="121" max="32767" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="txtColorProductoHome" min="-2" pref="175" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="label8" max="32767" attributes="0"/>
-                                                  <Component id="label9" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="label10" max="32767" attributes="0"/>
-                                                  <Component id="label11" alignment="0" max="32767" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="txtUltimaActializacion" alignment="0" pref="172" max="32767" attributes="0"/>
-                                                  <Component id="txtStockHome" alignment="0" pref="172" max="32767" attributes="0"/>
-                                                  <Component id="txtEstado" alignment="0" pref="172" max="32767" attributes="0"/>
-                                                  <Component id="JdcFechaLlegadaHome" alignment="0" max="32767" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="label14" alignment="0" min="-2" pref="99" max="-2" attributes="0"/>
-                                          <Component id="label13" alignment="0" min="-2" pref="99" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="txtUnidadesLitros" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
-                                          <Component id="txtCosto" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
+                                          <Component id="txtUltimaActualizacionProducto1" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txtStockHome" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="cboEstadoProductoHome" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="JdcFechaLlegadaHome" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="label58" min="-2" pref="99" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                                      <Component id="txtcontNetoProductoHome" min="-2" pref="172" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <EmptySpace min="0" pref="81" max="32767" attributes="0"/>
+                              <EmptySpace pref="183" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="label63" alignment="0" min="-2" pref="42" max="-2" attributes="0"/>
+                                  <Component id="label64" alignment="0" min="-2" pref="99" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="29" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="txtCostoHome" max="32767" attributes="0"/>
+                                  <Component id="txtColorProductoHome" pref="175" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="jScrollPane1" alignment="0" pref="1345" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="label1" min="-2" pref="281" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -291,84 +293,74 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" pref="410" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                      <Component id="label1" min="-2" pref="27" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="label8" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtUltimaActializacion" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="label45" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtNumeroActivoHome" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="label54" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtNnumeroDeSerieHome" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="label55" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtDescripcionProductoHome" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                                  <Component id="label56" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                              <Component id="cboTipoProductoHome" alignment="1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="label9" min="-2" max="-2" attributes="0"/>
-                                  <Component id="JdcFechaLlegadaHome" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="label62" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtUltimaActualizacionProducto1" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="label61" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="JdcFechaLlegadaHome" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="label64" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtCostoHome" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="label63" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="txtColorProductoHome" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="label10" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                                      <Component id="label11" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="txtStockHome" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="txtEstado" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtColorProductoHome" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="label12" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="label60" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtStockHome" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="label1" min="-2" pref="27" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                                      <Component id="label3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="txtNumeroActivoHome" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="label59" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cboEstadoProductoHome" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="label2" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtNnumeroDeSerieHome" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="label5" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                                      <Component id="label4" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="txtDescripcionProductoHome" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="txtTipoProductoHome" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="label7" min="-2" max="-2" attributes="0"/>
-                                  <Component id="JdcFechaAsignacionHome" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="label13" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtUnidadesLitros" alignment="1" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="label14" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtCosto" alignment="1" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="26" max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="label57" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="cboUbicacionProductoHome" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="label58" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtcontNetoProductoHome" alignment="1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="59" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -409,24 +401,9 @@
                 <Property name="text" type="java.lang.String" value="Detalle del Producto"/>
               </Properties>
             </Component>
-            <Component class="java.awt.Label" name="label2">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Numero de Serie"/>
-              </Properties>
-            </Component>
-            <Component class="java.awt.Label" name="label3">
+            <Component class="java.awt.Label" name="label45">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Numero de Activo"/>
-              </Properties>
-            </Component>
-            <Component class="java.awt.Label" name="label5">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Descripcion"/>
-              </Properties>
-            </Component>
-            <Component class="java.awt.Label" name="label4">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Tipo de Producto"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtNumeroActivoHome">
@@ -437,22 +414,6 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNumeroActivoHomeActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtDescripcionProductoHome">
-              <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDescripcionProductoHomeActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JTextField" name="txtTipoProductoHome">
-              <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTipoProductoHomeActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JTextField" name="txtNnumeroDeSerieHome">
               <Properties>
                 <Property name="enabled" type="boolean" value="false"/>
@@ -461,28 +422,99 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNnumeroDeSerieHomeActionPerformed"/>
               </Events>
             </Component>
-            <Component class="java.awt.Label" name="label7">
+            <Component class="java.awt.Label" name="label54">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Fecha Asignacion"/>
+                <Property name="text" type="java.lang.String" value="Numero de Serie"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtUltimaActializacion">
+            <Component class="java.awt.Label" name="label55">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Descripcion"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtDescripcionProductoHome">
               <Properties>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtUltimaActializacionActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDescripcionProductoHomeActionPerformed"/>
               </Events>
             </Component>
-            <Component class="java.awt.Label" name="label8">
+            <Component class="javax.swing.JComboBox" name="cboTipoProductoHome">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Ultima Actualizaci&#xf3;n"/>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="4">
+                    <StringItem index="0" value="Item 1"/>
+                    <StringItem index="1" value="Item 2"/>
+                    <StringItem index="2" value="Item 3"/>
+                    <StringItem index="3" value="Item 4"/>
+                  </StringArray>
+                </Property>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="java.awt.Label" name="label56">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Tipo de Producto"/>
               </Properties>
             </Component>
-            <Component class="java.awt.Label" name="label9">
+            <Component class="java.awt.Label" name="label57">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Fecha Llegada"/>
+                <Property name="text" type="java.lang.String" value="Ubicacion"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="cboUbicacionProductoHome">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="4">
+                    <StringItem index="0" value="Item 1"/>
+                    <StringItem index="1" value="Item 2"/>
+                    <StringItem index="2" value="Item 3"/>
+                    <StringItem index="3" value="Item 4"/>
+                  </StringArray>
+                </Property>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtcontNetoProductoHome">
+              <Properties>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtcontNetoProductoHomeActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="java.awt.Label" name="label58">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Unidades/Lts"/>
+              </Properties>
+            </Component>
+            <Component class="java.awt.Label" name="label59">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Estado"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="cboEstadoProductoHome">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="4">
+                    <StringItem index="0" value="Item 1"/>
+                    <StringItem index="1" value="Item 2"/>
+                    <StringItem index="2" value="Item 3"/>
+                    <StringItem index="3" value="Item 4"/>
+                  </StringArray>
+                </Property>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JTextField" name="txtStockHome">
               <Properties>
@@ -492,22 +524,40 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtStockHomeActionPerformed"/>
               </Events>
             </Component>
-            <Component class="java.awt.Label" name="label10">
+            <Component class="java.awt.Label" name="label60">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Stock"/>
               </Properties>
             </Component>
-            <Component class="java.awt.Label" name="label11">
+            <Component class="java.awt.Label" name="label61">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Estado"/>
+                <Property name="text" type="java.lang.String" value="Fecha Llegada"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtEstado">
+            <Component class="com.toedter.calendar.JDateChooser" name="JdcFechaLlegadaHome">
+              <Properties>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtUltimaActualizacionProducto1">
               <Properties>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtEstadoActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtUltimaActualizacionProducto1ActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="java.awt.Label" name="label62">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ultima Actualizaci&#xf3;n"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtCostoHome">
+              <Properties>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCostoHomeActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtColorProductoHome">
@@ -518,45 +568,14 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtColorProductoHomeActionPerformed"/>
               </Events>
             </Component>
-            <Component class="java.awt.Label" name="label12">
+            <Component class="java.awt.Label" name="label63">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Color"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtUnidadesLitros">
-              <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtUnidadesLitrosActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="java.awt.Label" name="label13">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Unidades/Lts"/>
-              </Properties>
-            </Component>
-            <Component class="java.awt.Label" name="label14">
+            <Component class="java.awt.Label" name="label64">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Costo"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="txtCosto">
-              <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCostoActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="com.toedter.calendar.JDateChooser" name="JdcFechaLlegadaHome">
-              <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-            </Component>
-            <Component class="com.toedter.calendar.JDateChooser" name="JdcFechaAsignacionHome">
-              <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -640,7 +659,7 @@
                       <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="cboJornadaEmpleado" max="32767" attributes="0"/>
-                          <Component id="JdcFechaLlegadaUsuario" alignment="0" pref="275" max="32767" attributes="0"/>
+                          <Component id="JdcFechaLlegadaUsuario" alignment="0" pref="284" max="32767" attributes="0"/>
                           <Component id="cboSupervisorEmpleado" alignment="0" max="32767" attributes="0"/>
                           <Component id="cboCargoEmpleado" alignment="0" max="32767" attributes="0"/>
                       </Group>
@@ -1052,68 +1071,80 @@
                               <Component id="btnModificarProducto" min="-2" pref="120" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="btnEliminarProducto" min="-2" pref="120" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="btnCancelarProducto" min="-2" pref="120" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jScrollPane4" alignment="0" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="label45" alignment="0" pref="0" max="32767" attributes="0"/>
-                                          <Component id="label42" alignment="0" min="-2" pref="99" max="-2" attributes="0"/>
-                                          <Component id="label41" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="label43" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="label44" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="155" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="txtNumeroDeActivo" alignment="0" pref="172" max="32767" attributes="0"/>
-                                          <Component id="txtDescripcionProducto" alignment="0" pref="172" max="32767" attributes="0"/>
-                                          <Component id="txtNumeroDeSerie" alignment="0" pref="172" max="32767" attributes="0"/>
-                                          <Component id="cboTipoProducto" max="32767" attributes="0"/>
-                                          <Component id="JdcFechaAsignacionProducto" max="32767" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="189" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="label46" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="label47" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="label48" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="label49" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
+                                              <Component id="label42" alignment="0" min="-2" pref="99" max="-2" attributes="0"/>
+                                              <Component id="label41" alignment="0" pref="203" max="32767" attributes="0"/>
+                                              <Component id="label43" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="label44" alignment="0" max="32767" attributes="0"/>
                                           </Group>
                                           <Component id="label53" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="txtUltimaActualizacionProducto" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="txtStockProducto" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="cboEstadoProducto" alignment="0" pref="172" max="32767" attributes="0"/>
-                                          <Component id="JdcFechaLlegadaProducto" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="cboUbicacionProducto" max="32767" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="cboUbicacionProductoProducto" max="32767" attributes="0"/>
+                                          <Component id="txtNumeroDeActivoProducto" alignment="0" pref="172" max="32767" attributes="0"/>
+                                          <Component id="txtDescripcionProductoProducto" alignment="0" pref="172" max="32767" attributes="0"/>
+                                          <Component id="txtNumeroDeSerieProducto" alignment="0" pref="172" max="32767" attributes="0"/>
+                                          <Component id="cboTipoProductoProducto" alignment="0" max="32767" attributes="0"/>
                                       </Group>
-                                      <EmptySpace pref="111" max="32767" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="label52" alignment="0" min="-2" pref="99" max="-2" attributes="0"/>
-                                                  <Component id="label51" alignment="0" min="-2" pref="99" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="label46" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="label47" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="label48" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="label49" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
                                               </Group>
+                                              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="txtUltimaActualizacionProductoProducto" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="txtStockProductoProducto" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="cboEstadoProductoProducto" alignment="0" pref="172" max="32767" attributes="0"/>
+                                                  <Component id="JdcFechaLlegadaProductoProducto" alignment="0" max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Component id="label51" min="-2" pref="99" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="txtMedicionProducto" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
-                                                  <Component id="txtCostoProducto" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Component id="label50" min="-2" pref="42" max="-2" attributes="0"/>
-                                              <EmptySpace max="32767" attributes="0"/>
-                                              <Component id="txtColorProducto" min="-2" pref="175" max="-2" attributes="0"/>
+                                              <Component id="txtcontNetoProductoProducto" min="-2" pref="172" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
+                                      <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="btnGuardarProducto" min="-2" pref="120" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="btnCancelarProducto" min="-2" pref="120" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="label50" min="-2" pref="42" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" alignment="1" attributes="0">
+                                                      <Component id="label52" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="txtColorProductoProducto" max="32767" attributes="0"/>
+                                                  <Component id="txtCostoProductoProducto" max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="jPanel4" max="32767" attributes="0"/>
                                   </Group>
-                                  <Component id="jScrollPane4" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -1132,94 +1163,91 @@
                           <Component id="label40" min="-2" pref="27" max="-2" attributes="0"/>
                           <Component id="btnModificarProducto" min="-2" max="-2" attributes="0"/>
                           <Component id="btnEliminarProducto" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnCancelarProducto" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Group type="102" attributes="0">
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="label42" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="txtNumeroDeActivo" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="label41" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="txtNumeroDeSerie" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="label43" min="-2" max="-2" attributes="0"/>
-                                          <Component id="txtDescripcionProducto" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                                      <Component id="label44" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="cboTipoProducto" min="-2" max="-2" attributes="0"/>
+                                  <Component id="label46" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtUltimaActualizacionProductoProducto" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="label45" min="-2" max="-2" attributes="0"/>
-                                  <Component id="JdcFechaAsignacionProducto" min="-2" max="-2" attributes="0"/>
+                                  <Component id="label47" min="-2" max="-2" attributes="0"/>
+                                  <Component id="JdcFechaLlegadaProductoProducto" min="-2" max="-2" attributes="0"/>
                               </Group>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <Group type="103" groupAlignment="1" attributes="0">
-                                                  <Component id="label46" alignment="1" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="txtUltimaActualizacionProducto" alignment="1" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="1" attributes="0">
-                                                  <Component id="label47" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="JdcFechaLlegadaProducto" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Group type="102" attributes="0">
-                                              <Group type="103" groupAlignment="1" attributes="0">
-                                                  <Component id="label51" alignment="1" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="txtMedicionProducto" alignment="1" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="1" attributes="0">
-                                                  <Component id="label52" alignment="1" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="txtCostoProducto" alignment="1" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                      </Group>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="label48" alignment="1" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="txtStockProducto" alignment="1" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="label50" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                  </Group>
-                                  <Component id="txtColorProducto" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="label49" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cboEstadoProducto" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="label48" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtStockProductoProducto" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="label49" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cboEstadoProductoProducto" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="btnCancelarProducto" min="-2" max="-2" attributes="0"/>
+                                          <Component id="btnGuardarProducto" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="label52" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtCostoProductoProducto" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="label53" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cboUbicacionProducto" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="label50" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtColorProductoProducto" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <EmptySpace min="174" pref="174" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="label42" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="txtNumeroDeActivoProducto" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="1" attributes="0">
+                                                  <Component id="label41" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="txtNumeroDeSerieProducto" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="1" attributes="0">
+                                                  <Component id="label43" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="txtDescripcionProductoProducto" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                                              <Component id="label44" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="cboTipoProductoProducto" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="label53" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cboUbicacionProductoProducto" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="label51" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtcontNetoProductoProducto" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1246,34 +1274,40 @@
                       </Table>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="JtbListarProductosProductosMouseClicked"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JTextField" name="txtNumeroDeActivo">
+            <Component class="javax.swing.JTextField" name="txtNumeroDeActivoProducto">
               <Properties>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNumeroDeActivoActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNumeroDeActivoProductoActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtNumeroDeSerie">
+            <Component class="javax.swing.JTextField" name="txtNumeroDeSerieProducto">
+              <Properties>
+                <Property name="enabled" type="boolean" value="false"/>
+                <Property name="selectedTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="0" red="0" type="rgb"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNumeroDeSerieProductoActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtDescripcionProductoProducto">
               <Properties>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNumeroDeSerieActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDescripcionProductoProductoActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtDescripcionProducto">
-              <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDescripcionProductoActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JComboBox" name="cboTipoProducto">
+            <Component class="javax.swing.JComboBox" name="cboTipoProductoProducto">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="4">
@@ -1289,23 +1323,23 @@
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtUltimaActualizacionProducto">
+            <Component class="javax.swing.JTextField" name="txtUltimaActualizacionProductoProducto">
               <Properties>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtUltimaActualizacionProductoActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtUltimaActualizacionProductoProductoActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtStockProducto">
+            <Component class="javax.swing.JTextField" name="txtStockProductoProducto">
               <Properties>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtStockProductoActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtStockProductoProductoActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JComboBox" name="cboEstadoProducto">
+            <Component class="javax.swing.JComboBox" name="cboEstadoProductoProducto">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="4">
@@ -1321,28 +1355,28 @@
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtColorProducto">
+            <Component class="javax.swing.JTextField" name="txtColorProductoProducto">
               <Properties>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtColorProductoActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtColorProductoProductoActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtMedicionProducto">
+            <Component class="javax.swing.JTextField" name="txtcontNetoProductoProducto">
               <Properties>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtMedicionProductoActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtcontNetoProductoProductoActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtCostoProducto">
+            <Component class="javax.swing.JTextField" name="txtCostoProductoProducto">
               <Properties>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCostoProductoActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCostoProductoProductoActionPerformed"/>
               </Events>
             </Component>
             <Component class="java.awt.Label" name="label40">
@@ -1371,11 +1405,6 @@
             <Component class="java.awt.Label" name="label44">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Tipo de Producto"/>
-              </Properties>
-            </Component>
-            <Component class="java.awt.Label" name="label45">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Fecha Asignacion"/>
               </Properties>
             </Component>
             <Component class="java.awt.Label" name="label46">
@@ -1430,13 +1459,11 @@
               <Properties>
                 <Property name="label" type="java.lang.String" value="Eliminar Producto"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminarProductoActionPerformed"/>
+              </Events>
             </Component>
-            <Component class="com.toedter.calendar.JDateChooser" name="JdcFechaLlegadaProducto">
-              <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-            </Component>
-            <Component class="com.toedter.calendar.JDateChooser" name="JdcFechaAsignacionProducto">
+            <Component class="com.toedter.calendar.JDateChooser" name="JdcFechaLlegadaProductoProducto">
               <Properties>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
@@ -1456,7 +1483,7 @@
                 <Property name="text" type="java.lang.String" value="Ubicacion"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="cboUbicacionProducto">
+            <Component class="javax.swing.JComboBox" name="cboUbicacionProductoProducto">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="4">
@@ -1472,6 +1499,94 @@
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
             </Component>
+            <Component class="java.awt.Button" name="btnGuardarProducto">
+              <Properties>
+                <Property name="actionCommand" type="java.lang.String" value="Guardar"/>
+                <Property name="enabled" type="boolean" value="false"/>
+                <Property name="label" type="java.lang.String" value="Guardar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnGuardarProductoMouseClicked"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGuardarProductoActionPerformed"/>
+              </Events>
+            </Component>
+            <Container class="javax.swing.JPanel" name="jPanel4">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
+                    <BevelBorder/>
+                  </Border>
+                </Property>
+              </Properties>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace pref="35" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="TxtFiltroActivoProducto" alignment="0" min="-2" pref="244" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                                  <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
+                                  <Component id="btnBuscarProducto" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
+                                  <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                          <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                          <Component id="TxtFiltroActivoProducto" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                          <Component id="btnBuscarProducto" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="55" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="jLabel6">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="BUSCAR PRODUCTO"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel7">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="INGRESE NUMERO DE ACTIVO"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="TxtFiltroActivoProducto">
+                </Component>
+                <Component class="javax.swing.JButton" name="btnBuscarProducto">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Buscar"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarProductoActionPerformed"/>
+                  </Events>
+                </Component>
+              </SubComponents>
+            </Container>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="JpInformes">
@@ -1520,7 +1635,7 @@
                           <Component id="jPanel1" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane5" pref="553" max="32767" attributes="0"/>
+                      <Component id="jScrollPane5" pref="556" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1642,7 +1757,7 @@
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="BtnFiltrarInforme" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="58" max="32767" attributes="0"/>
+                          <EmptySpace pref="67" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1828,7 +1943,7 @@
                                   </Group>
                                   <Component id="label27" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="0" pref="444" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="453" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -1896,7 +2011,7 @@
                               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="26" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

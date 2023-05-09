@@ -8,4 +8,5 @@ public interface IDaoUbicacion {
     ArrayList<Ubicacion> Listar();
     boolean Modificar (Ubicacion ubi);
     boolean Eliminar(int id);
+    Ubicacion Buscar2(String descUbicacion);
 }

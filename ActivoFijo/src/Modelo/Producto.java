@@ -11,27 +11,25 @@ public class Producto {
     private int numSerieProducto;
     private String descProducto;
     private TipoProducto tipoProducto;
-    private Date fechaAsignacionProducto;
     private Empleado ultimaActualizacionProducto;
     private Date fechaLlegadaProducto;
     private int stockProducto;
     private Estado estadoProducto;
     private Ubicacion ubicacionProducto;
     private String colorProducto;
-    private String contNetoProducto;
+    private int contNetoProducto;
     private int costoProducto;
 
     //Metodos Constructores
     public Producto() {
     }
 
-    public Producto(int idProducto, int numActivoProducto, int numSerieProducto, String descProducto, TipoProducto tipoProducto, Date fechaAsignacionProducto, Empleado ultimaActualizacionProducto, Date fechaLlegadaProducto, int stockProducto, Estado estadoProducto, Ubicacion ubicacionProducto, String colorProducto, String contNetoProducto, int costoProducto) {
+    public Producto(int idProducto, int numActivoProducto, int numSerieProducto, String descProducto, TipoProducto tipoProducto, Empleado ultimaActualizacionProducto, Date fechaLlegadaProducto, int stockProducto, Estado estadoProducto, Ubicacion ubicacionProducto, String colorProducto, int contNetoProducto, int costoProducto) {
         this.idProducto = idProducto;
         this.numActivoProducto = numActivoProducto;
         this.numSerieProducto = numSerieProducto;
         this.descProducto = descProducto;
         this.tipoProducto = tipoProducto;
-        this.fechaAsignacionProducto = fechaAsignacionProducto;
         this.ultimaActualizacionProducto = ultimaActualizacionProducto;
         this.fechaLlegadaProducto = fechaLlegadaProducto;
         this.stockProducto = stockProducto;
@@ -74,14 +72,6 @@ public class Producto {
 
     public void setTipoProducto(TipoProducto tipoProducto) {
         this.tipoProducto = tipoProducto;
-    }
-
-    public Date getFechaAsignacionProducto() {
-        return fechaAsignacionProducto;
-    }
-
-    public void setFechaAsignacionProducto(Date fechaAsignacionProducto) {
-        this.fechaAsignacionProducto = fechaAsignacionProducto;
     }
 
     public Empleado getUltimaActualizacionProducto() {
@@ -132,11 +122,11 @@ public class Producto {
         this.colorProducto = colorProducto;
     }
 
-    public String getContNetoProducto() {
+    public int getContNetoProducto() {
         return contNetoProducto;
     }
 
-    public void setContNetoProducto(String contNetoProducto) {
+    public void setContNetoProducto(int contNetoProducto) {
         this.contNetoProducto = contNetoProducto;
     }
 
@@ -161,7 +151,7 @@ public class Producto {
     //Metodo toString
     @Override
     public String toString() {
-        return "Producto{" + "idProducto=" + idProducto + ", numActivoProducto=" + numActivoProducto + ", numSerieProducto=" + numSerieProducto + ", descProducto=" + descProducto + ", tipoProducto=" + tipoProducto + ", fechaAsignacionProducto=" + fechaAsignacionProducto + ", ultimaActualizacionProducto=" + ultimaActualizacionProducto + ", fechaLlegadaProducto=" + fechaLlegadaProducto + ", stockProducto=" + stockProducto + ", estadoProducto=" + estadoProducto + ", ubicacionProducto=" + ubicacionProducto + ", colorProducto=" + colorProducto + ", contNetoProducto=" + contNetoProducto + ", costoProducto=" + costoProducto + '}';
+        return "Producto{" + "idProducto=" + idProducto + ", numActivoProducto=" + numActivoProducto + ", numSerieProducto=" + numSerieProducto + ", descProducto=" + descProducto + ", tipoProducto=" + tipoProducto + ", ultimaActualizacionProducto=" + ultimaActualizacionProducto + ", fechaLlegadaProducto=" + fechaLlegadaProducto + ", stockProducto=" + stockProducto + ", estadoProducto=" + estadoProducto + ", ubicacionProducto=" + ubicacionProducto + ", colorProducto=" + colorProducto + ", contNetoProducto=" + contNetoProducto + ", costoProducto=" + costoProducto + '}';
     }
     
     //Metodos Customer

@@ -69,4 +69,23 @@ public class DaoTipoProducto implements IDaoTipoProducto {
     public boolean Eliminar(int id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+    
+    @Override
+    public TipoProducto Buscar2(String TipoProducto) {
+        try {
+            String sql = "SELECT ID_TIPO_PRODUCTO FROM TIPO_PRODUCTO WHERE DESCRIPCION_TIPO_PRODUCTO=?";
+            PreparedStatement pstm = cone.prepareCall(sql);
+            pstm.setString(1, TipoProducto);
+            ResultSet reg = pstm.executeQuery();
+            TipoProducto tpProd = null;
+            while (reg.next()) {
+                tpProd = new TipoProducto();
+                tpProd.setIdTipoProducto(reg.getInt("ID_TIPO_PRODUCTO"));
+            }
+            return tpProd;
+        } catch (Exception e) {
+            System.out.println("error buscar TIpo Producto:" + e.getMessage());
+            return null;
+        }
+    }
 }

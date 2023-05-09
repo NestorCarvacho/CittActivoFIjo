@@ -9,7 +9,7 @@ public interface IDaoProducto {
     Producto Buscar(int id);
     ArrayList<Producto> Listar();
     boolean Modificar (Producto pro);
-    boolean Eliminar(int id);
+    boolean Eliminar(int NumActivo);
     Producto Buscar2(int activo);
     Producto Buscar3(String tipo);
 }

@@ -70,4 +70,22 @@ public class DaoEstado implements IDaoEstado{
     public boolean Eliminar(int id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+    
+    public Estado Buscar2(String estado) {
+        try {
+            String sql="SELECT ID_ESTADO FROM ESTADO WHERE DESCRIPCION_ESTADO=?";
+            PreparedStatement pstm=cone.prepareCall(sql);
+            pstm.setString(1, estado);
+            ResultSet reg=pstm.executeQuery();
+            Estado est=null;
+            while (reg.next()) {                
+                est = new Estado();
+                est.setIdEstado(reg.getInt("ID_ESTADO"));
+            }
+            return est;
+        } catch (Exception e) {
+            System.out.println("error buscar Jornada:"+e.getMessage());
+            return null;
+        }
+    }
 }
