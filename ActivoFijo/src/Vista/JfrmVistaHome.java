@@ -2130,7 +2130,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
             int costoProducto = Integer.parseInt(txtCostoProductoProducto.getText());
             Estado estado = new DaoEstado().Buscar2(cboEstadoProductoProducto.getSelectedItem().toString());
             int litros = Integer.parseInt(txtcontNetoProductoProducto.getText());
-            Producto producto = new Producto(idProducto, NumActivoProducto, NumSerieProducto, DescProducto, tpProd, actualizacion, fecha, costoProducto, estado, ubicacion, colorProducto, costoProducto, costoProducto);
+            Producto producto = new Producto(idProducto, NumActivoProducto, NumSerieProducto, DescProducto, tpProd, actualizacion, fecha, costoProducto, estado, ubicacion, colorProducto, litros, costoProducto);
             boolean resp = new DaoProducto().Grabar(producto);
             if (resp) {
                 JOptionPane.showMessageDialog(null, "Grabo");

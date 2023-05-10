@@ -90,6 +90,7 @@ CREATE TABLE jornada (
 
 CREATE TABLE producto (
     id_producto             NUMBER NOT NULL,
+    numero_activo_producto  NUMBER NOT NULL,
     numero_serie_producto   NUMBER(12) NOT NULL,
     descripcion_producto    VARCHAR2(250) NOT NULL,
     ubicacion_id_ubicacion  NUMBER NOT NULL,

@@ -25,7 +25,7 @@ public class DaoProducto implements IDaoProducto{
             pstm.setInt(1, pro.getNumActivoProducto());//NUMERO_ACTIVO
             pstm.setInt(2, pro.getNumSerieProducto());//NUMERO DE SERIE
             pstm.setString(3 , pro.getDescProducto());//DESCRIPCION
-            pstm.setInt(4, pro.getUbicacionProducto().getIdUbicacion());//UBICACION res.getSimple().getNum_habitacion()
+            pstm.setInt(4, pro.getUbicacionProducto().getIdUbicacion());//UBICACION
             pstm.setInt(5, pro.getTipoProducto().getIdTipoProducto());//TIPO PRODUCTO
             java.sql.Date fecha=new java.sql.Date(pro.getFechaLlegadaProducto().getTime());
             pstm.setDate(6, fecha);//FECHA LLEGADA
