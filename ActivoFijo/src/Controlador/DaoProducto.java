@@ -101,13 +101,32 @@ public class DaoProducto implements IDaoProducto{
 
     @Override
     public boolean Modificar(Producto pro) {
-        try {
-            String sql = "update producto set x=?";
-            PreparedStatement pstm = cone.prepareCall(sql);
-            pstm.setInt(12, pro.getNumActivoProducto());
-            int afectadas = pstm.executeUpdate();
-            return afectadas > 0;
+         try {
+            String sql="update PRODUCTO set NUMERO_ACTIVO_PRODUCTO=?,"
+                    + "NUMERO_SERIE_PRODUCTO=?,"
+                    + "DESCRIPCION_PRODUCTO=?,"
+                    + "UBICACION_ID_UBICACION=?,"
+                    + "TIPO_PRODUCTO_ID_TIPO=?,"
+                    + "ESTADO_ID_ESTADO=?,"
+                    + "FECHA_LLEGADA_PRODUCTO=?,"
+                    + "COLOR_PRODUCTO=?,"
+                    + "COSTO_PRODUCTO=? where NUMERO_ACTIVO_PRODUCTO=?";
+            PreparedStatement pstm=cone.prepareCall(sql);
+            pstm.setInt(10, pro.getNumActivoProducto());
+            pstm.setInt(1, pro.getNumActivoProducto());
+            pstm.setInt(2, pro.getNumSerieProducto());
+            pstm.setString(3, pro.getDescProducto());
+            pstm.setInt(4 , pro.getUbicacionProducto().getIdUbicacion());
+            pstm.setInt(5 , pro.getTipoProducto().getIdTipoProducto());
+            pstm.setInt(6, pro.getEstadoProducto().getIdEstado());
+            java.sql.Date fecha=new java.sql.Date(pro.getFechaLlegadaProducto().getTime());
+            pstm.setDate(7, fecha);
+            pstm.setString(8, pro.getColorProducto());
+            pstm.setInt(9, pro.getCostoProducto());
+            int afect = pstm.executeUpdate();
+            return afect>0;            
         } catch (Exception e) {
+            System.out.println("error modificar reser:"+e.getMessage());
             return false;
         }
     }
