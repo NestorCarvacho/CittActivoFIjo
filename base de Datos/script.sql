@@ -48,10 +48,10 @@ DROP SEQUENCE seq_bodega;
 
 -- Creacion de Tablas
 CREATE TABLE USUARIO (
-	id_usuario VARCHAR2(10) PRIMARY KEY;
-	nombre_usuario VARCHAR2(50) NOT NULL;
-	contrasena VARCHAR2(50) NOT NULL;
-)
+	id_usuario VARCHAR2(10) CONSTRAINT pk_usuario PRIMARY KEY,
+	nombre_usuario VARCHAR2(50) NOT NULL,
+	contrasena VARCHAR2(50) NOT NULL
+);
 
 
 CREATE TABLE detalle (
