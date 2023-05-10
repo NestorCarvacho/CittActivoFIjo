@@ -154,10 +154,10 @@ public class JfrmLogin extends javax.swing.JFrame {
 
     private void btnInicioSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioSesionActionPerformed
 
-        String usuario = txtIngresoNombreUsuario.getText();
+        String usuario = txtIngresoNombreUsuario.getText().toLowerCase();
         String contrasena = jPswIngresoUsuario.getText();
         boolean resp = new DaoUsuario().validarContrasena(usuario, contrasena);
-        if (resp == true) {
+        if (resp) {
             JOptionPane.showMessageDialog(null, "Usuario/contraseña validados");
             JfrmVistaHome main=new JfrmVistaHome();
             main.setVisible(true);
