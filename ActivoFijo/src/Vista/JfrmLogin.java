@@ -4,8 +4,11 @@
  */
 package Vista;
 
+import Controlador.DaoUsuario;
+import Modelo.Usuario;
 import java.awt.Image;
 import java.awt.Toolkit;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -39,7 +42,7 @@ public class JfrmLogin extends javax.swing.JFrame {
         jPswIngresoUsuario = new javax.swing.JPasswordField();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnInicioSesion = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -71,10 +74,10 @@ public class JfrmLogin extends javax.swing.JFrame {
 
         jLabel3.setText("Nombre de Usuario");
 
-        jButton1.setText("Iniciar Sesion");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnInicioSesion.setText("Iniciar Sesion");
+        btnInicioSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnInicioSesionActionPerformed(evt);
             }
         });
 
@@ -97,7 +100,7 @@ public class JfrmLogin extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addComponent(jButton1)
+                            .addComponent(btnInicioSesion)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(jButton2))
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -121,7 +124,7 @@ public class JfrmLogin extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
-                    .addComponent(jButton1))
+                    .addComponent(btnInicioSesion))
                 .addGap(223, 223, 223))
         );
 
@@ -149,11 +152,22 @@ public class JfrmLogin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        JfrmVistaHome main=new JfrmVistaHome();
-        main.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnInicioSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioSesionActionPerformed
+
+        String usuario = txtIngresoNombreUsuario.getText();
+        String contrasena = jPswIngresoUsuario.getText();
+        boolean resp = new DaoUsuario().validarContrasena(usuario, contrasena);
+        if (resp == true) {
+            JOptionPane.showMessageDialog(null, "Usuario/contraseña validados");
+            JfrmVistaHome main=new JfrmVistaHome();
+            main.setVisible(true);
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "Error usuario o contraseña incorrectos. En caso de requerir una cuenta pongáse en contacto con un administrador.");
+        }
+        
+        
+    }//GEN-LAST:event_btnInicioSesionActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         txtIngresoNombreUsuario.setText("");
@@ -203,7 +217,7 @@ public class JfrmLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnInicioSesion;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

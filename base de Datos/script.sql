@@ -243,8 +243,13 @@ CREATE SEQUENCE seq_bodega
     NOCYCLE;
     
 -- INSERT DATOS DE PRUEBAS
-INSERT INTO usuario VALUES(seq_usuario.NEXTVAL, 'usuario1','admin');
+INSERT INTO usuario VALUES(seq_usuario.NEXTVAL, 'usuario1','usuario1');
+INSERT INTO usuario VALUES(seq_usuario.NEXTVAL, 'felipe','felipe');
+INSERT INTO usuario VALUES(seq_usuario.NEXTVAL, 'nestor','nestor');
+INSERT INTO usuario VALUES(seq_usuario.NEXTVAL, 'nicolas','nicolas');
+INSERT INTO usuario VALUES(seq_usuario.NEXTVAL, 'admin','admin');
 
+SELECT * FROM USUARIO;
 
 -- supervisor, Conserje, Celador, Personal Aseo, Bodeguero
 INSERT INTO tipo_empleado VALUES (SEQ_TP_EMPLEADO.NEXTVAL,'Supervisor');
@@ -290,7 +295,6 @@ INSERT INTO empleado VALUES (SEQ_EMPLEADO.NEXTVAL,'23.232.323-2','Paola Tapia','
 INSERT INTO PRODUCTO VALUES (seq_producto.NEXTVAL,321,654,'Solvente2',1,1,sysdate,'Negro',80000,1);
 INSERT INTO PRODUCTO VALUES (seq_producto.NEXTVAL,1234,23465,'Solvente3',2,2,sysdate,'Negro',20000,2);
 INSERT INTO PRODUCTO VALUES (seq_producto.NEXTVAL,12322,132446,'Solvente',1,1,sysdate,'Negro',80000,1);
-
 
 
 commit;
