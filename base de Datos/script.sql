@@ -1,4 +1,5 @@
 -- drop tables
+DROP TABLE usuario CASCADE CONSTRAINTS;
 
 DROP TABLE detalle CASCADE CONSTRAINTS;
 
@@ -20,7 +21,9 @@ DROP TABLE movimiento CASCADE CONSTRAINTS;
 
 DROP TABLE bodega CASCADE CONSTRAINTS;
 
+
 -- drop sequences
+DROP SEQUENCE seq_usuario;
 
 DROP SEQUENCE seq_empleado;
 
@@ -44,6 +47,13 @@ DROP SEQUENCE seq_bodega;
 
 
 -- Creacion de Tablas
+CREATE TABLE USUARIO (
+	id_usuario VARCHAR2(10) PRIMARY KEY;
+	nombre_usuario VARCHAR2(50) NOT NULL;
+	contrasena VARCHAR2(50) NOT NULL;
+)
+
+
 CREATE TABLE detalle (
     fecha_asignacion     DATE NOT NULL,
     producto_id_producto NUMBER NOT NULL,
@@ -166,6 +176,11 @@ ALTER TABLE movimiento
         REFERENCES producto ( id_producto );
 
 -- Create Sequences
+CREATE SEQUENCE seq_usuario
+	INCREMENT BY 1 	
+	START WITH 1	
+	MINVALUE 1
+	NOCYCLE;
 
 CREATE SEQUENCE seq_empleado
     INCREMENT BY 2
@@ -228,6 +243,9 @@ CREATE SEQUENCE seq_bodega
     NOCYCLE;
     
 -- INSERT DATOS DE PRUEBAS
+INSERT INTO usuario VALUES(seq_usuario.NEXTVAL, 'usuario1','admin');
+
+
 -- supervisor, Conserje, Celador, Personal Aseo, Bodeguero
 INSERT INTO tipo_empleado VALUES (SEQ_TP_EMPLEADO.NEXTVAL,'Supervisor');
 INSERT INTO tipo_empleado VALUES (SEQ_TP_EMPLEADO.NEXTVAL,'Conserje');
@@ -272,5 +290,7 @@ INSERT INTO empleado VALUES (SEQ_EMPLEADO.NEXTVAL,'23.232.323-2','Paola Tapia','
 INSERT INTO PRODUCTO VALUES (seq_producto.NEXTVAL,321,654,'Solvente2',1,1,sysdate,'Negro',80000,1);
 INSERT INTO PRODUCTO VALUES (seq_producto.NEXTVAL,1234,23465,'Solvente3',2,2,sysdate,'Negro',20000,2);
 INSERT INTO PRODUCTO VALUES (seq_producto.NEXTVAL,12322,132446,'Solvente',1,1,sysdate,'Negro',80000,1);
+
+
 
 commit;
