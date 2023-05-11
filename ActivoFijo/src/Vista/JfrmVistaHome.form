@@ -38,20 +38,21 @@
             <Property name="text" type="java.lang.String" value="Cuentas"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem7">
+            <MenuItem class="javax.swing.JMenuItem" name="mnuCrearUsuario">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Crear Usuario"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuCrearUsuarioActionPerformed"/>
+              </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem8">
+            <MenuItem class="javax.swing.JMenuItem" name="mnuModificarUsuario">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Modificar Ususario"/>
               </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem9">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Buscar Usuario"/>
-              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuModificarUsuarioActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -148,7 +149,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="BtnMnuProductos" max="32767" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -238,8 +239,8 @@
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Component id="txtUltimaActualizacionProducto1" alignment="0" max="32767" attributes="0"/>
                                           <Component id="txtStockHome" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="cboEstadoProductoHome" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="JdcFechaLlegadaHome" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
+                                          <Component id="cboEstadoProductoHome" alignment="0" pref="172" max="32767" attributes="0"/>
+                                          <Component id="JdcFechaLlegadaHome" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
@@ -248,7 +249,7 @@
                                       <Component id="txtcontNetoProductoHome" min="-2" pref="172" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="183" max="32767" attributes="0"/>
+                              <EmptySpace pref="155" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="label63" alignment="0" min="-2" pref="42" max="-2" attributes="0"/>
                                   <Component id="label64" alignment="0" min="-2" pref="99" max="-2" attributes="0"/>
@@ -259,7 +260,7 @@
                                   <Component id="txtColorProductoHome" pref="175" max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <Component id="jScrollPane1" alignment="0" pref="1345" max="32767" attributes="0"/>
+                          <Component id="jScrollPane1" alignment="0" pref="1316" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="label1" min="-2" pref="281" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -306,10 +307,10 @@
                                           <Component id="label62" alignment="1" min="-2" max="-2" attributes="0"/>
                                           <Component id="txtUltimaActualizacionProducto1" alignment="1" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="label61" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="JdcFechaLlegadaHome" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="label61" min="-2" max="-2" attributes="0"/>
+                                          <Component id="JdcFechaLlegadaHome" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
@@ -341,7 +342,7 @@
                           <Component id="label58" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="txtcontNetoProductoHome" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="64" max="32767" attributes="0"/>
+                      <EmptySpace pref="66" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -515,11 +516,6 @@
                 <Property name="text" type="java.lang.String" value="Fecha Llegada"/>
               </Properties>
             </Component>
-            <Component class="com.toedter.calendar.JDateChooser" name="JdcFechaLlegadaHome">
-              <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JTextField" name="txtUltimaActualizacionProducto1">
               <Properties>
                 <Property name="enabled" type="boolean" value="false"/>
@@ -559,6 +555,8 @@
                 <Property name="text" type="java.lang.String" value="Costo"/>
               </Properties>
             </Component>
+            <Component class="com.toedter.calendar.JDateChooser" name="JdcFechaLlegadaHome">
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="JpCuentas">
@@ -592,61 +590,76 @@
                           <Group type="102" attributes="0">
                               <Component id="label6" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="btnCrearUsuario" min="-2" pref="120" max="-2" attributes="0"/>
+                              <Component id="btnCrearUsuarioHome" min="-2" pref="120" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="btnModificarUsuario" min="-2" pref="120" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="btnEliminarUsuario" min="-2" pref="120" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="btnCancelarUsuario" min="-2" pref="120" max="-2" attributes="0"/>
+                              <Component id="btnEliminarUsuarioHome" min="-2" pref="120" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="label16" alignment="1" min="-2" pref="99" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="label15" min="-2" pref="99" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="label17" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="label18" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="label19" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="120" pref="120" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="txtIdEmpleadoHome" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
+                                          <Component id="txtNombreHome" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
+                                          <Component id="txtRunEmpleadoHome" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
+                                          <Component id="txtTelefonoEmpleadoHome" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="label20" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
+                                              <Component id="cboJornadaEmpleadoHome" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="label22" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="label23" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="btnGuardarUsuarioHome" min="-2" pref="120" max="-2" attributes="0"/>
+                                                      <EmptySpace pref="98" max="32767" attributes="0"/>
+                                                      <Component id="btnModificarUsuarioHome" min="-2" pref="120" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Component id="cboSupervisorEmpleadoHome" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="cboCargoEmpleadoHome" alignment="0" max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="txtDireccionEmpleadoHome" min="-2" pref="252" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="btnCancelarUsuarioHome" min="-2" pref="120" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+                              <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="label16" alignment="1" min="-2" pref="99" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="label15" min="-2" pref="99" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="label17" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="label18" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="label19" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="-2" pref="120" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtIdEmpleado" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
-                          <Component id="txtNombre" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
-                          <Component id="txtRunEmpleado" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                              <Component id="txtTelefonoEmpleado" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
-                              <Component id="txtDireccionEmpleado" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="label20" alignment="0" max="-2" attributes="0"/>
-                          <Component id="label21" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="label22" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="label23" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="cboJornadaEmpleado" max="32767" attributes="0"/>
-                          <Component id="JdcFechaLlegadaUsuario" alignment="0" pref="284" max="32767" attributes="0"/>
-                          <Component id="cboSupervisorEmpleado" alignment="0" max="32767" attributes="0"/>
-                          <Component id="cboCargoEmpleado" alignment="0" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
-                      <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -658,23 +671,21 @@
                       <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="label6" min="-2" pref="27" max="-2" attributes="0"/>
-                          <Component id="btnCrearUsuario" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnModificarUsuario" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnEliminarUsuario" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnCancelarUsuario" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnCrearUsuarioHome" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnEliminarUsuarioHome" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="label16" min="-2" max="-2" attributes="0"/>
-                                          <Component id="txtIdEmpleado" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtIdEmpleadoHome" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="txtRunEmpleado" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtRunEmpleadoHome" min="-2" max="-2" attributes="0"/>
                                           <Component id="label15" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
@@ -685,38 +696,39 @@
                                               <Component id="label18" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="1" attributes="0">
-                                              <Component id="txtNombre" min="-2" max="-2" attributes="0"/>
+                                              <Component id="txtNombreHome" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="txtTelefonoEmpleado" min="-2" max="-2" attributes="0"/>
+                                              <Component id="txtTelefonoEmpleadoHome" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="txtDireccionEmpleado" alignment="0" max="-2" attributes="0"/>
-                                          <Component id="label19" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="1" attributes="0">
                                           <Component id="label20" max="-2" attributes="0"/>
-                                          <Component id="cboJornadaEmpleado" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cboJornadaEmpleadoHome" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="label21" min="-2" max="-2" attributes="0"/>
-                                          <Component id="JdcFechaLlegadaUsuario" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="cboSupervisorEmpleado" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cboSupervisorEmpleadoHome" min="-2" max="-2" attributes="0"/>
                                           <Component id="label22" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="cboCargoEmpleado" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cboCargoEmpleadoHome" min="-2" max="-2" attributes="0"/>
                                           <Component id="label23" min="-2" max="-2" attributes="0"/>
                                       </Group>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="btnGuardarUsuarioHome" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="btnModificarUsuarioHome" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="label19" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnCancelarUsuarioHome" max="32767" attributes="0"/>
+                                  <Component id="txtDireccionEmpleadoHome" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -724,6 +736,7 @@
                               <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <EmptySpace pref="34" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -750,42 +763,45 @@
                       </Table>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="JtbListarPersonasMouseClicked"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JTextField" name="txtIdEmpleado">
+            <Component class="javax.swing.JTextField" name="txtIdEmpleadoHome">
               <Properties>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtIdEmpleadoActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtIdEmpleadoHomeActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtRunEmpleado">
+            <Component class="javax.swing.JTextField" name="txtRunEmpleadoHome">
               <Properties>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtRunEmpleadoActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtRunEmpleadoHomeActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtNombre">
+            <Component class="javax.swing.JTextField" name="txtNombreHome">
               <Properties>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNombreActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNombreHomeActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtTelefonoEmpleado">
+            <Component class="javax.swing.JTextField" name="txtTelefonoEmpleadoHome">
               <Properties>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTelefonoEmpleadoActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTelefonoEmpleadoHomeActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtDireccionEmpleado">
+            <Component class="javax.swing.JTextField" name="txtDireccionEmpleadoHome">
               <Properties>
                 <Property name="enabled" type="boolean" value="false"/>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -799,10 +815,10 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDireccionEmpleadoActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDireccionEmpleadoHomeActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JComboBox" name="cboJornadaEmpleado">
+            <Component class="javax.swing.JComboBox" name="cboJornadaEmpleadoHome">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="4">
@@ -818,7 +834,7 @@
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JComboBox" name="cboSupervisorEmpleado">
+            <Component class="javax.swing.JComboBox" name="cboSupervisorEmpleadoHome">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="4">
@@ -831,13 +847,13 @@
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cboSupervisorEmpleadoActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cboSupervisorEmpleadoHomeActionPerformed"/>
               </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JComboBox" name="cboCargoEmpleado">
+            <Component class="javax.swing.JComboBox" name="cboCargoEmpleadoHome">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="0"/>
@@ -845,7 +861,7 @@
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cboCargoEmpleadoActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cboCargoEmpleadoHomeActionPerformed"/>
               </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -892,25 +908,15 @@
                 <Property name="text" type="java.lang.String" value="Jornada"/>
               </Properties>
             </Component>
-            <Component class="java.awt.Label" name="label21">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Fecha Llegada"/>
-              </Properties>
-            </Component>
-            <Component class="java.awt.Button" name="btnCrearUsuario">
+            <Component class="java.awt.Button" name="btnCrearUsuarioHome">
               <Properties>
                 <Property name="label" type="java.lang.String" value="Crear Usuario"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCrearUsuarioActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCrearUsuarioHomeActionPerformed"/>
               </Events>
             </Component>
-            <Component class="java.awt.Button" name="btnModificarUsuario">
-              <Properties>
-                <Property name="label" type="java.lang.String" value="Modificar Usuario"/>
-              </Properties>
-            </Component>
-            <Component class="java.awt.Button" name="btnEliminarUsuario">
+            <Component class="java.awt.Button" name="btnEliminarUsuarioHome">
               <Properties>
                 <Property name="label" type="java.lang.String" value="Eliminar Usuario"/>
               </Properties>
@@ -924,22 +930,6 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cargo"/>
               </Properties>
-            </Component>
-            <Component class="com.toedter.calendar.JDateChooser" name="JdcFechaLlegadaUsuario">
-              <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-            </Component>
-            <Component class="java.awt.Button" name="btnCancelarUsuario">
-              <Properties>
-                <Property name="actionCommand" type="java.lang.String" value="CancelarUsuario"/>
-                <Property name="enabled" type="boolean" value="false"/>
-                <Property name="label" type="java.lang.String" value="CancelarUsuario"/>
-                <Property name="name" type="java.lang.String" value="CancelarUsuario" noResource="true"/>
-              </Properties>
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnCancelarUsuarioMouseClicked"/>
-              </Events>
             </Component>
             <Container class="javax.swing.JPanel" name="jPanel3">
               <Properties>
@@ -962,7 +952,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                                  <Component id="TxtFiltroRunEmpleado" min="-2" pref="244" max="-2" attributes="0"/>
+                                  <Component id="TxtFiltroRunEmpleadoHome" min="-2" pref="244" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
@@ -985,7 +975,7 @@
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                          <Component id="TxtFiltroRunEmpleado" min="-2" max="-2" attributes="0"/>
+                          <Component id="TxtFiltroRunEmpleadoHome" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                           <Component id="btnBuscarEmpleado" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="57" max="32767" attributes="0"/>
@@ -1012,10 +1002,34 @@
                     <Property name="text" type="java.lang.String" value="BUSCAR EMPLEADO"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="TxtFiltroRunEmpleado">
+                <Component class="javax.swing.JTextField" name="TxtFiltroRunEmpleadoHome">
                 </Component>
               </SubComponents>
             </Container>
+            <Component class="java.awt.Button" name="btnModificarUsuarioHome">
+              <Properties>
+                <Property name="actionCommand" type="java.lang.String" value="Modificar Usuario"/>
+                <Property name="enabled" type="boolean" value="false"/>
+                <Property name="label" type="java.lang.String" value="Modificar Usuario"/>
+              </Properties>
+            </Component>
+            <Component class="java.awt.Button" name="btnGuardarUsuarioHome">
+              <Properties>
+                <Property name="actionCommand" type="java.lang.String" value="Guardar"/>
+                <Property name="enabled" type="boolean" value="false"/>
+                <Property name="label" type="java.lang.String" value="Guardar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGuardarUsuarioHomeActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="java.awt.Button" name="btnCancelarUsuarioHome">
+              <Properties>
+                <Property name="actionCommand" type="java.lang.String" value="Cancelar Usuario"/>
+                <Property name="enabled" type="boolean" value="false"/>
+                <Property name="label" type="java.lang.String" value="Cancelar Usuario"/>
+              </Properties>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="JpProductos">
@@ -1191,13 +1205,18 @@
                                           <Component id="txtUltimaActualizacionProductoProducto" alignment="1" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="label47" min="-2" max="-2" attributes="0"/>
-                                          <Component id="JdcFechaLlegadaProductoProducto" min="-2" max="-2" attributes="0"/>
-                                      </Group>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" attributes="0">
-                                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                              <Component id="label47" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="btnCancelarProducto" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="btnGuardarProducto" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Component id="JdcFechaLlegadaProductoProducto" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Component id="label48" alignment="1" min="-2" max="-2" attributes="0"/>
                                                   <Component id="txtStockProductoProducto" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -1208,13 +1227,6 @@
                                                   <Component id="cboEstadoProductoProducto" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="btnCancelarProducto" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="btnGuardarProducto" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
@@ -1222,7 +1234,7 @@
                                           <Component id="label52" min="-2" max="-2" attributes="0"/>
                                           <Component id="txtCostoProductoProducto" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                      <EmptySpace pref="22" max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="label50" alignment="1" min="-2" max="-2" attributes="0"/>
                                           <Component id="txtColorProductoProducto" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -1453,11 +1465,6 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminarProductoActionPerformed"/>
               </Events>
             </Component>
-            <Component class="com.toedter.calendar.JDateChooser" name="JdcFechaLlegadaProductoProducto">
-              <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-            </Component>
             <Component class="java.awt.Button" name="btnCancelarProducto">
               <Properties>
                 <Property name="actionCommand" type="java.lang.String" value="Cancelar"/>
@@ -1514,7 +1521,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="35" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="TxtFiltroActivoProducto" alignment="0" min="-2" pref="244" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
@@ -1578,6 +1585,8 @@
                 </Component>
               </SubComponents>
             </Container>
+            <Component class="com.toedter.calendar.JDateChooser" name="JdcFechaLlegadaProductoProducto">
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="JpInformes">
@@ -1626,7 +1635,7 @@
                           <Component id="jPanel1" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane5" pref="561" max="32767" attributes="0"/>
+                      <Component id="jScrollPane5" pref="563" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1748,7 +1757,7 @@
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="BtnFiltrarInforme" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="67" max="32767" attributes="0"/>
+                          <EmptySpace pref="38" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1929,12 +1938,11 @@
                                           <Component id="txtUltimaActializacion2" alignment="0" pref="172" max="32767" attributes="0"/>
                                           <Component id="JcbUbicacioninicio" max="32767" attributes="0"/>
                                           <Component id="JcbUbicacionDestino" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="JdcFechaLlegadaMovimiento" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Component id="label27" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="0" pref="453" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="424" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -1985,10 +1993,7 @@
                                   <Component id="txtUltimaActializacion2" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="label34" min="-2" max="-2" attributes="0"/>
-                                  <Component id="JdcFechaLlegadaMovimiento" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="label34" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="label35" min="-2" max="-2" attributes="0"/>
@@ -2002,7 +2007,7 @@
                               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="36" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -2211,11 +2216,6 @@
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
-            </Component>
-            <Component class="com.toedter.calendar.JDateChooser" name="JdcFechaLlegadaMovimiento">
-              <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
             </Component>
           </SubComponents>
         </Container>

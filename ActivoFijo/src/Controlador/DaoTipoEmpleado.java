@@ -86,6 +86,24 @@ public class DaoTipoEmpleado implements IDaoTipoEmpleado {
             return null;
         }
     }
-
+    
+    
+    public TipoEmpleado Buscar3(String tipo) {
+        try {
+            String sql="SELECT ID_TIPO_EMPLEADO FROM TIPO_EMPLEADO WHERE DESCRIPCION_TIPO_EMPLEADO=?";
+            PreparedStatement pstm=cone.prepareCall(sql);
+            pstm.setString(1, tipo);
+            ResultSet reg=pstm.executeQuery();
+            TipoEmpleado tpemp=null;
+            while (reg.next()) {                
+                tpemp=new TipoEmpleado();
+                tpemp.setIdTipoEmpleado(reg.getInt("ID_TIPO_EMPLEADO"));
+            }
+            return tpemp;
+        } catch (Exception e) {
+            System.out.println("error buscar tipo empleado:"+e.getMessage());
+            return null;
+        }
+    }
 
 }

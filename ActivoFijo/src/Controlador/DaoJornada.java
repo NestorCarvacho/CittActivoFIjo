@@ -72,5 +72,21 @@ public class DaoJornada implements IDaoJornada{
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
-    
+    public Jornada Buscar2(String jorn) {
+        try {
+            String sql="SELECT ID_JORNADA FROM JORNADA WHERE DESCRIPCION_JORNADA=?";
+            PreparedStatement pstm=cone.prepareCall(sql);
+            pstm.setString(1, jorn);
+            ResultSet reg=pstm.executeQuery();
+            Jornada jor=null;
+            while (reg.next()) {                
+                jor=new Jornada();
+                jor.setIdJornada(reg.getInt("ID_JORNADA"));
+            }
+            return jor;
+        } catch (Exception e) {
+            System.out.println("error buscar Jornada:"+e.getMessage());
+            return null;
+        }
+    }    
 }
