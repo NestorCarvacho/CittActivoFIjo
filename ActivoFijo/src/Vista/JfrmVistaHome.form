@@ -2,6 +2,11 @@
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
+    <Component class="javax.swing.JMenuItem" name="jMenuItem3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jMenuItem3"/>
+      </Properties>
+    </Component>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="jMenu1">
@@ -14,20 +19,36 @@
           <SubComponents>
             <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator1">
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
+            <MenuItem class="javax.swing.JMenuItem" name="btnCrearTpProd">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Crear Tipo Producto"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCrearTpProdActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
+            <MenuItem class="javax.swing.JMenuItem" name="btnEliminarTpProducto">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Eliminar Tipo Producto"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem2ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminarTpProductoActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="btnCrearUbicacion">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Crear Ubicacion"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCrearUbicacionActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="btnEliminarUbi">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Eliminar Ubicacion"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminarUbiActionPerformed"/>
               </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator2">
@@ -636,7 +657,7 @@
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="txtIdEmpleadoHome" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
-                                          <Component id="txtNombreHome" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
+                                          <Component id="txtNombreEmpleadoHome" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
                                           <Component id="txtRunEmpleadoHome" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
                                           <Component id="txtTelefonoEmpleadoHome" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
                                       </Group>
@@ -714,7 +735,7 @@
                                               <Component id="label18" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="1" attributes="0">
-                                              <Component id="txtNombreHome" min="-2" max="-2" attributes="0"/>
+                                              <Component id="txtNombreEmpleadoHome" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
                                               <Component id="txtTelefonoEmpleadoHome" min="-2" max="-2" attributes="0"/>
                                           </Group>
@@ -803,12 +824,12 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtRunEmpleadoHomeActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtNombreHome">
+            <Component class="javax.swing.JTextField" name="txtNombreEmpleadoHome">
               <Properties>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNombreHomeActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNombreEmpleadoHomeActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtTelefonoEmpleadoHome">
@@ -938,6 +959,9 @@
               <Properties>
                 <Property name="label" type="java.lang.String" value="Eliminar Usuario"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminarUsuarioHomeActionPerformed"/>
+              </Events>
             </Component>
             <Component class="java.awt.Label" name="label22">
               <Properties>
@@ -1030,6 +1054,9 @@
                 <Property name="enabled" type="boolean" value="false"/>
                 <Property name="label" type="java.lang.String" value="Modificar Usuario"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnModificarUsuarioHomeActionPerformed"/>
+              </Events>
             </Component>
             <Component class="java.awt.Button" name="btnGuardarUsuarioHome">
               <Properties>

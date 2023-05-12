@@ -287,6 +287,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuItem3 = new javax.swing.JMenuItem();
         BtnMnuProductos = new javax.swing.JTabbedPane();
         JpHome = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -321,7 +322,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         JtbListarPersonas = new javax.swing.JTable();
         txtIdEmpleadoHome = new javax.swing.JTextField();
         txtRunEmpleadoHome = new javax.swing.JTextField();
-        txtNombreHome = new javax.swing.JTextField();
+        txtNombreEmpleadoHome = new javax.swing.JTextField();
         txtTelefonoEmpleadoHome = new javax.swing.JTextField();
         txtDireccionEmpleadoHome = new javax.swing.JTextField();
         cboJornadaEmpleadoHome = new javax.swing.JComboBox<>();
@@ -424,8 +425,10 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        btnCrearTpProd = new javax.swing.JMenuItem();
+        btnEliminarTpProducto = new javax.swing.JMenuItem();
+        btnCrearUbicacion = new javax.swing.JMenuItem();
+        btnEliminarUbi = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
         MnuCerrarSesion = new javax.swing.JMenuItem();
         mnuCerrar = new javax.swing.JMenuItem();
@@ -439,6 +442,8 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         jMenuItem13 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenuItem14 = new javax.swing.JMenuItem();
+
+        jMenuItem3.setText("jMenuItem3");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Activo Fijo Bodega");
@@ -718,10 +723,10 @@ public class JfrmVistaHome extends javax.swing.JFrame {
             }
         });
 
-        txtNombreHome.setEnabled(false);
-        txtNombreHome.addActionListener(new java.awt.event.ActionListener() {
+        txtNombreEmpleadoHome.setEnabled(false);
+        txtNombreEmpleadoHome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreHomeActionPerformed(evt);
+                txtNombreEmpleadoHomeActionPerformed(evt);
             }
         });
 
@@ -784,6 +789,11 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         });
 
         btnEliminarUsuarioHome.setLabel("Eliminar Usuario");
+        btnEliminarUsuarioHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarUsuarioHomeActionPerformed(evt);
+            }
+        });
 
         label22.setText("Supervisor");
 
@@ -840,6 +850,11 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         btnModificarUsuarioHome.setActionCommand("Modificar Usuario");
         btnModificarUsuarioHome.setEnabled(false);
         btnModificarUsuarioHome.setLabel("Modificar Usuario");
+        btnModificarUsuarioHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarUsuarioHomeActionPerformed(evt);
+            }
+        });
 
         btnGuardarUsuarioHome.setActionCommand("Guardar");
         btnGuardarUsuarioHome.setEnabled(false);
@@ -888,7 +903,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
                             .addGroup(JpCuentasLayout.createSequentialGroup()
                                 .addGroup(JpCuentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtIdEmpleadoHome, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtNombreHome, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtNombreEmpleadoHome, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtRunEmpleadoHome, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtTelefonoEmpleadoHome, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(48, 48, 48)
@@ -948,7 +963,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
                                         .addGap(20, 20, 20)
                                         .addComponent(label18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(JpCuentasLayout.createSequentialGroup()
-                                        .addComponent(txtNombreHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtNombreEmpleadoHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(txtTelefonoEmpleadoHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(JpCuentasLayout.createSequentialGroup()
@@ -1674,21 +1689,37 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         });
         jMenu1.add(jSeparator1);
 
-        jMenuItem1.setText("Crear Tipo Producto");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        btnCrearTpProd.setText("Crear Tipo Producto");
+        btnCrearTpProd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                btnCrearTpProdActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        jMenu1.add(btnCrearTpProd);
 
-        jMenuItem2.setText("Eliminar Tipo Producto");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        btnEliminarTpProducto.setText("Eliminar Tipo Producto");
+        btnEliminarTpProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                btnEliminarTpProductoActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem2);
+        jMenu1.add(btnEliminarTpProducto);
+
+        btnCrearUbicacion.setText("Crear Ubicacion");
+        btnCrearUbicacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearUbicacionActionPerformed(evt);
+            }
+        });
+        jMenu1.add(btnCrearUbicacion);
+
+        btnEliminarUbi.setText("Eliminar Ubicacion");
+        btnEliminarUbi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarUbiActionPerformed(evt);
+            }
+        });
+        jMenu1.add(btnEliminarUbi);
         jMenu1.add(jSeparator2);
 
         MnuCerrarSesion.setText("Cerrar Sesion");
@@ -1946,7 +1977,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         btnModificarProducto.setEnabled(false);
         btnCancelarUsuarioHome.setEnabled(true);
         txtRunEmpleadoHome.setEnabled(true);
-        txtNombreHome.setEnabled(true);
+        txtNombreEmpleadoHome.setEnabled(true);
         txtTelefonoEmpleadoHome.setEnabled(true);
         txtDireccionEmpleadoHome.setEnabled(true);
         cboJornadaEmpleadoHome.setEnabled(true);
@@ -1954,7 +1985,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         cboCargoEmpleadoHome.setEnabled(true);
 
         txtRunEmpleadoHome.setText("");
-        txtNombreHome.setText("");
+        txtNombreEmpleadoHome.setText("");
         txtTelefonoEmpleadoHome.setText("");
         txtDireccionEmpleadoHome.setText("");
         cboJornadaEmpleadoHome.setSelectedItem("-- Seleccione --");
@@ -1978,9 +2009,9 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTelefonoEmpleadoHomeActionPerformed
 
-    private void txtNombreHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreHomeActionPerformed
+    private void txtNombreEmpleadoHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreEmpleadoHomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreHomeActionPerformed
+    }//GEN-LAST:event_txtNombreEmpleadoHomeActionPerformed
 
     private void txtRunEmpleadoHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRunEmpleadoHomeActionPerformed
         // TODO add your handling code here:
@@ -1997,7 +2028,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Existe Empleado");
             txtIdEmpleadoHome.setText("" + emp.getIdEmpleado());
             txtRunEmpleadoHome.setText(emp.getRutEmpleado());
-            txtNombreHome.setText(emp.getNombreEmpleado());
+            txtNombreEmpleadoHome.setText(emp.getNombreEmpleado());
             txtTelefonoEmpleadoHome.setText(emp.getTelefonoEmpleado());
             txtDireccionEmpleadoHome.setText(emp.getDireccionEmpleado());
             cboCargoEmpleadoHome.setSelectedItem(emp.getCargoEmpleado().toString());
@@ -2246,7 +2277,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         btnGuardarUsuarioHome.setEnabled(false);
         btnModificarUsuarioHome.setEnabled(false);
         txtRunEmpleadoHome.setEnabled(false);
-        txtNombreHome.setEnabled(false);
+        txtNombreEmpleadoHome.setEnabled(false);
         txtTelefonoEmpleadoHome.setEnabled(false);
         txtDireccionEmpleadoHome.setEnabled(false);
         cboJornadaEmpleadoHome.setEnabled(false);
@@ -2255,13 +2286,14 @@ public class JfrmVistaHome extends javax.swing.JFrame {
 
         txtIdEmpleadoHome.setText("");
         txtRunEmpleadoHome.setText("");
-        txtNombreHome.setText("");
+        txtNombreEmpleadoHome.setText("");
         txtTelefonoEmpleadoHome.setText("");
         txtDireccionEmpleadoHome.setText("");
         cboJornadaEmpleadoHome.setSelectedItem("-- Seleccione --");
         cboSupervisorEmpleadoHome.setSelectedItem("-- Seleccione --");
         cboCargoEmpleadoHome.setSelectedItem("-- Seleccione --");
         btnBuscarEmpleado.setEnabled(true);
+        btnEliminarUsuarioHome.setEnabled(true);
     }
 
     private void MnuCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnuCerrarSesionActionPerformed
@@ -2272,17 +2304,25 @@ public class JfrmVistaHome extends javax.swing.JFrame {
 
     private void mnuCrearUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuCrearUsuarioActionPerformed
         BtnMnuProductos.setSelectedIndex(1);
-        txtIdEmpleadoHome.setEnabled(true);
+        btnBuscarEmpleado.setEnabled(false);
+        btnGuardarUsuarioHome.setEnabled(true);
+        btnModificarProducto.setEnabled(false);
+        btnCancelarUsuarioHome.setEnabled(true);
         txtRunEmpleadoHome.setEnabled(true);
-        txtNombreHome.setEnabled(true);
+        txtNombreEmpleadoHome.setEnabled(true);
         txtTelefonoEmpleadoHome.setEnabled(true);
         txtDireccionEmpleadoHome.setEnabled(true);
         cboJornadaEmpleadoHome.setEnabled(true);
         cboSupervisorEmpleadoHome.setEnabled(true);
         cboCargoEmpleadoHome.setEnabled(true);
-        btnGuardarUsuarioHome.setEnabled(true);
-        btnCancelarUsuarioHome.setEnabled(true);
-        resetCamposUsuario();
+
+        txtRunEmpleadoHome.setText("");
+        txtNombreEmpleadoHome.setText("");
+        txtTelefonoEmpleadoHome.setText("");
+        txtDireccionEmpleadoHome.setText("");
+        cboJornadaEmpleadoHome.setSelectedItem("-- Seleccione --");
+        cboSupervisorEmpleadoHome.setSelectedItem("-- Seleccione --");
+        cboCargoEmpleadoHome.setSelectedItem("-- Seleccione --");
     }//GEN-LAST:event_mnuCrearUsuarioActionPerformed
 
     private void mnuModificarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuModificarUsuarioActionPerformed
@@ -2295,7 +2335,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         btnEliminarUsuarioHome.setEnabled(false);
         txtIdEmpleadoHome.setEnabled(false);
         txtRunEmpleadoHome.setEnabled(true);
-        txtNombreHome.setEnabled(true);
+        txtNombreEmpleadoHome.setEnabled(true);
         txtTelefonoEmpleadoHome.setEnabled(true);
         txtDireccionEmpleadoHome.setEnabled(true);
         cboJornadaEmpleadoHome.setEnabled(true);
@@ -2314,7 +2354,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
 //    private Jornada jornadaEmpleado;             
             int idEmpleado = 0;
             String rutEmpleado = txtRunEmpleadoHome.getText();
-            String nombreEmpleado = txtNombreHome.getText();
+            String nombreEmpleado = txtNombreEmpleadoHome.getText();
             String telefonoEmpleado = txtTelefonoEmpleadoHome.getText();
             String direccionEmpleado = txtDireccionEmpleadoHome.getText();
             TipoEmpleado cargoEmpleado = new DaoTipoEmpleado().Buscar3(cboCargoEmpleadoHome.getSelectedItem().toString());
@@ -2341,7 +2381,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         if (emp != null) {
             txtIdEmpleadoHome.setText("" + emp.getIdEmpleado());
             txtRunEmpleadoHome.setText(emp.getRutEmpleado());
-            txtNombreHome.setText(emp.getNombreEmpleado());
+            txtNombreEmpleadoHome.setText(emp.getNombreEmpleado());
             txtTelefonoEmpleadoHome.setText(emp.getTelefonoEmpleado());
             txtDireccionEmpleadoHome.setText(emp.getDireccionEmpleado());
             cboCargoEmpleadoHome.setSelectedItem(emp.getCargoEmpleado().toString());
@@ -2352,15 +2392,65 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_JtbListarPersonasMouseClicked
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void btnCrearTpProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearTpProdActionPerformed
         JfrmAgregarTipoProducto tipoProd = new JfrmAgregarTipoProducto();
         tipoProd.setVisible(true);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_btnCrearTpProdActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void btnEliminarTpProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarTpProductoActionPerformed
         JfrmEliminarTipoProducto elimProd = new JfrmEliminarTipoProducto();
         elimProd.setVisible(true);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_btnEliminarTpProductoActionPerformed
+
+    private void btnCrearUbicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearUbicacionActionPerformed
+        JfrmAgregarUbicacion creaUbi = new JfrmAgregarUbicacion();
+        creaUbi.setVisible(true);
+    }//GEN-LAST:event_btnCrearUbicacionActionPerformed
+
+    private void btnEliminarUbiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarUbiActionPerformed
+        JfrmEliminarUbicacion elimUbi = new JfrmEliminarUbicacion();
+        elimUbi.setVisible(true);
+    }//GEN-LAST:event_btnEliminarUbiActionPerformed
+
+    private void btnModificarUsuarioHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarUsuarioHomeActionPerformed
+        int idEmpleado = Integer.parseInt(txtIdEmpleadoHome.getText());
+        String rutEmpleado = txtRunEmpleadoHome.getText();
+        String nombreEmpleado = txtNombreEmpleadoHome.getText();
+        String telefonoEmpleado = txtTelefonoEmpleadoHome.getText();
+        String direccionEmpleado = txtDireccionEmpleadoHome.getText();
+        TipoEmpleado cargoEmpleado = new DaoTipoEmpleado().Buscar3(cboCargoEmpleadoHome.getSelectedItem().toString());
+        Jornada jornadaEmpleado = new DaoJornada().Buscar2(cboJornadaEmpleadoHome.getSelectedItem().toString());
+        try {
+            ////////////////////////////////////////////////////////
+            Empleado empleado = new Empleado(idEmpleado, rutEmpleado, nombreEmpleado, telefonoEmpleado, direccionEmpleado, cargoEmpleado, jornadaEmpleado);
+            ////////////////////////////////////////////////////////
+
+            DaoEmpleado dao = new DaoEmpleado();
+            boolean resp = dao.Modificar(empleado);
+            if (resp == true) {
+                JOptionPane.showMessageDialog(null, "Modifico");
+                ListarEmpleados();
+                resetCamposUsuario();
+                btnModificarUsuarioHome.setEnabled(false);
+            } else {
+                JOptionPane.showMessageDialog(null, "No Modifico");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    }//GEN-LAST:event_btnModificarUsuarioHomeActionPerformed
+
+    private void btnEliminarUsuarioHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarUsuarioHomeActionPerformed
+        int idEmp = Integer.parseInt(txtIdEmpleadoHome.getText());
+        DaoEmpleado dao = new DaoEmpleado();
+        boolean resp = dao.Eliminar(idEmp);
+        if (resp == true) {
+            JOptionPane.showMessageDialog(null, "Elimino");
+            ListarEmpleados();
+        } else {
+            JOptionPane.showMessageDialog(null, "No Elimino");
+        }
+    }//GEN-LAST:event_btnEliminarUsuarioHomeActionPerformed
 
     private void btnCrearUsuarioActionPerformed() {
     }
@@ -2499,8 +2589,12 @@ public class JfrmVistaHome extends javax.swing.JFrame {
     private java.awt.Button btnCancelarProducto;
     private java.awt.Button btnCancelarUsuarioHome;
     private java.awt.Button btnCrearProducto;
+    private javax.swing.JMenuItem btnCrearTpProd;
+    private javax.swing.JMenuItem btnCrearUbicacion;
     private java.awt.Button btnCrearUsuarioHome;
     private java.awt.Button btnEliminarProducto;
+    private javax.swing.JMenuItem btnEliminarTpProducto;
+    private javax.swing.JMenuItem btnEliminarUbi;
     private java.awt.Button btnEliminarUsuarioHome;
     private java.awt.Button btnGuardarProducto;
     private java.awt.Button btnGuardarUsuarioHome;
@@ -2530,10 +2624,9 @@ public class JfrmVistaHome extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem14;
-    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -2606,7 +2699,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
     private javax.swing.JTextField txtIdEmpleadoHome;
     private javax.swing.JTextField txtNnumeroDeSerie2;
     private javax.swing.JTextField txtNnumeroDeSerieHome;
-    private javax.swing.JTextField txtNombreHome;
+    private javax.swing.JTextField txtNombreEmpleadoHome;
     private javax.swing.JTextField txtNumeroActivo2;
     private javax.swing.JTextField txtNumeroActivoHome;
     private javax.swing.JTextField txtNumeroDeActivoProducto;

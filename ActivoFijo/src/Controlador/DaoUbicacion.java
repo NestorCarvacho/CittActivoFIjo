@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 public class DaoUbicacion implements IDaoUbicacion{
     
@@ -38,7 +39,16 @@ public class DaoUbicacion implements IDaoUbicacion{
 
     @Override
     public boolean Grabar(Ubicacion ubi) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        try {
+            String sql="INSERT INTO ubicacion VALUES (SEQ_BODEGA.NEXTVAL,?)";
+            PreparedStatement pstm=cone.prepareCall(sql);
+            pstm.setString(1, ubi.getDescripcionUbicacion());
+            int afect = pstm.executeUpdate();
+            return afect>0;            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"error grabar Ubicacion:"+e.getMessage());
+            return false;
+        }
     }
 
     @Override
@@ -87,6 +97,16 @@ public class DaoUbicacion implements IDaoUbicacion{
 
     @Override
     public boolean Eliminar(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+         try {
+            String sql="DELETE from UBICACION where ID_UBICACION=?";
+            PreparedStatement pstm=cone.prepareCall(sql);
+            pstm.setInt(1, id);            
+            int afect = pstm.executeUpdate();
+            return afect>0;            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"error eliminar Ubicacion:"+e.getMessage());
+             System.out.println("error eliminar Prodcuto:"+e.getMessage());
+            return false;
+        }
     }
 }
