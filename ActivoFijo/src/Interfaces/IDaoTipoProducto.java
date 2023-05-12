@@ -9,6 +9,6 @@ public interface IDaoTipoProducto {
     TipoProducto Buscar(int id);
     ArrayList<TipoProducto> Listar();
     boolean Modificar (TipoProducto tpProd);
-    boolean Eliminar(int id);
+    boolean Eliminar(int idtipoProducto);
     TipoProducto Buscar2(String TipoProducto);
 }

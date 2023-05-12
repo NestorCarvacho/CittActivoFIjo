@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 public class DaoTipoProducto implements IDaoTipoProducto {
 
@@ -37,7 +38,16 @@ public class DaoTipoProducto implements IDaoTipoProducto {
 
     @Override
     public boolean Grabar(TipoProducto tpProd) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        try {
+            String sql="insert into TIPO_PRODUCTO values(SEQ_PRODUCTO.NEXTVAL,?)";
+            PreparedStatement pstm=cone.prepareCall(sql);
+            pstm.setString(1, tpProd.getDescripcionTipoProducto());//DESCRIPCION TIPO PRODUCTO
+            int afect = pstm.executeUpdate();
+            return afect>0;            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"error grabar Tipo Producto:"+e.getMessage());
+            return false;
+        }
     }
 
     @Override
@@ -66,8 +76,18 @@ public class DaoTipoProducto implements IDaoTipoProducto {
     }
 
     @Override
-    public boolean Eliminar(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public boolean Eliminar(int idtipoProducto) {
+         try {
+            String sql="DELETE from TIPO_PRODUCTO where ID_TIPO_PRODUCTO=?";
+            PreparedStatement pstm=cone.prepareCall(sql);
+            pstm.setInt(1, idtipoProducto);            
+            int afect = pstm.executeUpdate();
+            return afect>0;            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"error eliminar Prodcuto:"+e.getMessage());
+             System.out.println("error eliminar Prodcuto:"+e.getMessage());
+            return false;
+        }
     }
     
     @Override

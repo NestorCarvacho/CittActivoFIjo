@@ -424,6 +424,9 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
         MnuCerrarSesion = new javax.swing.JMenuItem();
         mnuCerrar = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
@@ -1671,6 +1674,23 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         });
         jMenu1.add(jSeparator1);
 
+        jMenuItem1.setText("Crear Tipo Producto");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
+        jMenuItem2.setText("Eliminar Tipo Producto");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2);
+        jMenu1.add(jSeparator2);
+
         MnuCerrarSesion.setText("Cerrar Sesion");
         MnuCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2332,6 +2352,16 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_JtbListarPersonasMouseClicked
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        JfrmAgregarTipoProducto tipoProd = new JfrmAgregarTipoProducto();
+        tipoProd.setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        JfrmEliminarTipoProducto elimProd = new JfrmEliminarTipoProducto();
+        elimProd.setVisible(true);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
     private void btnCrearUsuarioActionPerformed() {
     }
 
@@ -2500,8 +2530,10 @@ public class JfrmVistaHome extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem14;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -2512,6 +2544,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JTextField jTextField1;
     private java.awt.Label label1;
     private java.awt.Label label15;
