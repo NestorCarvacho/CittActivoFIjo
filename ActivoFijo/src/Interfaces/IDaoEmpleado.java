@@ -10,4 +10,5 @@ public interface IDaoEmpleado {
     boolean Modificar (Empleado emp);
     boolean Eliminar(int id);
     Empleado Buscar2(String Run);
+    Empleado Buscar3(String Run);
 }

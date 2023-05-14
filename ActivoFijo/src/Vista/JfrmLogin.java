@@ -8,6 +8,7 @@ import Controlador.DaoUsuario;
 import Modelo.Usuario;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 /**
@@ -69,6 +70,12 @@ public class JfrmLogin extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel2.setText("Inicio de Sesion");
+
+        jPswIngresoUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPswIngresoUsuarioKeyPressed(evt);
+            }
+        });
 
         jLabel4.setText("Ingrese Contraseña");
 
@@ -158,21 +165,37 @@ public class JfrmLogin extends javax.swing.JFrame {
         String contrasena = jPswIngresoUsuario.getText();
         boolean resp = new DaoUsuario().validarContrasena(usuario, contrasena);
         if (resp) {
-            JOptionPane.showMessageDialog(null, "Usuario/contraseña validados");
-            JfrmVistaHome main=new JfrmVistaHome();
+            System.out.println("Usuario Validado");
+            JfrmVistaHome main = new JfrmVistaHome();
             main.setVisible(true);
             this.dispose();
         } else {
             JOptionPane.showMessageDialog(null, "Error usuario o contraseña incorrectos. En caso de requerir una cuenta pongáse en contacto con un administrador.");
         }
-        
-        
+
+
     }//GEN-LAST:event_btnInicioSesionActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         txtIngresoNombreUsuario.setText("");
         jPswIngresoUsuario.setText("");
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jPswIngresoUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPswIngresoUsuarioKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            String usuario = txtIngresoNombreUsuario.getText().toLowerCase();
+            String contrasena = jPswIngresoUsuario.getText();
+            boolean resp = new DaoUsuario().validarContrasena(usuario, contrasena);
+            if (resp) {
+                System.out.println("Usuario Validado");
+                JfrmVistaHome main = new JfrmVistaHome();
+                main.setVisible(true);
+                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "Error usuario o contraseña incorrectos. En caso de requerir una cuenta pongáse en contacto con un administrador.");
+            }
+    }//GEN-LAST:event_jPswIngresoUsuarioKeyPressed
+    }
 
     /**
      * @param args the command line arguments
@@ -209,6 +232,7 @@ public class JfrmLogin extends javax.swing.JFrame {
             }
         });
     }
+
     public Image getIconImage() {
 
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Img/box.png"));

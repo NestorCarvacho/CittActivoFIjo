@@ -43,7 +43,7 @@ public class DaoTipoEmpleado implements IDaoTipoEmpleado {
     @Override
     public TipoEmpleado Buscar(int id) {
         try {
-            String sql="SELECT * FROM TIPO_EMPLEADO WHERE ID_TIPO_EMPLEADO=?";
+            String sql="SELECT ID_TIPO_EMPLEADO,DESCRIPCION_TIPO_EMPLEADO FROM TIPO_EMPLEADO WHERE ID_TIPO_EMPLEADO=?";
             PreparedStatement pstm=cone.prepareCall(sql);
             pstm.setInt(1, id);
             ResultSet reg=pstm.executeQuery();

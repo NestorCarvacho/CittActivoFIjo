@@ -4,6 +4,7 @@ import Controlador.DaoEmpleado;
 import Controlador.DaoEstado;
 import Controlador.DaoJornada;
 import Controlador.DaoProducto;
+import Controlador.DaoSupervisor;
 import Controlador.DaoTipoEmpleado;
 import Controlador.DaoTipoProducto;
 import Controlador.DaoUbicacion;
@@ -12,6 +13,7 @@ import Modelo.Estado;
 import Modelo.TipoEmpleado;
 import Modelo.Jornada;
 import Modelo.Producto;
+import Modelo.Supervisor;
 import Modelo.TipoProducto;
 import Modelo.Ubicacion;
 import java.awt.Image;
@@ -33,6 +35,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
      */
     public JfrmVistaHome() {
         initComponents();
+        setExtendedState(MAXIMIZED_BOTH);
         //set programa en la mitad de la pantalla
         setLocationRelativeTo(null);
         //CARGA DE CBO APENAS INICIE EL PROGRAMA
@@ -128,15 +131,17 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         modelo.addColumn("Direccion");
         modelo.addColumn("Cargo");
         modelo.addColumn("Jornada");
+        modelo.addColumn("Supervisor");
         ArrayList<Empleado> listado = new DaoEmpleado().Listar();
         for (Empleado item : listado) {
-            Object[] fila = new Object[6];
+            Object[] fila = new Object[7];
             fila[0] = item.getRutEmpleado();
             fila[1] = item.getNombreEmpleado();
             fila[2] = item.getTelefonoEmpleado();
             fila[3] = item.getDireccionEmpleado();
             fila[4] = item.getCargoEmpleado();
             fila[5] = item.getJornadaEmpleado();
+            fila[6] = item.getSupervisorEmpleado();
             modelo.addRow(fila);
         }
     }
@@ -2373,14 +2378,16 @@ public class JfrmVistaHome extends javax.swing.JFrame {
             String direccionEmpleado = txtDireccionEmpleadoHome.getText();
             TipoEmpleado cargoEmpleado = new DaoTipoEmpleado().Buscar3(cboCargoEmpleadoHome.getSelectedItem().toString());
             Jornada jornadaEmpleado = new DaoJornada().Buscar2(cboJornadaEmpleadoHome.getSelectedItem().toString());
-            Empleado empleado = new Empleado(idEmpleado, rutEmpleado, nombreEmpleado, telefonoEmpleado, direccionEmpleado, cargoEmpleado, jornadaEmpleado);
+            Supervisor supervisor = new DaoSupervisor().Buscar(cboSupervisorEmpleadoHome.getSelectedItem().toString());
+            Empleado empleado = new Empleado(idEmpleado, rutEmpleado, nombreEmpleado, telefonoEmpleado, direccionEmpleado, cargoEmpleado, jornadaEmpleado,supervisor);
             boolean resp = new DaoEmpleado().Grabar(empleado);
             if (resp) {
                 JOptionPane.showMessageDialog(null, "Grabo");
                 ListarEmpleados();
                 resetCamposUsuario();
+                ListarSupervisores();
             } else {
-                JOptionPane.showMessageDialog(null, "Grabo");
+                JOptionPane.showMessageDialog(null, "No Grabo");
             }
         } catch (Exception e) {
             System.out.println("Error grabar Producto:" + e.getMessage());
@@ -2398,8 +2405,9 @@ public class JfrmVistaHome extends javax.swing.JFrame {
             txtNombreEmpleadoHome.setText(emp.getNombreEmpleado());
             txtTelefonoEmpleadoHome.setText(emp.getTelefonoEmpleado());
             txtDireccionEmpleadoHome.setText(emp.getDireccionEmpleado());
-            cboCargoEmpleadoHome.setSelectedItem(emp.getCargoEmpleado().toString());
-            cboJornadaEmpleadoHome.setSelectedItem(emp.getJornadaEmpleado().toString());
+            cboCargoEmpleadoHome.setSelectedItem(emp.getCargoEmpleado().getDescripcionTipoEmpleado());
+            cboJornadaEmpleadoHome.setSelectedItem(emp.getJornadaEmpleado().getDescripcionJornada());
+            cboSupervisorEmpleadoHome.setSelectedItem(emp.getSupervisorEmpleado().getNombreSupervisor());
 
         } else {
             JOptionPane.showMessageDialog(null, "Error");
@@ -2437,9 +2445,11 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         String direccionEmpleado = txtDireccionEmpleadoHome.getText();
         TipoEmpleado cargoEmpleado = new DaoTipoEmpleado().Buscar3(cboCargoEmpleadoHome.getSelectedItem().toString());
         Jornada jornadaEmpleado = new DaoJornada().Buscar2(cboJornadaEmpleadoHome.getSelectedItem().toString());
+        Supervisor supervisor = new DaoSupervisor().Buscar(cboSupervisorEmpleadoHome.getSelectedItem().toString());
+            
         try {
             ////////////////////////////////////////////////////////
-            Empleado empleado = new Empleado(idEmpleado, rutEmpleado, nombreEmpleado, telefonoEmpleado, direccionEmpleado, cargoEmpleado, jornadaEmpleado);
+            Empleado empleado = new Empleado(idEmpleado, rutEmpleado, nombreEmpleado, telefonoEmpleado, direccionEmpleado, cargoEmpleado, jornadaEmpleado,supervisor);
             ////////////////////////////////////////////////////////
 
             DaoEmpleado dao = new DaoEmpleado();

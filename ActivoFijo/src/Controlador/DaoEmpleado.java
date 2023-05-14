@@ -2,6 +2,7 @@ package Controlador;
 
 import Interfaces.IDaoEmpleado;
 import Modelo.Empleado;
+import Modelo.Supervisor;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,7 +20,7 @@ public class DaoEmpleado implements IDaoEmpleado {
     @Override
     public ArrayList<Empleado> Listar() {
         try {
-            String sql = "select  ID_EMPLEADO, RUN_EMPLEADO, NOMBRE_COMPLETO_EMPLEADO, TELEFONO_EMPLEADO, DIRECCION_EMPLEADO, TIPO_EMPLEADO_ID_TIPO, JORNADA_ID_JORNADA from EMPLEADO";
+            String sql = "select  * from EMPLEADO";
             PreparedStatement pstm = cone.prepareCall(sql);
             ResultSet reg = pstm.executeQuery();
             ArrayList<Empleado> listado = new ArrayList<>();
@@ -32,8 +33,10 @@ public class DaoEmpleado implements IDaoEmpleado {
                 emp.setDireccionEmpleado(reg.getString("DIRECCION_EMPLEADO"));
                 emp.setCargoEmpleado(new DaoTipoEmpleado().Buscar2(reg.getInt("TIPO_EMPLEADO_ID_TIPO")));
                 emp.setJornadaEmpleado(new DaoJornada().Buscar(reg.getInt("JORNADA_ID_JORNADA")));
+                emp.setSupervisorEmpleado(new DaoSupervisor().Buscar2(reg.getInt("SUPERVISOR_ID_SUPERVISOR")));
                 listado.add(emp);
             }
+
             return listado;
         } catch (Exception e) {
             System.out.println("error listar Empleado:" + e.getMessage());
@@ -44,18 +47,28 @@ public class DaoEmpleado implements IDaoEmpleado {
     @Override
     public boolean Grabar(Empleado emp) {
         try {
-            String sql = "insert into EMPLEADO values(SEQ_EMPLEADO.NEXTVAL,?,?,?,?,?,?)";
-            PreparedStatement pstm = cone.prepareCall(sql);
-            pstm.setString(1, emp.getRutEmpleado());//RUN_EMPLEADO
-            pstm.setString(2, emp.getNombreEmpleado());//NOMBRE_EMPLEADO
-            pstm.setString(3, emp.getTelefonoEmpleado());//TELEFONO_EMPLEADO
-            pstm.setString(4, emp.getDireccionEmpleado());//DIRECCION_EMPLEADO
-            pstm.setInt(5, emp.getCargoEmpleado().getIdTipoEmpleado());//TIPO_EMPLEADO_ID_TIPO
-            pstm.setInt(6, emp.getJornadaEmpleado().getIdJornada());//JORNADA_ID_JORNADA
-            int afect = pstm.executeUpdate();
-            return afect > 0;
+            String sql1 = "insert into EMPLEADO values(SEQ_EMPLEADO.NEXTVAL,?,?,?,?,?,?,?)";
+            PreparedStatement pstm1 = cone.prepareCall(sql1);
+            pstm1.setString(1, emp.getRutEmpleado());//RUN_EMPLEADO
+            pstm1.setString(2, emp.getNombreEmpleado());//NOMBRE_EMPLEADO
+            pstm1.setString(3, emp.getTelefonoEmpleado());//TELEFONO_EMPLEADO
+            pstm1.setString(4, emp.getDireccionEmpleado());//DIRECCION_EMPLEADO
+            pstm1.setInt(5, emp.getCargoEmpleado().getIdTipoEmpleado());//TIPO_EMPLEADO_ID_TIPO
+            pstm1.setInt(6, emp.getJornadaEmpleado().getIdJornada());//JORNADA_ID_JORNADA
+            pstm1.setInt(7, emp.getSupervisorEmpleado().getId_supervisor());//SUPERVISOR_ID_SUPERVISOR
+            int afect1 = pstm1.executeUpdate();
+
+            if (emp.getCargoEmpleado().getIdTipoEmpleado() == 1) {
+                String sql2 = "insert into SUPERVISOR values(SEQ_SUPERVISOR.NEXTVAL,?)";
+                PreparedStatement pstm2 = cone.prepareCall(sql2);
+                pstm2.setString(1, emp.getNombreEmpleado());//NOMBRE_SUPERVISOR
+                int afect2 = pstm2.executeUpdate();
+                return (afect1 > 0 && afect2 > 0);
+            } else {
+                return (afect1 > 0);
+            }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "error grabar Producto:" + e.getMessage());
+            JOptionPane.showMessageDialog(null, "error grabar Empleado:" + e.getMessage());
             return false;
         }
     }
@@ -141,6 +154,7 @@ public class DaoEmpleado implements IDaoEmpleado {
                 emp.setDireccionEmpleado(reg.getString("DIRECCION_EMPLEADO"));
                 emp.setCargoEmpleado(new DaoTipoEmpleado().Buscar2(reg.getInt("TIPO_EMPLEADO_ID_TIPO")));
                 emp.setJornadaEmpleado(new DaoJornada().Buscar(reg.getInt("JORNADA_ID_JORNADA")));
+                emp.setSupervisorEmpleado(new DaoSupervisor().Buscar2(reg.getInt("SUPERVISOR_ID_SUPERVISOR")));
             }
             return emp;
         } catch (Exception e) {
@@ -166,4 +180,25 @@ public class DaoEmpleado implements IDaoEmpleado {
             return null;
         }
     }
+
+    @Override
+    public Empleado Buscar3(String Run) {
+        try {
+            String sql = "SELECT * FROM EMPLEADO WHERE RUN_EMPLEADO=?";
+            PreparedStatement pstm = cone.prepareCall(sql);
+            pstm.setString(1, Run);
+            ResultSet reg = pstm.executeQuery();
+            Empleado emp = null;
+            while (reg.next()) {
+                emp = new Empleado();
+                emp.setIdEmpleado(reg.getInt("ID_EMPLEADO"));
+                emp.setRutEmpleado(reg.getString("RUN_EMPLEADO"));
+            }
+            return emp;
+        } catch (Exception e) {
+            System.out.println("error buscar Empleado2:" + e.getMessage());
+            return null;
+        }
+    }
+
 }

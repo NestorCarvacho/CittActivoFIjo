@@ -9,12 +9,13 @@ public class Empleado {
     private String direccionEmpleado;
     private TipoEmpleado cargoEmpleado;
     private Jornada jornadaEmpleado; 
+    private Supervisor supervisorEmpleado; 
     
     //Metodos Consturctores
     public Empleado() {
     }
 
-    public Empleado(int idEmpleado, String rutEmpleado, String nombreEmpleado, String telefonoEmpleado, String direccionEmpleado, TipoEmpleado cargoEmpleado, Jornada jornadaEmpleado) {
+    public Empleado(int idEmpleado, String rutEmpleado, String nombreEmpleado, String telefonoEmpleado, String direccionEmpleado, TipoEmpleado cargoEmpleado, Jornada jornadaEmpleado, Supervisor supervisor) {
         this.idEmpleado = idEmpleado;
         this.rutEmpleado = rutEmpleado;
         this.nombreEmpleado = nombreEmpleado;
@@ -22,8 +23,10 @@ public class Empleado {
         this.direccionEmpleado = direccionEmpleado;
         this.cargoEmpleado = cargoEmpleado;
         this.jornadaEmpleado = jornadaEmpleado;
+        this.supervisorEmpleado = supervisor;
     }
-    
+
+   
     //Metodos Getters & Setters
     public int getIdEmpleado() {
         return idEmpleado;
@@ -82,12 +85,23 @@ public class Empleado {
         this.jornadaEmpleado = jornadaEmpleado;
     }
 
+    public Supervisor getSupervisorEmpleado() {
+        return supervisorEmpleado;
+    }
+
+    public void setSupervisorEmpleado(Supervisor supervisorEmpleado) {
+        this.supervisorEmpleado = supervisorEmpleado;
+    }
+
+    
     //Metodo toString
     @Override
     public String toString() {
-        return "Empleado{" + "idEmpleado=" + idEmpleado + ", rutEmpleado=" + rutEmpleado + ", nombreEmpleado=" + nombreEmpleado + ", telefonoEmpleado=" + telefonoEmpleado + ", direccionEmpleado=" + direccionEmpleado + ", cargoEmpleado=" + cargoEmpleado + ", jornadaEmpleado=" + jornadaEmpleado + '}';
+        return "Empleado{" + "idEmpleado=" + idEmpleado + ", rutEmpleado=" + rutEmpleado + ", nombreEmpleado=" + nombreEmpleado + ", telefonoEmpleado=" + telefonoEmpleado + ", direccionEmpleado=" + direccionEmpleado + ", cargoEmpleado=" + cargoEmpleado + ", jornadaEmpleado=" + jornadaEmpleado + ", supervisor=" + supervisorEmpleado + '}';
     }
     //Metodos Customer
+
+
 
 
 }
