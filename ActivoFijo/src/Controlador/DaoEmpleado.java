@@ -2,7 +2,6 @@ package Controlador;
 
 import Interfaces.IDaoEmpleado;
 import Modelo.Empleado;
-import Modelo.Supervisor;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -33,7 +32,7 @@ public class DaoEmpleado implements IDaoEmpleado {
                 emp.setDireccionEmpleado(reg.getString("DIRECCION_EMPLEADO"));
                 emp.setCargoEmpleado(new DaoTipoEmpleado().Buscar2(reg.getInt("TIPO_EMPLEADO_ID_TIPO")));
                 emp.setJornadaEmpleado(new DaoJornada().Buscar(reg.getInt("JORNADA_ID_JORNADA")));
-                emp.setSupervisorEmpleado(new DaoSupervisor().Buscar2(reg.getInt("SUPERVISOR_ID_SUPERVISOR")));
+                emp.setNombre_supervisor(reg.getString("NOMBRE_SUPERVISOR"));
                 listado.add(emp);
             }
 
@@ -55,10 +54,18 @@ public class DaoEmpleado implements IDaoEmpleado {
             pstm1.setString(4, emp.getDireccionEmpleado());//DIRECCION_EMPLEADO
             pstm1.setInt(5, emp.getCargoEmpleado().getIdTipoEmpleado());//TIPO_EMPLEADO_ID_TIPO
             pstm1.setInt(6, emp.getJornadaEmpleado().getIdJornada());//JORNADA_ID_JORNADA
-            pstm1.setInt(7, emp.getSupervisorEmpleado().getId_supervisor());//SUPERVISOR_ID_SUPERVISOR
+            String nombre_supervisor = emp.getNombre_supervisor();
+                //si el nombre del supervisor es el cbo SELECCIONE (default) se inserta el texto no aplica en el nombre_supervisor 
+                //en caso de no cumplir la condicion (supervisor seleccionado) se agrega el supervisor seleccionado
+                if (nombre_supervisor.equalsIgnoreCase("-- Seleccione --")) {
+                    pstm1.setString(7,"NO APLICA");
+                } 
+                else{
+                    pstm1.setString(7, emp.getNombre_supervisor()); //supervisor
+                }
             int afect1 = pstm1.executeUpdate();
-
-            if (emp.getCargoEmpleado().getIdTipoEmpleado() == 1) {
+            return (afect1 > 0);
+            /*if (emp.getCargoEmpleado().getIdTipoEmpleado() == 1) {
                 String sql2 = "insert into SUPERVISOR values(SEQ_SUPERVISOR.NEXTVAL,?)";
                 PreparedStatement pstm2 = cone.prepareCall(sql2);
                 pstm2.setString(1, emp.getNombreEmpleado());//NOMBRE_SUPERVISOR
@@ -66,7 +73,7 @@ public class DaoEmpleado implements IDaoEmpleado {
                 return (afect1 > 0 && afect2 > 0);
             } else {
                 return (afect1 > 0);
-            }
+            }*/
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "error grabar Empleado:" + e.getMessage());
             return false;
@@ -90,6 +97,8 @@ public class DaoEmpleado implements IDaoEmpleado {
                 emp.setDireccionEmpleado(reg.getString("DIRECCION_EMPLEADO"));
                 emp.setCargoEmpleado(new DaoTipoEmpleado().Buscar2(reg.getInt("TIPO_EMPLEADO_ID_TIPO")));
                 emp.setJornadaEmpleado(new DaoJornada().Buscar(reg.getInt("JORNADA_ID_JORNADA")));
+                emp.setNombre_supervisor(reg.getString("NOMBRE_SUPERVISOR"));
+                
             }
             return emp;
         } catch (Exception e) {
@@ -101,20 +110,22 @@ public class DaoEmpleado implements IDaoEmpleado {
     @Override
     public boolean Modificar(Empleado emp) {
         try {
-            String sql = "update EMPLEADO set RUN_EMPLEADO=?,"
+            String sql = "UPDATE EMPLEADO SET RUN_EMPLEADO=?,"
                     + "NOMBRE_COMPLETO_EMPLEADO=?,"
                     + "TELEFONO_EMPLEADO=?,"
                     + "DIRECCION_EMPLEADO=?,"
                     + "TIPO_EMPLEADO_ID_TIPO=?,"
-                    + "JORNADA_ID_JORNADA=? where ID_EMPLEADO=?";
+                    + "JORNADA_ID_JORNADA=?,"
+                    + "NOMBRE_SUPERVISOR=? WHERE ID_EMPLEADO=?";
             PreparedStatement pstm = cone.prepareCall(sql);
-            pstm.setInt(7, emp.getIdEmpleado());
+            pstm.setInt(8, emp.getIdEmpleado());
             pstm.setString(1, emp.getRutEmpleado());
             pstm.setString(2, emp.getNombreEmpleado());
             pstm.setString(3, emp.getTelefonoEmpleado());
             pstm.setString(4, emp.getDireccionEmpleado());
             pstm.setInt(5, emp.getCargoEmpleado().getIdTipoEmpleado());
             pstm.setInt(6, emp.getJornadaEmpleado().getIdJornada());
+            pstm.setString(7, emp.getNombre_supervisor());
             int afect = pstm.executeUpdate();
             return afect > 0;
         } catch (Exception e) {
@@ -154,7 +165,7 @@ public class DaoEmpleado implements IDaoEmpleado {
                 emp.setDireccionEmpleado(reg.getString("DIRECCION_EMPLEADO"));
                 emp.setCargoEmpleado(new DaoTipoEmpleado().Buscar2(reg.getInt("TIPO_EMPLEADO_ID_TIPO")));
                 emp.setJornadaEmpleado(new DaoJornada().Buscar(reg.getInt("JORNADA_ID_JORNADA")));
-                emp.setSupervisorEmpleado(new DaoSupervisor().Buscar2(reg.getInt("SUPERVISOR_ID_SUPERVISOR")));
+                emp.setNombre_supervisor(reg.getString("NOMBRE_SUPERVISOR"));
             }
             return emp;
         } catch (Exception e) {
@@ -200,5 +211,9 @@ public class DaoEmpleado implements IDaoEmpleado {
             return null;
         }
     }
+    
+    
+    
+    
 
 }

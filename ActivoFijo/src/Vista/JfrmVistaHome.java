@@ -69,6 +69,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
     //CARGA DE CBO PARA QUE LOS TOME DESDE LA BASE DE DATOS
     private void ListarCboCargo() {
         cboCargoEmpleadoHome.addItem("-- Seleccione --");
+        cboSupervisorEmpleadoHome.addItem("No aplica");
         for (TipoEmpleado tpEmp : new DaoTipoEmpleado().Listar()) {
             cboCargoEmpleadoHome.addItem(tpEmp.getDescripcionTipoEmpleado());
         }
@@ -77,6 +78,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
     private void ListarSupervisores() {
         cboSupervisorEmpleadoHome.removeAllItems();
         cboSupervisorEmpleadoHome.addItem("-- Seleccione --");
+        cboSupervisorEmpleadoHome.addItem("NO APLICA");
         for (Empleado Emp : new DaoEmpleado().Listar2()) {
             cboSupervisorEmpleadoHome.addItem(Emp.getNombreEmpleado());
         }
@@ -141,7 +143,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
             fila[3] = item.getDireccionEmpleado();
             fila[4] = item.getCargoEmpleado();
             fila[5] = item.getJornadaEmpleado();
-            fila[6] = item.getSupervisorEmpleado();
+            fila[6] = item.getNombre_supervisor();
             modelo.addRow(fila);
         }
     }
@@ -2010,6 +2012,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         cboJornadaEmpleadoHome.setSelectedItem("-- Seleccione --");
         cboSupervisorEmpleadoHome.setSelectedItem("-- Seleccione --");
         cboCargoEmpleadoHome.setSelectedItem("-- Seleccione --");
+        
     }//GEN-LAST:event_btnCrearUsuarioHomeActionPerformed
 
     private void cboCargoEmpleadoHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboCargoEmpleadoHomeActionPerformed
@@ -2193,6 +2196,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Grabo");
                 ListarProductosProductos();
                 ResetProducto();
+                ListarSupervisores();
             } else {
                 JOptionPane.showMessageDialog(null, "Grabo");
             }
@@ -2360,6 +2364,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         cboJornadaEmpleadoHome.setEnabled(true);
         cboSupervisorEmpleadoHome.setEnabled(true);
         cboCargoEmpleadoHome.setEnabled(true);
+        
     }//GEN-LAST:event_mnuModificarUsuarioActionPerformed
 
     private void btnGuardarUsuarioHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarUsuarioHomeActionPerformed
@@ -2376,12 +2381,12 @@ public class JfrmVistaHome extends javax.swing.JFrame {
             String nombreEmpleado = txtNombreEmpleadoHome.getText();
             String telefonoEmpleado = txtTelefonoEmpleadoHome.getText();
             String direccionEmpleado = txtDireccionEmpleadoHome.getText();
-            TipoEmpleado cargoEmpleado = new DaoTipoEmpleado().Buscar3(cboCargoEmpleadoHome.getSelectedItem().toString());
+            TipoEmpleado cargoEmpleado = new DaoTipoEmpleado().BuscarTipoEmpleado(cboCargoEmpleadoHome.getSelectedItem().toString());
             Jornada jornadaEmpleado = new DaoJornada().Buscar2(cboJornadaEmpleadoHome.getSelectedItem().toString());
-            Supervisor supervisor = new DaoSupervisor().Buscar(cboSupervisorEmpleadoHome.getSelectedItem().toString());
-            Empleado empleado = new Empleado(idEmpleado, rutEmpleado, nombreEmpleado, telefonoEmpleado, direccionEmpleado, cargoEmpleado, jornadaEmpleado,supervisor);
+            String supervisor = cboSupervisorEmpleadoHome.getSelectedItem().toString();
+            Empleado empleado = new Empleado(idEmpleado, rutEmpleado, nombreEmpleado, telefonoEmpleado, direccionEmpleado, cargoEmpleado, jornadaEmpleado, supervisor);
             boolean resp = new DaoEmpleado().Grabar(empleado);
-            if (resp) {
+            if (resp ) {
                 JOptionPane.showMessageDialog(null, "Grabo");
                 ListarEmpleados();
                 resetCamposUsuario();
@@ -2407,7 +2412,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
             txtDireccionEmpleadoHome.setText(emp.getDireccionEmpleado());
             cboCargoEmpleadoHome.setSelectedItem(emp.getCargoEmpleado().getDescripcionTipoEmpleado());
             cboJornadaEmpleadoHome.setSelectedItem(emp.getJornadaEmpleado().getDescripcionJornada());
-            cboSupervisorEmpleadoHome.setSelectedItem(emp.getSupervisorEmpleado().getNombreSupervisor());
+            cboSupervisorEmpleadoHome.setSelectedItem(emp.getNombre_supervisor());
 
         } else {
             JOptionPane.showMessageDialog(null, "Error");
@@ -2443,9 +2448,10 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         String nombreEmpleado = txtNombreEmpleadoHome.getText();
         String telefonoEmpleado = txtTelefonoEmpleadoHome.getText();
         String direccionEmpleado = txtDireccionEmpleadoHome.getText();
-        TipoEmpleado cargoEmpleado = new DaoTipoEmpleado().Buscar3(cboCargoEmpleadoHome.getSelectedItem().toString());
+        TipoEmpleado cargoEmpleado = new DaoTipoEmpleado().BuscarTipoEmpleado(cboCargoEmpleadoHome.getSelectedItem().toString());
         Jornada jornadaEmpleado = new DaoJornada().Buscar2(cboJornadaEmpleadoHome.getSelectedItem().toString());
-        Supervisor supervisor = new DaoSupervisor().Buscar(cboSupervisorEmpleadoHome.getSelectedItem().toString());
+        String supervisor = cboSupervisorEmpleadoHome.getSelectedItem().toString();
+        
             
         try {
             ////////////////////////////////////////////////////////
@@ -2459,6 +2465,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
                 ListarEmpleados();
                 resetCamposUsuario();
                 btnModificarUsuarioHome.setEnabled(false);
+                ListarSupervisores();
             } else {
                 JOptionPane.showMessageDialog(null, "No Modifico");
             }
@@ -2474,6 +2481,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         if (resp == true) {
             JOptionPane.showMessageDialog(null, "Elimino");
             ListarEmpleados();
+            ListarSupervisores();
         } else {
             JOptionPane.showMessageDialog(null, "No Elimino");
         }

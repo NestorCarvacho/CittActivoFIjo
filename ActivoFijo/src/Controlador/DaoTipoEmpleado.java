@@ -88,7 +88,7 @@ public class DaoTipoEmpleado implements IDaoTipoEmpleado {
     }
     
     
-    public TipoEmpleado Buscar3(String tipo) {
+    public TipoEmpleado BuscarTipoEmpleado(String tipo) {
         try {
             String sql="SELECT ID_TIPO_EMPLEADO FROM TIPO_EMPLEADO WHERE DESCRIPCION_TIPO_EMPLEADO=?";
             PreparedStatement pstm=cone.prepareCall(sql);
