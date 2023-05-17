@@ -29,7 +29,7 @@ public class DaoProducto implements IDaoProducto{
             pstm.setInt(5, pro.getTipoProducto().getIdTipoProducto());//TIPO PRODUCTO
             java.sql.Date fecha=new java.sql.Date(pro.getFechaLlegadaProducto().getTime());
             pstm.setDate(6, fecha);//FECHA LLEGADA
-            pstm.setString(7, pro.getColorProducto());//COLOR PRODUCTO
+            pstm.setInt(7, pro.getColorProducto().getIdColor());//COLOR PRODUCTO
             pstm.setInt(8, pro.getCostoProducto());//COSTO PRODUCTO
             pstm.setInt(9, pro.getEstadoProducto().getIdEstado());//ESTADO PRODUCTO
             pstm.setInt(10, pro.getContNetoProducto());//LITROS
@@ -60,7 +60,7 @@ public class DaoProducto implements IDaoProducto{
                 produ.setTipoProducto(new DaoTipoProducto().Buscar(reg.getInt("TIPO_PRODUCTO_ID_TIPO")));
                 produ.setEstadoProducto(new DaoEstado().Buscar(reg.getInt("ESTADO_ID_ESTADO")));          
                 produ.setFechaLlegadaProducto(reg.getDate("FECHA_LLEGADA_PRODUCTO"));
-                produ.setColorProducto(reg.getString("COLOR_PRODUCTO"));
+                produ.setColorProducto(new DaoColor().Buscar(reg.getInt("COLOR_ID_COLOR")));
                 produ.setCostoProducto(reg.getInt("COSTO_PRODUCTO"));
                 produ.setContNetoProducto(reg.getInt("LITROS_PRODUCTO"));
             }
@@ -88,7 +88,7 @@ public class DaoProducto implements IDaoProducto{
                 prod.setTipoProducto(new DaoTipoProducto().Buscar(reg.getInt("TIPO_PRODUCTO_ID_TIPO")));
                 prod.setEstadoProducto(new DaoEstado().Buscar(reg.getInt("ESTADO_ID_ESTADO")));          
                 prod.setFechaLlegadaProducto(reg.getDate("FECHA_LLEGADA_PRODUCTO"));
-                prod.setColorProducto(reg.getString("COLOR_PRODUCTO"));
+                prod.setColorProducto(new DaoColor().Buscar(reg.getInt("COLOR_ID_COLOR")));
                 prod.setCostoProducto(reg.getInt("COSTO_PRODUCTO"));
                 listado.add(prod);
             }
@@ -121,7 +121,7 @@ public class DaoProducto implements IDaoProducto{
             pstm.setInt(6, pro.getEstadoProducto().getIdEstado());
             java.sql.Date fecha=new java.sql.Date(pro.getFechaLlegadaProducto().getTime());
             pstm.setDate(7, fecha);
-            pstm.setString(8, pro.getColorProducto());
+            pstm.setString(8, pro.getColorProducto().getNombreColor());
             pstm.setInt(9, pro.getCostoProducto());
             int afect = pstm.executeUpdate();
             return afect>0;            
@@ -165,7 +165,7 @@ public class DaoProducto implements IDaoProducto{
                 prod.setTipoProducto(new DaoTipoProducto().Buscar(reg.getInt("TIPO_PRODUCTO_ID_TIPO")));
                 prod.setEstadoProducto(new DaoEstado().Buscar(reg.getInt("ESTADO_ID_ESTADO")));          
                 prod.setFechaLlegadaProducto(reg.getDate("FECHA_LLEGADA_PRODUCTO"));
-                prod.setColorProducto(reg.getString("COLOR_PRODUCTO"));
+                prod.setColorProducto(new DaoColor().Buscar(reg.getInt("COLOR_ID_COLOR")));
                 prod.setCostoProducto(reg.getInt("COSTO_PRODUCTO"));
             }
             return prod;

@@ -71,6 +71,11 @@ public class JfrmLogin extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel2.setText("Inicio de Sesion");
 
+        jPswIngresoUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPswIngresoUsuarioActionPerformed(evt);
+            }
+        });
         jPswIngresoUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jPswIngresoUsuarioKeyPressed(evt);
@@ -194,8 +199,25 @@ public class JfrmLogin extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(null, "Error usuario o contraseña incorrectos. En caso de requerir una cuenta pongáse en contacto con un administrador.");
             }
+        }
     }//GEN-LAST:event_jPswIngresoUsuarioKeyPressed
-    }
+    
+    private void jPswIngresoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPswIngresoUsuarioActionPerformed
+
+            String usuario = txtIngresoNombreUsuario.getText().toLowerCase();
+            String contrasena = jPswIngresoUsuario.getText();
+            boolean resp = new DaoUsuario().validarContrasena(usuario, contrasena);
+            if (resp) {
+                System.out.println("Usuario Validado");
+                JfrmVistaHome main = new JfrmVistaHome();
+                main.setVisible(true);
+                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "Error usuario o contraseña incorrectos. En caso de requerir una cuenta pongáse en contacto con un administrador.");
+            }
+        
+    }//GEN-LAST:event_jPswIngresoUsuarioActionPerformed
+    
 
     /**
      * @param args the command line arguments

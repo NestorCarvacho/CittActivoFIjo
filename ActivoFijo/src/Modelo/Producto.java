@@ -16,7 +16,7 @@ public class Producto {
     private int stockProducto;
     private Estado estadoProducto;
     private Ubicacion ubicacionProducto;
-    private String colorProducto;
+    private Color colorProducto;
     private int contNetoProducto;
     private int costoProducto;
 
@@ -24,7 +24,7 @@ public class Producto {
     public Producto() {
     }
 
-    public Producto(int idProducto, int numActivoProducto, int numSerieProducto, String descProducto, TipoProducto tipoProducto, Empleado ultimaActualizacionProducto, Date fechaLlegadaProducto, int stockProducto, Estado estadoProducto, Ubicacion ubicacionProducto, String colorProducto, int contNetoProducto, int costoProducto) {
+    public Producto(int idProducto, int numActivoProducto, int numSerieProducto, String descProducto, TipoProducto tipoProducto, Empleado ultimaActualizacionProducto, Date fechaLlegadaProducto, int stockProducto, Estado estadoProducto, Ubicacion ubicacionProducto, Color colorProducto, int contNetoProducto, int costoProducto) {
         this.idProducto = idProducto;
         this.numActivoProducto = numActivoProducto;
         this.numSerieProducto = numSerieProducto;
@@ -114,11 +114,11 @@ public class Producto {
         this.ubicacionProducto = ubicacionProducto;
     }
 
-    public String getColorProducto() {
+    public Color getColorProducto() {
         return colorProducto;
     }
 
-    public void setColorProducto(String colorProducto) {
+    public void setColorProducto(Color colorProducto) {
         this.colorProducto = colorProducto;
     }
 

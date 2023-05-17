@@ -1,23 +1,26 @@
 package Vista;
 
+import Controlador.DaoColor;
 import Controlador.DaoEmpleado;
 import Controlador.DaoEstado;
 import Controlador.DaoJornada;
+import Controlador.DaoMovimiento;
 import Controlador.DaoProducto;
-import Controlador.DaoSupervisor;
 import Controlador.DaoTipoEmpleado;
 import Controlador.DaoTipoProducto;
 import Controlador.DaoUbicacion;
+import Modelo.Color;
 import Modelo.Empleado;
 import Modelo.Estado;
 import Modelo.TipoEmpleado;
 import Modelo.Jornada;
+import Modelo.Movimiento;
 import Modelo.Producto;
-import Modelo.Supervisor;
 import Modelo.TipoProducto;
 import Modelo.Ubicacion;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -53,6 +56,8 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         ListarcboUbicacionProductoHome();
         ListarcboEstadoProductoHome();
         ListarSupervisores();
+        ListarCboColorHome();
+        ListarCboColorProducto();
 //        FiltroEmpleado();
 //        Date fecha = new Date();
 //        JdcFechaAsignacionHome.setDate(fecha);
@@ -84,14 +89,6 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         }
     }
 
-    //CboFiltroEmpleado
-//    private void FiltroEmpleado() {
-//        CboFiltroEmpleado.removeAllItems();
-//        CboFiltroEmpleado.addItem("-- Seleccione --");
-//        for (Empleado emp : new DaoEmpleado().Listar()) {
-//            CboFiltroEmpleado.addItem(emp.getRutEmpleado());
-//        }
-//    }
     private void ListarCboJornada() {
         cboJornadaEmpleadoHome.removeAllItems();
         cboJornadaEmpleadoHome.addItem("-- Seleccione --");
@@ -123,7 +120,23 @@ public class JfrmVistaHome extends javax.swing.JFrame {
             cboTipoProductoProducto.addItem(tpProd.getDescripcionTipoProducto());
         }
     }
+    
+    private void ListarCboColorHome() {
+        cboColorHome.removeAllItems();
+        cboColorHome.addItem("-- Seleccione --");
+        for (Color col  : new DaoColor().Listar()) {
+            cboColorHome.addItem(col.getNombreColor());
+        }
+    }
 
+    private void ListarCboColorProducto() {
+        cboColorProducto.removeAllItems();
+        cboColorProducto.addItem("-- Seleccione --");
+        for (Color col  : new DaoColor().Listar()) {
+            cboColorProducto.addItem(col.getNombreColor());
+        }
+    }
+    
     private void ListarEmpleados() {
         DefaultTableModel modelo = new DefaultTableModel();
         JtbListarPersonas.setModel(modelo);
@@ -196,7 +209,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
             fila[3] = item.getUbicacionProducto();
             fila[4] = item.getTipoProducto();
             fila[5] = item.getFechaLlegadaProducto();
-            fila[6] = item.getColorProducto();
+            fila[6] = item.getColorProducto().getNombreColor();
             fila[7] = item.getCostoProducto();
             fila[8] = item.getEstadoProducto();
             modelo.addRow(fila);
@@ -224,7 +237,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
             fila[3] = item.getUbicacionProducto();
             fila[4] = item.getTipoProducto();
             fila[5] = item.getFechaLlegadaProducto();
-            fila[6] = item.getColorProducto();
+            fila[6] = item.getColorProducto().getNombreColor();
             fila[7] = item.getCostoProducto();
             fila[8] = item.getEstadoProducto();
             modelo.addRow(fila);
@@ -253,7 +266,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
             fila[3] = item.getUbicacionProducto();
             fila[4] = item.getTipoProducto();
             fila[5] = item.getFechaLlegadaProducto();
-            fila[6] = item.getColorProducto();
+            fila[6] = item.getColorProducto().getNombreColor();
             fila[7] = item.getCostoProducto();
             fila[8] = item.getEstadoProducto();
             modelo.addRow(fila);
@@ -264,28 +277,22 @@ public class JfrmVistaHome extends javax.swing.JFrame {
     private void ListarProductosMovimientos() {
         DefaultTableModel modelo = new DefaultTableModel();
         JtbListarProductosMovimientos.setModel(modelo);
-        modelo.addColumn("Numero Activo");
-        modelo.addColumn("Numero Serie");
-        modelo.addColumn("Descripcion");
-        modelo.addColumn("Ubicacion");
-        modelo.addColumn("Tipo Producto");
-        modelo.addColumn("Fecha Llegada");
-        modelo.addColumn("Color");
-        modelo.addColumn("Costo");
-        modelo.addColumn("Estado");
+        modelo.addColumn("Movimiento");
+        modelo.addColumn("Numero de Activo");
+        modelo.addColumn("Tipo Movimiento");
+        modelo.addColumn("Ubicacion Inicio");
+        modelo.addColumn("Ubicacion Final");
+        modelo.addColumn("Fecha Movimiento");
         SimpleDateFormat fmto = new SimpleDateFormat("DD/MM/YYYY");
-        ArrayList<Producto> listado = new DaoProducto().Listar();
-        for (Producto item : listado) {
+        ArrayList<Movimiento> listado = new DaoMovimiento().Listar();
+        for (Movimiento item : listado) {
             Object[] fila = new Object[9];
-            fila[0] = item.getNumActivoProducto();
-            fila[1] = item.getNumSerieProducto();
-            fila[2] = item.getDescProducto();
-            fila[3] = item.getUbicacionProducto();
-            fila[4] = item.getTipoProducto();
-            fila[5] = fmto.format(item.getFechaLlegadaProducto());
-            fila[6] = item.getColorProducto();
-            fila[7] = item.getCostoProducto();
-            fila[8] = item.getEstadoProducto();
+            fila[0] = item.getIdMovimiento();
+            fila[1] = item.getProductoIdProducto().getNumActivoProducto();
+            fila[2] = item.getDetalleMovimiento();
+            fila[3] = item.getUbicacionInicio();
+            fila[4] = item.getUbicacionFinal();
+            fila[5] = fmto.format(item.getFechaMovimiento());
             modelo.addRow(fila);
         }
     }
@@ -320,10 +327,10 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         txtUltimaActualizacionProducto1 = new javax.swing.JTextField();
         label62 = new java.awt.Label();
         txtCostoHome = new javax.swing.JTextField();
-        txtColorProductoHome = new javax.swing.JTextField();
         label63 = new java.awt.Label();
         label64 = new java.awt.Label();
         JdcFechaLlegadaHome = new com.toedter.calendar.JDateChooser();
+        cboColorHome = new javax.swing.JComboBox<>();
         JpCuentas = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         JtbListarPersonas = new javax.swing.JTable();
@@ -364,7 +371,6 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         txtUltimaActualizacionProductoProducto = new javax.swing.JTextField();
         txtStockProductoProducto = new javax.swing.JTextField();
         cboEstadoProductoProducto = new javax.swing.JComboBox<>();
-        txtColorProductoProducto = new javax.swing.JTextField();
         txtcontNetoProductoProducto = new javax.swing.JTextField();
         txtCostoProductoProducto = new javax.swing.JTextField();
         label40 = new java.awt.Label();
@@ -392,6 +398,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         TxtFiltroActivoProducto = new javax.swing.JTextField();
         btnBuscarProducto = new javax.swing.JButton();
         JdcFechaLlegadaProductoProducto = new com.toedter.calendar.JDateChooser();
+        cboColorProducto = new javax.swing.JComboBox<>();
         JpInformes = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         BtnExportarInventario = new javax.swing.JButton();
@@ -416,10 +423,9 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         label29 = new java.awt.Label();
         label30 = new java.awt.Label();
         label31 = new java.awt.Label();
-        txtNumeroActivo2 = new javax.swing.JTextField();
-        txtDescripcion2 = new javax.swing.JTextField();
-        txtFechaAsignacion2 = new javax.swing.JTextField();
-        txtNnumeroDeSerie2 = new javax.swing.JTextField();
+        txtBuscarNumeroActivoMovimiento = new javax.swing.JTextField();
+        txtFechaAsignacionMovimiento = new javax.swing.JTextField();
+        txtNnumeroDeSerieMovimiento = new javax.swing.JTextField();
         label32 = new java.awt.Label();
         txtUltimaActializacion2 = new javax.swing.JTextField();
         label33 = new java.awt.Label();
@@ -428,8 +434,13 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         label36 = new java.awt.Label();
         JcbUbicacioninicio = new javax.swing.JComboBox<>();
         JcbUbicacionDestino = new javax.swing.JComboBox<>();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        cboTipoProductoMovimiento = new javax.swing.JComboBox<>();
+        jdcFechaMovimiento = new com.toedter.calendar.JDateChooser();
+        cboTipoMovimientoMovimiento = new javax.swing.JComboBox<>();
+        btnNuevoMovimiento = new java.awt.Button();
+        btnBuscarParaMovimiento = new javax.swing.JButton();
+        btnCancelarMovimiento = new javax.swing.JButton();
+        btnGuardarMovimiento = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
@@ -444,6 +455,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         mnuCrearUsuario = new javax.swing.JMenuItem();
         mnuModificarUsuario = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
+        MnuCrearColor = new javax.swing.JMenuItem();
         MnuCrearProducto = new javax.swing.JMenuItem();
         MnuModificarProducto = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
@@ -458,7 +470,6 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         setForeground(java.awt.Color.orange);
         setIconImage(getIconImage());
         setIconImages(null);
-        setMaximumSize(new java.awt.Dimension(1920, 1080));
         setMinimumSize(new java.awt.Dimension(800, 600));
         setResizable(false);
 
@@ -572,18 +583,14 @@ public class JfrmVistaHome extends javax.swing.JFrame {
             }
         });
 
-        txtColorProductoHome.setEnabled(false);
-        txtColorProductoHome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtColorProductoHomeActionPerformed(evt);
-            }
-        });
-
         label63.setText("Color");
 
         label64.setText("Costo");
 
         JdcFechaLlegadaHome.setEnabled(false);
+
+        cboColorHome.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cboColorHome.setEnabled(false);
 
         javax.swing.GroupLayout JpHomeLayout = new javax.swing.GroupLayout(JpHome);
         JpHome.setLayout(JpHomeLayout);
@@ -630,8 +637,8 @@ public class JfrmVistaHome extends javax.swing.JFrame {
                             .addComponent(label64, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(JpHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtCostoHome)
-                            .addComponent(txtColorProductoHome, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)))
+                            .addComponent(txtCostoHome, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
+                            .addComponent(cboColorHome, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 1316, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, JpHomeLayout.createSequentialGroup()
                         .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -665,21 +672,12 @@ public class JfrmVistaHome extends javax.swing.JFrame {
                         .addComponent(cboTipoProductoHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(JpHomeLayout.createSequentialGroup()
                         .addGroup(JpHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(JpHomeLayout.createSequentialGroup()
-                                .addGroup(JpHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(label62, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtUltimaActualizacionProducto1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(12, 12, 12)
-                                .addGroup(JpHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(label61, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(JdcFechaLlegadaHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(JpHomeLayout.createSequentialGroup()
-                                .addGroup(JpHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(label64, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtCostoHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(label63, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtColorProductoHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(label62, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtUltimaActualizacionProducto1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(12, 12, 12)
+                        .addGroup(JpHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(label61, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JdcFechaLlegadaHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(JpHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(label60, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -687,7 +685,15 @@ public class JfrmVistaHome extends javax.swing.JFrame {
                         .addGap(20, 20, 20)
                         .addGroup(JpHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(label59, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cboEstadoProductoHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(cboEstadoProductoHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(JpHomeLayout.createSequentialGroup()
+                        .addGroup(JpHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(label64, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCostoHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(JpHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(label63, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cboColorHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
                 .addGroup(JpHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(label57, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1075,13 +1081,6 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         cboEstadoProductoProducto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cboEstadoProductoProducto.setEnabled(false);
 
-        txtColorProductoProducto.setEnabled(false);
-        txtColorProductoProducto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtColorProductoProductoActionPerformed(evt);
-            }
-        });
-
         txtcontNetoProductoProducto.setEnabled(false);
         txtcontNetoProductoProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1103,7 +1102,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
 
         label42.setText("Numero de Activo");
 
-        label43.setText("Descripcion");
+        label43.setText("Marca");
 
         label44.setText("Tipo de Producto");
 
@@ -1225,6 +1224,15 @@ public class JfrmVistaHome extends javax.swing.JFrame {
                 .addContainerGap(55, Short.MAX_VALUE))
         );
 
+        JdcFechaLlegadaProductoProducto.setEnabled(false);
+
+        cboColorProducto.setEnabled(false);
+        cboColorProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboColorProductoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout JpProductosLayout = new javax.swing.GroupLayout(JpProductos);
         JpProductos.setLayout(JpProductosLayout);
         JpProductosLayout.setHorizontalGroup(
@@ -1291,8 +1299,8 @@ public class JfrmVistaHome extends javax.swing.JFrame {
                                                     .addComponent(label52, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addGap(15, 15, 15)))
                                             .addGroup(JpProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(txtColorProductoProducto)
-                                                .addComponent(txtCostoProductoProducto))))
+                                                .addComponent(txtCostoProductoProducto)
+                                                .addComponent(cboColorProducto, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                                     .addComponent(btnModificarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
@@ -1344,32 +1352,31 @@ public class JfrmVistaHome extends javax.swing.JFrame {
                                     .addComponent(label46, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtUltimaActualizacionProductoProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(14, 14, 14)
+                                .addComponent(JdcFechaLlegadaProductoProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(16, 16, 16)
+                                .addGroup(JpProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(label48, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtStockProductoProducto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(20, 20, 20)
+                                .addGroup(JpProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(label49, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cboEstadoProductoProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JpProductosLayout.createSequentialGroup()
+                                .addGroup(JpProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(label52, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtCostoProductoProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                                 .addGroup(JpProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(JpProductosLayout.createSequentialGroup()
-                                        .addComponent(label47, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(JpProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(label47, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(cboColorProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(40, 40, 40)
                                         .addGroup(JpProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(btnCancelarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(btnGuardarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(JpProductosLayout.createSequentialGroup()
-                                        .addComponent(JdcFechaLlegadaProductoProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(16, 16, 16)
-                                        .addGroup(JpProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(label48, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtStockProductoProducto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(20, 20, 20)
-                                        .addGroup(JpProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(label49, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(cboEstadoProductoProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                            .addGroup(JpProductosLayout.createSequentialGroup()
-                                .addGroup(JpProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(label52, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtCostoProductoProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                                .addGroup(JpProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(label50, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtColorProductoProducto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(92, 92, 92)))
+                                    .addComponent(label50, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)))
                         .addComponent(btnModificarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(57, 57, 57))))
         );
@@ -1539,35 +1546,33 @@ public class JfrmVistaHome extends javax.swing.JFrame {
 
         label31.setText("Tipo de Producto");
 
-        txtNumeroActivo2.setEnabled(false);
-        txtNumeroActivo2.addActionListener(new java.awt.event.ActionListener() {
+        txtBuscarNumeroActivoMovimiento.setEnabled(false);
+        txtBuscarNumeroActivoMovimiento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNumeroActivo2ActionPerformed(evt);
+                txtBuscarNumeroActivoMovimientoActionPerformed(evt);
+            }
+        });
+        txtBuscarNumeroActivoMovimiento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtBuscarNumeroActivoMovimientoKeyPressed(evt);
             }
         });
 
-        txtDescripcion2.setEnabled(false);
-        txtDescripcion2.addActionListener(new java.awt.event.ActionListener() {
+        txtFechaAsignacionMovimiento.setEnabled(false);
+        txtFechaAsignacionMovimiento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDescripcion2ActionPerformed(evt);
+                txtFechaAsignacionMovimientoActionPerformed(evt);
             }
         });
 
-        txtFechaAsignacion2.setEnabled(false);
-        txtFechaAsignacion2.addActionListener(new java.awt.event.ActionListener() {
+        txtNnumeroDeSerieMovimiento.setEnabled(false);
+        txtNnumeroDeSerieMovimiento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtFechaAsignacion2ActionPerformed(evt);
+                txtNnumeroDeSerieMovimientoActionPerformed(evt);
             }
         });
 
-        txtNnumeroDeSerie2.setEnabled(false);
-        txtNnumeroDeSerie2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNnumeroDeSerie2ActionPerformed(evt);
-            }
-        });
-
-        label32.setText("Fecha Asignacion");
+        label32.setText("Fecha Llegada Producto");
 
         txtUltimaActializacion2.setEnabled(false);
         txtUltimaActializacion2.addActionListener(new java.awt.event.ActionListener() {
@@ -1600,10 +1605,49 @@ public class JfrmVistaHome extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Seleccione --" }));
-        jComboBox1.setEnabled(false);
+        cboTipoProductoMovimiento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Seleccione --" }));
+        cboTipoProductoMovimiento.setEnabled(false);
 
-        jDateChooser1.setEnabled(false);
+        jdcFechaMovimiento.setEnabled(false);
+
+        cboTipoMovimientoMovimiento.setEnabled(false);
+        cboTipoMovimientoMovimiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboTipoMovimientoMovimientoActionPerformed(evt);
+            }
+        });
+
+        btnNuevoMovimiento.setActionCommand("Nuevo Movimiento");
+        btnNuevoMovimiento.setLabel("Nuevo Movimiento");
+        btnNuevoMovimiento.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnNuevoMovimientoMouseClicked(evt);
+            }
+        });
+        btnNuevoMovimiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevoMovimientoActionPerformed(evt);
+            }
+        });
+
+        btnBuscarParaMovimiento.setText("Buscar");
+        btnBuscarParaMovimiento.setEnabled(false);
+        btnBuscarParaMovimiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarParaMovimientoActionPerformed(evt);
+            }
+        });
+
+        btnCancelarMovimiento.setText("Cancelar");
+        btnCancelarMovimiento.setEnabled(false);
+        btnCancelarMovimiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarMovimientoActionPerformed(evt);
+            }
+        });
+
+        btnGuardarMovimiento.setText("Guardar");
+        btnGuardarMovimiento.setEnabled(false);
 
         javax.swing.GroupLayout JpMovimientosLayout = new javax.swing.GroupLayout(JpMovimientos);
         JpMovimientos.setLayout(JpMovimientosLayout);
@@ -1616,21 +1660,32 @@ public class JfrmVistaHome extends javax.swing.JFrame {
                         .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(JpMovimientosLayout.createSequentialGroup()
                                 .addContainerGap()
-                                .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(label32, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                    .addComponent(label29, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(label28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(label30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(label31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(155, 155, 155)
                                 .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtNumeroActivo2, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtDescripcion2, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtNnumeroDeSerie2, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtFechaAsignacion2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(150, 150, 150)
+                                    .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(label29, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(label28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(label30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(label31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(label32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(label27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(41, 41, 41)
+                        .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(JpMovimientosLayout.createSequentialGroup()
+                                .addComponent(btnNuevoMovimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 932, Short.MAX_VALUE))
+                            .addGroup(JpMovimientosLayout.createSequentialGroup()
+                                .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(cboTipoMovimientoMovimiento, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(cboTipoProductoMovimiento, javax.swing.GroupLayout.Alignment.LEADING, 0, 172, Short.MAX_VALUE))
+                                    .addGroup(JpMovimientosLayout.createSequentialGroup()
+                                        .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtBuscarNumeroActivoMovimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtNnumeroDeSerieMovimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtFechaAsignacionMovimiento, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnBuscarParaMovimiento)))
+                                .addGap(72, 72, 72)
                                 .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(label33, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(label34, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1641,10 +1696,16 @@ public class JfrmVistaHome extends javax.swing.JFrame {
                                     .addComponent(txtUltimaActializacion2, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
                                     .addComponent(JcbUbicacioninicio, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(JcbUbicacionDestino, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addComponent(label27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 424, Short.MAX_VALUE)))
+                                    .addComponent(jdcFechaMovimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnCancelarMovimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(113, 113, 113)))))
                 .addContainerGap())
+            .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JpMovimientosLayout.createSequentialGroup()
+                    .addContainerGap(1071, Short.MAX_VALUE)
+                    .addComponent(btnGuardarMovimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(119, 119, 119)))
         );
         JpMovimientosLayout.setVerticalGroup(
             JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1652,49 +1713,62 @@ public class JfrmVistaHome extends javax.swing.JFrame {
                 .addGap(10, 10, 10)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(label27, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JpMovimientosLayout.createSequentialGroup()
+                .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(JpMovimientosLayout.createSequentialGroup()
+                        .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(label27, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnNuevoMovimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(39, 39, 39)
                         .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(label29, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNumeroActivo2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(txtBuscarNumeroActivoMovimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnBuscarParaMovimiento)))
+                        .addGap(17, 17, 17)
                         .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(label28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNnumeroDeSerie2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtNnumeroDeSerieMovimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(JpMovimientosLayout.createSequentialGroup()
-                                .addComponent(label30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(20, 20, 20)
-                                .addComponent(label31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(JpMovimientosLayout.createSequentialGroup()
-                                .addComponent(txtDescripcion2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(20, 20, 20)
-                        .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtFechaAsignacion2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JpMovimientosLayout.createSequentialGroup()
-                        .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(label33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtUltimaActializacion2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(12, 12, 12)
-                        .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(label34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(20, 20, 20)
+                            .addComponent(label30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cboTipoMovimientoMovimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
                         .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(label35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(JcbUbicacioninicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                            .addComponent(label31, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cboTipoProductoMovimiento, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20)
+                        .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtFechaAsignacionMovimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(JpMovimientosLayout.createSequentialGroup()
+                        .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(JpMovimientosLayout.createSequentialGroup()
+                                .addComponent(txtUltimaActializacion2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(label34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jdcFechaMovimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(JpMovimientosLayout.createSequentialGroup()
+                                        .addGap(8, 8, 8)
+                                        .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(JcbUbicacioninicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(btnCancelarMovimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(JpMovimientosLayout.createSequentialGroup()
+                                        .addGap(20, 20, 20)
+                                        .addComponent(label35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(label33, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(5, 5, 5)
                         .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(label36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(JcbUbicacionDestino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(40, 40, 40)))
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
+            .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JpMovimientosLayout.createSequentialGroup()
+                    .addContainerGap(488, Short.MAX_VALUE)
+                    .addComponent(btnGuardarMovimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(168, 168, 168)))
         );
 
         BtnMnuProductos.addTab("Movimientos  ", new javax.swing.ImageIcon(getClass().getResource("/Img/arrows.png")), JpMovimientos); // NOI18N
@@ -1785,6 +1859,14 @@ public class JfrmVistaHome extends javax.swing.JFrame {
 
         jMenu3.setText("Productos");
 
+        MnuCrearColor.setText("Crear Color");
+        MnuCrearColor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnuCrearColorActionPerformed(evt);
+            }
+        });
+        jMenu3.add(MnuCrearColor);
+
         MnuCrearProducto.setText("Crear Producto");
         MnuCrearProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1839,21 +1921,17 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNumeroActivo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroActivo2ActionPerformed
+    private void txtBuscarNumeroActivoMovimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarNumeroActivoMovimientoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNumeroActivo2ActionPerformed
+    }//GEN-LAST:event_txtBuscarNumeroActivoMovimientoActionPerformed
 
-    private void txtDescripcion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescripcion2ActionPerformed
+    private void txtFechaAsignacionMovimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaAsignacionMovimientoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtDescripcion2ActionPerformed
+    }//GEN-LAST:event_txtFechaAsignacionMovimientoActionPerformed
 
-    private void txtFechaAsignacion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaAsignacion2ActionPerformed
+    private void txtNnumeroDeSerieMovimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNnumeroDeSerieMovimientoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtFechaAsignacion2ActionPerformed
-
-    private void txtNnumeroDeSerie2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNnumeroDeSerie2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNnumeroDeSerie2ActionPerformed
+    }//GEN-LAST:event_txtNnumeroDeSerieMovimientoActionPerformed
 
     private void txtUltimaActializacion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUltimaActializacion2ActionPerformed
         // TODO add your handling code here:
@@ -1878,10 +1956,6 @@ public class JfrmVistaHome extends javax.swing.JFrame {
     private void txtStockProductoProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStockProductoProductoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtStockProductoProductoActionPerformed
-
-    private void txtColorProductoProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtColorProductoProductoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtColorProductoProductoActionPerformed
 
     private void txtcontNetoProductoProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcontNetoProductoProductoActionPerformed
         // TODO add your handling code here:
@@ -1908,6 +1982,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         ListarCboTipoProducto();
         ListarCboEstadoProducto();
         ListarCboUbicacion();
+        ListarCboColorProducto();
         btnCancelarProducto.setEnabled(true);
         btnGuardarProducto.setEnabled(true);
         btnBuscarProducto.setEnabled(false);
@@ -1917,7 +1992,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         cboTipoProductoProducto.setEnabled(true);
         JdcFechaLlegadaProductoProducto.setEnabled(true);
         cboEstadoProductoProducto.setEnabled(true);
-        txtColorProductoProducto.setEnabled(true);
+        cboColorProducto.setEnabled(true);
         txtcontNetoProductoProducto.setEnabled(true);
         txtCostoProductoProducto.setEnabled(true);
         cboUbicacionProductoProducto.setEnabled(true);
@@ -1926,7 +2001,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         txtNumeroDeSerieProducto.setText("");
         txtDescripcionProductoProducto.setText("");
         txtStockProductoProducto.setText("");
-        txtColorProductoProducto.setText("");
+        cboColorProducto.setSelectedItem("-- Seleccione --");
         txtcontNetoProductoProducto.setText("");
         txtCostoProductoProducto.setText("");
         cboTipoProductoProducto.setSelectedItem("-- Seleccione --");
@@ -1958,7 +2033,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         JdcFechaLlegadaProductoProducto.setEnabled(false);
         txtStockProductoProducto.setEnabled(false);
         cboEstadoProductoProducto.setEnabled(false);
-        txtColorProductoProducto.setEnabled(false);
+        cboColorProducto.setEnabled(false);
         txtcontNetoProductoProducto.setEnabled(false);
         txtCostoProductoProducto.setEnabled(false);
         cboUbicacionProductoProducto.setEnabled(false);
@@ -1967,7 +2042,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         txtNumeroDeSerieProducto.setText("");
         txtDescripcionProductoProducto.setText("");
         txtStockProductoProducto.setText("");
-        txtColorProductoProducto.setText("");
+        cboColorProducto.setSelectedItem("-- Seleccione --");
         txtcontNetoProductoProducto.setText("");
         txtCostoProductoProducto.setText("");
         cboTipoProductoProducto.setSelectedItem("-- Seleccione --");
@@ -2075,7 +2150,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
             cboTipoProductoHome.setSelectedItem(prod.getTipoProducto().toString());
             cboUbicacionProductoHome.setSelectedItem(prod.getUbicacionProducto().toString());
             cboEstadoProductoHome.setSelectedItem(prod.getEstadoProducto().toString());
-            txtColorProductoHome.setText(prod.getColorProducto());
+            cboColorHome.setSelectedItem(prod.getColorProducto().getNombreColor());
             txtCostoHome.setText("" + prod.getCostoProducto());
             txtcontNetoProductoHome.setText("" + prod.getCostoProducto());
             JdcFechaLlegadaHome.setDate(prod.getFechaLlegadaProducto());
@@ -2120,10 +2195,6 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCostoHomeActionPerformed
 
-    private void txtColorProductoHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtColorProductoHomeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtColorProductoHomeActionPerformed
-
     private void JtbListarProductosProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JtbListarProductosProductosMouseClicked
         int fila = JtbListarProductosProductos.getSelectedRow();
         int activo = Integer.parseInt(JtbListarProductosProductos.getValueAt(fila, 0).toString());
@@ -2135,7 +2206,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
             cboTipoProductoProducto.setSelectedItem(prod.getTipoProducto().toString());
             cboUbicacionProductoProducto.setSelectedItem(prod.getUbicacionProducto().toString());
             cboEstadoProductoProducto.setSelectedItem(prod.getEstadoProducto().toString());
-            txtColorProductoProducto.setText(prod.getColorProducto());
+            cboColorProducto.setSelectedItem(prod.getColorProducto().getNombreColor());
             txtCostoProductoProducto.setText("" + prod.getCostoProducto());
             txtcontNetoProductoProducto.setText("" + prod.getCostoProducto());
             JdcFechaLlegadaProductoProducto.setDate(prod.getFechaLlegadaProducto());
@@ -2167,7 +2238,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
             cboTipoProductoProducto.setSelectedItem(prod.getTipoProducto().toString());
             cboUbicacionProductoProducto.setSelectedItem(prod.getUbicacionProducto().toString());
             cboEstadoProductoProducto.setSelectedItem(prod.getEstadoProducto().toString());
-            txtColorProductoProducto.setText(prod.getColorProducto());
+            cboColorHome.setSelectedItem(prod.getColorProducto().getNombreColor());
             txtCostoProductoProducto.setText("" + prod.getCostoProducto());
             txtcontNetoProductoProducto.setText("" + prod.getCostoProducto());
             JdcFechaLlegadaProductoProducto.setDate(prod.getFechaLlegadaProducto());
@@ -2186,7 +2257,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
             TipoProducto tpProd = new DaoTipoProducto().Buscar2(cboTipoProductoProducto.getSelectedItem().toString());
             Empleado actualizacion = new DaoEmpleado().Buscar2("11.111.111-1");
             Date fecha = JdcFechaLlegadaProductoProducto.getDate();
-            String colorProducto = txtColorProductoProducto.getText();
+            Color colorProducto = new DaoColor().Buscar2(cboColorProducto.getSelectedItem().toString());
             int costoProducto = Integer.parseInt(txtCostoProductoProducto.getText());
             Estado estado = new DaoEstado().Buscar2(cboEstadoProductoProducto.getSelectedItem().toString());
             int litros = Integer.parseInt(txtcontNetoProductoProducto.getText());
@@ -2227,7 +2298,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         TipoProducto tpProd = new DaoTipoProducto().Buscar2(cboTipoProductoProducto.getSelectedItem().toString());
         Empleado actualizacion = new DaoEmpleado().Buscar2("11.111.111-1");
         Date fecha = JdcFechaLlegadaProductoProducto.getDate();
-        String colorProducto = txtColorProductoProducto.getText();
+        Color colorProducto = new DaoColor().Buscar2(cboColorProducto.getSelectedItem().toString());
         int costoProducto = Integer.parseInt(txtCostoProductoProducto.getText());
         Estado estado = new DaoEstado().Buscar2(cboEstadoProductoProducto.getSelectedItem().toString());
         int litros = Integer.parseInt(txtcontNetoProductoProducto.getText());
@@ -2265,7 +2336,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         cboTipoProductoProducto.setEnabled(true);
         JdcFechaLlegadaProductoProducto.setEnabled(true);
         cboEstadoProductoProducto.setEnabled(true);
-        txtColorProductoProducto.setEnabled(true);
+        cboColorProducto.setEnabled(true);
         txtcontNetoProductoProducto.setEnabled(true);
         txtCostoProductoProducto.setEnabled(true);
         cboUbicacionProductoProducto.setEnabled(true);
@@ -2285,7 +2356,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         cboTipoProductoProducto.setEnabled(true);
         JdcFechaLlegadaProductoProducto.setEnabled(true);
         cboEstadoProductoProducto.setEnabled(true);
-        txtColorProductoProducto.setEnabled(true);
+        cboColorProducto.setEnabled(true);
         txtcontNetoProductoProducto.setEnabled(true);
         txtCostoProductoProducto.setEnabled(true);
         cboUbicacionProductoProducto.setEnabled(true);
@@ -2487,9 +2558,75 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnEliminarUsuarioHomeActionPerformed
 
-    private void btnCrearUsuarioActionPerformed() {
-    }
+    private void cboTipoMovimientoMovimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboTipoMovimientoMovimientoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cboTipoMovimientoMovimientoActionPerformed
 
+    private void btnNuevoMovimientoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNuevoMovimientoMouseClicked
+        HabilitarMovimientos();
+    }//GEN-LAST:event_btnNuevoMovimientoMouseClicked
+
+    private void btnNuevoMovimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoMovimientoActionPerformed
+        HabilitarMovimientos();
+    }//GEN-LAST:event_btnNuevoMovimientoActionPerformed
+
+    private void btnCancelarMovimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarMovimientoActionPerformed
+        DeshabilitarMovimientos();
+    }//GEN-LAST:event_btnCancelarMovimientoActionPerformed
+
+    private void btnBuscarParaMovimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarParaMovimientoActionPerformed
+        buscarMovimientoDeActivo();
+    }//GEN-LAST:event_btnBuscarParaMovimientoActionPerformed
+
+    private void txtBuscarNumeroActivoMovimientoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarNumeroActivoMovimientoKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            buscarMovimientoDeActivo();
+        }
+    }//GEN-LAST:event_txtBuscarNumeroActivoMovimientoKeyPressed
+
+    private void MnuCrearColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnuCrearColorActionPerformed
+        JfrmAgregarColor color = new JfrmAgregarColor();
+        MnuCrearColor.setEnabled(false);
+        color.setVisible(true);
+        
+    }//GEN-LAST:event_MnuCrearColorActionPerformed
+
+    private void cboColorProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboColorProductoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cboColorProductoActionPerformed
+
+    private void buscarMovimientoDeActivo(){
+        int numAct = Integer.parseInt(txtBuscarNumeroActivoMovimiento.getText());
+        Movimiento mov = new DaoMovimiento().Buscar(numAct);
+        if (mov !=null){
+            JOptionPane.showMessageDialog(null, "Existe Producto");
+            txtNnumeroDeSerieMovimiento.setText(""+mov.getProductoIdProducto().getNumSerieProducto());
+            cboTipoMovimientoMovimiento.setSelectedItem(mov.getDetalleMovimiento().toString());
+            cboTipoProductoMovimiento.setSelectedItem(mov.getProductoIdProducto().getTipoProducto());
+            txtFechaAsignacionMovimiento.setText(mov.getProductoIdProducto().getFechaLlegadaProducto().toString());
+            jdcFechaMovimiento.setDate(mov.getFechaMovimiento());
+            JcbUbicacioninicio.setSelectedItem(mov.getProductoIdProducto().getUbicacionProducto());
+        }
+    }
+    
+    private void HabilitarMovimientos(){
+        btnNuevoMovimiento.setEnabled(false);
+        btnBuscarParaMovimiento.setEnabled(true);
+        txtBuscarNumeroActivoMovimiento.setEnabled(true);
+        cboTipoMovimientoMovimiento.setEnabled(true);
+        JcbUbicacionDestino.setEnabled(true);
+        btnGuardarMovimiento.setEnabled(true);
+        btnCancelarMovimiento.setEnabled(true);
+    }
+    private void DeshabilitarMovimientos(){
+        btnNuevoMovimiento.setEnabled(true);
+        btnBuscarParaMovimiento.setEnabled(false);
+        txtBuscarNumeroActivoMovimiento.setEnabled(false);
+        cboTipoMovimientoMovimiento.setEnabled(false);
+        JcbUbicacionDestino.setEnabled(false);
+        btnGuardarMovimiento.setEnabled(false);
+        btnCancelarMovimiento.setEnabled(false);
+    }
     private void ResetProducto() {
         btnCancelarProducto.setEnabled(false);
         btnGuardarProducto.setEnabled(false);
@@ -2501,7 +2638,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         JdcFechaLlegadaProductoProducto.setEnabled(false);
         txtStockProductoProducto.setEnabled(false);
         cboEstadoProductoProducto.setEnabled(false);
-        txtColorProductoProducto.setEnabled(false);
+        cboColorProducto.setEnabled(false);
         txtcontNetoProductoProducto.setEnabled(false);
         txtCostoProductoProducto.setEnabled(false);
         cboUbicacionProductoProducto.setEnabled(false);
@@ -2510,7 +2647,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         txtNumeroDeSerieProducto.setText("");
         txtDescripcionProductoProducto.setText("");
         txtStockProductoProducto.setText("");
-        txtColorProductoProducto.setText("");
+        cboColorProducto.setSelectedItem("-- Seleccione --");
         txtcontNetoProductoProducto.setText("");
         txtCostoProductoProducto.setText("");
         cboTipoProductoProducto.setSelectedItem("-- Seleccione --");
@@ -2615,12 +2752,15 @@ public class JfrmVistaHome extends javax.swing.JFrame {
     private javax.swing.JTable JtbListarProductosMovimientos;
     private javax.swing.JTable JtbListarProductosProductos;
     private javax.swing.JMenuItem MnuCerrarSesion;
+    private javax.swing.JMenuItem MnuCrearColor;
     private javax.swing.JMenuItem MnuCrearProducto;
     private javax.swing.JMenuItem MnuModificarProducto;
     private javax.swing.JTextField TxtFiltroActivoProducto;
     private javax.swing.JTextField TxtFiltroRunEmpleadoHome;
     private javax.swing.JButton btnBuscarEmpleado;
+    private javax.swing.JButton btnBuscarParaMovimiento;
     private javax.swing.JButton btnBuscarProducto;
+    private javax.swing.JButton btnCancelarMovimiento;
     private java.awt.Button btnCancelarProducto;
     private java.awt.Button btnCancelarUsuarioHome;
     private java.awt.Button btnCrearProducto;
@@ -2631,22 +2771,26 @@ public class JfrmVistaHome extends javax.swing.JFrame {
     private javax.swing.JMenuItem btnEliminarTpProducto;
     private javax.swing.JMenuItem btnEliminarUbi;
     private java.awt.Button btnEliminarUsuarioHome;
+    private javax.swing.JButton btnGuardarMovimiento;
     private java.awt.Button btnGuardarProducto;
     private java.awt.Button btnGuardarUsuarioHome;
     private java.awt.Button btnModificarProducto;
     private java.awt.Button btnModificarUsuarioHome;
     private javax.swing.JButton btnMovimientos;
+    private java.awt.Button btnNuevoMovimiento;
     private javax.swing.JComboBox<String> cboCargoEmpleadoHome;
+    private javax.swing.JComboBox<String> cboColorHome;
+    private javax.swing.JComboBox<String> cboColorProducto;
     private javax.swing.JComboBox<String> cboEstadoProductoHome;
     private javax.swing.JComboBox<String> cboEstadoProductoProducto;
     private javax.swing.JComboBox<String> cboJornadaEmpleadoHome;
     private javax.swing.JComboBox<String> cboSupervisorEmpleadoHome;
+    private javax.swing.JComboBox<String> cboTipoMovimientoMovimiento;
     private javax.swing.JComboBox<String> cboTipoProductoHome;
+    private javax.swing.JComboBox<String> cboTipoProductoMovimiento;
     private javax.swing.JComboBox<String> cboTipoProductoProducto;
     private javax.swing.JComboBox<String> cboUbicacionProductoHome;
     private javax.swing.JComboBox<String> cboUbicacionProductoProducto;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -2675,6 +2819,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JTextField jTextField1;
+    private com.toedter.calendar.JDateChooser jdcFechaMovimiento;
     private java.awt.Label label1;
     private java.awt.Label label15;
     private java.awt.Label label16;
@@ -2723,20 +2868,17 @@ public class JfrmVistaHome extends javax.swing.JFrame {
     private javax.swing.JMenuItem mnuCerrar;
     private javax.swing.JMenuItem mnuCrearUsuario;
     private javax.swing.JMenuItem mnuModificarUsuario;
-    private javax.swing.JTextField txtColorProductoHome;
-    private javax.swing.JTextField txtColorProductoProducto;
+    private javax.swing.JTextField txtBuscarNumeroActivoMovimiento;
     private javax.swing.JTextField txtCostoHome;
     private javax.swing.JTextField txtCostoProductoProducto;
-    private javax.swing.JTextField txtDescripcion2;
     private javax.swing.JTextField txtDescripcionProductoHome;
     private javax.swing.JTextField txtDescripcionProductoProducto;
     private javax.swing.JTextField txtDireccionEmpleadoHome;
-    private javax.swing.JTextField txtFechaAsignacion2;
+    private javax.swing.JTextField txtFechaAsignacionMovimiento;
     private javax.swing.JTextField txtIdEmpleadoHome;
-    private javax.swing.JTextField txtNnumeroDeSerie2;
     private javax.swing.JTextField txtNnumeroDeSerieHome;
+    private javax.swing.JTextField txtNnumeroDeSerieMovimiento;
     private javax.swing.JTextField txtNombreEmpleadoHome;
-    private javax.swing.JTextField txtNumeroActivo2;
     private javax.swing.JTextField txtNumeroActivoHome;
     private javax.swing.JTextField txtNumeroDeActivoProducto;
     private javax.swing.JTextField txtNumeroDeSerieProducto;
