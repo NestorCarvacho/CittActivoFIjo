@@ -42,8 +42,11 @@ public class DaoUsuario implements IDaoUsuario{
             PreparedStatement pstm = cone.prepareCall(sql);
             pstm.setString(1, usuario);
             ResultSet resultado = pstm.executeQuery();
+            Usuario user = null;
             if(resultado.next()){
+                user = new Usuario();
                 String contrasenaBD = resultado.getString("contrasena");
+                user.setNombre_usuario(resultado.getString("nombre_usuario"));
                 return contrasenaBD.equals(contrasena);
             }
             return false;

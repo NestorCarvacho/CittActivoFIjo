@@ -2602,11 +2602,12 @@ public class JfrmVistaHome extends javax.swing.JFrame {
     }//GEN-LAST:event_cboTipoMovimientoMovimientoActionPerformed
 
     private void btnNuevoMovimientoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNuevoMovimientoMouseClicked
-        HabilitarMovimientos();
+        /*HabilitarMovimientos();*/
     }//GEN-LAST:event_btnNuevoMovimientoMouseClicked
 
     private void btnNuevoMovimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoMovimientoActionPerformed
-        HabilitarMovimientos();
+        JFrmNuevoMovimiento Movimientos = new JFrmNuevoMovimiento();
+        Movimientos.setVisible(true);
     }//GEN-LAST:event_btnNuevoMovimientoActionPerformed
 
     private void btnCancelarMovimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarMovimientoActionPerformed

@@ -99,6 +99,27 @@ public class DaoProducto implements IDaoProducto{
         }
     }
 
+    
+    /*        try {
+            String sql="insert into PRODUCTO values(SEQ_PRODUCTO.NEXTVAL,?,?,?,?,?,?,?,?,?,?)";
+            PreparedStatement pstm=cone.prepareCall(sql);
+            pstm.setInt(1, pro.getNumActivoProducto());//NUMERO_ACTIVO
+            pstm.setInt(2, pro.getNumSerieProducto());//NUMERO DE SERIE
+            pstm.setString(3 , pro.getDescProducto());//DESCRIPCION
+            pstm.setInt(4, pro.getUbicacionProducto().getIdUbicacion());//UBICACION
+            pstm.setInt(5, pro.getTipoProducto().getIdTipoProducto());//TIPO PRODUCTO
+            java.sql.Date fecha=new java.sql.Date(pro.getFechaLlegadaProducto().getTime());
+            pstm.setDate(6, fecha);//FECHA LLEGADA
+            pstm.setInt(7, pro.getColorProducto().getIdColor());//COLOR PRODUCTO
+            pstm.setInt(8, pro.getCostoProducto());//COSTO PRODUCTO
+            pstm.setInt(9, pro.getEstadoProducto().getIdEstado());//ESTADO PRODUCTO
+            pstm.setInt(10, pro.getContNetoProducto());//LITROS
+            int afect = pstm.executeUpdate();
+            return afect>0;            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"error grabar Producto:"+e.getMessage());
+            return false;
+        }*/
     @Override
     public boolean Modificar(Producto pro) {
          try {
@@ -109,7 +130,7 @@ public class DaoProducto implements IDaoProducto{
                     + "TIPO_PRODUCTO_ID_TIPO=?,"
                     + "ESTADO_ID_ESTADO=?,"
                     + "FECHA_LLEGADA_PRODUCTO=?,"
-                    + "COLOR_PRODUCTO=?,"
+                    + "COLOR_ID_COLOR=?,"
                     + "COSTO_PRODUCTO=? where NUMERO_ACTIVO_PRODUCTO=?";
             PreparedStatement pstm=cone.prepareCall(sql);
             pstm.setInt(10, pro.getNumActivoProducto());
@@ -121,7 +142,7 @@ public class DaoProducto implements IDaoProducto{
             pstm.setInt(6, pro.getEstadoProducto().getIdEstado());
             java.sql.Date fecha=new java.sql.Date(pro.getFechaLlegadaProducto().getTime());
             pstm.setDate(7, fecha);
-            pstm.setString(8, pro.getColorProducto().getNombreColor());
+            pstm.setInt(8, pro.getColorProducto().getIdColor());
             pstm.setInt(9, pro.getCostoProducto());
             int afect = pstm.executeUpdate();
             return afect>0;            
