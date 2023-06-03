@@ -58,6 +58,8 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         ListarSupervisores();
         ListarCboColorHome();
         ListarCboColorProducto();
+        ListarCboSeleccionBodegaInforme();
+        ListarCboFiltroProductoInforme();
 //        FiltroEmpleado();
 //        Date fecha = new Date();
 //        JdcFechaAsignacionHome.setDate(fecha);
@@ -120,11 +122,11 @@ public class JfrmVistaHome extends javax.swing.JFrame {
             cboTipoProductoProducto.addItem(tpProd.getDescripcionTipoProducto());
         }
     }
-    
+
     private void ListarCboColorHome() {
         cboColorHome.removeAllItems();
         cboColorHome.addItem("-- Seleccione --");
-        for (Color col  : new DaoColor().Listar()) {
+        for (Color col : new DaoColor().Listar()) {
             cboColorHome.addItem(col.getNombreColor());
         }
     }
@@ -132,11 +134,11 @@ public class JfrmVistaHome extends javax.swing.JFrame {
     private void ListarCboColorProducto() {
         cboColorProducto.removeAllItems();
         cboColorProducto.addItem("-- Seleccione --");
-        for (Color col  : new DaoColor().Listar()) {
+        for (Color col : new DaoColor().Listar()) {
             cboColorProducto.addItem(col.getNombreColor());
         }
     }
-    
+
     private void ListarEmpleados() {
         DefaultTableModel modelo = new DefaultTableModel();
         JtbListarPersonas.setModel(modelo);
@@ -158,6 +160,18 @@ public class JfrmVistaHome extends javax.swing.JFrame {
             fila[5] = item.getJornadaEmpleado();
             fila[6] = item.getNombre_supervisor();
             modelo.addRow(fila);
+        }
+    }
+
+    /* CboSeleccionBodegaInforme */
+    private void ListarCboSeleccionBodegaInforme() {
+        CboSeleccionBodegaInforme.removeAllItems();
+        CboSeleccionBodegaInforme.addItem("-- Seleccione --");
+        for (Empleado emp : new DaoEmpleado().Listar()) {
+            CboSeleccionBodegaInforme.addItem(emp.getNombreEmpleado());
+        }
+        for (Ubicacion ubi : new DaoUbicacion().Listar()) {
+            CboSeleccionBodegaInforme.addItem(ubi.getDescripcionUbicacion());
         }
     }
 
@@ -188,6 +202,16 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         }
     }
 
+    /*CboFiltroProductoInforme*/
+    private void ListarCboFiltroProductoInforme() {
+        CboFiltroProductoInforme.removeAllItems();
+        CboFiltroProductoInforme.addItem("-- Seleccione --");
+        for (TipoProducto tpprod : new DaoTipoProducto().Listar()) {
+            CboFiltroProductoInforme.addItem(tpprod.getDescripcionTipoProducto());
+        }
+    }
+    
+    
     private void ListarProductosProductos() {
         DefaultTableModel modelo = new DefaultTableModel();
         JtbListarProductosProductos.setModel(modelo);
@@ -407,6 +431,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         BtnImprimirMovimientos = new javax.swing.JButton();
         CboSeleccionBodegaInforme = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
+        BtnFiltrarBodegaInforme = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         CboFiltroProductoInforme = new javax.swing.JComboBox<>();
@@ -1401,8 +1426,20 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         BtnImprimirMovimientos.setText("Imprimir Movimientos");
 
         CboSeleccionBodegaInforme.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        CboSeleccionBodegaInforme.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CboSeleccionBodegaInformeActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Seleccione Bodega");
+
+        BtnFiltrarBodegaInforme.setText("Buscar");
+        BtnFiltrarBodegaInforme.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnFiltrarBodegaInformeActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -1423,7 +1460,9 @@ public class JfrmVistaHome extends javax.swing.JFrame {
                         .addGap(80, 80, 80)
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
-                        .addComponent(CboSeleccionBodegaInforme, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(CboSeleccionBodegaInforme, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(BtnFiltrarBodegaInforme)))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -1438,8 +1477,9 @@ public class JfrmVistaHome extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CboSeleccionBodegaInforme, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addContainerGap(38, Short.MAX_VALUE))
+                    .addComponent(jLabel1)
+                    .addComponent(BtnFiltrarBodegaInforme))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         jPanel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -2087,7 +2127,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         cboJornadaEmpleadoHome.setSelectedItem("-- Seleccione --");
         cboSupervisorEmpleadoHome.setSelectedItem("-- Seleccione --");
         cboCargoEmpleadoHome.setSelectedItem("-- Seleccione --");
-        
+
     }//GEN-LAST:event_btnCrearUsuarioHomeActionPerformed
 
     private void cboCargoEmpleadoHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboCargoEmpleadoHomeActionPerformed
@@ -2435,7 +2475,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         cboJornadaEmpleadoHome.setEnabled(true);
         cboSupervisorEmpleadoHome.setEnabled(true);
         cboCargoEmpleadoHome.setEnabled(true);
-        
+
     }//GEN-LAST:event_mnuModificarUsuarioActionPerformed
 
     private void btnGuardarUsuarioHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarUsuarioHomeActionPerformed
@@ -2457,7 +2497,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
             String supervisor = cboSupervisorEmpleadoHome.getSelectedItem().toString();
             Empleado empleado = new Empleado(idEmpleado, rutEmpleado, nombreEmpleado, telefonoEmpleado, direccionEmpleado, cargoEmpleado, jornadaEmpleado, supervisor);
             boolean resp = new DaoEmpleado().Grabar(empleado);
-            if (resp ) {
+            if (resp) {
                 JOptionPane.showMessageDialog(null, "Grabo");
                 ListarEmpleados();
                 resetCamposUsuario();
@@ -2522,11 +2562,10 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         TipoEmpleado cargoEmpleado = new DaoTipoEmpleado().BuscarTipoEmpleado(cboCargoEmpleadoHome.getSelectedItem().toString());
         Jornada jornadaEmpleado = new DaoJornada().Buscar2(cboJornadaEmpleadoHome.getSelectedItem().toString());
         String supervisor = cboSupervisorEmpleadoHome.getSelectedItem().toString();
-        
-            
+
         try {
             ////////////////////////////////////////////////////////
-            Empleado empleado = new Empleado(idEmpleado, rutEmpleado, nombreEmpleado, telefonoEmpleado, direccionEmpleado, cargoEmpleado, jornadaEmpleado,supervisor);
+            Empleado empleado = new Empleado(idEmpleado, rutEmpleado, nombreEmpleado, telefonoEmpleado, direccionEmpleado, cargoEmpleado, jornadaEmpleado, supervisor);
             ////////////////////////////////////////////////////////
 
             DaoEmpleado dao = new DaoEmpleado();
@@ -2588,19 +2627,27 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         JfrmAgregarColor color = new JfrmAgregarColor();
         MnuCrearColor.setEnabled(false);
         color.setVisible(true);
-        
+
     }//GEN-LAST:event_MnuCrearColorActionPerformed
 
     private void cboColorProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboColorProductoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cboColorProductoActionPerformed
 
-    private void buscarMovimientoDeActivo(){
+    private void BtnFiltrarBodegaInformeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnFiltrarBodegaInformeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnFiltrarBodegaInformeActionPerformed
+
+    private void CboSeleccionBodegaInformeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CboSeleccionBodegaInformeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CboSeleccionBodegaInformeActionPerformed
+
+    private void buscarMovimientoDeActivo() {
         int numAct = Integer.parseInt(txtBuscarNumeroActivoMovimiento.getText());
         Movimiento mov = new DaoMovimiento().Buscar(numAct);
-        if (mov !=null){
+        if (mov != null) {
             JOptionPane.showMessageDialog(null, "Existe Producto");
-            txtNnumeroDeSerieMovimiento.setText(""+mov.getProductoIdProducto().getNumSerieProducto());
+            txtNnumeroDeSerieMovimiento.setText("" + mov.getProductoIdProducto().getNumSerieProducto());
             cboTipoMovimientoMovimiento.setSelectedItem(mov.getDetalleMovimiento().toString());
             cboTipoProductoMovimiento.setSelectedItem(mov.getProductoIdProducto().getTipoProducto());
             txtFechaAsignacionMovimiento.setText(mov.getProductoIdProducto().getFechaLlegadaProducto().toString());
@@ -2608,8 +2655,8 @@ public class JfrmVistaHome extends javax.swing.JFrame {
             JcbUbicacioninicio.setSelectedItem(mov.getProductoIdProducto().getUbicacionProducto());
         }
     }
-    
-    private void HabilitarMovimientos(){
+
+    private void HabilitarMovimientos() {
         btnNuevoMovimiento.setEnabled(false);
         btnBuscarParaMovimiento.setEnabled(true);
         txtBuscarNumeroActivoMovimiento.setEnabled(true);
@@ -2618,7 +2665,8 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         btnGuardarMovimiento.setEnabled(true);
         btnCancelarMovimiento.setEnabled(true);
     }
-    private void DeshabilitarMovimientos(){
+
+    private void DeshabilitarMovimientos() {
         btnNuevoMovimiento.setEnabled(true);
         btnBuscarParaMovimiento.setEnabled(false);
         txtBuscarNumeroActivoMovimiento.setEnabled(false);
@@ -2627,6 +2675,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         btnGuardarMovimiento.setEnabled(false);
         btnCancelarMovimiento.setEnabled(false);
     }
+
     private void ResetProducto() {
         btnCancelarProducto.setEnabled(false);
         btnGuardarProducto.setEnabled(false);
@@ -2731,6 +2780,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnExportarInventario;
+    private javax.swing.JButton BtnFiltrarBodegaInforme;
     private javax.swing.JButton BtnFiltrarInforme;
     private javax.swing.JButton BtnImprimirInventario;
     private javax.swing.JButton BtnImprimirMovimientos;
