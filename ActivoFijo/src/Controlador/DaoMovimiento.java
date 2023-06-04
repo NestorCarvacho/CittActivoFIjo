@@ -34,7 +34,7 @@ public class DaoMovimiento implements IDaoMovimiento {
             while (reg.next()) {
                 mov = new Movimiento();
                 mov.setIdMovimiento(reg.getInt("ID_MOVIMIENTO")); //ID_MOVIMIENTO
-                mov.setDetalleMovimiento(reg.getString("DESCRIPCION_MOVIMIENTO"));//DESCRIPCION_MOVIMIENTO
+                mov.setTpMovIdTipoMovimiento(new DaoTipoMovimiento().Buscar(reg.getInt("TP_MOV_ID_TIPO_MOVIMIENTO")));//DESCRIPCION_MOVIMIENTO
                 //prod.setTipoProducto(new DaoTipoProducto().Buscar(reg.getInt("TIPO_PRODUCTO_ID_TIPO")));
                 mov.setProductoIdProducto(new DaoProducto().Buscar(reg.getInt("PRODUCTO_ID_PRODUCTO")));//PRODUCTO_ID_PRODUCTO
                 mov.setUbicacionInicio(reg.getString("UBICACION_INICIO"));//UBICACION_INICIO
@@ -59,7 +59,7 @@ public class DaoMovimiento implements IDaoMovimiento {
             while (reg.next()) {
                 Movimiento mov = new Movimiento();
                 mov.setIdMovimiento(reg.getInt("ID_MOVIMIENTO")); //ID_MOVIMIENTO
-                mov.setDetalleMovimiento(reg.getString("DESCRIPCION_MOVIMIENTO"));//DESCRIPCION_MOVIMIENTO
+                mov.setTpMovIdTipoMovimiento(new DaoTipoMovimiento().Buscar(reg.getInt("TP_MOV_ID_TIPO_MOVIMIENTO")));//DESCRIPCION_MOVIMIENTO
                 //prod.setTipoProducto(new DaoTipoProducto().Buscar(reg.getInt("TIPO_PRODUCTO_ID_TIPO")));
                 mov.setProductoIdProducto(new DaoProducto().Buscar(reg.getInt("PRODUCTO_ID_PRODUCTO")));//PRODUCTO_ID_PRODUCTO
                 mov.setUbicacionInicio(reg.getString("UBICACION_INICIO"));//UBICACION_INICIO

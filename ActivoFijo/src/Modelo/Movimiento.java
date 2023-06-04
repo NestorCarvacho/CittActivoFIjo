@@ -1,12 +1,11 @@
 
 package Modelo;
-
 import java.util.Date;
 
 
 public class Movimiento {
     private int idMovimiento;
-    private String detalleMovimiento;
+    private TipoMovimiento tpMovIdTipoMovimiento;
     private Producto productoIdProducto;
     private String ubicacionInicio;
     private String ubicacionFinal;
@@ -16,9 +15,9 @@ public class Movimiento {
     public Movimiento() {
     }
 
-    public Movimiento(int idMovimiento, String detalleMovimiento, Producto productoIdProducto, String ubicacionInicio, String ubicacionFinal, Date fechaMovimiento) {
+    public Movimiento(int idMovimiento, TipoMovimiento tpMovIdTipoMovimiento, Producto productoIdProducto, String ubicacionInicio, String ubicacionFinal, Date fechaMovimiento) {
         this.idMovimiento = idMovimiento;
-        this.detalleMovimiento = detalleMovimiento;
+        this.tpMovIdTipoMovimiento = tpMovIdTipoMovimiento;
         this.productoIdProducto = productoIdProducto;
         this.ubicacionInicio = ubicacionInicio;
         this.ubicacionFinal = ubicacionFinal;
@@ -33,12 +32,12 @@ public class Movimiento {
         this.idMovimiento = idMovimiento;
     }
 
-    public String getDetalleMovimiento() {
-        return detalleMovimiento;
+    public TipoMovimiento getTpMovIdTipoMovimiento() {
+        return tpMovIdTipoMovimiento;
     }
 
-    public void setDetalleMovimiento(String detalleMovimiento) {
-        this.detalleMovimiento = detalleMovimiento;
+    public void setTpMovIdTipoMovimiento(TipoMovimiento tpMovIdTipoMovimiento) {
+        this.tpMovIdTipoMovimiento = tpMovIdTipoMovimiento;
     }
 
     public Producto getProductoIdProducto() {
@@ -75,13 +74,8 @@ public class Movimiento {
 
     @Override
     public String toString() {
-        return "Movimiento{" + "idMovimiento=" + idMovimiento
-                             + ",detalleMovimiento=" + detalleMovimiento 
-                             + ", productoIdProducto=" + productoIdProducto 
-                             + ", ubicacionInicio=" + ubicacionInicio 
-                             + ", ubicacionFinal=" + ubicacionFinal 
-                             + ", fechaMovimiento=" + fechaMovimiento + '}';
+        return "Movimiento{" + "idMovimiento=" + idMovimiento + ", tpMovIdTipoMovimiento=" + tpMovIdTipoMovimiento + ", productoIdProducto=" + productoIdProducto + ", ubicacionInicio=" + ubicacionInicio + ", ubicacionFinal=" + ubicacionFinal + ", fechaMovimiento=" + fechaMovimiento + '}';
     }
-    
-    
+
+
 }

@@ -8,6 +8,7 @@ import Controlador.DaoMovimiento;
 import Controlador.DaoProducto;
 import Controlador.DaoTipoEmpleado;
 import Controlador.DaoTipoProducto;
+import Controlador.DaoTipoMovimiento;
 import Controlador.DaoUbicacion;
 import Modelo.Color;
 import Modelo.Empleado;
@@ -17,6 +18,7 @@ import Modelo.Jornada;
 import Modelo.Movimiento;
 import Modelo.Producto;
 import Modelo.TipoProducto;
+import Modelo.TipoMovimiento;
 import Modelo.Ubicacion;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -47,6 +49,10 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         ListarCboEstadoProducto();
         ListarCboUbicacion();
         ListarCboTipoProducto();
+        ListarCboColorHome();
+        ListarCboColorProducto();
+        ListarCboSeleccionBodegaInforme();
+        ListarCboFiltroProductoInforme();
         ListarEmpleados();
         ListarProductosHome();
         ListarProductosProductos();
@@ -56,14 +62,10 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         ListarcboUbicacionProductoHome();
         ListarcboEstadoProductoHome();
         ListarSupervisores();
-        ListarCboColorHome();
-        ListarCboColorProducto();
-        ListarCboSeleccionBodegaInforme();
-        ListarCboFiltroProductoInforme();
+
 //        FiltroEmpleado();
 //        Date fecha = new Date();
 //        JdcFechaAsignacionHome.setDate(fecha);
-
         setIconImage(getIconImage());
         setIconImage(getIconHome());
         setIconImage(getIconUser());
@@ -210,8 +212,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
             CboFiltroProductoInforme.addItem(tpprod.getDescripcionTipoProducto());
         }
     }
-    
-    
+
     private void ListarProductosProductos() {
         DefaultTableModel modelo = new DefaultTableModel();
         JtbListarProductosProductos.setModel(modelo);
@@ -313,7 +314,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
             Object[] fila = new Object[9];
             fila[0] = item.getIdMovimiento();
             fila[1] = item.getProductoIdProducto().getNumActivoProducto();
-            fila[2] = item.getDetalleMovimiento();
+            fila[2] = item.getTpMovIdTipoMovimiento().getNombreTipoMovimiento();
             fila[3] = item.getUbicacionInicio();
             fila[4] = item.getUbicacionFinal();
             fila[5] = fmto.format(item.getFechaMovimiento());
@@ -487,6 +488,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         jMenuItem13 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenuItem14 = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         jMenuItem3.setText("jMenuItem3");
 
@@ -1935,7 +1937,20 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         jMenu5.setText("Movimientos");
 
         jMenuItem14.setText("Nuevo Movimiento");
+        jMenuItem14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem14ActionPerformed(evt);
+            }
+        });
         jMenu5.add(jMenuItem14);
+
+        jMenuItem1.setText("Crear Tipo Movimiento");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMenuItem1);
 
         jMenuBar1.add(jMenu5);
 
@@ -2643,13 +2658,22 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_CboSeleccionBodegaInformeActionPerformed
 
+    private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
+        JFrmNuevoMovimiento Movimientos = new JFrmNuevoMovimiento();
+        Movimientos.setVisible(true);
+    }//GEN-LAST:event_jMenuItem14ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     private void buscarMovimientoDeActivo() {
         int numAct = Integer.parseInt(txtBuscarNumeroActivoMovimiento.getText());
         Movimiento mov = new DaoMovimiento().Buscar(numAct);
         if (mov != null) {
             JOptionPane.showMessageDialog(null, "Existe Producto");
             txtNnumeroDeSerieMovimiento.setText("" + mov.getProductoIdProducto().getNumSerieProducto());
-            cboTipoMovimientoMovimiento.setSelectedItem(mov.getDetalleMovimiento().toString());
+            cboTipoMovimientoMovimiento.setSelectedItem(mov.getTpMovIdTipoMovimiento().getNombreTipoMovimiento());
             cboTipoProductoMovimiento.setSelectedItem(mov.getProductoIdProducto().getTipoProducto());
             txtFechaAsignacionMovimiento.setText(mov.getProductoIdProducto().getFechaLlegadaProducto().toString());
             jdcFechaMovimiento.setDate(mov.getFechaMovimiento());
@@ -2855,6 +2879,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem14;
     private javax.swing.JMenuItem jMenuItem3;

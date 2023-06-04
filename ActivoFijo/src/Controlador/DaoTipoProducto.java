@@ -19,7 +19,7 @@ public class DaoTipoProducto implements IDaoTipoProducto {
     @Override
     public ArrayList<TipoProducto> Listar() {
         try {
-            String sql = "select ID_TIPO_PRODUCTO,DESCRIPCION_TIPO_PRODUCTO from TIPO_PRODUCTO";
+            String sql = "select * from TIPO_PRODUCTO";
             PreparedStatement pstm = cone.prepareCall(sql);
             ResultSet reg = pstm.executeQuery();
             ArrayList<TipoProducto> listado = new ArrayList<>();

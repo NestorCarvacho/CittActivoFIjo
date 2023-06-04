@@ -24,6 +24,8 @@ DROP TABLE bodega CASCADE CONSTRAINTS;
 
 DROP TABLE color CASCADE CONSTRAINTS;
 
+DROP TABLE tipo_movimiento CASCADE CONSTRAINTS;
+
 
 -- drop sequences
 DROP SEQUENCE seq_usuario;
@@ -50,6 +52,9 @@ DROP SEQUENCE seq_bodega;
 
 DROP SEQUENCE seq_color;
 
+DROP SEQUENCE seq_tipo_movimiento;
+
+
 -- Creacion de Tablas
 CREATE TABLE USUARIO (
     id_usuario VARCHAR2(10) CONSTRAINT pk_usuario PRIMARY KEY,
@@ -57,6 +62,14 @@ CREATE TABLE USUARIO (
     contrasena VARCHAR2(50) NOT NULL
 );
 
+/*tipo_movimiento*/
+CREATE TABLE tipo_movimiento (
+    id_tipo_movimiento NUMBER,
+    nombre_tipo_movimiento VARCHAR2(80),
+    
+    CONSTRAINT pk_tipo_movimiento PRIMARY KEY (id_tipo_movimiento)
+
+);
 
 CREATE TABLE detalle (
     fecha_asignacion     DATE NOT NULL,
@@ -149,8 +162,8 @@ CREATE TABLE ubicacion (
 
 CREATE TABLE movimiento(
     id_movimiento NUMBER,
-    descripcion_movimiento VARCHAR2(200),
     producto_id_producto NUMBER NOT NULL,
+    tp_mov_id_tipo_movimiento NUMBER NOT NULL,
     ubicacion_inicio VARCHAR2(80),
     ubicacion_final VARCHAR2(80),
     fecha_movimiento DATE,
@@ -201,6 +214,10 @@ ALTER TABLE producto
 ALTER TABLE movimiento
     ADD CONSTRAINT fk_movimiento_producto FOREIGN KEY ( producto_id_producto )
         REFERENCES producto ( id_producto );
+        
+ALTER TABLE movimiento
+    ADD CONSTRAINT fk_movimiento_tipo_movimiento FOREIGN KEY ( tp_mov_id_tipo_movimiento )
+        REFERENCES tipo_movimiento ( id_tipo_movimiento );
 
 -- Create Sequences
 CREATE SEQUENCE seq_usuario
@@ -275,6 +292,11 @@ CREATE SEQUENCE seq_color
     MINVALUE 1
     NOCYCLE;
 
+CREATE SEQUENCE seq_tipo_movimiento
+    INCREMENT BY 1
+    START WITH 1
+    MINVALUE 1
+    NOCYCLE;
 -- INSERT DATOS DE PRUEBAS
 INSERT INTO usuario VALUES(seq_usuario.NEXTVAL, 'usuario1','usuario1');
 INSERT INTO usuario VALUES(seq_usuario.NEXTVAL, 'felipe','felipe');
@@ -283,6 +305,12 @@ INSERT INTO usuario VALUES(seq_usuario.NEXTVAL, 'nicolas','nicolas');
 INSERT INTO usuario VALUES(seq_usuario.NEXTVAL, 'admin','admin');
 
 --SELECT * FROM USUARIO;
+
+INSERT INTO tipo_movimiento VALUES (seq_tipo_movimiento.NEXTVAL, 'Asignacion');
+INSERT INTO tipo_movimiento VALUES (seq_tipo_movimiento.NEXTVAL, 'Devolucion');
+INSERT INTO tipo_movimiento VALUES (seq_tipo_movimiento.NEXTVAL, 'Desecho');
+INSERT INTO tipo_movimiento VALUES (seq_tipo_movimiento.NEXTVAL, 'Cambio Bodega');
+
 INSERT INTO color VALUES (seq_color.NEXTVAL, 'Blanco');
 INSERT INTO color VALUES (seq_color.NEXTVAL, 'Negro');
 INSERT INTO color VALUES (seq_color.NEXTVAL, 'Rojo');
@@ -335,8 +363,8 @@ INSERT INTO PRODUCTO VALUES (seq_producto.NEXTVAL,321,654,'Solvente2',1,1,sysdat
 INSERT INTO PRODUCTO VALUES (seq_producto.NEXTVAL,1234,23465,'Solvente3',2,2,sysdate,2,20000,2,50);
 INSERT INTO PRODUCTO VALUES (seq_producto.NEXTVAL,12322,132446,'Solvente',1,1,sysdate,3,80000,1,50);
 
-INSERT INTO MOVIMIENTO VALUES (seq_movimiento.NEXTVAL,'ENTREGA',1,'Bodega Central 1','Bodega Central 2',SYSDATE);
-INSERT INTO MOVIMIENTO VALUES (seq_movimiento.NEXTVAL,'ENTREGA',2,'Bodega Central 2','Bodega Central 1',SYSDATE);
-INSERT INTO MOVIMIENTO VALUES (seq_movimiento.NEXTVAL,'ENTREGA',3,'Bodega Central 2','Bodega Central 1',SYSDATE);
+INSERT INTO MOVIMIENTO VALUES (seq_movimiento.NEXTVAL,1,1,'Bodega Central 1','Bodega Central 2',SYSDATE);
+INSERT INTO MOVIMIENTO VALUES (seq_movimiento.NEXTVAL,2,2,'Bodega Central 2','Bodega Central 1',SYSDATE);
+INSERT INTO MOVIMIENTO VALUES (seq_movimiento.NEXTVAL,3,3,'Bodega Central 2','Bodega Central 1',SYSDATE);
 
 commit;
