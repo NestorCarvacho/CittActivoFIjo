@@ -17,7 +17,10 @@ import Modelo.Usuario;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import oracle.sql.ROWID;
 
 /**
  *
@@ -34,6 +37,7 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         ListarCboUbicacionFinal();
         ListarCboTipoMovimiento();
+        btnEliminarProducto.setEnabled(false);
         /*ListarCboEncargardoMovimiento();*/
 
         setIconImage(getIconImage());
@@ -100,6 +104,22 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
             CboTipoMovimiento.addItem(tpMov.getNombreTipoMovimiento());
         }
     }
+    
+    private void AgregarProducto(){
+        DefaultTableModel modelo = (DefaultTableModel) jtblMovimiento.getModel();
+        if (modelo.getColumnCount() == 0) {
+            modelo.addColumn("Nro. serie");
+            modelo.addColumn("Nombre");
+        }
+        int producto = Integer.parseInt(txtNumeroActivo.getText());
+        Producto prod = new DaoProducto().Buscar2(producto);
+        Object[] fila = new Object[2];
+        fila[0] = prod.getNumSerieProducto();
+        fila[1] = prod.getDescProducto();
+        modelo.addRow(fila);
+        
+        
+    }
 
     /*
     private void ListarCboEncargardoMovimiento() {
@@ -129,14 +149,15 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         txtUbicacionActual = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnAgregar = new javax.swing.JButton();
         CboTipoMovimiento = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jtblMovimiento = new javax.swing.JTable();
         btnGenerarMovimiento = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
+        btnEliminarProducto = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -149,6 +170,11 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel3.setText("Crea un Nuevo Movimiento");
 
+        TxtBuscarProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtBuscarProductoActionPerformed(evt);
+            }
+        });
         TxtBuscarProducto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 TxtBuscarProductoKeyPressed(evt);
@@ -165,6 +191,11 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
         });
 
         txtSerie.setEnabled(false);
+        txtSerie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSerieActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("Numero de Serie");
 
@@ -176,7 +207,12 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
 
         jLabel7.setText("Ubicacion Actual");
 
-        jButton1.setText("Agregar");
+        btnAgregar.setText("Agregar");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
 
         CboTipoMovimiento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -216,7 +252,7 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(txtUbicacionActual, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton1))
+                                .addComponent(btnAgregar))
                             .addComponent(jLabel4)
                             .addComponent(jLabel7)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -255,22 +291,19 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
                     .addComponent(txtSerie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNumeroActivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtUbicacionActual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(btnAgregar))
                 .addContainerGap(48, Short.MAX_VALUE))
         );
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jtblMovimiento.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nro. Serie", "Nombre"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jtblMovimiento);
 
         btnGenerarMovimiento.setText("Guardar Movimiento");
 
@@ -281,21 +314,28 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
             }
         });
 
+        btnEliminarProducto.setText("Eliminar producto");
+        btnEliminarProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarProductoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(421, 421, 421)
+                        .addComponent(btnEliminarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(215, 215, 215)
                         .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnGenerarMovimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 827, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 827, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -305,7 +345,8 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGenerarMovimiento)
-                    .addComponent(btnCancelar))
+                    .addComponent(btnCancelar)
+                    .addComponent(btnEliminarProducto))
                 .addGap(43, 43, 43))
         );
 
@@ -365,6 +406,42 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        // TODO add your handling code here:
+        int producto = Integer.parseInt(txtNumeroActivo.getText());
+        Producto prod = new DaoProducto().Buscar2(producto);
+        DefaultTableModel modelo = (DefaultTableModel) jtblMovimiento.getModel();
+        if (prod != null) {
+            AgregarProducto();
+            btnEliminarProducto.setEnabled(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Error");
+        }
+    }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void TxtBuscarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtBuscarProductoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtBuscarProductoActionPerformed
+
+    private void txtSerieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSerieActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSerieActionPerformed
+
+    private void btnEliminarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarProductoActionPerformed
+        //Free Research Preview. ChatGPT may produce inaccurate information about people, places, or facts. ChatGPT May 24 Version
+        DefaultTableModel model = (DefaultTableModel) jtblMovimiento.getModel();
+        // Get the selected row index
+        int selectedRow = jtblMovimiento.getSelectedRow();
+        // Check if a row is selected
+        if (selectedRow != -1) {
+            // Remove the row from the table model
+            model.removeRow(selectedRow);
+
+            // Update the JTable
+            model.fireTableDataChanged();
+        }
+    }//GEN-LAST:event_btnEliminarProductoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -404,10 +481,11 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> CboTipoMovimiento;
     private javax.swing.JComboBox<String> CboUbicacionFinal;
     private javax.swing.JTextField TxtBuscarProducto;
+    private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnEliminarProducto;
     private javax.swing.JButton btnGenerarMovimiento;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -418,7 +496,7 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jtblMovimiento;
     private javax.swing.JTextField txtNumeroActivo;
     private javax.swing.JTextField txtSerie;
     private javax.swing.JTextField txtUbicacionActual;
