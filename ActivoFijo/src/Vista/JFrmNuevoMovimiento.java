@@ -96,7 +96,7 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
             CboUbicacionFinal.addItem(ubi.getDescripcionUbicacion());
         }
     }
-    
+
     private void ListarCboTipoMovimiento() {
         CboTipoMovimiento.removeAllItems();
         CboTipoMovimiento.addItem("-- Seleccione --");
@@ -104,21 +104,24 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
             CboTipoMovimiento.addItem(tpMov.getNombreTipoMovimiento());
         }
     }
-    
-    private void AgregarProducto(){
-        DefaultTableModel modelo = (DefaultTableModel) jtblMovimiento.getModel();
-        if (modelo.getColumnCount() == 0) {
-            modelo.addColumn("Nro. serie");
-            modelo.addColumn("Nombre");
+
+    private void AgregarProducto() {
+        try {
+            DefaultTableModel modelo = (DefaultTableModel) jtblMovimiento.getModel();
+            int producto = Integer.parseInt(txtNumeroActivo.getText());
+            Producto prod = new DaoProducto().Buscar2(producto);
+            Object[] fila = new Object[5];
+            fila[0] = prod.getNumActivoProducto();
+            fila[1] = prod.getNumSerieProducto();
+            fila[2] = prod.getTipoProducto().getDescripcionTipoProducto();
+            fila[3] = prod.getUbicacionProducto();
+            fila[4] = prod.getEstadoProducto();
+            
+            modelo.addRow(fila);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "no se puede agregar");
         }
-        int producto = Integer.parseInt(txtNumeroActivo.getText());
-        Producto prod = new DaoProducto().Buscar2(producto);
-        Object[] fila = new Object[2];
-        fila[0] = prod.getNumSerieProducto();
-        fila[1] = prod.getDescProducto();
-        modelo.addRow(fila);
-        
-        
+
     }
 
     /*
@@ -300,7 +303,7 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nro. Serie", "Nombre"
+                "Numero Activo", "Numero Serie", "Descripcion", "Ubicacion Actual", "Estado Producto"
             }
         ));
         jScrollPane1.setViewportView(jtblMovimiento);
@@ -375,20 +378,7 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        int numAct = Integer.parseInt(TxtBuscarProducto.getText());
-        Producto prod = new DaoProducto().Buscar2(numAct);
-        if (prod != null) {
-            JOptionPane.showMessageDialog(null, "Existe Producto");
-            txtNumeroActivo.setText("" + prod.getNumActivoProducto());
-            txtSerie.setText("" + prod.getNumSerieProducto());
-            txtUbicacionActual.setText(prod.getUbicacionProducto().toString());
-        } else {
-            JOptionPane.showMessageDialog(null, "No Existe Producto");
-        }
-    }//GEN-LAST:event_btnBuscarActionPerformed
-
-    private void TxtBuscarProductoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtBuscarProductoKeyPressed
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+        try {
             int numAct = Integer.parseInt(TxtBuscarProducto.getText());
             Producto prod = new DaoProducto().Buscar2(numAct);
             if (prod != null) {
@@ -399,6 +389,27 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(null, "No Existe Producto");
             }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se Encontró producto");
+        }
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void TxtBuscarProductoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtBuscarProductoKeyPressed
+        try {
+            if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+                int numAct = Integer.parseInt(TxtBuscarProducto.getText());
+                Producto prod = new DaoProducto().Buscar2(numAct);
+                if (prod != null) {
+                    JOptionPane.showMessageDialog(null, "Existe Producto");
+                    txtNumeroActivo.setText("" + prod.getNumActivoProducto());
+                    txtSerie.setText("" + prod.getNumSerieProducto());
+                    txtUbicacionActual.setText(prod.getUbicacionProducto().toString());
+                } else {
+                    JOptionPane.showMessageDialog(null, "No Existe Producto");
+                }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se Encontró producto");
         }
     }//GEN-LAST:event_TxtBuscarProductoKeyPressed
 
@@ -407,15 +418,19 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        // TODO add your handling code here:
-        int producto = Integer.parseInt(txtNumeroActivo.getText());
-        Producto prod = new DaoProducto().Buscar2(producto);
-        DefaultTableModel modelo = (DefaultTableModel) jtblMovimiento.getModel();
-        if (prod != null) {
-            AgregarProducto();
-            btnEliminarProducto.setEnabled(true);
-        } else {
-            JOptionPane.showMessageDialog(null, "Error");
+        try {
+            // TODO add your handling code here:
+            int producto = Integer.parseInt(txtNumeroActivo.getText());
+            Producto prod = new DaoProducto().Buscar2(producto);
+            DefaultTableModel modelo = (DefaultTableModel) jtblMovimiento.getModel();
+            if (prod != null) {
+                AgregarProducto();
+                btnEliminarProducto.setEnabled(true);
+            } else {
+                JOptionPane.showMessageDialog(null, "Error");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: No se puede Agregar en Blanco");
         }
     }//GEN-LAST:event_btnAgregarActionPerformed
 
@@ -428,17 +443,21 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
     }//GEN-LAST:event_txtSerieActionPerformed
 
     private void btnEliminarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarProductoActionPerformed
-        //Free Research Preview. ChatGPT may produce inaccurate information about people, places, or facts. ChatGPT May 24 Version
-        DefaultTableModel model = (DefaultTableModel) jtblMovimiento.getModel();
-        // Get the selected row index
-        int selectedRow = jtblMovimiento.getSelectedRow();
-        // Check if a row is selected
-        if (selectedRow != -1) {
-            // Remove the row from the table model
-            model.removeRow(selectedRow);
+        try {
+            //Free Research Preview. ChatGPT may produce inaccurate information about people, places, or facts. ChatGPT May 24 Version
+            DefaultTableModel model = (DefaultTableModel) jtblMovimiento.getModel();
+            // Get the selected row index
+            int selectedRow = jtblMovimiento.getSelectedRow();
+            // Check if a row is selected
+            if (selectedRow != -1) {
+                // Remove the row from the table model
+                model.removeRow(selectedRow);
 
-            // Update the JTable
-            model.fireTableDataChanged();
+                // Update the JTable
+                model.fireTableDataChanged();
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error");
         }
     }//GEN-LAST:event_btnEliminarProductoActionPerformed
 
