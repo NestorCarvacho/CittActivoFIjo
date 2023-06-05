@@ -116,7 +116,7 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
             fila[2] = prod.getTipoProducto().getDescripcionTipoProducto();
             fila[3] = prod.getUbicacionProducto();
             fila[4] = prod.getEstadoProducto();
-            
+
             modelo.addRow(fila);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "no se puede agregar");
@@ -387,8 +387,17 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
                 txtSerie.setText("" + prod.getNumSerieProducto());
                 txtUbicacionActual.setText(prod.getUbicacionProducto().toString());
             } else {
-                JOptionPane.showMessageDialog(null, "No Existe Producto");
+                Producto prod1 = new DaoProducto().BuscarSerie(numAct);
+                if (prod1 != null) {
+                    JOptionPane.showMessageDialog(null, "Existe Producto");
+                    txtNumeroActivo.setText("" + prod1.getNumActivoProducto());
+                    txtSerie.setText("" + prod1.getNumSerieProducto());
+                    txtUbicacionActual.setText(prod1.getUbicacionProducto().toString());
+                } else {
+                    JOptionPane.showMessageDialog(null, "No Existe Producto");
+                }
             }
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "No se Encontró producto");
         }

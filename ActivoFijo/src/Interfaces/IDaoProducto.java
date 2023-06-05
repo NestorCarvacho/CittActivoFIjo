@@ -12,4 +12,5 @@ public interface IDaoProducto {
     boolean Eliminar(int NumActivo);
     Producto Buscar2(int activo);
     Producto Buscar3(String tipo);
+    Producto BuscarSerie(int activo);
 }
