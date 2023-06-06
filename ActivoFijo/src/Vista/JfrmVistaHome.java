@@ -2641,9 +2641,9 @@ public class JfrmVistaHome extends javax.swing.JFrame {
 
     private void MnuCrearColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnuCrearColorActionPerformed
         JfrmAgregarColor color = new JfrmAgregarColor();
-        MnuCrearColor.setEnabled(false);
+        MnuCrearColor.setEnabled(true);
         color.setVisible(true);
-
+        
     }//GEN-LAST:event_MnuCrearColorActionPerformed
 
     private void cboColorProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboColorProductoActionPerformed

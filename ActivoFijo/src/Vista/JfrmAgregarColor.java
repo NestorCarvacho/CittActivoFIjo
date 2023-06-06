@@ -55,7 +55,12 @@ public class JfrmAgregarColor extends javax.swing.JFrame {
             }
         });
 
-        btnSalirColor.setText("SALIR");
+        btnSalirColor.setText("Cerrar");
+        btnSalirColor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirColorActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -114,6 +119,14 @@ public class JfrmAgregarColor extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreColorActionPerformed
 
+    private void btnSalirColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirColorActionPerformed
+        // TODO add your handling code here:
+        mostrarMain();
+    }//GEN-LAST:event_btnSalirColorActionPerformed
+    
+    private void mostrarMain() {
+        this.dispose();
+    }
     /**
      * @param args the command line arguments
      */

@@ -55,7 +55,12 @@ public class JfrmAgregarTipoMovimiento extends javax.swing.JFrame {
             }
         });
 
-        btnSalirTipoMovimiento.setText("SALIR");
+        btnSalirTipoMovimiento.setText("Cerrar");
+        btnSalirTipoMovimiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirTipoMovimientoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -114,6 +119,15 @@ public class JfrmAgregarTipoMovimiento extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreTipoMovimientoActionPerformed
 
+    private void btnSalirTipoMovimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirTipoMovimientoActionPerformed
+        // TODO add your handling code here:
+        mostrarMain();
+    }//GEN-LAST:event_btnSalirTipoMovimientoActionPerformed
+
+    private void mostrarMain(){
+        this.dispose();
+    
+    }
     /**
      * @param args the command line arguments
      */
