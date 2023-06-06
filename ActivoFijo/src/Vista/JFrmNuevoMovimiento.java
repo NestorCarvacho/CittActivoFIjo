@@ -430,9 +430,22 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
         try {
             // TODO add your handling code here:
             int producto = Integer.parseInt(txtNumeroActivo.getText());
+            
             Producto prod = new DaoProducto().Buscar2(producto);
+            
             DefaultTableModel modelo = (DefaultTableModel) jtblMovimiento.getModel();
-            if (prod != null) {
+            
+            boolean existe = false;
+            for (int i = 0; i < modelo.getRowCount(); i++) {
+                int numProducto = (int) modelo.getValueAt(i, 0);
+                if (numProducto == producto) {
+                    existe = true;
+                    break;
+                }
+            }
+            if (existe) {
+                JOptionPane.showMessageDialog(null, "El producto ya existe en la tabla.");
+            }else if (prod != null) {
                 AgregarProducto();
                 btnEliminarProducto.setEnabled(true);
             } else {
