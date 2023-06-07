@@ -386,13 +386,15 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
                 txtNumeroActivo.setText("" + prod.getNumActivoProducto());
                 txtSerie.setText("" + prod.getNumSerieProducto());
                 txtUbicacionActual.setText(prod.getUbicacionProducto().toString());
+                agregarProductoALista();
             } else {
                 Producto prod1 = new DaoProducto().BuscarSerie(numAct);
                 if (prod1 != null) {
-                    JOptionPane.showMessageDialog(null, "Existe Producto");
+//                    JOptionPane.showMessageDialog(null, "Existe Producto");
                     txtNumeroActivo.setText("" + prod1.getNumActivoProducto());
                     txtSerie.setText("" + prod1.getNumSerieProducto());
                     txtUbicacionActual.setText(prod1.getUbicacionProducto().toString());
+                    agregarProductoALista();
                 } else {
                     JOptionPane.showMessageDialog(null, "No Existe Producto");
                 }
@@ -406,16 +408,31 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
     private void TxtBuscarProductoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtBuscarProductoKeyPressed
         try {
             if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-                int numAct = Integer.parseInt(TxtBuscarProducto.getText());
-                Producto prod = new DaoProducto().Buscar2(numAct);
-                if (prod != null) {
-                    JOptionPane.showMessageDialog(null, "Existe Producto");
-                    txtNumeroActivo.setText("" + prod.getNumActivoProducto());
-                    txtSerie.setText("" + prod.getNumSerieProducto());
-                    txtUbicacionActual.setText(prod.getUbicacionProducto().toString());
+        try {
+            int numAct = Integer.parseInt(TxtBuscarProducto.getText());
+            Producto prod = new DaoProducto().Buscar2(numAct);
+            if (prod != null) {
+                JOptionPane.showMessageDialog(null, "Existe Producto");
+                txtNumeroActivo.setText("" + prod.getNumActivoProducto());
+                txtSerie.setText("" + prod.getNumSerieProducto());
+                txtUbicacionActual.setText(prod.getUbicacionProducto().toString());
+                agregarProductoALista();
+            } else {
+                Producto prod1 = new DaoProducto().BuscarSerie(numAct);
+                if (prod1 != null) {
+//                    JOptionPane.showMessageDialog(null, "Existe Producto");
+                    txtNumeroActivo.setText("" + prod1.getNumActivoProducto());
+                    txtSerie.setText("" + prod1.getNumSerieProducto());
+                    txtUbicacionActual.setText(prod1.getUbicacionProducto().toString());
+                    agregarProductoALista();
                 } else {
                     JOptionPane.showMessageDialog(null, "No Existe Producto");
                 }
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se Encontró producto");
+        }
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "No se Encontró producto");
@@ -430,11 +447,11 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
         try {
             // TODO add your handling code here:
             int producto = Integer.parseInt(txtNumeroActivo.getText());
-            
+
             Producto prod = new DaoProducto().Buscar2(producto);
-            
+
             DefaultTableModel modelo = (DefaultTableModel) jtblMovimiento.getModel();
-            
+
             boolean existe = false;
             for (int i = 0; i < modelo.getRowCount(); i++) {
                 int numProducto = (int) modelo.getValueAt(i, 0);
@@ -445,7 +462,7 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
             }
             if (existe) {
                 JOptionPane.showMessageDialog(null, "El producto ya existe en la tabla.");
-            }else if (prod != null) {
+            } else if (prod != null) {
                 AgregarProducto();
                 btnEliminarProducto.setEnabled(true);
             } else {
@@ -518,6 +535,36 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
         });
     }
 
+    private void agregarProductoALista() {
+        try {
+            // TODO add your handling code here:
+            int producto = Integer.parseInt(txtNumeroActivo.getText());
+
+            Producto prod = new DaoProducto().Buscar2(producto);
+
+            DefaultTableModel modelo = (DefaultTableModel) jtblMovimiento.getModel();
+
+            boolean existe = false;
+            for (int i = 0; i < modelo.getRowCount(); i++) {
+                int numProducto = (int) modelo.getValueAt(i, 0);
+                if (numProducto == producto) {
+                    existe = true;
+                    break;
+                }
+            }
+            if (existe) {
+                JOptionPane.showMessageDialog(null, "El producto ya existe en la tabla.");
+            } else if (prod != null) {
+                AgregarProducto();
+                btnEliminarProducto.setEnabled(true);
+            } else {
+                JOptionPane.showMessageDialog(null, "Error");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: No se puede Agregar en Blanco");
+        }
+
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> CboTipoMovimiento;
     private javax.swing.JComboBox<String> CboUbicacionFinal;
