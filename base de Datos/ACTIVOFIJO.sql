@@ -125,8 +125,8 @@ CREATE TABLE jornada (
 
 CREATE TABLE producto (
     id_producto             NUMBER NOT NULL,
-    numero_activo_producto  NUMBER NOT NULL,
-    numero_serie_producto   NUMBER(12) NOT NULL,
+    numero_activo_producto  VARCHAR2(250) NOT NULL,
+    numero_serie_producto   VARCHAR2(250) NOT NULL,
     descripcion_producto    VARCHAR2(250) NOT NULL,
     ubicacion_id_ubicacion  NUMBER NOT NULL,
     tipo_producto_id_tipo   NUMBER NOT NULL,
@@ -310,6 +310,7 @@ INSERT INTO tipo_movimiento VALUES (seq_tipo_movimiento.NEXTVAL, 'Asignacion');
 INSERT INTO tipo_movimiento VALUES (seq_tipo_movimiento.NEXTVAL, 'Devolucion');
 INSERT INTO tipo_movimiento VALUES (seq_tipo_movimiento.NEXTVAL, 'Desecho');
 INSERT INTO tipo_movimiento VALUES (seq_tipo_movimiento.NEXTVAL, 'Cambio Bodega');
+INSERT INTO tipo_movimiento VALUES (seq_tipo_movimiento.NEXTVAL, 'Refill');
 
 INSERT INTO color VALUES (seq_color.NEXTVAL, 'Blanco');
 INSERT INTO color VALUES (seq_color.NEXTVAL, 'Negro');
@@ -359,12 +360,12 @@ INSERT INTO empleado VALUES (SEQ_EMPLEADO.NEXTVAL,'99.999.999-9','Maria José Peñ
 INSERT INTO empleado VALUES (SEQ_EMPLEADO.NEXTVAL,'12.121.212-1','Antonella Cabezas','987654321','Calle inventada 1',4,2,'NO APLICA');
 INSERT INTO empleado VALUES (SEQ_EMPLEADO.NEXTVAL,'23.232.323-2','Paola Tapia','987654321','Calle inventada 1',5,1,'NO APLICA');
 
-INSERT INTO PRODUCTO VALUES (seq_producto.NEXTVAL,321,654,'Solvente2',1,1,sysdate,1,80000,1,50);
-INSERT INTO PRODUCTO VALUES (seq_producto.NEXTVAL,1234,23465,'Solvente3',2,2,sysdate,2,20000,2,50);
-INSERT INTO PRODUCTO VALUES (seq_producto.NEXTVAL,12322,132446,'Solvente',1,1,sysdate,3,80000,1,50);
+INSERT INTO PRODUCTO VALUES (seq_producto.NEXTVAL,'1q2w3e4r5t6y7u8i9o','1a2s3d4f5g6h7j8k9l0l','Solvente2',1,1,sysdate,1,80000,1,50);
+INSERT INTO PRODUCTO VALUES (seq_producto.NEXTVAL,'1z2x3c4v5b6n7m8k9l0p','0p9l8m6n5b4v3c2x1z','Solvente3',2,2,sysdate,2,20000,2,50);
+INSERT INTO PRODUCTO VALUES (seq_producto.NEXTVAL,'9a8s7d6f5g4h3j2k1l0','3q2w1e65r4t9y8u7io0p','Solvente',1,1,sysdate,3,80000,1,50);
 
-INSERT INTO MOVIMIENTO VALUES (seq_movimiento.NEXTVAL,1,1,'Bodega Central 1','Bodega Central 2',SYSDATE);
-INSERT INTO MOVIMIENTO VALUES (seq_movimiento.NEXTVAL,2,2,'Bodega Central 2','Bodega Central 1',SYSDATE);
-INSERT INTO MOVIMIENTO VALUES (seq_movimiento.NEXTVAL,3,3,'Bodega Central 2','Bodega Central 1',SYSDATE);
+INSERT INTO MOVIMIENTO VALUES (seq_movimiento.NEXTVAL,1,1,1,2,SYSDATE);
+INSERT INTO MOVIMIENTO VALUES (seq_movimiento.NEXTVAL,2,2,2,1,SYSDATE);
+INSERT INTO MOVIMIENTO VALUES (seq_movimiento.NEXTVAL,3,3,2,1,SYSDATE);
 
 commit;

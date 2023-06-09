@@ -108,7 +108,7 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
     private void AgregarProducto() {
         try {
             DefaultTableModel modelo = (DefaultTableModel) jtblMovimiento.getModel();
-            int producto = Integer.parseInt(txtNumeroActivo.getText());
+            String producto = txtNumeroActivo.getText();
             Producto prod = new DaoProducto().Buscar2(producto);
             Object[] fila = new Object[5];
             fila[0] = prod.getNumActivoProducto();
@@ -379,10 +379,10 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         try {
-            int numAct = Integer.parseInt(TxtBuscarProducto.getText());
+            String numAct = TxtBuscarProducto.getText();
             Producto prod = new DaoProducto().Buscar2(numAct);
             if (prod != null) {
-                JOptionPane.showMessageDialog(null, "Existe Producto");
+//                JOptionPane.showMessageDialog(null, "Existe Producto");
                 txtNumeroActivo.setText("" + prod.getNumActivoProducto());
                 txtSerie.setText("" + prod.getNumSerieProducto());
                 txtUbicacionActual.setText(prod.getUbicacionProducto().toString());
@@ -409,10 +409,10 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
         try {
             if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
         try {
-            int numAct = Integer.parseInt(TxtBuscarProducto.getText());
+            String numAct = TxtBuscarProducto.getText();
             Producto prod = new DaoProducto().Buscar2(numAct);
             if (prod != null) {
-                JOptionPane.showMessageDialog(null, "Existe Producto");
+//                JOptionPane.showMessageDialog(null, "Existe Producto");
                 txtNumeroActivo.setText("" + prod.getNumActivoProducto());
                 txtSerie.setText("" + prod.getNumSerieProducto());
                 txtUbicacionActual.setText(prod.getUbicacionProducto().toString());
@@ -446,7 +446,7 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         try {
             // TODO add your handling code here:
-            int producto = Integer.parseInt(txtNumeroActivo.getText());
+            String producto = txtNumeroActivo.getText();
 
             Producto prod = new DaoProducto().Buscar2(producto);
 
@@ -454,7 +454,7 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
 
             boolean existe = false;
             for (int i = 0; i < modelo.getRowCount(); i++) {
-                int numProducto = (int) modelo.getValueAt(i, 0);
+                String numProducto = (String) modelo.getValueAt(i, 0);
                 if (numProducto == producto) {
                     existe = true;
                     break;
@@ -538,7 +538,7 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
     private void agregarProductoALista() {
         try {
             // TODO add your handling code here:
-            int producto = Integer.parseInt(txtNumeroActivo.getText());
+            String producto = txtNumeroActivo.getText();
 
             Producto prod = new DaoProducto().Buscar2(producto);
 
@@ -546,7 +546,7 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
 
             boolean existe = false;
             for (int i = 0; i < modelo.getRowCount(); i++) {
-                int numProducto = (int) modelo.getValueAt(i, 0);
+                String numProducto = (String) modelo.getValueAt(i, 0);
                 if (numProducto == producto) {
                     existe = true;
                     break;

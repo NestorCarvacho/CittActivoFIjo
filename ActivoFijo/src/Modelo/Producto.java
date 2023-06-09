@@ -7,8 +7,8 @@ import java.util.Date;
 public class Producto {
     //Atributos
     private int idProducto;
-    private int numActivoProducto;
-    private int numSerieProducto;
+    private String numActivoProducto;
+    private String numSerieProducto;
     private String descProducto;
     private TipoProducto tipoProducto;
     private Empleado ultimaActualizacionProducto;
@@ -24,7 +24,7 @@ public class Producto {
     public Producto() {
     }
 
-    public Producto(int idProducto, int numActivoProducto, int numSerieProducto, String descProducto, TipoProducto tipoProducto, Empleado ultimaActualizacionProducto, Date fechaLlegadaProducto, int stockProducto, Estado estadoProducto, Ubicacion ubicacionProducto, Color colorProducto, int contNetoProducto, int costoProducto) {
+    public Producto(int idProducto, String numActivoProducto, String numSerieProducto, String descProducto, TipoProducto tipoProducto, Empleado ultimaActualizacionProducto, Date fechaLlegadaProducto, int stockProducto, Estado estadoProducto, Ubicacion ubicacionProducto, Color colorProducto, int contNetoProducto, int costoProducto) {
         this.idProducto = idProducto;
         this.numActivoProducto = numActivoProducto;
         this.numSerieProducto = numSerieProducto;
@@ -42,19 +42,19 @@ public class Producto {
 
     //Metodos Getters & Setters
 
-    public int getNumActivoProducto() {
+    public String getNumActivoProducto() {
         return numActivoProducto;
     }
 
-    public void setNumActivoProducto(int numActivoProducto) {
+    public void setNumActivoProducto(String numActivoProducto) {
         this.numActivoProducto = numActivoProducto;
     }
 
-    public int getNumSerieProducto() {
+    public String getNumSerieProducto() {
         return numSerieProducto;
     }
 
-    public void setNumSerieProducto(int numSerieProducto) {
+    public void setNumSerieProducto(String numSerieProducto) {
         this.numSerieProducto = numSerieProducto;
     }
 

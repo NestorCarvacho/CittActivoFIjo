@@ -21,8 +21,8 @@ public class DaoProducto implements IDaoProducto {
         try {
             String sql = "insert into PRODUCTO values(SEQ_PRODUCTO.NEXTVAL,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement pstm = cone.prepareCall(sql);
-            pstm.setInt(1, pro.getNumActivoProducto());//NUMERO_ACTIVO
-            pstm.setInt(2, pro.getNumSerieProducto());//NUMERO DE SERIE
+            pstm.setString(1, pro.getNumActivoProducto());//NUMERO_ACTIVO
+            pstm.setString(2, pro.getNumSerieProducto());//NUMERO DE SERIE
             pstm.setString(3, pro.getDescProducto());//DESCRIPCION
             pstm.setInt(4, pro.getUbicacionProducto().getIdUbicacion());//UBICACION
             pstm.setInt(5, pro.getTipoProducto().getIdTipoProducto());//TIPO PRODUCTO
@@ -52,8 +52,8 @@ public class DaoProducto implements IDaoProducto {
             while (reg.next()) {
                 produ = new Producto();
                 produ.setIdProducto(reg.getInt("ID_PRODUCTO"));
-                produ.setNumActivoProducto(reg.getInt("NUMERO_ACTIVO_PRODUCTO"));
-                produ.setNumSerieProducto(reg.getInt("NUMERO_SERIE_PRODUCTO"));
+                produ.setNumActivoProducto(reg.getString("NUMERO_ACTIVO_PRODUCTO"));
+                produ.setNumSerieProducto(reg.getString("NUMERO_SERIE_PRODUCTO"));
                 produ.setDescProducto(reg.getString("DESCRIPCION_PRODUCTO"));
                 produ.setUbicacionProducto(new DaoUbicacion().Buscar(reg.getInt("UBICACION_ID_UBICACION")));
                 produ.setTipoProducto(new DaoTipoProducto().Buscar(reg.getInt("TIPO_PRODUCTO_ID_TIPO")));
@@ -80,8 +80,8 @@ public class DaoProducto implements IDaoProducto {
             while (reg.next()) {
                 Producto prod = new Producto();
                 prod.setIdProducto(reg.getInt("ID_PRODUCTO"));
-                prod.setNumActivoProducto(reg.getInt("NUMERO_ACTIVO_PRODUCTO"));
-                prod.setNumSerieProducto(reg.getInt("NUMERO_SERIE_PRODUCTO"));
+                prod.setNumActivoProducto(reg.getString("NUMERO_ACTIVO_PRODUCTO"));
+                prod.setNumSerieProducto(reg.getString("NUMERO_SERIE_PRODUCTO"));
                 prod.setDescProducto(reg.getString("DESCRIPCION_PRODUCTO"));
                 prod.setUbicacionProducto(new DaoUbicacion().Buscar(reg.getInt("UBICACION_ID_UBICACION")));
                 prod.setTipoProducto(new DaoTipoProducto().Buscar(reg.getInt("TIPO_PRODUCTO_ID_TIPO")));
@@ -131,9 +131,9 @@ public class DaoProducto implements IDaoProducto {
                     + "COLOR_ID_COLOR=?,"
                     + "COSTO_PRODUCTO=? where NUMERO_ACTIVO_PRODUCTO=?";
             PreparedStatement pstm = cone.prepareCall(sql);
-            pstm.setInt(10, pro.getNumActivoProducto());
-            pstm.setInt(1, pro.getNumActivoProducto());
-            pstm.setInt(2, pro.getNumSerieProducto());
+            pstm.setString(10, pro.getNumActivoProducto());
+            pstm.setString(1, pro.getNumActivoProducto());
+            pstm.setString(2, pro.getNumSerieProducto());
             pstm.setString(3, pro.getDescProducto());
             pstm.setInt(4, pro.getUbicacionProducto().getIdUbicacion());
             pstm.setInt(5, pro.getTipoProducto().getIdTipoProducto());
@@ -151,11 +151,11 @@ public class DaoProducto implements IDaoProducto {
     }
 
     @Override
-    public boolean Eliminar(int NumActivo) {
+    public boolean Eliminar(String NumActivo) {
         try {
             String sql = "delete from PRODUCTO where NUMERO_ACTIVO_PRODUCTO=?";
             PreparedStatement pstm = cone.prepareCall(sql);
-            pstm.setInt(1, NumActivo);
+            pstm.setString(1, NumActivo);
             int afect = pstm.executeUpdate();
             return afect > 0;
         } catch (Exception e) {
@@ -166,19 +166,19 @@ public class DaoProducto implements IDaoProducto {
     }
 
     @Override
-    public Producto Buscar2(int activo) {
+    public Producto Buscar2(String activo) {
         try {
             //Colocar la sentencia sql
             String sql = "select * from PRODUCTO where NUMERO_ACTIVO_PRODUCTO = ?";
             PreparedStatement pstm = cone.prepareCall(sql);
-            pstm.setInt(1, activo);
+            pstm.setString(1, activo);
             ResultSet reg = pstm.executeQuery();
             Producto prod = null;
             while (reg.next()) {
                 prod = new Producto();
                 prod.setIdProducto(reg.getInt("ID_PRODUCTO"));
-                prod.setNumActivoProducto(reg.getInt("NUMERO_ACTIVO_PRODUCTO"));
-                prod.setNumSerieProducto(reg.getInt("NUMERO_SERIE_PRODUCTO"));
+                prod.setNumActivoProducto(reg.getString("NUMERO_ACTIVO_PRODUCTO"));
+                prod.setNumSerieProducto(reg.getString("NUMERO_SERIE_PRODUCTO"));
                 prod.setDescProducto(reg.getString("DESCRIPCION_PRODUCTO"));
                 prod.setUbicacionProducto(new DaoUbicacion().Buscar(reg.getInt("UBICACION_ID_UBICACION")));
                 prod.setTipoProducto(new DaoTipoProducto().Buscar(reg.getInt("TIPO_PRODUCTO_ID_TIPO")));
@@ -219,19 +219,19 @@ public class DaoProducto implements IDaoProducto {
     }
 
     @Override
-    public Producto BuscarSerie(int serie) {
+    public Producto BuscarSerie(String serie) {
         try {
             //Colocar la sentencia sql
             String sql = "select * from PRODUCTO where NUMERO_SERIE_PRODUCTO = ?";
             PreparedStatement pstm = cone.prepareCall(sql);
-            pstm.setInt(1, serie);
+            pstm.setString(1, serie);
             ResultSet reg = pstm.executeQuery();
             Producto prod = null;
             while (reg.next()) {
                 prod = new Producto();
                 prod.setIdProducto(reg.getInt("ID_PRODUCTO"));
-                prod.setNumActivoProducto(reg.getInt("NUMERO_ACTIVO_PRODUCTO"));
-                prod.setNumSerieProducto(reg.getInt("NUMERO_SERIE_PRODUCTO"));
+                prod.setNumActivoProducto(reg.getString("NUMERO_ACTIVO_PRODUCTO"));
+                prod.setNumSerieProducto(reg.getString("NUMERO_SERIE_PRODUCTO"));
                 prod.setDescProducto(reg.getString("DESCRIPCION_PRODUCTO"));
                 prod.setUbicacionProducto(new DaoUbicacion().Buscar(reg.getInt("UBICACION_ID_UBICACION")));
                 prod.setTipoProducto(new DaoTipoProducto().Buscar(reg.getInt("TIPO_PRODUCTO_ID_TIPO")));

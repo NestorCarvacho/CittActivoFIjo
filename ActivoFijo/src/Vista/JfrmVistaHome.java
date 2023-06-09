@@ -317,7 +317,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
             fila[2] = item.getTpMovIdTipoMovimiento().getNombreTipoMovimiento();
             fila[3] = item.getUbicacionInicio();
             fila[4] = item.getUbicacionFinal();
-            fila[5] = fmto.format(item.getFechaMovimiento());
+            fila[5] = item.getFechaMovimiento();
             modelo.addRow(fila);
         }
     }
@@ -2196,11 +2196,11 @@ public class JfrmVistaHome extends javax.swing.JFrame {
 
     private void JtbListarProductosHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JtbListarProductosHomeMouseClicked
         int fila = JtbListarProductosHome.getSelectedRow();
-        int activo = Integer.parseInt(JtbListarProductosHome.getValueAt(fila, 0).toString());
+        String activo = JtbListarProductosHome.getValueAt(fila, 0).toString();
         Producto prod = new DaoProducto().Buscar2(activo);
         if (prod != null) {
-            txtNumeroActivoHome.setText("" + prod.getNumActivoProducto());
-            txtNnumeroDeSerieHome.setText("" + prod.getNumSerieProducto());
+            txtNumeroActivoHome.setText(prod.getNumActivoProducto());
+            txtNnumeroDeSerieHome.setText(prod.getNumSerieProducto());
             txtDescripcionProductoHome.setText(prod.getDescProducto());
             cboTipoProductoHome.setSelectedItem(prod.getTipoProducto().toString());
             cboUbicacionProductoHome.setSelectedItem(prod.getUbicacionProducto().toString());
@@ -2209,7 +2209,6 @@ public class JfrmVistaHome extends javax.swing.JFrame {
             txtCostoHome.setText("" + prod.getCostoProducto());
             txtcontNetoProductoHome.setText("" + prod.getCostoProducto());
             JdcFechaLlegadaHome.setDate(prod.getFechaLlegadaProducto());
-
         } else {
             JOptionPane.showMessageDialog(null, "Error");
         }
@@ -2252,7 +2251,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
 
     private void JtbListarProductosProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JtbListarProductosProductosMouseClicked
         int fila = JtbListarProductosProductos.getSelectedRow();
-        int activo = Integer.parseInt(JtbListarProductosProductos.getValueAt(fila, 0).toString());
+        String activo = JtbListarProductosProductos.getValueAt(fila, 0).toString();
         Producto prod = new DaoProducto().Buscar2(activo);
         if (prod != null) {
             txtNumeroDeActivoProducto.setText("" + prod.getNumActivoProducto());
@@ -2283,7 +2282,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGuardarProductoMouseClicked
 
     private void btnBuscarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarProductoActionPerformed
-        int numAct = Integer.parseInt(TxtFiltroActivoProducto.getText());
+        String numAct = TxtFiltroActivoProducto.getText();
         Producto prod = new DaoProducto().Buscar2(numAct);
         if (prod != null) {
             JOptionPane.showMessageDialog(null, "Existe Producto");
@@ -2305,8 +2304,8 @@ public class JfrmVistaHome extends javax.swing.JFrame {
     private void btnGuardarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarProductoActionPerformed
         try {
             int idProducto = 0;
-            int NumActivoProducto = Integer.parseInt(txtNumeroDeActivoProducto.getText());
-            int NumSerieProducto = Integer.parseInt(txtNumeroDeSerieProducto.getText());
+            String NumActivoProducto = txtNumeroDeActivoProducto.getText();
+            String NumSerieProducto = txtNumeroDeSerieProducto.getText();
             String DescProducto = txtDescripcionProductoProducto.getText();
             Ubicacion ubicacion = new DaoUbicacion().Buscar2(cboUbicacionProductoProducto.getSelectedItem().toString());
             TipoProducto tpProd = new DaoTipoProducto().Buscar2(cboTipoProductoProducto.getSelectedItem().toString());
@@ -2333,7 +2332,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGuardarProductoActionPerformed
 
     private void btnEliminarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarProductoActionPerformed
-        int numAct = Integer.parseInt(txtNumeroDeActivoProducto.getText());
+        String numAct = txtNumeroDeActivoProducto.getText();
         DaoProducto dao = new DaoProducto();
         boolean resp = dao.Eliminar(numAct);
         if (resp == true) {
@@ -2346,8 +2345,8 @@ public class JfrmVistaHome extends javax.swing.JFrame {
 
     private void btnModificarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarProductoActionPerformed
         int idProducto = 0;
-        int NumActivoProducto = Integer.parseInt(txtNumeroDeActivoProducto.getText());
-        int NumSerieProducto = Integer.parseInt(txtNumeroDeSerieProducto.getText());
+        String NumActivoProducto = txtNumeroDeActivoProducto.getText();
+        String NumSerieProducto = txtNumeroDeSerieProducto.getText();
         String DescProducto = txtDescripcionProductoProducto.getText();
         Ubicacion ubicacion = new DaoUbicacion().Buscar2(cboUbicacionProductoProducto.getSelectedItem().toString());
         TipoProducto tpProd = new DaoTipoProducto().Buscar2(cboTipoProductoProducto.getSelectedItem().toString());
@@ -2643,7 +2642,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         JfrmAgregarColor color = new JfrmAgregarColor();
         MnuCrearColor.setEnabled(true);
         color.setVisible(true);
-        
+
     }//GEN-LAST:event_MnuCrearColorActionPerformed
 
     private void cboColorProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboColorProductoActionPerformed
@@ -2672,7 +2671,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         Movimiento mov = new DaoMovimiento().Buscar(numAct);
         if (mov != null) {
             JOptionPane.showMessageDialog(null, "Existe Producto");
-            txtNnumeroDeSerieMovimiento.setText("" + mov.getProductoIdProducto().getNumSerieProducto());
+            txtNnumeroDeSerieMovimiento.setText(mov.getProductoIdProducto().getNumSerieProducto());
             cboTipoMovimientoMovimiento.setSelectedItem(mov.getTpMovIdTipoMovimiento().getNombreTipoMovimiento());
             cboTipoProductoMovimiento.setSelectedItem(mov.getProductoIdProducto().getTipoProducto());
             txtFechaAsignacionMovimiento.setText(mov.getProductoIdProducto().getFechaLlegadaProducto().toString());
