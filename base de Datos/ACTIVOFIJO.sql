@@ -1,5 +1,5 @@
 -- drop tables
-
+DROP TABLE detalle_movimiento CASCADE CONSTRAINTS;
 DROP TABLE usuario CASCADE CONSTRAINTS;
 
 DROP TABLE detalle CASCADE CONSTRAINTS;
@@ -162,7 +162,6 @@ CREATE TABLE ubicacion (
 
 CREATE TABLE movimiento(
     id_movimiento NUMBER,
-    producto_id_producto NUMBER NOT NULL,
     tp_mov_id_tipo_movimiento NUMBER NOT NULL,
     ubicacion_inicio VARCHAR2(80),
     ubicacion_final VARCHAR2(80),
@@ -176,6 +175,10 @@ CREATE TABLE bodega(
     descripcion_bodega varchar2(80),
     
     constraint pk_bodega primary key(id_bodega)
+);
+CREATE TABLE detalle_movimiento(
+    movimiento_id_movimiento NUMBER,
+    producto_id_producto NUMBER NOT NULL
 );
 
 -- Alter Foreign Keys
@@ -219,6 +222,14 @@ ALTER TABLE movimiento
     ADD CONSTRAINT fk_movimiento_tipo_movimiento FOREIGN KEY ( tp_mov_id_tipo_movimiento )
         REFERENCES tipo_movimiento ( id_tipo_movimiento );
 
+ALTER TABLE detalle_movimiento
+    ADD CONSTRAINT fk_det_mov_movimiento FOREIGN KEY ( movimiento_id_movimiento )
+        REFERENCES movimiento ( id_movimiento );
+
+ALTER TABLE producto
+    ADD CONSTRAINT fk_det_mov_producto FOREIGN KEY ( producto_id_producto )
+        REFERENCES producto ( id_producto );
+        
 -- Create Sequences
 CREATE SEQUENCE seq_usuario
     INCREMENT BY 1  
@@ -364,8 +375,13 @@ INSERT INTO PRODUCTO VALUES (seq_producto.NEXTVAL,'1q2w3e4r5t6y7u8i9o','1a2s3d4f
 INSERT INTO PRODUCTO VALUES (seq_producto.NEXTVAL,'1z2x3c4v5b6n7m8k9l0p','0p9l8m6n5b4v3c2x1z','Solvente3',2,2,sysdate,2,20000,2,50);
 INSERT INTO PRODUCTO VALUES (seq_producto.NEXTVAL,'9a8s7d6f5g4h3j2k1l0','3q2w1e65r4t9y8u7io0p','Solvente',1,1,sysdate,3,80000,1,50);
 
-INSERT INTO MOVIMIENTO VALUES (seq_movimiento.NEXTVAL,1,1,1,2,SYSDATE);
-INSERT INTO MOVIMIENTO VALUES (seq_movimiento.NEXTVAL,2,2,2,1,SYSDATE);
-INSERT INTO MOVIMIENTO VALUES (seq_movimiento.NEXTVAL,3,3,2,1,SYSDATE);
+INSERT INTO MOVIMIENTO VALUES (seq_movimiento.NEXTVAL,1,1,2,SYSDATE);
+INSERT INTO MOVIMIENTO VALUES (seq_movimiento.NEXTVAL,2,2,1,SYSDATE);
+INSERT INTO MOVIMIENTO VALUES (seq_movimiento.NEXTVAL,3,2,1,SYSDATE);
+
+INSERT INTO DETALLE_MOVIMIENTO VALUES (1,1);
+INSERT INTO DETALLE_MOVIMIENTO VALUES (1,2);
+INSERT INTO DETALLE_MOVIMIENTO VALUES (2,3);
+INSERT INTO DETALLE_MOVIMIENTO VALUES (3,1);
 
 commit;

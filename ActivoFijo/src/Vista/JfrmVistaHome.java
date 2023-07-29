@@ -141,6 +141,13 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         }
     }
 
+    public DefaultTableModel getProductTableModel() {
+        DefaultTableModel productTableModel = new DefaultTableModel();
+        // Agrega los productos al modelo
+        // ...
+        return productTableModel;
+    }
+
     private void ListarEmpleados() {
         DefaultTableModel modelo = new DefaultTableModel();
         JtbListarPersonas.setModel(modelo);
@@ -239,6 +246,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
             fila[8] = item.getEstadoProducto();
             modelo.addRow(fila);
         }
+        
     }
 
     private void ListarProductosHome() {
@@ -303,7 +311,6 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         DefaultTableModel modelo = new DefaultTableModel();
         JtbListarProductosMovimientos.setModel(modelo);
         modelo.addColumn("Movimiento");
-        modelo.addColumn("Numero de Activo");
         modelo.addColumn("Tipo Movimiento");
         modelo.addColumn("Ubicacion Inicio");
         modelo.addColumn("Ubicacion Final");
@@ -313,11 +320,10 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         for (Movimiento item : listado) {
             Object[] fila = new Object[9];
             fila[0] = item.getIdMovimiento();
-            fila[1] = item.getProductoIdProducto().getNumActivoProducto();
-            fila[2] = item.getTpMovIdTipoMovimiento().getNombreTipoMovimiento();
-            fila[3] = item.getUbicacionInicio();
-            fila[4] = item.getUbicacionFinal();
-            fila[5] = item.getFechaMovimiento();
+            fila[1] = item.getTpMovIdTipoMovimiento().getNombreTipoMovimiento();
+            fila[2] = item.getUbicacionInicio();
+            fila[3] = item.getUbicacionFinal();
+            fila[4] = item.getFechaMovimiento();
             modelo.addRow(fila);
         }
     }
@@ -2671,12 +2677,9 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         Movimiento mov = new DaoMovimiento().Buscar(numAct);
         if (mov != null) {
             JOptionPane.showMessageDialog(null, "Existe Producto");
-            txtNnumeroDeSerieMovimiento.setText(mov.getProductoIdProducto().getNumSerieProducto());
             cboTipoMovimientoMovimiento.setSelectedItem(mov.getTpMovIdTipoMovimiento().getNombreTipoMovimiento());
-            cboTipoProductoMovimiento.setSelectedItem(mov.getProductoIdProducto().getTipoProducto());
-            txtFechaAsignacionMovimiento.setText(mov.getProductoIdProducto().getFechaLlegadaProducto().toString());
             jdcFechaMovimiento.setDate(mov.getFechaMovimiento());
-            JcbUbicacioninicio.setSelectedItem(mov.getProductoIdProducto().getUbicacionProducto());
+
         }
     }
 

@@ -6,19 +6,17 @@ import java.util.Date;
 public class Movimiento {
     private int idMovimiento;
     private TipoMovimiento tpMovIdTipoMovimiento;
-    private Producto productoIdProducto;
-    private String ubicacionInicio;
-    private String ubicacionFinal;
+    private Ubicacion ubicacionInicio;
+    private Ubicacion ubicacionFinal;
     private Date fechaMovimiento;
 
     //CONSTRUCTOR SIN PARAMETROS
     public Movimiento() {
     }
 
-    public Movimiento(int idMovimiento, TipoMovimiento tpMovIdTipoMovimiento, Producto productoIdProducto, String ubicacionInicio, String ubicacionFinal, Date fechaMovimiento) {
+    public Movimiento(int idMovimiento, TipoMovimiento tpMovIdTipoMovimiento, Producto productoIdProducto, Ubicacion ubicacionInicio, Ubicacion ubicacionFinal, Date fechaMovimiento) {
         this.idMovimiento = idMovimiento;
         this.tpMovIdTipoMovimiento = tpMovIdTipoMovimiento;
-        this.productoIdProducto = productoIdProducto;
         this.ubicacionInicio = ubicacionInicio;
         this.ubicacionFinal = ubicacionFinal;
         this.fechaMovimiento = fechaMovimiento;
@@ -40,27 +38,19 @@ public class Movimiento {
         this.tpMovIdTipoMovimiento = tpMovIdTipoMovimiento;
     }
 
-    public Producto getProductoIdProducto() {
-        return productoIdProducto;
-    }
-
-    public void setProductoIdProducto(Producto productoIdProducto) {
-        this.productoIdProducto = productoIdProducto;
-    }
-
-    public String getUbicacionInicio() {
+    public Ubicacion getUbicacionInicio() {
         return ubicacionInicio;
     }
 
-    public void setUbicacionInicio(String ubicacionInicio) {
+    public void setUbicacionInicio(Ubicacion ubicacionInicio) {
         this.ubicacionInicio = ubicacionInicio;
     }
 
-    public String getUbicacionFinal() {
+    public Ubicacion getUbicacionFinal() {
         return ubicacionFinal;
     }
 
-    public void setUbicacionFinal(String ubicacionFinal) {
+    public void setUbicacionFinal(Ubicacion ubicacionFinal) {
         this.ubicacionFinal = ubicacionFinal;
     }
 
@@ -74,7 +64,7 @@ public class Movimiento {
 
     @Override
     public String toString() {
-        return "Movimiento{" + "idMovimiento=" + idMovimiento + ", tpMovIdTipoMovimiento=" + tpMovIdTipoMovimiento + ", productoIdProducto=" + productoIdProducto + ", ubicacionInicio=" + ubicacionInicio + ", ubicacionFinal=" + ubicacionFinal + ", fechaMovimiento=" + fechaMovimiento + '}';
+        return "Movimiento{" + "idMovimiento=" + idMovimiento + ", tpMovIdTipoMovimiento=" + tpMovIdTipoMovimiento + ", ubicacionInicio=" + ubicacionInicio + ", ubicacionFinal=" + ubicacionFinal + ", fechaMovimiento=" + fechaMovimiento + '}';
     }
 
 

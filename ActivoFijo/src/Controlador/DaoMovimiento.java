@@ -2,6 +2,7 @@ package Controlador;
 
 import Interfaces.IDaoMovimiento;
 import Modelo.Movimiento;
+import Modelo.Ubicacion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -36,9 +37,8 @@ public class DaoMovimiento implements IDaoMovimiento {
                 mov.setIdMovimiento(reg.getInt("ID_MOVIMIENTO")); //ID_MOVIMIENTO
                 mov.setTpMovIdTipoMovimiento(new DaoTipoMovimiento().Buscar(reg.getInt("TP_MOV_ID_TIPO_MOVIMIENTO")));//DESCRIPCION_MOVIMIENTO
                 //prod.setTipoProducto(new DaoTipoProducto().Buscar(reg.getInt("TIPO_PRODUCTO_ID_TIPO")));
-                mov.setProductoIdProducto(new DaoProducto().Buscar(reg.getInt("PRODUCTO_ID_PRODUCTO")));//PRODUCTO_ID_PRODUCTO
-                mov.setUbicacionInicio(reg.getString("UBICACION_INICIO"));//UBICACION_INICIO
-                mov.setUbicacionFinal(reg.getString("UBICACION_FINAL"));//UBICACION_FINAL
+                mov.setUbicacionInicio(new DaoUbicacion().Buscar(reg.getInt("UBICACION_INICIO")));
+                mov.setUbicacionFinal(new DaoUbicacion().Buscar(reg.getInt("UBICACION_FINAL")));
                 mov.setFechaMovimiento(reg.getDate("FECHA_MOVIMIENTO"));//FECHA_MOVIMIENTO
                 System.out.println(mov);
             }
@@ -61,9 +61,8 @@ public class DaoMovimiento implements IDaoMovimiento {
                 mov.setIdMovimiento(reg.getInt("ID_MOVIMIENTO")); //ID_MOVIMIENTO
                 mov.setTpMovIdTipoMovimiento(new DaoTipoMovimiento().Buscar(reg.getInt("TP_MOV_ID_TIPO_MOVIMIENTO")));//DESCRIPCION_MOVIMIENTO
                 //prod.setTipoProducto(new DaoTipoProducto().Buscar(reg.getInt("TIPO_PRODUCTO_ID_TIPO")));
-                mov.setProductoIdProducto(new DaoProducto().Buscar(reg.getInt("PRODUCTO_ID_PRODUCTO")));//PRODUCTO_ID_PRODUCTO
-                mov.setUbicacionInicio(reg.getString("UBICACION_INICIO"));//UBICACION_INICIO
-                mov.setUbicacionFinal(reg.getString("UBICACION_FINAL"));//UBICACION_FINAL
+                mov.setUbicacionInicio(new DaoUbicacion().Buscar(reg.getInt("UBICACION_INICIO")));
+                mov.setUbicacionFinal(new DaoUbicacion().Buscar(reg.getInt("UBICACION_FINAL")));
                 mov.setFechaMovimiento(reg.getDate("FECHA_MOVIMIENTO"));//FECHA_MOVIMIENTO
                 listado.add(mov);
             }
