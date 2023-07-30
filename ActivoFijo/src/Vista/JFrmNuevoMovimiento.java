@@ -382,7 +382,7 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
             String numAct = TxtBuscarProducto.getText();
             Producto prod = new DaoProducto().Buscar2(numAct);
             if (prod != null) {
-//                JOptionPane.showMessageDialog(null, "Existe Producto");
+//              JOptionPane.showMessageDialog(null, "Existe Producto");
                 txtNumeroActivo.setText("" + prod.getNumActivoProducto());
                 txtSerie.setText("" + prod.getNumSerieProducto());
                 txtUbicacionActual.setText(prod.getUbicacionProducto().toString());
@@ -412,7 +412,7 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
             String numAct = TxtBuscarProducto.getText();
             Producto prod = new DaoProducto().Buscar2(numAct);
             if (prod != null) {
-//                JOptionPane.showMessageDialog(null, "Existe Producto");
+                JOptionPane.showMessageDialog(null, "Existe Producto");
                 txtNumeroActivo.setText("" + prod.getNumActivoProducto());
                 txtSerie.setText("" + prod.getNumSerieProducto());
                 txtUbicacionActual.setText(prod.getUbicacionProducto().toString());
@@ -437,6 +437,7 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "No se Encontró producto");
         }
+
     }//GEN-LAST:event_TxtBuscarProductoKeyPressed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -444,7 +445,7 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        try {
+    try {
             // TODO add your handling code here:
             String producto = txtNumeroActivo.getText();
 
@@ -455,7 +456,7 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
             boolean existe = false;
             for (int i = 0; i < modelo.getRowCount(); i++) {
                 String numProducto = (String) modelo.getValueAt(i, 0);
-                if (numProducto == producto) {
+                if (numProducto.equalsIgnoreCase(producto) ) {
                     existe = true;
                     break;
                 }
@@ -470,7 +471,7 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error: No se puede Agregar en Blanco");
-        }
+        }                                 
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void TxtBuscarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtBuscarProductoActionPerformed

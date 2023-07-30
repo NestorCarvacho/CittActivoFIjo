@@ -1,5 +1,6 @@
--- drop tables
+--Drop tables
 DROP TABLE detalle_movimiento CASCADE CONSTRAINTS;
+
 DROP TABLE usuario CASCADE CONSTRAINTS;
 
 DROP TABLE detalle CASCADE CONSTRAINTS;
@@ -213,11 +214,7 @@ ALTER TABLE producto
 ALTER TABLE producto
     ADD CONSTRAINT fk_producto_color FOREIGN KEY ( color_id_color )
         REFERENCES color ( id_color );
-
-ALTER TABLE movimiento
-    ADD CONSTRAINT fk_movimiento_producto FOREIGN KEY ( producto_id_producto )
-        REFERENCES producto ( id_producto );
-        
+      
 ALTER TABLE movimiento
     ADD CONSTRAINT fk_movimiento_tipo_movimiento FOREIGN KEY ( tp_mov_id_tipo_movimiento )
         REFERENCES tipo_movimiento ( id_tipo_movimiento );
@@ -226,7 +223,7 @@ ALTER TABLE detalle_movimiento
     ADD CONSTRAINT fk_det_mov_movimiento FOREIGN KEY ( movimiento_id_movimiento )
         REFERENCES movimiento ( id_movimiento );
 
-ALTER TABLE producto
+ALTER TABLE detalle_movimiento
     ADD CONSTRAINT fk_det_mov_producto FOREIGN KEY ( producto_id_producto )
         REFERENCES producto ( id_producto );
         
@@ -385,3 +382,17 @@ INSERT INTO DETALLE_MOVIMIENTO VALUES (2,3);
 INSERT INTO DETALLE_MOVIMIENTO VALUES (3,1);
 
 commit;
+
+/
+
+CREATE OR REPLACE TRIGGER trg_empleados 
+AFTER INSERT ON empleado 
+FOR EACH ROW
+
+BEGIN
+    IF :NEW.tipo_empleado_id_tipo != 1 THEN
+        INSERT INTO ubicacion VALUES(SEQ_BODEGA.NEXTVAL,:NEW.nombre_completo_empleado);
+    END IF;
+
+END trg_empleados;
+
