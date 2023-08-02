@@ -382,7 +382,6 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
             String numAct = TxtBuscarProducto.getText();
             Producto prod = new DaoProducto().Buscar2(numAct);
             if (prod != null) {
-//              JOptionPane.showMessageDialog(null, "Existe Producto");
                 txtNumeroActivo.setText("" + prod.getNumActivoProducto());
                 txtSerie.setText("" + prod.getNumSerieProducto());
                 txtUbicacionActual.setText(prod.getUbicacionProducto().toString());
@@ -390,7 +389,6 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
             } else {
                 Producto prod1 = new DaoProducto().BuscarSerie(numAct);
                 if (prod1 != null) {
-//                    JOptionPane.showMessageDialog(null, "Existe Producto");
                     txtNumeroActivo.setText("" + prod1.getNumActivoProducto());
                     txtSerie.setText("" + prod1.getNumSerieProducto());
                     txtUbicacionActual.setText(prod1.getUbicacionProducto().toString());
@@ -548,7 +546,7 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
             boolean existe = false;
             for (int i = 0; i < modelo.getRowCount(); i++) {
                 String numProducto = (String) modelo.getValueAt(i, 0);
-                if (numProducto == producto) {
+                if (numProducto.equalsIgnoreCase(producto)) {
                     existe = true;
                     break;
                 }
