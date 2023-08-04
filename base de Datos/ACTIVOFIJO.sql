@@ -396,3 +396,28 @@ BEGIN
 
 END trg_empleados;
 
+/
+
+create or replace PROCEDURE sp_movimiento (p_tipo_movimiento NUMBER, p_ubicacion_final NUMBER, p_lista_id IN number_array)
+IS
+    CURSOR cur_producto IS
+    SELECT id_producto, ubicacion_id_ubicacion
+    FROM producto
+    WHERE id_producto MEMBER OF p_lista_id;
+
+    v_num_movimiento NUMBER;
+BEGIN
+
+    v_num_movimiento := SEQ_MOV_GENERAL.NEXTVAL;
+
+    for x in cur_producto loop
+        insert into detalle_movimiento values(v_num_movimiento,
+                                        x.id_producto);
+
+
+    end loop;
+
+END sp_movimiento;
+
+/
+
