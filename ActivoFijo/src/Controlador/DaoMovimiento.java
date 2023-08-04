@@ -20,7 +20,18 @@ public class DaoMovimiento implements IDaoMovimiento {
 
     @Override
     public boolean Grabar(Movimiento mov) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        try {
+            String sql="INSERT INTO MOVIMIENTO VALUES(seq_movimiento.NEXTVALUE,?,?,SYSDATE)";
+            PreparedStatement pstm = cone.prepareCall(sql);
+            pstm.setInt(1, mov.getTpMovIdTipoMovimiento().getIdTipoMovimiento());
+            pstm.setInt(2, mov.getUbicacionFinal().getIdUbicacion());
+            
+            int afect = pstm.executeUpdate();
+            return (afect > 0);
+        } catch (Exception e) {
+            System.out.println("Error bd: " + e.getMessage());
+            return false;
+        }
     }
 
     @Override
@@ -61,14 +72,14 @@ public class DaoMovimiento implements IDaoMovimiento {
                 mov.setIdMovimiento(reg.getInt("ID_MOVIMIENTO")); //ID_MOVIMIENTO
                 mov.setTpMovIdTipoMovimiento(new DaoTipoMovimiento().Buscar(reg.getInt("TP_MOV_ID_TIPO_MOVIMIENTO")));//DESCRIPCION_MOVIMIENTO
                 //prod.setTipoProducto(new DaoTipoProducto().Buscar(reg.getInt("TIPO_PRODUCTO_ID_TIPO")));
-                mov.setUbicacionInicio(new DaoUbicacion().Buscar(reg.getInt("UBICACION_INICIO")));
+                //mov.setUbicacionInicio(new DaoUbicacion().Buscar(reg.getInt("UBICACION_INICIO")));
                 mov.setUbicacionFinal(new DaoUbicacion().Buscar(reg.getInt("UBICACION_FINAL")));
                 mov.setFechaMovimiento(reg.getDate("FECHA_MOVIMIENTO"));//FECHA_MOVIMIENTO
                 listado.add(mov);
             }
             return listado;
         } catch (Exception e) {
-            System.out.println("error listar Tipo Prodcuto:" + e.getMessage());
+            System.out.println("error listar movimiento:" + e.getMessage());
             return null;
         }
     }
@@ -76,10 +87,11 @@ public class DaoMovimiento implements IDaoMovimiento {
     @Override
     public boolean Modificar(Movimiento mov) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    } 
 
     @Override
     public boolean Eliminar(int id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
+ 

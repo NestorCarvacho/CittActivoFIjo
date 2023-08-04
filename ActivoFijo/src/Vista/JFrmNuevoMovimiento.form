@@ -159,7 +159,7 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Ubicaion Final"/>
+            <Property name="text" type="java.lang.String" value="Ubicaci&#xf3;n Final"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JComboBox" name="CboUbicacionFinal">

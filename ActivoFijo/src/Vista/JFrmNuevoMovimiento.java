@@ -170,7 +170,7 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
 
         jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jLabel1.setText("Ubicaion Final");
+        jLabel1.setText("Ubicación Final");
 
         CboUbicacionFinal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -512,18 +512,19 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
         String[] array = new String[jtblMovimiento.getRowCount()];
         DefaultTableModel model = (DefaultTableModel) jtblMovimiento.getModel();
         try {
+            
+            
+            
+            
+            
             for (int i = 0; i < jtblMovimiento.getRowCount(); i++) {
                 String producto = model.getValueAt(i, 0).toString();
                 Producto id_producto = new DaoProducto().Buscar2(producto);
                 int idMovimiento = 4;
-                System.out.println(id_producto.toString());
-                DetalleMovimiento det = new DetalleMovimiento(idMovimiento, id_producto.getIdProducto());
-                System.out.println(id_producto.getIdProducto());
-                System.out.println(det.toString());
+                DetalleMovimiento det = new DetalleMovimiento(idMovimiento, id_producto.getIdProducto(),id_producto.getUbicacionProducto().getIdUbicacion());
                 boolean resp = new DaoDetalleMovimiento().Grabar(det);
-                System.out.println(resp);
             }
-            JOptionPane.showMessageDialog(null, "grabó");
+            
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "error");
         }

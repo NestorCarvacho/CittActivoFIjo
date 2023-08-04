@@ -312,7 +312,6 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         JtbListarProductosMovimientos.setModel(modelo);
         modelo.addColumn("Movimiento");
         modelo.addColumn("Tipo Movimiento");
-        modelo.addColumn("Ubicacion Inicio");
         modelo.addColumn("Ubicacion Final");
         modelo.addColumn("Fecha Movimiento");
         SimpleDateFormat fmto = new SimpleDateFormat("DD/MM/YYYY");
@@ -321,9 +320,8 @@ public class JfrmVistaHome extends javax.swing.JFrame {
             Object[] fila = new Object[9];
             fila[0] = item.getIdMovimiento();
             fila[1] = item.getTpMovIdTipoMovimiento().getNombreTipoMovimiento();
-            fila[2] = item.getUbicacionInicio();
-            fila[3] = item.getUbicacionFinal();
-            fila[4] = item.getFechaMovimiento();
+            fila[2] = item.getUbicacionFinal();
+            fila[3] = item.getFechaMovimiento();
             modelo.addRow(fila);
         }
     }
