@@ -4,11 +4,15 @@
  */
 package Vista;
 
+import Controlador.DaoColor;
+import Controlador.DaoDetalleMovimiento;
 import Controlador.DaoEmpleado;
 import Controlador.DaoProducto;
 import Controlador.DaoTipoMovimiento;
 import Controlador.DaoUbicacion;
 import Controlador.DaoUsuario;
+import Modelo.Color;
+import Modelo.DetalleMovimiento;
 import Modelo.Empleado;
 import Modelo.Producto;
 import Modelo.TipoMovimiento;
@@ -507,10 +511,19 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
     private void btnGenerarMovimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarMovimientoActionPerformed
         String[] array = new String[jtblMovimiento.getRowCount()];
         DefaultTableModel model = (DefaultTableModel) jtblMovimiento.getModel();
-
-        for (int i = 0; i < jtblMovimiento.getRowCount(); i++) {
-            array[i] = model.getValueAt(i, 0).toString();
-            
+        try {
+            for (int i = 0; i < jtblMovimiento.getRowCount(); i++) {
+                String producto = model.getValueAt(i, 0).toString();
+                Producto id_producto = new DaoProducto().Buscar2(producto);
+                System.out.println(id_producto.toString());
+                DetalleMovimiento det = new DetalleMovimiento(4, id_producto.getIdProducto());
+                System.out.println(id_producto.getIdProducto());
+                System.out.println(det.toString());
+                boolean resp = new DaoDetalleMovimiento().Grabar(det);
+            }
+            JOptionPane.showMessageDialog(null, "grabó");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error");
         }
     }//GEN-LAST:event_btnGenerarMovimientoActionPerformed
 

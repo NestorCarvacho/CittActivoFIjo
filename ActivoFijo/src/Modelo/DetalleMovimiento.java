@@ -3,30 +3,30 @@ package Modelo;
 
 
 public class DetalleMovimiento {
-    private Movimiento idMovimiento;
-    private Producto idProducto; 
+    private int idMovimiento;
+    private int idProducto; 
 
     public DetalleMovimiento() {
     }
 
-    public DetalleMovimiento(Movimiento idMovimiento, Producto idProducto) {
+    public DetalleMovimiento(int idMovimiento, int idProducto) {
         this.idMovimiento = idMovimiento;
         this.idProducto = idProducto;
     }
 
-    public Movimiento getIdMovimiento() {
+    public int getIdMovimiento() {
         return idMovimiento;
     }
 
-    public void setIdMovimiento(Movimiento idMovimiento) {
+    public void setIdMovimiento(int idMovimiento) {
         this.idMovimiento = idMovimiento;
     }
 
-    public Producto getIdProducto() {
+    public int getIdProducto() {
         return idProducto;
     }
 
-    public void setIdProducto(Producto idProducto) {
+    public void setIdProducto(int idProducto) {
         this.idProducto = idProducto;
     }
 
@@ -34,4 +34,6 @@ public class DetalleMovimiento {
     public String toString() {
         return "DetalleMovimiento{" + "idMovimiento=" + idMovimiento + ", idProducto=" + idProducto + '}';
     }
+    
+    
 }

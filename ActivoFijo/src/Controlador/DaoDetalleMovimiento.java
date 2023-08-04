@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 public class DaoDetalleMovimiento implements IDaoDetalleMovimiento {
 
@@ -19,7 +20,18 @@ public class DaoDetalleMovimiento implements IDaoDetalleMovimiento {
 
     @Override
     public boolean Grabar(DetalleMovimiento mov) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        try {
+            String sql="INSERT INTO DETALLE_MOVIMIENTO VALUES(?,?)";
+            PreparedStatement pstm = cone.prepareCall(sql);
+            pstm.setInt(1, mov.getIdMovimiento());
+            pstm.setInt(2, mov.getIdProducto());
+            int afect = pstm.executeUpdate();
+            return (afect > 0);
+        } catch (Exception e) {
+            System.out.println("Error bd: " + e.getMessage());
+            return false;
+        }
+        
     }
 
     @Override
@@ -33,8 +45,8 @@ public class DaoDetalleMovimiento implements IDaoDetalleMovimiento {
             DetalleMovimiento detmov = null;
             while (reg.next()) {
                 detmov = new DetalleMovimiento();
-                detmov.setIdMovimiento(new DaoMovimiento().Buscar(reg.getInt("MOVIMIENTO_ID_MOVIMIENTO"))); //MOVIMIENTO_ID_MOVIMIENTO
-                detmov.setIdProducto(new DaoProducto().Buscar(reg.getInt("PRODUCTO_ID_PRODUCTO"))); //PRODUCTO_ID_PRODUCTO
+                //detmov.setIdMovimiento(new DaoMovimiento().Buscar(reg.getInt("MOVIMIENTO_ID_MOVIMIENTO"))); //MOVIMIENTO_ID_MOVIMIENTO
+                //detmov.setIdProducto(new DaoProducto().Buscar(reg.getInt("PRODUCTO_ID_PRODUCTO"))); //PRODUCTO_ID_PRODUCTO
                 System.out.println(detmov);
             }
             return detmov;
@@ -53,8 +65,8 @@ public class DaoDetalleMovimiento implements IDaoDetalleMovimiento {
             ArrayList<DetalleMovimiento> listado = new ArrayList<>();
             while (reg.next()) {
                 DetalleMovimiento detmov = new DetalleMovimiento();
-                detmov.setIdMovimiento(new DaoMovimiento().Buscar(reg.getInt("MOVIMIENTO_ID_MOVIMIENTO"))); //MOVIMIENTO_ID_MOVIMIENTO
-                detmov.setIdProducto(new DaoProducto().Buscar(reg.getInt("PRODUCTO_ID_PRODUCTO"))); //PRODUCTO_ID_PRODUCTO
+                //detmov.setIdMovimiento(new DaoMovimiento().Buscar(reg.getInt("MOVIMIENTO_ID_MOVIMIENTO"))); //MOVIMIENTO_ID_MOVIMIENTO
+                //detmov.setIdProducto(new DaoProducto().Buscar(reg.getInt("PRODUCTO_ID_PRODUCTO"))); //PRODUCTO_ID_PRODUCTO
                 System.out.println(detmov);
                 listado.add(detmov);
             }
