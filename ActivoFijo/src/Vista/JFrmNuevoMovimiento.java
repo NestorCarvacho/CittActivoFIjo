@@ -515,11 +515,13 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
             for (int i = 0; i < jtblMovimiento.getRowCount(); i++) {
                 String producto = model.getValueAt(i, 0).toString();
                 Producto id_producto = new DaoProducto().Buscar2(producto);
+                int idMovimiento = 4;
                 System.out.println(id_producto.toString());
-                DetalleMovimiento det = new DetalleMovimiento(4, id_producto.getIdProducto());
+                DetalleMovimiento det = new DetalleMovimiento(idMovimiento, id_producto.getIdProducto());
                 System.out.println(id_producto.getIdProducto());
                 System.out.println(det.toString());
                 boolean resp = new DaoDetalleMovimiento().Grabar(det);
+                System.out.println(resp);
             }
             JOptionPane.showMessageDialog(null, "grabó");
         } catch (Exception e) {
