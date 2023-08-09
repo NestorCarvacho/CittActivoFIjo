@@ -93,9 +93,6 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
     private void ListarCboUbicacionFinal() {
         CboUbicacionFinal.removeAllItems();
         CboUbicacionFinal.addItem("-- Seleccione --");
-        for (Empleado emp : new DaoEmpleado().Listar()) {
-            CboUbicacionFinal.addItem(emp.getNombreEmpleado());
-        }
         for (Ubicacion ubi : new DaoUbicacion().Listar()) {
             CboUbicacionFinal.addItem(ubi.getDescripcionUbicacion());
         }
@@ -520,11 +517,13 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
             for (int i = 0; i < jtblMovimiento.getRowCount(); i++) {
                 String producto = model.getValueAt(i, 0).toString();
                 Producto id_producto = new DaoProducto().Buscar2(producto);
-                int idMovimiento = 4;
+                
+                int idMovimiento = 3;
+                System.out.println(id_producto.getUbicacionProducto().getIdUbicacion());
                 DetalleMovimiento det = new DetalleMovimiento(idMovimiento, id_producto.getIdProducto(),id_producto.getUbicacionProducto().getIdUbicacion());
                 boolean resp = new DaoDetalleMovimiento().Grabar(det);
             }
-            
+            JOptionPane.showMessageDialog(null, "Grabó");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "error");
         }

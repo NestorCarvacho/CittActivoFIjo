@@ -40,7 +40,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
      */
     public JfrmVistaHome() {
         initComponents();
-        setExtendedState(MAXIMIZED_BOTH);
+        //setExtendedState(MAXIMIZED_BOTH);
         //set programa en la mitad de la pantalla
         setLocationRelativeTo(null);
         //CARGA DE CBO APENAS INICIE EL PROGRAMA

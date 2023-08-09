@@ -1,0 +1,14 @@
+Tareas pendientes:
+
+- Crear excel para reportes con -> JASPERreports para archivos csv
+
+- Mover programa a base de datos en la nube (el servidor duoc)
+
+- Buscar ubicaciones por string que retorne id, lo mismo para tipo de movimiento
+
+- Crear query que retorne el id del movimiento al crearlo (el valor de secuencia) para ser insertados despues en el detalle de movimiento al guardar el movimiento
+
+
+
+ 
+
