@@ -4,9 +4,11 @@ Tareas pendientes:
 
 - Mover programa a base de datos en la nube (el servidor duoc)
 
-- Buscar ubicaciones por string que retorne id, lo mismo para tipo de movimiento
+- Poner botón de actualizar y actualizar después de cada acción en base de datos
 
-- Crear query que retorne el id del movimiento al crearlo (el valor de secuencia) para ser insertados despues en el detalle de movimiento al guardar el movimiento
+- Al momento de guardar un movimiento cerrar la ventana de nuevo movimiento
+
+- Al apretar la X en nuevo movimiento que no se cierre la aplicación
 
 
 
