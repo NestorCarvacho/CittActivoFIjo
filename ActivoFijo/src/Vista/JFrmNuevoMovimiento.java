@@ -7,6 +7,7 @@ package Vista;
 import Controlador.DaoColor;
 import Controlador.DaoDetalleMovimiento;
 import Controlador.DaoEmpleado;
+import Controlador.DaoMovimiento;
 import Controlador.DaoProducto;
 import Controlador.DaoTipoMovimiento;
 import Controlador.DaoUbicacion;
@@ -14,6 +15,7 @@ import Controlador.DaoUsuario;
 import Modelo.Color;
 import Modelo.DetalleMovimiento;
 import Modelo.Empleado;
+import Modelo.Movimiento;
 import Modelo.Producto;
 import Modelo.TipoMovimiento;
 import Modelo.Ubicacion;
@@ -21,10 +23,14 @@ import Modelo.Usuario;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import oracle.sql.ROWID;
+import Vista.JfrmVistaHome;
 
 /**
  *
@@ -509,26 +515,38 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
         String[] array = new String[jtblMovimiento.getRowCount()];
         DefaultTableModel model = (DefaultTableModel) jtblMovimiento.getModel();
         try {
+            //Obtenemos los datos que se necesitan para guardar en la base de datos 
+            String ubicacion = CboUbicacionFinal.getSelectedItem().toString();
+            Ubicacion ubi = new DaoUbicacion().Buscar2(ubicacion);
+            String tipo_movimiento = CboTipoMovimiento.getSelectedItem().toString();
+            TipoMovimiento tp_mov  = new DaoTipoMovimiento().Buscar2(tipo_movimiento);
+            String entrada = "12/03/2016"; // Entrada recogida como sea (scanner)
+            DateFormat format = new SimpleDateFormat("DD/MM/YYYY"); // Creamos un formato de fecha
+            Date fecha = format.parse(entrada);
+            Movimiento mov = new Movimiento(0, tp_mov, ubi, fecha);
+            boolean resp1 = new DaoMovimiento().Grabar(mov);
             
-            
-            
-            
-            
+            //Se obtienen las columnas de la tabla con los productos agregados en un movimiento
             for (int i = 0; i < jtblMovimiento.getRowCount(); i++) {
                 String producto = model.getValueAt(i, 0).toString();
                 Producto id_producto = new DaoProducto().Buscar2(producto);
-                
-                int idMovimiento = 3;
-                System.out.println(id_producto.getUbicacionProducto().getIdUbicacion());
-                DetalleMovimiento det = new DetalleMovimiento(idMovimiento, id_producto.getIdProducto(),id_producto.getUbicacionProducto().getIdUbicacion());
-                boolean resp = new DaoDetalleMovimiento().Grabar(det);
+                //Sacamos el último id de movimiento que se crea y se inserta el detalle del movimiento
+                int idMovimiento = new DaoMovimiento().ultimoMovimiento();
+                //se guardan los productos en detalle movimiento con el movimiento creado al presionar guardar movimiento
+                DetalleMovimiento det = new DetalleMovimiento(idMovimiento, id_producto.getIdProducto(), id_producto.getUbicacionProducto().getIdUbicacion(), ubi.getIdUbicacion());
+                boolean resp2 = new DaoDetalleMovimiento().Grabar(det);
             }
-            JOptionPane.showMessageDialog(null, "Grabó");
+            if (resp1) {
+                JOptionPane.showMessageDialog(null, "Grabó");
+            }
+            
+            
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "error");
+            
         }
     }//GEN-LAST:event_btnGenerarMovimientoActionPerformed
-
+    
     /**
      * @param args the command line arguments
      */

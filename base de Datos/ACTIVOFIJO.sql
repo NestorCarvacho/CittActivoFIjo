@@ -164,7 +164,7 @@ CREATE TABLE ubicacion (
 CREATE TABLE movimiento(
     id_movimiento NUMBER,
     tp_mov_id_tipo_movimiento NUMBER NOT NULL,
-    ubicacion_final NUMBER,
+    ubicacion_inicio NUMBER NOT NULL,
     fecha_movimiento DATE,
     
     CONSTRAINT pk_movimiento PRIMARY KEY (id_movimiento)
@@ -179,7 +179,9 @@ CREATE TABLE bodega(
 CREATE TABLE detalle_movimiento(
     movimiento_id_movimiento NUMBER,
     producto_id_producto NUMBER NOT NULL,
+    ubicacion_inicio NUMBER NOT NULL,
     ubicacion_final NUMBER NOT NULL
+    
 );
 
 -- Alter Foreign Keys
@@ -372,14 +374,14 @@ INSERT INTO PRODUCTO VALUES (seq_producto.NEXTVAL,'1q2w3e4r5t6y7u8i9o','1a2s3d4f
 INSERT INTO PRODUCTO VALUES (seq_producto.NEXTVAL,'1z2x3c4v5b6n7m8k9l0p','0p9l8m6n5b4v3c2x1z','Solvente3',2,2,sysdate,2,20000,2,50);
 INSERT INTO PRODUCTO VALUES (seq_producto.NEXTVAL,'9a8s7d6f5g4h3j2k1l0','3q2w1e65r4t9y8u7io0p','Solvente',1,1,sysdate,3,80000,1,50);
 
-INSERT INTO MOVIMIENTO VALUES (seq_movimiento.NEXTVAL,1,2,SYSDATE);
-INSERT INTO MOVIMIENTO VALUES (seq_movimiento.NEXTVAL,2,1,SYSDATE);
-INSERT INTO MOVIMIENTO VALUES (seq_movimiento.NEXTVAL,3,1,SYSDATE);
+INSERT INTO MOVIMIENTO VALUES (seq_movimiento.NEXTVAL,1,1,SYSDATE);
+INSERT INTO MOVIMIENTO VALUES (seq_movimiento.NEXTVAL,2,2,SYSDATE);
+INSERT INTO MOVIMIENTO VALUES (seq_movimiento.NEXTVAL,3,2,SYSDATE);
 
-INSERT INTO DETALLE_MOVIMIENTO VALUES (1,1,2);
-INSERT INTO DETALLE_MOVIMIENTO VALUES (1,2,2);
-INSERT INTO DETALLE_MOVIMIENTO VALUES (2,3,2);
-INSERT INTO DETALLE_MOVIMIENTO VALUES (3,1,1);
+INSERT INTO DETALLE_MOVIMIENTO VALUES (1,1,2,1);
+INSERT INTO DETALLE_MOVIMIENTO VALUES (1,2,2,1);
+INSERT INTO DETALLE_MOVIMIENTO VALUES (2,3,2,1);
+INSERT INTO DETALLE_MOVIMIENTO VALUES (3,1,3,1);
 
 commit;
 
@@ -398,29 +400,16 @@ END trg_empleados;
 
 /
 
-create or replace PROCEDURE sp_movimiento (p_tipo_movimiento NUMBER, p_ubicacion_final NUMBER, p_lista_id IN number_array)
-IS
-    CURSOR cur_producto IS
-    SELECT id_producto, ubicacion_id_ubicacion
-    FROM producto
-    WHERE id_producto MEMBER OF p_lista_id;
+CREATE OR REPLACE TRIGGER trg_ubicacion_producto 
+AFTER INSERT ON detalle_movimiento
+FOR EACH ROW
 
-    v_num_movimiento NUMBER;
 BEGIN
 
-    v_num_movimiento := SEQ_MOV_GENERAL.NEXTVAL;
+        UPDATE producto SET ubicacion_id_ubicacion = :NEW.ubicacion_final WHERE id_producto = :NEW.producto_id_producto;
 
-    for x in cur_producto loop
-        insert into detalle_movimiento values(v_num_movimiento,
-                                        x.id_producto);
+END trg_empleados;
 
 
-    end loop;
 
-END sp_movimiento;
-
-/
-SELECT * FROM DETALLE_MOVIMIENTO;
-
-
-DELETE FROM detalle_movimiento;
+COMMIT;

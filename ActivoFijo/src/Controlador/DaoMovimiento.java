@@ -21,11 +21,10 @@ public class DaoMovimiento implements IDaoMovimiento {
     @Override
     public boolean Grabar(Movimiento mov) {
         try {
-            String sql="INSERT INTO MOVIMIENTO VALUES(seq_movimiento.NEXTVALUE,?,?,SYSDATE)";
+            String sql="INSERT INTO MOVIMIENTO VALUES(seq_movimiento.NEXTVAL,?,?,SYSDATE)";
             PreparedStatement pstm = cone.prepareCall(sql);
             pstm.setInt(1, mov.getTpMovIdTipoMovimiento().getIdTipoMovimiento());
             pstm.setInt(2, mov.getUbicacionFinal().getIdUbicacion());
-            
             int afect = pstm.executeUpdate();
             return (afect > 0);
         } catch (Exception e) {
@@ -48,7 +47,7 @@ public class DaoMovimiento implements IDaoMovimiento {
                 mov.setIdMovimiento(reg.getInt("ID_MOVIMIENTO")); //ID_MOVIMIENTO
                 mov.setTpMovIdTipoMovimiento(new DaoTipoMovimiento().Buscar(reg.getInt("TP_MOV_ID_TIPO_MOVIMIENTO")));//DESCRIPCION_MOVIMIENTO
                 //prod.setTipoProducto(new DaoTipoProducto().Buscar(reg.getInt("TIPO_PRODUCTO_ID_TIPO")));
-                mov.setUbicacionInicio(new DaoUbicacion().Buscar(reg.getInt("UBICACION_INICIO")));
+                //mov.setUbicacionInicio(new DaoUbicacion().Buscar(reg.getInt("UBICACION_INICIO")));
                 mov.setUbicacionFinal(new DaoUbicacion().Buscar(reg.getInt("UBICACION_FINAL")));
                 mov.setFechaMovimiento(reg.getDate("FECHA_MOVIMIENTO"));//FECHA_MOVIMIENTO
                 System.out.println(mov);
@@ -63,7 +62,7 @@ public class DaoMovimiento implements IDaoMovimiento {
     @Override
     public ArrayList<Movimiento> Listar() {
         try {
-            String sql = "SELECT * FROM movimiento";
+            String sql = "SELECT * FROM movimiento order by id_movimiento desc";
             PreparedStatement pstm = cone.prepareCall(sql);
             ResultSet reg = pstm.executeQuery();
             ArrayList<Movimiento> listado = new ArrayList<>();
@@ -93,5 +92,26 @@ public class DaoMovimiento implements IDaoMovimiento {
     public boolean Eliminar(int id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+    @Override
+    public int ultimoMovimiento() {
+       try {
+            //Colocar la sentencia sql
+            String sql = "SELECT MAX(id_movimiento) AS id_movimiento FROM movimiento";
+            PreparedStatement pstm = cone.prepareCall(sql);
+            ResultSet reg = pstm.executeQuery();
+            Movimiento mov = null;
+            while (reg.next()) {
+                mov = new Movimiento();
+                mov.setIdMovimiento(reg.getInt("ID_MOVIMIENTO")); //ID_MOVIMIENTO
+            }
+            return mov.getIdMovimiento();
+        } catch (Exception e) {
+            System.out.println("error buscar ultimo movimiento: " + e.getMessage());
+            return 0;
+        }
+    }
+    
+    
 }
  

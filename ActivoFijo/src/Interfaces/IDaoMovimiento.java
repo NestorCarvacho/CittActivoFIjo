@@ -11,4 +11,5 @@ public interface IDaoMovimiento {
     ArrayList<Movimiento> Listar();
     boolean Modificar (Movimiento mov);
     boolean Eliminar(int id);
+    int ultimoMovimiento();
 }

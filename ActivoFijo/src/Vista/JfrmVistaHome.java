@@ -220,7 +220,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         }
     }
 
-    private void ListarProductosProductos() {
+    public void ListarProductosProductos() {
         DefaultTableModel modelo = new DefaultTableModel();
         JtbListarProductosProductos.setModel(modelo);
         modelo.addColumn("Numero Activo");
@@ -249,7 +249,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         
     }
 
-    private void ListarProductosHome() {
+    public void ListarProductosHome() {
         DefaultTableModel modelo = new DefaultTableModel();
         JtbListarProductosHome.setModel(modelo);
         modelo.addColumn("Numero Activo");
@@ -278,7 +278,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
     }
 
     //JTblListarProductosInformes
-    private void ListarProductosInformes() {
+    public void ListarProductosInformes() {
         DefaultTableModel modelo = new DefaultTableModel();
         JTblListarProductosInformes.setModel(modelo);
         modelo.addColumn("Numero Activo");
@@ -307,7 +307,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
     }
 
     //JtbListarProductosMovimientos
-    private void ListarProductosMovimientos() {
+    public void ListarProductosMovimientos() {
         DefaultTableModel modelo = new DefaultTableModel();
         JtbListarProductosMovimientos.setModel(modelo);
         modelo.addColumn("Movimiento");

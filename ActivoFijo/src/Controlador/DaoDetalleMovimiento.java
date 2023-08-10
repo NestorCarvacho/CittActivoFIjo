@@ -21,11 +21,12 @@ public class DaoDetalleMovimiento implements IDaoDetalleMovimiento {
     @Override
     public boolean Grabar(DetalleMovimiento mov) {
         try {
-            String sql="INSERT INTO DETALLE_MOVIMIENTO VALUES(?,?,?)";
+            String sql="INSERT INTO DETALLE_MOVIMIENTO VALUES(?,?,?,?)";
             PreparedStatement pstm = cone.prepareCall(sql);
             pstm.setInt(1, mov.getIdMovimiento());
             pstm.setInt(2, mov.getIdProducto());
             pstm.setInt(3, mov.getUbicacionInicio());
+            pstm.setInt(4, mov.getUbicacionFinal());
             int afect = pstm.executeUpdate();
             return (afect > 0);
         } catch (Exception e) {

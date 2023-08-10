@@ -6,7 +6,6 @@ import java.util.Date;
 public class Movimiento {
     private int idMovimiento;
     private TipoMovimiento tpMovIdTipoMovimiento;
-    private Ubicacion ubicacionInicio;
     private Ubicacion ubicacionFinal;
     private Date fechaMovimiento;
 
@@ -14,10 +13,9 @@ public class Movimiento {
     public Movimiento() {
     }
 
-    public Movimiento(int idMovimiento, TipoMovimiento tpMovIdTipoMovimiento, Producto productoIdProducto, Ubicacion ubicacionInicio, Ubicacion ubicacionFinal, Date fechaMovimiento) {
+    public Movimiento(int idMovimiento, TipoMovimiento tpMovIdTipoMovimiento, Ubicacion ubicacionFinal, Date fechaMovimiento) {
         this.idMovimiento = idMovimiento;
         this.tpMovIdTipoMovimiento = tpMovIdTipoMovimiento;
-        this.ubicacionInicio = ubicacionInicio;
         this.ubicacionFinal = ubicacionFinal;
         this.fechaMovimiento = fechaMovimiento;
     }
@@ -38,14 +36,6 @@ public class Movimiento {
         this.tpMovIdTipoMovimiento = tpMovIdTipoMovimiento;
     }
 
-    public Ubicacion getUbicacionInicio() {
-        return ubicacionInicio;
-    }
-
-    public void setUbicacionInicio(Ubicacion ubicacionInicio) {
-        this.ubicacionInicio = ubicacionInicio;
-    }
-
     public Ubicacion getUbicacionFinal() {
         return ubicacionFinal;
     }
@@ -64,8 +54,9 @@ public class Movimiento {
 
     @Override
     public String toString() {
-        return "Movimiento{" + "idMovimiento=" + idMovimiento + ", tpMovIdTipoMovimiento=" + tpMovIdTipoMovimiento + ", ubicacionInicio=" + ubicacionInicio + ", ubicacionFinal=" + ubicacionFinal + ", fechaMovimiento=" + fechaMovimiento + '}';
+        return "Movimiento{" + "idMovimiento=" + idMovimiento + ", tpMovIdTipoMovimiento=" + tpMovIdTipoMovimiento + ", ubicacionFinal=" + ubicacionFinal + ", fechaMovimiento=" + fechaMovimiento + '}';
     }
+   
 
 
 }

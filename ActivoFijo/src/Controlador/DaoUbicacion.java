@@ -74,7 +74,7 @@ public class DaoUbicacion implements IDaoUbicacion{
     @Override
     public Ubicacion Buscar2(String descUbicacion) {
         try {
-            String sql = "SELECT ID_UBICACION FROM UBICACION WHERE DESCRIPCION_UBICACION=?";
+            String sql = "SELECT * FROM UBICACION WHERE DESCRIPCION_UBICACION=?";
             PreparedStatement pstm = cone.prepareCall(sql);
             pstm.setString(1, descUbicacion);
             ResultSet reg = pstm.executeQuery();
@@ -82,10 +82,11 @@ public class DaoUbicacion implements IDaoUbicacion{
             while (reg.next()) {
                 ubi = new Ubicacion();
                 ubi.setIdUbicacion(reg.getInt("ID_UBICACION"));
+                ubi.setDescripcionUbicacion(reg.getString("DESCRIPCION_UBICACION"));
             }
             return ubi;
         } catch (Exception e) {
-            System.out.println("error buscar Jornada:" + e.getMessage());
+            System.out.println("error buscar ubicacion:" + e.getMessage());
             return null;
         }
     }
