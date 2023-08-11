@@ -246,7 +246,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
             fila[8] = item.getEstadoProducto();
             modelo.addRow(fila);
         }
-        
+
     }
 
     public void ListarProductosHome() {
@@ -428,6 +428,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         btnBuscarProducto = new javax.swing.JButton();
         JdcFechaLlegadaProductoProducto = new com.toedter.calendar.JDateChooser();
         cboColorProducto = new javax.swing.JComboBox<>();
+        btnActualizar = new java.awt.Button();
         JpInformes = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         BtnExportarInventario = new javax.swing.JButton();
@@ -1264,6 +1265,13 @@ public class JfrmVistaHome extends javax.swing.JFrame {
             }
         });
 
+        btnActualizar.setLabel("Actualizar");
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout JpProductosLayout = new javax.swing.GroupLayout(JpProductos);
         JpProductos.setLayout(JpProductosLayout);
         JpProductosLayout.setHorizontalGroup(
@@ -1276,6 +1284,8 @@ public class JfrmVistaHome extends javax.swing.JFrame {
                         .addComponent(btnCrearProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnEliminarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(JpProductosLayout.createSequentialGroup()
                         .addContainerGap()
@@ -1346,7 +1356,8 @@ public class JfrmVistaHome extends javax.swing.JFrame {
                 .addGroup(JpProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnCrearProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(label40, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEliminarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnEliminarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(JpProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JpProductosLayout.createSequentialGroup()
@@ -2670,6 +2681,10 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+        ListarCboTipoProducto();        // TODO add your handling code here:
+    }//GEN-LAST:event_btnActualizarActionPerformed
+
     private void buscarMovimientoDeActivo() {
         int numAct = Integer.parseInt(txtBuscarNumeroActivoMovimiento.getText());
         Movimiento mov = new DaoMovimiento().Buscar(numAct);
@@ -2832,6 +2847,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
     private javax.swing.JMenuItem MnuModificarProducto;
     private javax.swing.JTextField TxtFiltroActivoProducto;
     private javax.swing.JTextField TxtFiltroRunEmpleadoHome;
+    private java.awt.Button btnActualizar;
     private javax.swing.JButton btnBuscarEmpleado;
     private javax.swing.JButton btnBuscarParaMovimiento;
     private javax.swing.JButton btnBuscarProducto;

@@ -164,7 +164,7 @@ CREATE TABLE ubicacion (
 CREATE TABLE movimiento(
     id_movimiento NUMBER,
     tp_mov_id_tipo_movimiento NUMBER NOT NULL,
-    ubicacion_inicio NUMBER NOT NULL,
+    ubicacion_final NUMBER NOT NULL,
     fecha_movimiento DATE,
     
     CONSTRAINT pk_movimiento PRIMARY KEY (id_movimiento)
@@ -411,5 +411,5 @@ BEGIN
 END trg_empleados;
 
 
-
+/
 COMMIT;
