@@ -2682,7 +2682,8 @@ public class JfrmVistaHome extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-        ListarCboTipoProducto();        // TODO add your handling code here:
+       // TODO add your handling code here:
+        ListarProductosHome();
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void buscarMovimientoDeActivo() {
