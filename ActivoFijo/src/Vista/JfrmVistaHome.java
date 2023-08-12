@@ -472,6 +472,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         btnBuscarParaMovimiento = new javax.swing.JButton();
         btnCancelarMovimiento = new javax.swing.JButton();
         btnGuardarMovimiento = new javax.swing.JButton();
+        btnActualizarMov = new java.awt.Button();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
@@ -1706,6 +1707,19 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         btnGuardarMovimiento.setText("Guardar");
         btnGuardarMovimiento.setEnabled(false);
 
+        btnActualizarMov.setActionCommand("Nuevo Movimiento");
+        btnActualizarMov.setLabel("Actualizar");
+        btnActualizarMov.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnActualizarMovMouseClicked(evt);
+            }
+        });
+        btnActualizarMov.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarMovActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout JpMovimientosLayout = new javax.swing.GroupLayout(JpMovimientos);
         JpMovimientos.setLayout(JpMovimientosLayout);
         JpMovimientosLayout.setHorizontalGroup(
@@ -1729,7 +1743,9 @@ public class JfrmVistaHome extends javax.swing.JFrame {
                         .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(JpMovimientosLayout.createSequentialGroup()
                                 .addComponent(btnNuevoMovimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 932, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnActualizarMov, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(JpMovimientosLayout.createSequentialGroup()
                                 .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -1754,7 +1770,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
                                     .addComponent(JcbUbicacioninicio, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(JcbUbicacionDestino, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jdcFechaMovimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 179, Short.MAX_VALUE)
                                 .addComponent(btnCancelarMovimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(113, 113, 113)))))
                 .addContainerGap())
@@ -1774,7 +1790,8 @@ public class JfrmVistaHome extends javax.swing.JFrame {
                     .addGroup(JpMovimientosLayout.createSequentialGroup()
                         .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(label27, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnNuevoMovimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnNuevoMovimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnActualizarMov, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(39, 39, 39)
                         .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(label29, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2135,6 +2152,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
     }//GEN-LAST:event_mnuCerrarActionPerformed
 
     private void BtnMnuProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnMnuProductosMouseClicked
+        ListarProductosProductos();
     }//GEN-LAST:event_BtnMnuProductosMouseClicked
 
     private void btnCrearUsuarioHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearUsuarioHomeActionPerformed
@@ -2682,9 +2700,18 @@ public class JfrmVistaHome extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-       // TODO add your handling code here:
-        ListarProductosHome();
+        // TODO add your handling code here:
+        ListarProductosProductos();
     }//GEN-LAST:event_btnActualizarActionPerformed
+
+    private void btnActualizarMovMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarMovMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnActualizarMovMouseClicked
+
+    private void btnActualizarMovActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarMovActionPerformed
+        // TODO add your handling code here:
+        ListarProductosMovimientos();
+    }//GEN-LAST:event_btnActualizarMovActionPerformed
 
     private void buscarMovimientoDeActivo() {
         int numAct = Integer.parseInt(txtBuscarNumeroActivoMovimiento.getText());
@@ -2849,6 +2876,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
     private javax.swing.JTextField TxtFiltroActivoProducto;
     private javax.swing.JTextField TxtFiltroRunEmpleadoHome;
     private java.awt.Button btnActualizar;
+    private java.awt.Button btnActualizarMov;
     private javax.swing.JButton btnBuscarEmpleado;
     private javax.swing.JButton btnBuscarParaMovimiento;
     private javax.swing.JButton btnBuscarProducto;

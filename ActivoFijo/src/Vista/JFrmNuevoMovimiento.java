@@ -539,6 +539,7 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
             if (resp1) {
                 JOptionPane.showMessageDialog(null, "Grabó");
                 this.dispose();
+                
             }
             
             

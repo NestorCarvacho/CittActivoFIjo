@@ -2040,7 +2040,9 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="btnNuevoMovimiento" min="-2" pref="120" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="932" max="32767" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="btnActualizarMov" min="-2" pref="120" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -2072,7 +2074,7 @@
                                           <Component id="JcbUbicacionDestino" alignment="1" max="32767" attributes="0"/>
                                           <Component id="jdcFechaMovimiento" alignment="0" max="32767" attributes="0"/>
                                       </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                      <EmptySpace pref="179" max="32767" attributes="0"/>
                                       <Component id="btnCancelarMovimiento" min="-2" pref="132" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
                                   </Group>
@@ -2101,6 +2103,7 @@
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="label27" min="-2" pref="27" max="-2" attributes="0"/>
                                   <Component id="btnNuevoMovimiento" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnActualizarMov" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -2426,6 +2429,16 @@
                 <Property name="text" type="java.lang.String" value="Guardar"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
+            </Component>
+            <Component class="java.awt.Button" name="btnActualizarMov">
+              <Properties>
+                <Property name="actionCommand" type="java.lang.String" value="Nuevo Movimiento"/>
+                <Property name="label" type="java.lang.String" value="Actualizar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnActualizarMovMouseClicked"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnActualizarMovActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
