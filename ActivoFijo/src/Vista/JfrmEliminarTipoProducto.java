@@ -21,6 +21,8 @@ public class JfrmEliminarTipoProducto extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         cargarCbo();
+        
+        setDefaultCloseOperation(JfrmEliminarTipoProducto.DO_NOTHING_ON_CLOSE);
     }
 
     private void cargarCbo() {

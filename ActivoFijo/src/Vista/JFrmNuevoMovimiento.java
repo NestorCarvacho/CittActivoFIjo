@@ -56,6 +56,7 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
         setIconImage(getIconPaper());
         setIconImage(getIconArrows());
         setIconImage(getIconBox());
+        setDefaultCloseOperation(JFrmNuevoMovimiento.DO_NOTHING_ON_CLOSE);
     }
 
     @Override

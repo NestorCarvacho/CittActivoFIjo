@@ -20,6 +20,7 @@ public class JfrmAgregarTipoMovimiento extends javax.swing.JFrame {
     public JfrmAgregarTipoMovimiento() {
         initComponents();
         setLocationRelativeTo(null);
+        setDefaultCloseOperation(JfrmAgregarTipoMovimiento.DO_NOTHING_ON_CLOSE);
     }
 
     /**

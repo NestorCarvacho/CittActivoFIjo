@@ -20,6 +20,7 @@ public class JfrmAgregarColor extends javax.swing.JFrame {
     public JfrmAgregarColor() {
         initComponents();
         setLocationRelativeTo(null);
+        setDefaultCloseOperation(JfrmAgregarColor.DO_NOTHING_ON_CLOSE);
     }
 
     /**

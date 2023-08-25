@@ -23,6 +23,8 @@ public class JfrmEliminarUbicacion extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         cargarCbo();
+        
+        setDefaultCloseOperation(JfrmEliminarUbicacion.DO_NOTHING_ON_CLOSE);
     }
 
     private void cargarCbo() {

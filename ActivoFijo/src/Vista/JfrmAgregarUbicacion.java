@@ -22,6 +22,7 @@ public class JfrmAgregarUbicacion extends javax.swing.JFrame {
     public JfrmAgregarUbicacion() {
         initComponents();
         setLocationRelativeTo(null);
+        setDefaultCloseOperation(JfrmAgregarUbicacion.DO_NOTHING_ON_CLOSE);
     }
 
     /**

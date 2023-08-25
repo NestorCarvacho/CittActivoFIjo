@@ -20,6 +20,7 @@ public class JfrmAgregarTipoProducto extends javax.swing.JFrame {
     public JfrmAgregarTipoProducto() {
         initComponents();
         setLocationRelativeTo(null);
+        setDefaultCloseOperation(JfrmAgregarTipoProducto.DO_NOTHING_ON_CLOSE);
     }
 
     /**
