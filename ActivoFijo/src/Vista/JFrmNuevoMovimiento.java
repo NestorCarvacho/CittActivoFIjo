@@ -216,7 +216,7 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
 
         txtUbicacionActual.setEnabled(false);
 
-        jLabel7.setText("Ubicacion Actual");
+        jLabel7.setText("Ubicación Actual");
 
         btnAgregar.setText("Agregar");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -311,7 +311,7 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Numero Activo", "Numero Serie", "Descripcion", "Ubicacion Actual", "Estado Producto"
+                "Numero Activo", "Numero Serie", "Descripción", "Ubicación Actual", "Estado Producto"
             }
         ));
         jScrollPane1.setViewportView(jtblMovimiento);

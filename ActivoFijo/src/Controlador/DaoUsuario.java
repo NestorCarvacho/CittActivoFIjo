@@ -51,8 +51,8 @@ public class DaoUsuario implements IDaoUsuario{
             }
             return false;
         } catch (Exception e) {
-            System.err.println("Error usuario o contraseña incorrectos. En caso de requerir una cuenta pongáse en contacto con un administrador.");
             return false;
+            
         }
     }
 

@@ -69,7 +69,7 @@ public class JfrmLogin extends javax.swing.JFrame {
         jPanel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel2.setText("Inicio de Sesion");
+        jLabel2.setText("Inicio de sesión");
 
         jPswIngresoUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,14 +86,14 @@ public class JfrmLogin extends javax.swing.JFrame {
 
         jLabel3.setText("Nombre de Usuario");
 
-        btnInicioSesion.setText("Iniciar Sesion");
+        btnInicioSesion.setText("Iniciar sesión");
         btnInicioSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInicioSesionActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Limpiar Campos");
+        jButton2.setText("Limpiar campos");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -118,7 +118,7 @@ public class JfrmLogin extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(txtIngresoNombreUsuario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
                             .addComponent(jPswIngresoUsuario, javax.swing.GroupLayout.Alignment.LEADING))))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -176,8 +176,8 @@ public class JfrmLogin extends javax.swing.JFrame {
             this.dispose();
         } else {
             JOptionPane.showMessageDialog(null, "Error usuario o contraseña incorrectos. En caso de requerir una cuenta pongáse en contacto con un administrador.");
-        }
 
+        }
 
     }//GEN-LAST:event_btnInicioSesionActionPerformed
 
@@ -197,7 +197,6 @@ public class JfrmLogin extends javax.swing.JFrame {
                 main.setVisible(true);
                 this.dispose();
             } else {
-                JOptionPane.showMessageDialog(null, "Error usuario o contraseña incorrectos. En caso de requerir una cuenta pongáse en contacto con un administrador.");
             }
         }
     }//GEN-LAST:event_jPswIngresoUsuarioKeyPressed

@@ -679,44 +679,41 @@
                                   </Group>
                               </Group>
                               <EmptySpace min="120" pref="120" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="txtDireccionEmpleadoHome" pref="0" max="32767" attributes="0"/>
+                                  <Component id="txtIdEmpleadoHome" alignment="0" pref="172" max="32767" attributes="0"/>
+                                  <Component id="txtNombreEmpleadoHome" alignment="0" pref="172" max="32767" attributes="0"/>
+                                  <Component id="txtRunEmpleadoHome" alignment="0" pref="172" max="32767" attributes="0"/>
+                                  <Component id="txtTelefonoEmpleadoHome" alignment="0" pref="172" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
+                                      <Component id="label20" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
+                                      <Component id="cboJornadaEmpleadoHome" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="txtIdEmpleadoHome" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
-                                          <Component id="txtNombreEmpleadoHome" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
-                                          <Component id="txtRunEmpleadoHome" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
-                                          <Component id="txtTelefonoEmpleadoHome" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
+                                          <Component id="label22" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="label23" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="cboSupervisorEmpleadoHome" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="cboCargoEmpleadoHome" alignment="0" max="32767" attributes="0"/>
                                           <Group type="102" attributes="0">
-                                              <Component id="label20" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
-                                              <Component id="cboJornadaEmpleadoHome" max="32767" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="label22" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="label23" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Group type="102" attributes="0">
+                                                  <Component id="btnCancelarUsuarioHome" min="-2" pref="120" max="-2" attributes="0"/>
+                                                  <Group type="102" alignment="0" attributes="0">
                                                       <Component id="btnGuardarUsuarioHome" min="-2" pref="120" max="-2" attributes="0"/>
-                                                      <EmptySpace pref="84" max="32767" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
                                                       <Component id="btnModificarUsuarioHome" min="-2" pref="120" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <Component id="cboSupervisorEmpleadoHome" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="cboCargoEmpleadoHome" alignment="0" max="32767" attributes="0"/>
                                               </Group>
+                                              <EmptySpace min="0" pref="89" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="txtDireccionEmpleadoHome" min="-2" pref="252" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="btnCancelarUsuarioHome" min="-2" pref="120" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
@@ -789,11 +786,18 @@
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="label19" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnCancelarUsuarioHome" max="32767" attributes="0"/>
-                                  <Component id="txtDireccionEmpleadoHome" alignment="0" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                                      <Component id="label19" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="btnCancelarUsuarioHome" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtDireccionEmpleadoHome" min="-2" pref="32" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -801,7 +805,7 @@
                               <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="162" max="32767" attributes="0"/>
+                      <EmptySpace pref="156" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1100,6 +1104,9 @@
                 <Property name="enabled" type="boolean" value="false"/>
                 <Property name="label" type="java.lang.String" value="Cancelar Usuario"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelarUsuarioHomeActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -1148,7 +1155,7 @@
                                           <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
                                               <Component id="label42" alignment="0" min="-2" pref="99" max="-2" attributes="0"/>
                                               <Component id="label41" alignment="0" pref="203" max="32767" attributes="0"/>
-                                              <Component id="label43" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="label43" alignment="0" pref="0" max="32767" attributes="0"/>
                                               <Component id="label44" alignment="0" max="32767" attributes="0"/>
                                           </Group>
                                           <Component id="label53" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
@@ -1161,40 +1168,37 @@
                                           <Component id="txtNumeroDeSerieProducto" alignment="0" pref="172" max="32767" attributes="0"/>
                                           <Component id="cboTipoProductoProducto" alignment="0" max="32767" attributes="0"/>
                                       </Group>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="1" attributes="0">
-                                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                                  <Group type="102" attributes="0">
                                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                          <Component id="label47" alignment="0" max="32767" attributes="0"/>
                                                           <Component id="label48" alignment="0" max="32767" attributes="0"/>
                                                           <Component id="label49" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
                                                       </Group>
                                                       <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                          <Component id="txtUltimaActualizacionProductoProducto" alignment="0" max="32767" attributes="0"/>
-                                                          <Component id="txtStockProductoProducto" alignment="0" max="32767" attributes="0"/>
-                                                          <Component id="cboEstadoProductoProducto" alignment="0" max="32767" attributes="0"/>
-                                                          <Component id="JdcFechaLlegadaProductoProducto" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
-                                                      </Group>
                                                   </Group>
                                                   <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="label51" min="-2" pref="99" max="-2" attributes="0"/>
-                                                      <EmptySpace min="204" pref="204" max="-2" attributes="0"/>
+                                                      <Component id="label47" min="-2" pref="114" max="-2" attributes="0"/>
+                                                      <EmptySpace max="32767" attributes="0"/>
                                                   </Group>
                                               </Group>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="txtContNeto" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="txtStockProductoProducto" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="cboEstadoProductoProducto" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="JdcFechaLlegadaProductoProducto" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
+                                              </Group>
                                           </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="153" max="-2" attributes="0"/>
-                                              <Component id="txtcontNetoProductoProducto" min="-2" pref="172" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="label51" min="-2" pref="99" max="-2" attributes="0"/>
+                                          <Group type="102" attributes="0">
                                               <Component id="label46" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="txtUltimaActualizacionProducto" min="-2" pref="172" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Group type="102" attributes="0">
                                               <Component id="label50" min="-2" pref="42" max="-2" attributes="0"/>
@@ -1213,7 +1217,7 @@
                                               <Component id="txtCostoProductoProducto" min="-2" pref="198" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                      <EmptySpace pref="28" max="32767" attributes="0"/>
                                       <Component id="jPanel4" min="-2" pref="280" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                   </Group>
@@ -1239,91 +1243,96 @@
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Component id="cboTipoProductoProducto" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="label53" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cboUbicacionProductoProducto" alignment="1" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="label50" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="label42" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtNumeroDeActivoProducto" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="label46" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtUltimaActualizacionProducto" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="cboColorProducto" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" alignment="1" attributes="0">
+                                                      <Component id="txtContNeto" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                                                      <Component id="JdcFechaLlegadaProductoProducto" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" alignment="1" attributes="0">
+                                                      <Component id="label47" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="txtStockProductoProducto" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="label48" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="cboTipoProductoProducto" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Component id="label44" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="1" attributes="0">
+                                                  <Component id="label49" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="cboEstadoProductoProducto" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="cboUbicacionProductoProducto" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="label53" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="1" attributes="0">
+                                                  <Component id="label52" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="txtCostoProductoProducto" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="btnCancelarProducto" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="btnGuardarProducto" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                              <Component id="btnModificarProducto" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace pref="24" max="32767" attributes="0"/>
+                                  </Group>
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="label42" alignment="1" min="-2" max="-2" attributes="0"/>
-                                              <Component id="txtNumeroDeActivoProducto" alignment="1" min="-2" max="-2" attributes="0"/>
-                                              <Component id="label46" alignment="1" min="-2" max="-2" attributes="0"/>
-                                              <Component id="txtcontNetoProductoProducto" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="cboColorProducto" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
+                                          <Component id="label51" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
                                               <Group type="103" groupAlignment="1" attributes="0">
                                                   <Component id="label41" alignment="1" min="-2" max="-2" attributes="0"/>
                                                   <Component id="txtNumeroDeSerieProducto" alignment="1" min="-2" max="-2" attributes="0"/>
                                               </Group>
-                                              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="1" attributes="0">
-                                                  <Component id="label43" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="txtDescripcionProductoProducto" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                                              <Component id="label44" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="label51" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Group type="102" alignment="1" attributes="0">
-                                                      <Component id="txtUltimaActualizacionProductoProducto" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                                                      <Component id="JdcFechaLlegadaProductoProducto" min="-2" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" attributes="0">
                                                       <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                                                      <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Component id="label48" alignment="1" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="txtStockProductoProducto" alignment="1" min="-2" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                                                      <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Component id="label49" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="cboEstadoProductoProducto" min="-2" max="-2" attributes="0"/>
-                                                      </Group>
+                                                      <Component id="txtDescripcionProductoProducto" min="-2" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <Group type="103" alignment="1" groupAlignment="1" attributes="0">
-                                                      <Group type="102" attributes="0">
-                                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                                          <Component id="label47" min="-2" max="-2" attributes="0"/>
-                                                          <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Group type="102" alignment="0" attributes="0">
-                                                          <Group type="103" groupAlignment="1" attributes="0">
-                                                              <Component id="label52" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                              <Component id="txtCostoProductoProducto" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                          </Group>
-                                                          <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                                                          <Group type="103" groupAlignment="0" attributes="0">
-                                                              <Component id="btnCancelarProducto" min="-2" max="-2" attributes="0"/>
-                                                              <Component id="btnGuardarProducto" min="-2" max="-2" attributes="0"/>
-                                                          </Group>
-                                                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                                          <Component id="btnModificarProducto" min="-2" max="-2" attributes="0"/>
-                                                          <EmptySpace max="32767" attributes="0"/>
-                                                      </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="label43" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                           </Group>
                                       </Group>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="label50" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="184" max="32767" attributes="0"/>
+                      <EmptySpace pref="185" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1399,12 +1408,12 @@
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtUltimaActualizacionProductoProducto">
+            <Component class="javax.swing.JTextField" name="txtContNeto">
               <Properties>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtUltimaActualizacionProductoProductoActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtContNetoActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtStockProductoProducto">
@@ -1431,12 +1440,12 @@
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtcontNetoProductoProducto">
+            <Component class="javax.swing.JTextField" name="txtUltimaActualizacionProducto">
               <Properties>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtcontNetoProductoProductoActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtUltimaActualizacionProductoActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtCostoProductoProducto">
@@ -1467,8 +1476,11 @@
             </Component>
             <Component class="java.awt.Label" name="label43">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Marca"/>
+                <Property name="text" type="java.lang.String" value="Descripci&#xf3;n producto"/>
               </Properties>
+              <AccessibilityProperties>
+                <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Descripci&#xf3;n"/>
+              </AccessibilityProperties>
             </Component>
             <Component class="java.awt.Label" name="label44">
               <Properties>

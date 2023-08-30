@@ -186,6 +186,7 @@ public class DaoProducto implements IDaoProducto {
                 prod.setFechaLlegadaProducto(reg.getDate("FECHA_LLEGADA_PRODUCTO"));
                 prod.setColorProducto(new DaoColor().Buscar(reg.getInt("COLOR_ID_COLOR")));
                 prod.setCostoProducto(reg.getInt("COSTO_PRODUCTO"));
+                prod.setContNetoProducto(reg.getInt("LITROS_PRODUCTO"));
             }
             return prod;
         } catch (Exception e) {
