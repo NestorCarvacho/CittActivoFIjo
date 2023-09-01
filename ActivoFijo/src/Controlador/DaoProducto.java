@@ -248,4 +248,68 @@ public class DaoProducto implements IDaoProducto {
         }
     }
 
+    @Override
+    public ArrayList<Producto> BuscarFiltroTipoProducto(String busqueda) {
+        try {
+            //Colocar la sentencia sql
+            String sql = "SELECT * FROM PRODUCTO p JOIN TIPO_PRODUCTO t ON t.id_tipo_producto = p.tipo_producto_id_tipo\n" +
+                          "WHERE t.descripcion_tipo_producto = ?";
+            PreparedStatement pstm = cone.prepareCall(sql);
+            pstm.setString(1, busqueda);
+            ResultSet reg = pstm.executeQuery();
+            Producto prod = null;
+            ArrayList<Producto> listado = new ArrayList<>();
+            while (reg.next()) {
+                prod = new Producto();
+                prod.setIdProducto(reg.getInt("ID_PRODUCTO"));
+                prod.setNumActivoProducto(reg.getString("NUMERO_ACTIVO_PRODUCTO"));
+                prod.setNumSerieProducto(reg.getString("NUMERO_SERIE_PRODUCTO"));
+                prod.setDescProducto(reg.getString("DESCRIPCION_PRODUCTO"));
+                prod.setUbicacionProducto(new DaoUbicacion().Buscar(reg.getInt("UBICACION_ID_UBICACION")));
+                prod.setTipoProducto(new DaoTipoProducto().Buscar(reg.getInt("TIPO_PRODUCTO_ID_TIPO")));
+                prod.setEstadoProducto(new DaoEstado().Buscar(reg.getInt("ESTADO_ID_ESTADO")));
+                prod.setFechaLlegadaProducto(reg.getDate("FECHA_LLEGADA_PRODUCTO"));
+                prod.setColorProducto(new DaoColor().Buscar(reg.getInt("COLOR_ID_COLOR")));
+                prod.setCostoProducto(reg.getInt("COSTO_PRODUCTO"));
+                listado.add(prod);
+            }
+            return listado;
+        } catch (Exception e) {
+            System.out.println("Error BD al buscar filtro producto." + e.getMessage());
+            return null;
+        }
+    }
+
+    @Override
+    public ArrayList<Producto> BuscarFiltroUbicacion(String busqueda) {
+        try {
+            //Colocar la sentencia sql
+            String sql = "SELECT * FROM PRODUCTO p JOIN UBICACION u ON p.ubicacion_id_ubicacion = u.id_ubicacion\n" +
+                            "WHERE u.descripcion_ubicacion = ?";
+            PreparedStatement pstm = cone.prepareCall(sql);
+            pstm.setString(1, busqueda);
+            ResultSet reg = pstm.executeQuery();
+            Producto prod = null;
+            ArrayList<Producto> listado = new ArrayList<>();
+            while (reg.next()) {
+                prod = new Producto();
+                prod.setIdProducto(reg.getInt("ID_PRODUCTO"));
+                prod.setNumActivoProducto(reg.getString("NUMERO_ACTIVO_PRODUCTO"));
+                prod.setNumSerieProducto(reg.getString("NUMERO_SERIE_PRODUCTO"));
+                prod.setDescProducto(reg.getString("DESCRIPCION_PRODUCTO"));
+                prod.setUbicacionProducto(new DaoUbicacion().Buscar(reg.getInt("UBICACION_ID_UBICACION")));
+                prod.setTipoProducto(new DaoTipoProducto().Buscar(reg.getInt("TIPO_PRODUCTO_ID_TIPO")));
+                prod.setEstadoProducto(new DaoEstado().Buscar(reg.getInt("ESTADO_ID_ESTADO")));
+                prod.setFechaLlegadaProducto(reg.getDate("FECHA_LLEGADA_PRODUCTO"));
+                prod.setColorProducto(new DaoColor().Buscar(reg.getInt("COLOR_ID_COLOR")));
+                prod.setCostoProducto(reg.getInt("COSTO_PRODUCTO"));
+                listado.add(prod);
+            }
+            return listado;
+        } catch (Exception e) {
+            System.out.println("Error BD al buscar filtro producto." + e.getMessage());
+            return null;
+        }    
+    }
+
 }

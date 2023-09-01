@@ -329,6 +329,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
             modelo.addRow(fila);
         }
     }
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -436,18 +437,14 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         JpInformes = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         BtnExportarInventario = new javax.swing.JButton();
-        BtnImprimirInventario = new javax.swing.JButton();
         btnMovimientos = new javax.swing.JButton();
-        BtnImprimirMovimientos = new javax.swing.JButton();
         CboSeleccionBodegaInforme = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         BtnFiltrarBodegaInforme = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         CboFiltroProductoInforme = new javax.swing.JComboBox<>();
-        jTextField1 = new javax.swing.JTextField();
         BtnFiltrarInforme = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         JTblListarProductosInformes = new javax.swing.JTable();
         JpMovimientos = new javax.swing.JPanel();
@@ -1457,11 +1454,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
             }
         });
 
-        BtnImprimirInventario.setText("Imprimir Inventario");
-
         btnMovimientos.setText("Exportar Movimientos");
-
-        BtnImprimirMovimientos.setText("Imprimir Movimientos");
 
         CboSeleccionBodegaInforme.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         CboSeleccionBodegaInforme.addActionListener(new java.awt.event.ActionListener() {
@@ -1484,24 +1477,19 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(80, 80, 80)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
                         .addComponent(BtnExportarInventario)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BtnImprimirInventario)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnMovimientos)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BtnImprimirMovimientos))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnMovimientos))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(80, 80, 80)
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
                         .addComponent(CboSeleccionBodegaInforme, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(BtnFiltrarBodegaInforme)))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1509,9 +1497,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtnExportarInventario)
-                    .addComponent(BtnImprimirInventario)
-                    .addComponent(btnMovimientos)
-                    .addComponent(BtnImprimirMovimientos))
+                    .addComponent(btnMovimientos))
                 .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CboSeleccionBodegaInforme, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1527,8 +1513,11 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         CboFiltroProductoInforme.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Seleccione --" }));
 
         BtnFiltrarInforme.setText("Filtrar");
-
-        jLabel3.setText("Ingrese Numero de Activo para Buscar");
+        BtnFiltrarInforme.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnFiltrarInformeActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -1536,32 +1525,24 @@ public class JfrmVistaHome extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(CboFiltroProductoInforme, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel3)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(BtnFiltrarInforme)
-                .addContainerGap(26, Short.MAX_VALUE))
+                        .addGap(40, 40, 40)
+                        .addComponent(BtnFiltrarInforme))
+                    .addComponent(jLabel2))
+                .addContainerGap(266, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(44, 44, 44)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
+                .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CboFiltroProductoInforme, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BtnFiltrarInforme))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
         JTblListarProductosInformes.setModel(new javax.swing.table.DefaultTableModel(
@@ -2706,6 +2687,39 @@ public class JfrmVistaHome extends javax.swing.JFrame {
 
     private void BtnFiltrarBodegaInformeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnFiltrarBodegaInformeActionPerformed
         // TODO add your handling code here:
+        String busquedaubi = CboSeleccionBodegaInforme.getSelectedItem().toString();
+        DefaultTableModel modelo = new DefaultTableModel();
+        JTblListarProductosInformes.setModel(modelo);
+        modelo.addColumn("Numero Activo");
+        modelo.addColumn("Numero Serie");
+        modelo.addColumn("Descripcion");
+        modelo.addColumn("Ubicacion");
+        modelo.addColumn("Tipo Producto");
+        modelo.addColumn("Fecha Llegada");
+        modelo.addColumn("Color");
+        modelo.addColumn("Costo");
+        modelo.addColumn("Estado");
+        
+        ArrayList<Producto> listado = new DaoProducto().BuscarFiltroUbicacion(busquedaubi);
+        if (listado != null) {
+            for (Producto item : listado) {
+            Object[] fila = new Object[9];
+            fila[0] = item.getNumActivoProducto();
+            fila[1] = item.getNumSerieProducto();
+            fila[2] = item.getDescProducto();
+            fila[3] = item.getUbicacionProducto();
+            fila[4] = item.getTipoProducto();
+            fila[5] = item.getFechaLlegadaProducto();
+            fila[6] = item.getColorProducto().getNombreColor();
+            fila[7] = item.getCostoProducto();
+            fila[8] = item.getEstadoProducto();
+            modelo.addRow(fila);
+            }
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "No se encontraron resultados para esta busqueda.");
+        }
+        
     }//GEN-LAST:event_BtnFiltrarBodegaInformeActionPerformed
 
     private void CboSeleccionBodegaInformeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CboSeleccionBodegaInformeActionPerformed
@@ -2745,6 +2759,43 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         cboSupervisorEmpleadoHome.setEnabled(false);
         cboCargoEmpleadoHome.setEnabled(false);
     }//GEN-LAST:event_btnCancelarUsuarioHomeActionPerformed
+
+    private void BtnFiltrarInformeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnFiltrarInformeActionPerformed
+        // TODO add your handling code here:
+        String busquedaTipoProducto = CboFiltroProductoInforme.getSelectedItem().toString();
+        DefaultTableModel modelo = new DefaultTableModel();
+        JTblListarProductosInformes.setModel(modelo);
+        modelo.addColumn("Numero Activo");
+        modelo.addColumn("Numero Serie");
+        modelo.addColumn("Descripcion");
+        modelo.addColumn("Ubicacion");
+        modelo.addColumn("Tipo Producto");
+        modelo.addColumn("Fecha Llegada");
+        modelo.addColumn("Color");
+        modelo.addColumn("Costo");
+        modelo.addColumn("Estado");
+        
+        ArrayList<Producto> listado = new DaoProducto().BuscarFiltroTipoProducto(busquedaTipoProducto);
+        if (listado != null) {
+            for (Producto item : listado) {
+            Object[] fila = new Object[9];
+            fila[0] = item.getNumActivoProducto();
+            fila[1] = item.getNumSerieProducto();
+            fila[2] = item.getDescProducto();
+            fila[3] = item.getUbicacionProducto();
+            fila[4] = item.getTipoProducto();
+            fila[5] = item.getFechaLlegadaProducto();
+            fila[6] = item.getColorProducto().getNombreColor();
+            fila[7] = item.getCostoProducto();
+            fila[8] = item.getEstadoProducto();
+            modelo.addRow(fila);
+            }
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "No se encontraron resultados para esta busqueda.");
+        }
+        
+    }//GEN-LAST:event_BtnFiltrarInformeActionPerformed
 
     private void buscarMovimientoDeActivo() {
         int numAct = Integer.parseInt(txtBuscarNumeroActivoMovimiento.getText());
@@ -2884,8 +2935,6 @@ public class JfrmVistaHome extends javax.swing.JFrame {
     private javax.swing.JButton BtnExportarInventario;
     private javax.swing.JButton BtnFiltrarBodegaInforme;
     private javax.swing.JButton BtnFiltrarInforme;
-    private javax.swing.JButton BtnImprimirInventario;
-    private javax.swing.JButton BtnImprimirMovimientos;
     private javax.swing.JTabbedPane BtnMnuProductos;
     private javax.swing.JComboBox<String> CboFiltroProductoInforme;
     private javax.swing.JComboBox<String> CboSeleccionBodegaInforme;
@@ -2947,7 +2996,6 @@ public class JfrmVistaHome extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cboUbicacionProductoProducto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -2973,7 +3021,6 @@ public class JfrmVistaHome extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
-    private javax.swing.JTextField jTextField1;
     private com.toedter.calendar.JDateChooser jdcFechaMovimiento;
     private java.awt.Label label1;
     private java.awt.Label label15;

@@ -13,4 +13,6 @@ public interface IDaoProducto {
     Producto Buscar2(String activo);
     Producto Buscar3(String tipo);
     Producto BuscarSerie(String activo);
+    ArrayList<Producto> BuscarFiltroUbicacion(String busqueda);
+    ArrayList<Producto> BuscarFiltroTipoProducto(String busqueda);
 }

@@ -4,11 +4,11 @@ Tareas pendientes:
 
 - Mover programa a base de datos en la nube (el servidor duoc)
 
-- Poner botón de actualizar y actualizar después de cada acción en base de datos
+- Mensaje de error cuando no se encuentren resultados en el filtro
 
-- Al momento de guardar un movimiento cerrar la ventana de nuevo movimiento
+- Crear botón para resetear el filtro
 
-- Al apretar la X en nuevo movimiento que no se cierre la aplicación
+- Mover los botones para mejorar el diseño en la pestaña informes
 
 
 
