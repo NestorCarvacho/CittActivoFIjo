@@ -10,5 +10,23 @@ Tareas pendientes:
 
 - Mover los botones para mejorar el diseño en la pestaña informes
 
- 
+- Crear dashboard con semáforo
+
+- Tipo de productos con datos precargados
+
+- qr para carnet *OPCIONAL*
+
+- cargar vistas por bodega
+
+- crear usuarios por bodega 
+
+- Boton en movimientos para seleccionar quien entrega
+
+- vista simplificada para usuarios
+
+- Filtros por fecha
+
+- Vista de cajero de supermercado (USO FACIL)
+
+- Informes por productos, personas, gráfica, fecha, costo
 

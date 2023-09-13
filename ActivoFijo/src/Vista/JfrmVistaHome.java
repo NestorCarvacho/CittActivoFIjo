@@ -445,6 +445,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         CboFiltroProductoInforme = new javax.swing.JComboBox<>();
         BtnFiltrarInforme = new javax.swing.JButton();
+        BtnFiltrarInforme1 = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
         JTblListarProductosInformes = new javax.swing.JTable();
         JpMovimientos = new javax.swing.JPanel();
@@ -1519,6 +1520,13 @@ public class JfrmVistaHome extends javax.swing.JFrame {
             }
         });
 
+        BtnFiltrarInforme1.setText("Reiniciar");
+        BtnFiltrarInforme1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnFiltrarInforme1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -1529,9 +1537,11 @@ public class JfrmVistaHome extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(CboFiltroProductoInforme, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(40, 40, 40)
-                        .addComponent(BtnFiltrarInforme))
+                        .addComponent(BtnFiltrarInforme)
+                        .addGap(18, 18, 18)
+                        .addComponent(BtnFiltrarInforme1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel2))
-                .addContainerGap(266, Short.MAX_VALUE))
+                .addContainerGap(128, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1541,7 +1551,8 @@ public class JfrmVistaHome extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CboFiltroProductoInforme, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtnFiltrarInforme))
+                    .addComponent(BtnFiltrarInforme)
+                    .addComponent(BtnFiltrarInforme1))
                 .addContainerGap(43, Short.MAX_VALUE))
         );
 
@@ -1771,8 +1782,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
                                     .addComponent(txtUltimaActializacion2, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
                                     .addComponent(JcbUbicacioninicio, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(JcbUbicacionDestino, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jdcFechaMovimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(jdcFechaMovimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(85, 85, 85)
                         .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnCancelarMovimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1827,13 +1837,10 @@ public class JfrmVistaHome extends javax.swing.JFrame {
                                         .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(label34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jdcFechaMovimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(20, 20, 20)
                                         .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(JpMovimientosLayout.createSequentialGroup()
-                                                .addGap(20, 20, 20)
-                                                .addComponent(JcbUbicacioninicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(JpMovimientosLayout.createSequentialGroup()
-                                                .addGap(20, 20, 20)
-                                                .addComponent(label35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                            .addComponent(JcbUbicacioninicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(label35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addComponent(btnGuardarMovimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(label33, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(5, 5, 5)
@@ -2794,6 +2801,12 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         
     }//GEN-LAST:event_BtnFiltrarInformeActionPerformed
 
+    private void BtnFiltrarInforme1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnFiltrarInforme1ActionPerformed
+        // TODO add your handling code here:
+        ListarProductosInformes();
+        
+    }//GEN-LAST:event_BtnFiltrarInforme1ActionPerformed
+
     private void buscarMovimientoDeActivo() {
         int numAct = Integer.parseInt(txtBuscarNumeroActivoMovimiento.getText());
         Movimiento mov = new DaoMovimiento().Buscar(numAct);
@@ -2932,6 +2945,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
     private javax.swing.JButton BtnExportarInventario;
     private javax.swing.JButton BtnFiltrarBodegaInforme;
     private javax.swing.JButton BtnFiltrarInforme;
+    private javax.swing.JButton BtnFiltrarInforme1;
     private javax.swing.JTabbedPane BtnMnuProductos;
     private javax.swing.JComboBox<String> CboFiltroProductoInforme;
     private javax.swing.JComboBox<String> CboSeleccionBodegaInforme;
