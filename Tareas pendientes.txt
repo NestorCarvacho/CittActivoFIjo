@@ -10,7 +10,5 @@ Tareas pendientes:
 
 - Mover los botones para mejorar el diseño en la pestaña informes
 
-
-
  
 
