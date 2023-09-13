@@ -30,3 +30,5 @@ Tareas pendientes:
 
 - Informes por productos, personas, gráfica, fecha, costo
 
+- Historial de prestamos, y movimientos
+
