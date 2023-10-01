@@ -413,3 +413,5 @@ END trg_empleados;
 
 /
 COMMIT;
+/
+select * from producto;
