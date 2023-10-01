@@ -2736,7 +2736,8 @@ public class JfrmVistaHome extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem14ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
+       JfrmAgregarTipoMovimiento TpMovimiento = new JfrmAgregarTipoMovimiento();
+       TpMovimiento.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed

@@ -172,7 +172,8 @@ public class JfrmLogin extends javax.swing.JFrame {
         boolean resp = new DaoUsuario().validarContrasena(usuario, contrasena);
         if (resp) {
             System.out.println("Usuario Validado");
-            if (usuario != "admin") {
+            if (!usuario.equals("admin")) { // Cambiado el operador != por !usuario.equals("admin")
+                System.out.println(usuario);
                 JfrmVistaUsuarioNormal main1 = new JfrmVistaUsuarioNormal();
                 main1.setVisible(true);
                 this.dispose();
@@ -182,8 +183,7 @@ public class JfrmLogin extends javax.swing.JFrame {
                 this.dispose();
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Error usuario o contraseña incorrectos. En caso de requerir una cuenta pongáse en contacto con un administrador.");
-
+            JOptionPane.showMessageDialog(null, "Error usuario o contraseña incorrectos. En caso de requerir una cuenta, póngase en contacto con un administrador.");
         }
 
     }//GEN-LAST:event_btnInicioSesionActionPerformed
@@ -200,7 +200,7 @@ public class JfrmLogin extends javax.swing.JFrame {
             boolean resp = new DaoUsuario().validarContrasena(usuario, contrasena);
             if (resp) {
                 System.out.println("Usuario Validado");
-                if (usuario != "admin") {
+                if (!usuario.equals("admin")) { // Cambiado el operador != por !usuario.equals("admin")
                     System.out.println(usuario);
                     JfrmVistaUsuarioNormal main1 = new JfrmVistaUsuarioNormal();
                     main1.setVisible(true);
@@ -211,10 +211,10 @@ public class JfrmLogin extends javax.swing.JFrame {
                     this.dispose();
                 }
             } else {
-                JOptionPane.showMessageDialog(null, "Error usuario o contraseña incorrectos. En caso de requerir una cuenta pongáse en contacto con un administrador.");
-
+                JOptionPane.showMessageDialog(null, "Error usuario o contraseña incorrectos. En caso de requerir una cuenta, póngase en contacto con un administrador.");
             }
         }
+
     }//GEN-LAST:event_jPswIngresoUsuarioKeyPressed
 
     private void jPswIngresoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPswIngresoUsuarioActionPerformed
@@ -224,7 +224,8 @@ public class JfrmLogin extends javax.swing.JFrame {
         boolean resp = new DaoUsuario().validarContrasena(usuario, contrasena);
         if (resp) {
             System.out.println("Usuario Validado");
-            if (usuario != "admin") {
+            if (!usuario.equals("admin")) { // Cambiado el operador != por !usuario.equals("admin")
+                System.out.println(usuario);
                 JfrmVistaUsuarioNormal main1 = new JfrmVistaUsuarioNormal();
                 main1.setVisible(true);
                 this.dispose();
@@ -234,8 +235,7 @@ public class JfrmLogin extends javax.swing.JFrame {
                 this.dispose();
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Error usuario o contraseña incorrectos. En caso de requerir una cuenta pongáse en contacto con un administrador.");
-
+            JOptionPane.showMessageDialog(null, "Error usuario o contraseña incorrectos. En caso de requerir una cuenta, póngase en contacto con un administrador.");
         }
 
     }//GEN-LAST:event_jPswIngresoUsuarioActionPerformed
