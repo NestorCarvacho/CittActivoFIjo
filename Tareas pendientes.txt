@@ -10,8 +10,6 @@ Tareas pendientes:
 
 - Mover los botones para mejorar el diseño en la pestaña informes
 
-- Crear dashboard con semáforo
-
 - Tipo de productos con datos precargados
 
 - qr para carnet *OPCIONAL*
@@ -30,5 +28,5 @@ Tareas pendientes:
 
 - Informes por productos, personas, gráfica, fecha, costo
 
-- Historial de prestamos, y movimientos
+- Crear dashboard con semáforo
 
