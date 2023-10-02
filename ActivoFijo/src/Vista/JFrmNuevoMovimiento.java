@@ -524,9 +524,9 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
             String entrada = "12/03/2016"; // Entrada recogida como sea (scanner)
             DateFormat format = new SimpleDateFormat("DD/MM/YYYY"); // Creamos un formato de fecha
             Date fecha = format.parse(entrada);
-            Movimiento mov = new Movimiento(0, tp_mov, ubi, fecha);
+            Empleado emp = new DaoEmpleado().Buscar(104);
+            Movimiento mov = new Movimiento(0, tp_mov, ubi, fecha,emp);
             boolean resp1 = new DaoMovimiento().Grabar(mov);
-            
             //Se obtienen las columnas de la tabla con los productos agregados en un movimiento
             for (int i = 0; i < jtblMovimiento.getRowCount(); i++) {
                 String producto = model.getValueAt(i, 0).toString();

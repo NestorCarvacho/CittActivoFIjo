@@ -1,32 +1,38 @@
-Tareas pendientes:
+Tareas pendientes ORDENADAS POR IMPORTANCIA:
 
-- Crear excel para reportes con -> JASPERreports para archivos csv
+<-----------------------------PRIMER ENTREGABLE ANTES DEL 13 DE OCTUBRE--------------------------------------->
 
-- Mover programa a base de datos en la nube (el servidor duoc)
+- Vista de cajero de supermercado (USO FACIL)
 
-- Mensaje de error cuando no se encuentren resultados en el filtro
+- Boton en movimientos para seleccionar quien entrega (LOGICA YA CREADA, FALTA SOLO LA VISTA)
 
-- Crear botón para resetear el filtro
+- Crear vista para detalles de movimientos (tiene muchas opciones, falta decidir como presentar la información)
 
-- Mover los botones para mejorar el diseño en la pestaña informes
-
-- Tipo de productos con datos precargados
-
-- qr para carnet *OPCIONAL*
+- vista simplificada para usuarios
 
 - cargar vistas por bodega
 
 - crear usuarios por bodega 
 
-- Boton en movimientos para seleccionar quien entrega
-
-- vista simplificada para usuarios
-
 - Filtros por fecha
 
-- Vista de cajero de supermercado (USO FACIL)
+- Mover los botones para mejorar el diseño en la pestaña informes
+
+- Tipo de productos con datos precargados
+
+- Mensaje de error cuando no se encuentren resultados en el filtro
+
+- Crear botón para resetear el filtro
+
+<--------------------------------POST VERSION ALFA ENTREGA 13 OCTUBRE------------------------------------>
+
+- Mover programa a base de datos en la nube (el servidor duoc)
 
 - Informes por productos, personas, gráfica, fecha, costo
 
 - Crear dashboard con semáforo
+
+- Crear excel para reportes con -> JASPERreports para archivos csv
+
+- qr para carnet *OPCIONAL*
 

@@ -318,7 +318,9 @@ public class JfrmVistaHome extends javax.swing.JFrame {
         modelo.addColumn("Tipo Movimiento");
         modelo.addColumn("Ubicacion Final");
         modelo.addColumn("Fecha Movimiento");
+        modelo.addColumn("Nombre empleado");
         SimpleDateFormat fmto = new SimpleDateFormat("DD/MM/YYYY");
+        
         ArrayList<Movimiento> listado = new DaoMovimiento().Listar();
         for (Movimiento item : listado) {
             Object[] fila = new Object[9];
@@ -326,6 +328,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
             fila[1] = item.getTpMovIdTipoMovimiento().getNombreTipoMovimiento();
             fila[2] = item.getUbicacionFinal();
             fila[3] = item.getFechaMovimiento();
+            fila[4] = item.getEmp().getNombreEmpleado();
             modelo.addRow(fila);
         }
     }
@@ -1757,8 +1760,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
                             .addGroup(JpMovimientosLayout.createSequentialGroup()
                                 .addComponent(btnNuevoMovimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnActualizarMov, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addComponent(btnActualizarMov, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(JpMovimientosLayout.createSequentialGroup()
                                 .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -1783,7 +1785,7 @@ public class JfrmVistaHome extends javax.swing.JFrame {
                                     .addComponent(JcbUbicacioninicio, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(JcbUbicacionDestino, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jdcFechaMovimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addGap(85, 85, 85)
+                        .addGap(85, 191, Short.MAX_VALUE)
                         .addGroup(JpMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnCancelarMovimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnGuardarMovimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))

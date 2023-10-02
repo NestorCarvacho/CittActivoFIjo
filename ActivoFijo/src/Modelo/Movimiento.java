@@ -8,16 +8,17 @@ public class Movimiento {
     private TipoMovimiento tpMovIdTipoMovimiento;
     private Ubicacion ubicacionFinal;
     private Date fechaMovimiento;
+    private Empleado emp;
 
-    //CONSTRUCTOR SIN PARAMETROS
     public Movimiento() {
     }
 
-    public Movimiento(int idMovimiento, TipoMovimiento tpMovIdTipoMovimiento, Ubicacion ubicacionFinal, Date fechaMovimiento) {
+    public Movimiento(int idMovimiento, TipoMovimiento tpMovIdTipoMovimiento, Ubicacion ubicacionFinal, Date fechaMovimiento, Empleado emp) {
         this.idMovimiento = idMovimiento;
         this.tpMovIdTipoMovimiento = tpMovIdTipoMovimiento;
         this.ubicacionFinal = ubicacionFinal;
         this.fechaMovimiento = fechaMovimiento;
+        this.emp = emp;
     }
 
     public int getIdMovimiento() {
@@ -52,11 +53,20 @@ public class Movimiento {
         this.fechaMovimiento = fechaMovimiento;
     }
 
+    public Empleado getEmp() {
+        return emp;
+    }
+
+    public void setEmp(Empleado emp) {
+        this.emp = emp;
+    }
+
     @Override
     public String toString() {
-        return "Movimiento{" + "idMovimiento=" + idMovimiento + ", tpMovIdTipoMovimiento=" + tpMovIdTipoMovimiento + ", ubicacionFinal=" + ubicacionFinal + ", fechaMovimiento=" + fechaMovimiento + '}';
+        return "Movimiento{" + "idMovimiento=" + idMovimiento + ", tpMovIdTipoMovimiento=" + tpMovIdTipoMovimiento + ", ubicacionFinal=" + ubicacionFinal + ", fechaMovimiento=" + fechaMovimiento + ", emp=" + emp + '}';
     }
-   
+
+    
 
 
 }

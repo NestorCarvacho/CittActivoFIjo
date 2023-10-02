@@ -21,10 +21,11 @@ public class DaoMovimiento implements IDaoMovimiento {
     @Override
     public boolean Grabar(Movimiento mov) {
         try {
-            String sql="INSERT INTO MOVIMIENTO VALUES(seq_movimiento.NEXTVAL,?,?,SYSDATE)";
+            String sql="INSERT INTO MOVIMIENTO VALUES(seq_movimiento.NEXTVAL,?,?,SYSDATE,?)";
             PreparedStatement pstm = cone.prepareCall(sql);
             pstm.setInt(1, mov.getTpMovIdTipoMovimiento().getIdTipoMovimiento());
             pstm.setInt(2, mov.getUbicacionFinal().getIdUbicacion());
+            pstm.setInt(3, mov.getEmp().getIdEmpleado());
             int afect = pstm.executeUpdate();
             return (afect > 0);
         } catch (Exception e) {
@@ -74,6 +75,7 @@ public class DaoMovimiento implements IDaoMovimiento {
                 //mov.setUbicacionInicio(new DaoUbicacion().Buscar(reg.getInt("UBICACION_INICIO")));
                 mov.setUbicacionFinal(new DaoUbicacion().Buscar(reg.getInt("UBICACION_FINAL")));
                 mov.setFechaMovimiento(reg.getDate("FECHA_MOVIMIENTO"));//FECHA_MOVIMIENTO
+                mov.setEmp(new DaoEmpleado().Buscar(reg.getInt("ID_EMPLEADO")));
                 listado.add(mov);
             }
             return listado;

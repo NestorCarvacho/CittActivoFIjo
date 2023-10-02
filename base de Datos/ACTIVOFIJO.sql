@@ -3,6 +3,8 @@ DROP TABLE detalle_movimiento CASCADE CONSTRAINTS;
 
 DROP TABLE usuario CASCADE CONSTRAINTS;
 
+DROP TABLE tipo_usuario CASCADE CONSTRAINTS;
+
 DROP TABLE detalle CASCADE CONSTRAINTS;
 
 DROP TABLE empleado CASCADE CONSTRAINTS;
@@ -60,7 +62,13 @@ DROP SEQUENCE seq_tipo_movimiento;
 CREATE TABLE USUARIO (
     id_usuario VARCHAR2(10) CONSTRAINT pk_usuario PRIMARY KEY,
     nombre_usuario VARCHAR2(50) NOT NULL,
-    contrasena VARCHAR2(50) NOT NULL
+    contrasena VARCHAR2(50) NOT NULL,
+    id_tipo VARCHAR2(10)
+);
+
+CREATE TABLE TIPO_USUARIO(
+    id_tipo VARCHAR2(10) CONSTRAINT pk_id_tipo PRIMARY KEY,
+    nombre_tipo VARCHAR2(100) NOT NULL
 );
 
 /*tipo_movimiento*/
@@ -88,12 +96,6 @@ CREATE TABLE color (
 
 );
 
-/*CREATE TABLE supervisor (
-    id_supervisor                 NUMBER NOT NULL,
-    nombre_completo_supervisor    VARCHAR2(65) NOT NULL,
-
-    CONSTRAINT pk_supervisor PRIMARY KEY (id_supervisor)
-);*/
 
 CREATE TABLE empleado (
     id_empleado                 NUMBER NOT NULL,
@@ -166,6 +168,7 @@ CREATE TABLE movimiento(
     tp_mov_id_tipo_movimiento NUMBER NOT NULL,
     ubicacion_final NUMBER NOT NULL,
     fecha_movimiento DATE,
+    id_empleado NUMBER NOT NULL,
     
     CONSTRAINT pk_movimiento PRIMARY KEY (id_movimiento)
 );
@@ -176,6 +179,7 @@ CREATE TABLE bodega(
     
     constraint pk_bodega primary key(id_bodega)
 );
+
 CREATE TABLE detalle_movimiento(
     movimiento_id_movimiento NUMBER,
     producto_id_producto NUMBER NOT NULL,
@@ -221,6 +225,10 @@ ALTER TABLE movimiento
     ADD CONSTRAINT fk_movimiento_tipo_movimiento FOREIGN KEY ( tp_mov_id_tipo_movimiento )
         REFERENCES tipo_movimiento ( id_tipo_movimiento );
 
+ALTER TABLE movimiento
+    ADD CONSTRAINT fk_empleado_movimiento FOREIGN KEY ( id_empleado )
+        REFERENCES empleado ( id_empleado);
+
 ALTER TABLE detalle_movimiento
     ADD CONSTRAINT fk_det_mov_movimiento FOREIGN KEY ( movimiento_id_movimiento )
         REFERENCES movimiento ( id_movimiento );
@@ -228,6 +236,7 @@ ALTER TABLE detalle_movimiento
 ALTER TABLE detalle_movimiento
     ADD CONSTRAINT fk_det_mov_producto FOREIGN KEY ( producto_id_producto )
         REFERENCES producto ( id_producto );
+        
         
 -- Create Sequences
 CREATE SEQUENCE seq_usuario
@@ -374,9 +383,9 @@ INSERT INTO PRODUCTO VALUES (seq_producto.NEXTVAL,'1q2w3e4r5t6y7u8i9o','1a2s3d4f
 INSERT INTO PRODUCTO VALUES (seq_producto.NEXTVAL,'1z2x3c4v5b6n7m8k9l0p','0p9l8m6n5b4v3c2x1z','Solvente3',2,2,sysdate,2,20000,2,50);
 INSERT INTO PRODUCTO VALUES (seq_producto.NEXTVAL,'9a8s7d6f5g4h3j2k1l0','3q2w1e65r4t9y8u7io0p','Solvente',1,1,sysdate,3,80000,1,50);
 
-INSERT INTO MOVIMIENTO VALUES (seq_movimiento.NEXTVAL,1,1,SYSDATE);
-INSERT INTO MOVIMIENTO VALUES (seq_movimiento.NEXTVAL,2,2,SYSDATE);
-INSERT INTO MOVIMIENTO VALUES (seq_movimiento.NEXTVAL,3,2,SYSDATE);
+INSERT INTO MOVIMIENTO VALUES (seq_movimiento.NEXTVAL,1,1,SYSDATE,104);
+INSERT INTO MOVIMIENTO VALUES (seq_movimiento.NEXTVAL,2,2,SYSDATE,126);
+INSERT INTO MOVIMIENTO VALUES (seq_movimiento.NEXTVAL,3,2,SYSDATE,144);
 
 INSERT INTO DETALLE_MOVIMIENTO VALUES (1,1,2,1);
 INSERT INTO DETALLE_MOVIMIENTO VALUES (1,2,2,1);
@@ -385,6 +394,8 @@ INSERT INTO DETALLE_MOVIMIENTO VALUES (3,1,3,1);
 
 commit;
 
+
+select  * from empleado;
 /
 
 CREATE OR REPLACE TRIGGER trg_empleados 
@@ -411,7 +422,36 @@ BEGIN
 END trg_empleados;
 
 
+
 /
+
+CREATE OR REPLACE FUNCTION nombre_empleado(p_id_empleado NUMBER)
+RETURN VARCHAR2
+IS
+    p_nombre_completo VARCHAR2(500);
+BEGIN
+    SELECT nombre_completo_empleado 
+    INTO p_nombre_completo
+    FROM empleado
+    WHERE p_id_empleado = id_empleado;
+    
+    RETURN p_nombre_completo;
+
+END;
+
+/
+
+SELECT m.fecha_movimiento AS FECHA_MOVIMIENTO, nombre_empleado(m.id_empleado) AS NOMBRE_EMPLEADO,
+d.movimiento_id_movimiento, 
+p.descripcion_producto AS DESCRIPCION_PRODUCTO, 
+p.descripcion_producto, ui.descripcion_ubicacion AS UBICACION_INICIO,
+uf.descripcion_ubicacion AS UBICACION_FINAL
+FROM DETALLE_MOVIMIENTO d
+INNER JOIN MOVIMIENTO m ON d.movimiento_id_movimiento = m.id_movimiento
+INNER JOIN PRODUCTO p ON p.id_producto = d.producto_id_producto 
+INNER JOIN UBICACION ui ON d.ubicacion_inicio = ui.id_ubicacion
+INNER JOIN UBICACION uf ON d.ubicacion_final = uf.id_ubicacion
+ORDER BY 1;
+/
+
 COMMIT;
-/
-select * from producto;
