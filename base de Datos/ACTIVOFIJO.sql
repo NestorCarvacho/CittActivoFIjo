@@ -317,11 +317,11 @@ CREATE SEQUENCE seq_tipo_movimiento
     MINVALUE 1
     NOCYCLE;
 -- INSERT DATOS DE PRUEBAS
-INSERT INTO usuario VALUES(seq_usuario.NEXTVAL, 'usuario1','usuario1');
-INSERT INTO usuario VALUES(seq_usuario.NEXTVAL, 'felipe','felipe');
-INSERT INTO usuario VALUES(seq_usuario.NEXTVAL, 'nestor','nestor');
-INSERT INTO usuario VALUES(seq_usuario.NEXTVAL, 'nicolas','nicolas');
-INSERT INTO usuario VALUES(seq_usuario.NEXTVAL, 'admin','admin');
+INSERT INTO usuario VALUES(seq_usuario.NEXTVAL, 'usuario1','usuario1',null);
+INSERT INTO usuario VALUES(seq_usuario.NEXTVAL, 'felipe','felipe',null);
+INSERT INTO usuario VALUES(seq_usuario.NEXTVAL, 'nestor','nestor',null);
+INSERT INTO usuario VALUES(seq_usuario.NEXTVAL, 'nicolas','nicolas',null);
+INSERT INTO usuario VALUES(seq_usuario.NEXTVAL, 'admin','admin',null);
 
 --SELECT * FROM USUARIO;
 
@@ -383,9 +383,9 @@ INSERT INTO PRODUCTO VALUES (seq_producto.NEXTVAL,'1q2w3e4r5t6y7u8i9o','1a2s3d4f
 INSERT INTO PRODUCTO VALUES (seq_producto.NEXTVAL,'1z2x3c4v5b6n7m8k9l0p','0p9l8m6n5b4v3c2x1z','Solvente3',2,2,sysdate,2,20000,2,50);
 INSERT INTO PRODUCTO VALUES (seq_producto.NEXTVAL,'9a8s7d6f5g4h3j2k1l0','3q2w1e65r4t9y8u7io0p','Solvente',1,1,sysdate,3,80000,1,50);
 
-INSERT INTO MOVIMIENTO VALUES (seq_movimiento.NEXTVAL,1,1,SYSDATE,104);
-INSERT INTO MOVIMIENTO VALUES (seq_movimiento.NEXTVAL,2,2,SYSDATE,126);
-INSERT INTO MOVIMIENTO VALUES (seq_movimiento.NEXTVAL,3,2,SYSDATE,144);
+INSERT INTO MOVIMIENTO VALUES (seq_movimiento.NEXTVAL,1,1,SYSDATE,100);
+INSERT INTO MOVIMIENTO VALUES (seq_movimiento.NEXTVAL,2,2,SYSDATE,110);
+INSERT INTO MOVIMIENTO VALUES (seq_movimiento.NEXTVAL,3,2,SYSDATE,112);
 
 INSERT INTO DETALLE_MOVIMIENTO VALUES (1,1,2,1);
 INSERT INTO DETALLE_MOVIMIENTO VALUES (1,2,2,1);
@@ -396,6 +396,7 @@ commit;
 
 
 select  * from empleado;
+delete from empleado;
 /
 
 CREATE OR REPLACE TRIGGER trg_empleados 
@@ -444,7 +445,7 @@ END;
 SELECT m.fecha_movimiento AS FECHA_MOVIMIENTO, nombre_empleado(m.id_empleado) AS NOMBRE_EMPLEADO,
 d.movimiento_id_movimiento, 
 p.descripcion_producto AS DESCRIPCION_PRODUCTO, 
-p.descripcion_producto, ui.descripcion_ubicacion AS UBICACION_INICIO,
+ui.descripcion_ubicacion AS UBICACION_INICIO,
 uf.descripcion_ubicacion AS UBICACION_FINAL
 FROM DETALLE_MOVIMIENTO d
 INNER JOIN MOVIMIENTO m ON d.movimiento_id_movimiento = m.id_movimiento

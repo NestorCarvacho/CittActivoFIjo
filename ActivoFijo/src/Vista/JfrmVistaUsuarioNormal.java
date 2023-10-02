@@ -4,8 +4,11 @@
  */
 package Vista;
 
+import Controlador.DaoMovimiento;
 import Controlador.DaoProducto;
+import Modelo.Movimiento;
 import Modelo.Producto;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
@@ -20,7 +23,15 @@ public class JfrmVistaUsuarioNormal extends javax.swing.JFrame {
      */
     public JfrmVistaUsuarioNormal() {
         initComponents();
+        
+        //setExtendedState(MAXIMIZED_BOTH);
+        
+        //set programa en la mitad de la pantalla
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JfrmVistaHome.DO_NOTHING_ON_CLOSE);
+        //Listar Jtables
         ListaProductoSimple();
+        ListarMovimientosSimple();
 
     }
 
@@ -34,7 +45,6 @@ public class JfrmVistaUsuarioNormal extends javax.swing.JFrame {
         modelo.addColumn("Tipo Producto");
         modelo.addColumn("Fecha Llegada");
         modelo.addColumn("Color");
-        modelo.addColumn("Costo");
         modelo.addColumn("Estado");
         ArrayList<Producto> listado = new DaoProducto().Listar();
         for (Producto item : listado) {
@@ -46,10 +56,32 @@ public class JfrmVistaUsuarioNormal extends javax.swing.JFrame {
             fila[4] = item.getTipoProducto();
             fila[5] = item.getFechaLlegadaProducto();
             fila[6] = item.getColorProducto().getNombreColor();
-            fila[7] = item.getCostoProducto();
-            fila[8] = item.getEstadoProducto();
+            fila[7] = item.getEstadoProducto();
             modelo.addRow(fila);
         }
+    }
+
+    public void ListarMovimientosSimple() {
+        DefaultTableModel modeloTabla = new DefaultTableModel();
+        JtblListadoMovimientos.setModel(modeloTabla);
+        modeloTabla.addColumn("Movimiento");
+        modeloTabla.addColumn("Tipo Movimiento");
+        modeloTabla.addColumn("Ubicacion Final");
+        modeloTabla.addColumn("Fecha Movimiento");
+        modeloTabla.addColumn("Nombre empleado");
+        SimpleDateFormat fmto = new SimpleDateFormat("DD/MM/YYYY");
+
+        ArrayList<Movimiento> listado = new DaoMovimiento().Listar();
+        for (Movimiento item : listado) {
+            Object[] fila = new Object[9];
+            fila[0] = item.getIdMovimiento();
+            fila[1] = item.getTpMovIdTipoMovimiento().getNombreTipoMovimiento();
+            fila[2] = item.getUbicacionFinal();
+            fila[3] = item.getFechaMovimiento();
+            fila[4] = item.getEmp().getNombreEmpleado();
+            modeloTabla.addRow(fila);
+        }
+
     }
 
     /**
@@ -76,9 +108,15 @@ public class JfrmVistaUsuarioNormal extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Activo Fijo Bodega");
         setMaximumSize(new java.awt.Dimension(1920, 1080));
         setMinimumSize(new java.awt.Dimension(800, 600));
         setPreferredSize(new java.awt.Dimension(1024, 768));
@@ -220,9 +258,41 @@ public class JfrmVistaUsuarioNormal extends javax.swing.JFrame {
         );
 
         jMenu1.setText("Archivo");
+
+        jMenuItem1.setText("Cerrar Sesion");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
+        jMenuItem2.setText("Cerrar Programa");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Opciones");
+
+        jMenuItem3.setText("Nuevo Movimiento");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem3);
+
+        jMenuItem4.setText("Ingresar Productos");
+        jMenu2.add(jMenuItem4);
+
+        jMenuItem5.setText("Mis Movimientos");
+        jMenu2.add(jMenuItem5);
+
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -242,16 +312,33 @@ public class JfrmVistaUsuarioNormal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        JFrmNuevoMovimiento Movimientos = new JFrmNuevoMovimiento();
+        Movimientos.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        JfrmAgregarProductoMasivo CargaProductos = new JfrmAgregarProductoMasivo();
+        CargaProductos.setVisible(true);
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        JfrmLogin login = new JfrmLogin();
+        login.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        System.exit(0);        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -300,6 +387,11 @@ public class JfrmVistaUsuarioNormal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
