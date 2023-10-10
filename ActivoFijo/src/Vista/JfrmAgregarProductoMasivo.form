@@ -52,13 +52,13 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTextField1" alignment="0" min="-2" pref="289" max="-2" attributes="0"/>
+                              <Component id="txtIngresaSerie" alignment="0" min="-2" pref="289" max="-2" attributes="0"/>
                               <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextField2" alignment="0" pref="294" max="32767" attributes="0"/>
+                              <Component id="txtIngresaActivo" alignment="0" pref="294" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                           <Component id="BtnAgregarALista" min="-2" pref="178" max="-2" attributes="0"/>
@@ -81,20 +81,20 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
-                  </Group>
-              </Group>
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="BtnCancelar" min="-2" pref="178" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="BtnGuardarProductos" min="-2" pref="178" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="jLabel1" min="-2" pref="260" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="381" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="BtnCancelar" min="-2" pref="178" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="BtnGuardarProductos" min="-2" pref="178" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="jLabel1" min="-2" pref="260" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="381" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                   </Group>
               </Group>
@@ -119,12 +119,12 @@
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtIngresaSerie" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jTextField2" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtIngresaActivo" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -189,14 +189,20 @@
             <Property name="text" type="java.lang.String" value="Agregar Tipo Producto"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField1">
+        <Component class="javax.swing.JTextField" name="txtIngresaSerie">
+          <Properties>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtIngresaSerieActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
             <Property name="text" type="java.lang.String" value="Activo Producto"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField2">
+        <Component class="javax.swing.JTextField" name="txtIngresaActivo">
         </Component>
         <Component class="javax.swing.JButton" name="BtnGuardarProductos">
           <Properties>
@@ -211,8 +217,11 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Img/ok.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Agragar a Lista"/>
+            <Property name="text" type="java.lang.String" value="Agregar a Lista"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnAgregarAListaActionPerformed"/>
+          </Events>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane1">
           <AuxValues>
@@ -221,14 +230,13 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTable" name="jTable1">
+            <Component class="javax.swing.JTable" name="JtblListadoAgregar">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="4" rowCount="4">
-                    <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                    <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                    <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                    <Column editable="true" title="Title 4" type="java.lang.Object"/>
+                  <Table columnCount="3" rowCount="10">
+                    <Column editable="true" title="Serie" type="java.lang.Object"/>
+                    <Column editable="true" title="Activo" type="java.lang.Object"/>
+                    <Column editable="true" title="Tipo Producto" type="java.lang.Object"/>
                   </Table>
                 </Property>
               </Properties>
@@ -242,6 +250,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Deshacer"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnDeshacerActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="BtnCancelar">
           <Properties>

@@ -48,6 +48,8 @@ public class JFrmNuevoMovimiento extends javax.swing.JFrame {
         ListarCboUbicacionFinal();
         ListarCboTipoMovimiento();
         btnEliminarProducto.setEnabled(false);
+        
+        jtblMovimiento.removeAll();
         /*ListarCboEncargardoMovimiento();*/
 
         setIconImage(getIconImage());
